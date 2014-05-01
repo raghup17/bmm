@@ -1,0 +1,6 @@
+19:24:55 **** Auto Build of project simpleHLS_bsp ****
+make -k all 
+Finished building libraries
+
+19:24:55 Build Finished (took 75ms)
+

@@ -1,0 +1,247 @@
+
+
+================================================================
+== Vivado HLS Report for 'fe_top'
+================================================================
+* Date:           Mon Apr 28 15:31:17 2014
+
+* Version:        2013.3 (build date: Wed Oct 16 18:12:55 PM 2013)
+* Project:        fe_top
+* Solution:       solution1
+* Product family: zynq zynq_fpv6 
+* Target device:  xc7z045ffg900-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +---------+-------+----------+------------+
+    |  Clock  | Target| Estimated| Uncertainty|
+    +---------+-------+----------+------------+
+    |default  |  10.00|      3.81|        1.25|
+    +---------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-----+-----+-----+-----+---------+
+    |  Latency  |  Interval | Pipeline|
+    | min | max | min | max |   Type  |
+    +-----+-----+-----+-----+---------+
+    |    ?|    ?|    ?|    ?|   none  |
+    +-----+-----+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +----------+-----+-----+----------+-----------+-----------+------+----------+
+        |          |  Latency  | Iteration|  Initiation Interval  | Trip |          |
+        | Loop Name| min | max |  Latency |  achieved |   target  | Count| Pipelined|
+        +----------+-----+-----+----------+-----------+-----------+------+----------+
+        |- Loop 1  |    ?|    ?|         1|          -|          -|     ?|    no    |
+        |- Loop 2  |    ?|    ?|         1|          -|          -|     ?|    no    |
+        +----------+-----+-----+----------+-----------+-----------+------+----------+
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++-----------------+---------+-------+--------+--------+
+|       Name      | BRAM_18K| DSP48E|   FF   |   LUT  |
++-----------------+---------+-------+--------+--------+
+|Expression       |        -|      -|       -|       -|
+|FIFO             |        -|      -|       -|       -|
+|Instance         |        -|      -|       -|       -|
+|Memory           |        -|      -|       -|       -|
+|Multiplexer      |        -|      -|       -|       -|
+|Register         |        -|      -|       -|       -|
+|ShiftMemory      |        -|      -|       -|       -|
++-----------------+---------+-------+--------+--------+
+|Total            |        0|      0|       0|       0|
++-----------------+---------+-------+--------+--------+
+|Available        |     1090|    900|  437200|  218600|
++-----------------+---------+-------+--------+--------+
+|Utilization (%)  |        0|      0|       0|       0|
++-----------------+---------+-------+--------+--------+
+
++ Detail: 
+    * Instance: 
+    N/A
+
+    * Memory: 
+    N/A
+
+    * FIFO: 
+    N/A
+
+    * Shift register: 
+    N/A
+
+    * Expression: 
+    N/A
+
+    * Multiplexer: 
+    N/A
+
+    * Register: 
+    N/A
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
+N/A
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 1
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states: 4
+* Pipeline: 0
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 
+	2  / true
+2 --> 
+	2  / (tmp)
+	3  / (!tmp)
+3 --> 
+	4  / true
+4 --> 
+	4  / (tmp_2)
+* FSM state operations: 
+
+ <State 1>: 0.00ns
+ST_1: stg_5 [1/1] 0.00ns
+:0  call void (...)* @_ssdm_op_SpecBitsMap(i32* %start) nounwind, !map !7
+
+ST_1: stg_6 [1/1] 0.00ns
+:1  call void (...)* @_ssdm_op_SpecBitsMap(i32* %idle) nounwind, !map !11
+
+ST_1: stg_7 [1/1] 0.00ns
+:2  call void (...)* @_ssdm_op_SpecBitsMap(i32* %done) nounwind, !map !15
+
+ST_1: stg_8 [1/1] 0.00ns
+:3  call void (...)* @_ssdm_op_SpecTopModule([7 x i8]* @str) nounwind
+
+ST_1: stg_9 [1/1] 0.00ns
+:4  call void (...)* @_ssdm_op_SpecWire(i32* %start, [8 x i8]* @p_str, i32 0, i32 0, i32 0, [1 x i8]* @p_str1) nounwind
+
+ST_1: stg_10 [1/1] 0.00ns
+:5  call void (...)* @_ssdm_op_SpecWire(i32* %idle, [8 x i8]* @p_str, i32 0, i32 0, i32 0, [1 x i8]* @p_str1) nounwind
+
+ST_1: stg_11 [1/1] 0.00ns
+:6  call void (...)* @_ssdm_op_SpecWire(i32* %done, [8 x i8]* @p_str, i32 0, i32 0, i32 0, [1 x i8]* @p_str1) nounwind
+
+ST_1: stg_12 [1/1] 0.00ns
+:7  call void (...)* @_ssdm_op_SpecIFCore(i32 0, [1 x i8]* @p_str1, [10 x i8]* @p_str2, [1 x i8]* @p_str1, [1 x i8]* @p_str1, [1 x i8]* @p_str1, [20 x i8]* @p_str3) nounwind
+
+ST_1: stg_13 [1/1] 0.00ns
+:8  call void @_ssdm_op_Write.ap_none.volatile.i32P(i32* %start, i32 0) nounwind
+
+ST_1: stg_14 [1/1] 0.00ns
+:9  br label %._crit_edge
+
+
+ <State 2>: 2.52ns
+ST_2: idle_read [1/1] 0.00ns
+._crit_edge:0  %idle_read = call i32 @_ssdm_op_Read.ap_none.volatile.i32P(i32* %idle) nounwind
+
+ST_2: tmp [1/1] 2.52ns
+._crit_edge:1  %tmp = icmp eq i32 %idle_read, 0
+
+ST_2: stg_17 [1/1] 0.00ns
+._crit_edge:2  br i1 %tmp, label %._crit_edge, label %1
+
+ST_2: stg_18 [1/1] 0.00ns
+:0  call void @_ssdm_op_Write.ap_none.volatile.i32P(i32* %start, i32 -1) nounwind
+
+
+ <State 3>: 0.00ns
+ST_3: stg_19 [1/1] 0.00ns
+:1  call void @_ssdm_op_Write.ap_none.volatile.i32P(i32* %start, i32 0) nounwind
+
+ST_3: stg_20 [1/1] 0.00ns
+:2  br label %._crit_edge2
+
+
+ <State 4>: 3.81ns
+ST_4: idle_read_1 [1/1] 0.00ns
+._crit_edge2:0  %idle_read_1 = call i32 @_ssdm_op_Read.ap_none.volatile.i32P(i32* %idle) nounwind
+
+ST_4: tmp_1 [1/1] 2.52ns
+._crit_edge2:1  %tmp_1 = icmp eq i32 %idle_read_1, 0
+
+ST_4: stg_23 [1/1] 1.30ns
+._crit_edge2:2  br i1 %tmp_1, label %2, label %._crit_edge1
+
+ST_4: done_read [1/1] 0.00ns
+:0  %done_read = call i32 @_ssdm_op_Read.ap_none.volatile.i32P(i32* %done) nounwind
+
+ST_4: phitmp [1/1] 2.52ns
+:1  %phitmp = icmp eq i32 %done_read, 0
+
+ST_4: stg_26 [1/1] 1.30ns
+:2  br label %._crit_edge1
+
+ST_4: tmp_2 [1/1] 0.00ns
+._crit_edge1:0  %tmp_2 = phi i1 [ %phitmp, %2 ], [ false, %._crit_edge2 ]
+
+ST_4: stg_28 [1/1] 0.00ns
+._crit_edge1:1  br i1 %tmp_2, label %._crit_edge2, label %3
+
+ST_4: stg_29 [1/1] 0.00ns
+:0  call void @_ssdm_op_Write.ap_none.volatile.i32P(i32* %start, i32 0) nounwind
+
+ST_4: stg_30 [1/1] 0.00ns
+:1  ret void
+
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+  - Chain level:
+	State 1
+	State 2
+	State 3
+	State 4
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

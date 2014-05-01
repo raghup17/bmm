@@ -1,0 +1,6 @@
+19:21:50 **** Incremental Build of configuration Debug for project simpleHLS ****
+make all 
+make: Nothing to be done for `all'.
+
+19:21:50 Build Finished (took 70ms)
+

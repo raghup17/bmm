@@ -1,0 +1,90 @@
+@I [LIC-101] Checked out feature [HLS]
+@I [HLS-10] Running '/home/raghu/work/tools/xilinx/Vivado_HLS/2013.3/bin/unwrapped/lnx64.o/vivado_hls'
+            for user 'raghu' on host 'raghu-office' (Linux_x86_64 version 3.11.0-17-generic) on Wed Apr 23 16:30:12 PDT 2014
+            in directory '/home/raghu/work/projects/dma3/hls'
+@I [HLS-10] Opening project '/home/raghu/work/projects/dma3/hls/simple_top'.
+@I [HLS-10] Adding design file 'simple_top/simple_top.cpp' to the project.
+@I [HLS-10] Opening solution '/home/raghu/work/projects/dma3/hls/simple_top/solution1'.
+@I [SYN-201] Setting up clock 'default' with a period of 10ns.
+@I [HLS-10] Setting target device to 'xc7z045ffg900-1'
+@I [HLS-10] Analyzing design file 'simple_top/simple_top.cpp' ... 
+@I [HLS-10] Validating synthesis directives ...
+@I [HLS-10] Checking synthesizability ...
+@I [HLS-10] Starting code transformations ...
+@I [HLS-111] Elapsed time: 2.19 seconds; current memory usage: 50 MB.
+@I [HLS-10] Starting hardware synthesis ...
+@I [HLS-10] Synthesizing 'simple_top' ...
+@I [HLS-10] ----------------------------------------------------------------
+@I [HLS-10] -- Scheduling module 'simple_top' 
+@I [HLS-10] ----------------------------------------------------------------
+@I [SCHED-11] Starting scheduling ...
+@I [SCHED-11] Finished scheduling.
+@I [HLS-111] Elapsed time: 0.04 seconds; current memory usage: 50.3 MB.
+@I [HLS-10] ----------------------------------------------------------------
+@I [HLS-10] -- Exploring micro-architecture for module 'simple_top' 
+@I [HLS-10] ----------------------------------------------------------------
+@I [BIND-100] Starting micro-architecture generation ...
+@I [BIND-101] Performing variable lifetime analysis.
+@I [BIND-101] Exploring resource sharing.
+@I [BIND-101] Binding ...
+@I [BIND-100] Finished micro-architecture generation.
+@I [HLS-111] Elapsed time: 0.02 seconds; current memory usage: 50.5 MB.
+@I [HLS-10] ----------------------------------------------------------------
+@I [HLS-10] -- Generating RTL for module 'simple_top' 
+@I [HLS-10] ----------------------------------------------------------------
+@I [RTGEN-500] Setting interface mode on port 'simple_top/inPtr' to 'ap_bus'.
+@I [RTGEN-500] Setting interface mode on function 'simple_top' to 'ap_ctrl_hs'.
+@I [RTGEN-100] Finished creating RTL model for 'simple_top'.
+@I [HLS-111] Elapsed time: 0.03 seconds; current memory usage: 50.6 MB.
+@I [HLS-10] Finished generating all RTL models.
+@I [WSYSC-301] Generating RTL SystemC for 'simple_top'.
+@I [WVHDL-304] Generating RTL VHDL for 'simple_top'.
+@I [WVLOG-307] Generating RTL Verilog for 'simple_top'.
+@I [HLS-112] Total elapsed time: 28.313 seconds; peak memory usage: 50.6 MB.
+@I [LIC-101] Checked in feature [HLS]
+Starting C synthesis ...
+/home/raghu/work/tools/xilinx/Vivado_HLS/2013.3/bin/vivado_hls /home/raghu/work/projects/dma3/hls/simple_top/solution1/csynth.tcl
+@I [LIC-101] Checked out feature [HLS]
+@I [HLS-10] Running '/home/raghu/work/tools/xilinx/Vivado_HLS/2013.3/bin/unwrapped/lnx64.o/vivado_hls'
+            for user 'raghu' on host 'raghu-office' (Linux_x86_64 version 3.11.0-17-generic) on Wed Apr 23 16:30:12 PDT 2014
+            in directory '/home/raghu/work/projects/dma3/hls'
+@I [HLS-10] Opening project '/home/raghu/work/projects/dma3/hls/simple_top'.
+@I [HLS-10] Adding design file 'simple_top/simple_top.cpp' to the project.
+@I [HLS-10] Opening solution '/home/raghu/work/projects/dma3/hls/simple_top/solution1'.
+@I [SYN-201] Setting up clock 'default' with a period of 10ns.
+@I [HLS-10] Setting target device to 'xc7z045ffg900-1'
+@I [HLS-10] Analyzing design file 'simple_top/simple_top.cpp' ... 
+@I [HLS-10] Validating synthesis directives ...
+@I [HLS-10] Checking synthesizability ...
+@I [HLS-10] Starting code transformations ...
+@I [HLS-111] Elapsed time: 2.19 seconds; current memory usage: 50 MB.
+@I [HLS-10] Starting hardware synthesis ...
+@I [HLS-10] Synthesizing 'simple_top' ...
+@I [HLS-10] ----------------------------------------------------------------
+@I [HLS-10] -- Scheduling module 'simple_top' 
+@I [HLS-10] ----------------------------------------------------------------
+@I [SCHED-11] Starting scheduling ...
+@I [SCHED-11] Finished scheduling.
+@I [HLS-111] Elapsed time: 0.04 seconds; current memory usage: 50.3 MB.
+@I [HLS-10] ----------------------------------------------------------------
+@I [HLS-10] -- Exploring micro-architecture for module 'simple_top' 
+@I [HLS-10] ----------------------------------------------------------------
+@I [BIND-100] Starting micro-architecture generation ...
+@I [BIND-101] Performing variable lifetime analysis.
+@I [BIND-101] Exploring resource sharing.
+@I [BIND-101] Binding ...
+@I [BIND-100] Finished micro-architecture generation.
+@I [HLS-111] Elapsed time: 0.02 seconds; current memory usage: 50.5 MB.
+@I [HLS-10] ----------------------------------------------------------------
+@I [HLS-10] -- Generating RTL for module 'simple_top' 
+@I [HLS-10] ----------------------------------------------------------------
+@I [RTGEN-500] Setting interface mode on port 'simple_top/inPtr' to 'ap_bus'.
+@I [RTGEN-500] Setting interface mode on function 'simple_top' to 'ap_ctrl_hs'.
+@I [RTGEN-100] Finished creating RTL model for 'simple_top'.
+@I [HLS-111] Elapsed time: 0.03 seconds; current memory usage: 50.6 MB.
+@I [HLS-10] Finished generating all RTL models.
+@I [WSYSC-301] Generating RTL SystemC for 'simple_top'.
+@I [WVHDL-304] Generating RTL VHDL for 'simple_top'.
+@I [WVLOG-307] Generating RTL Verilog for 'simple_top'.
+@I [HLS-112] Total elapsed time: 28.313 seconds; peak memory usage: 50.6 MB.
+@I [LIC-101] Checked in feature [HLS]

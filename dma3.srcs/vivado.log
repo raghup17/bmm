@@ -1,0 +1,1088 @@
+#-----------------------------------------------------------
+# Vivado v2013.3 (64-bit)
+# SW Build 329390 on Wed Oct 16 18:26:55 MDT 2013
+# IP Build 192953 on Wed Oct 16 08:44:02 MDT 2013
+# Start of session at: Mon Apr 21 15:59:02 2014
+# Process ID: 5231
+# Log file: /home/raghu/work/projects/dma3/dma3.srcs/vivado.log
+# Journal file: /home/raghu/work/projects/dma3/dma3.srcs/vivado.jou
+#-----------------------------------------------------------
+INFO: [Common 17-78] Attempting to get a license: Implementation
+INFO: [Common 17-81] Feature available: Implementation
+INFO: [Device 21-36] Loading parts and site information from /home/raghu/work/tools/xilinx/Vivado/2013.3/data/parts/arch.xml
+Parsing RTL primitives file [/home/raghu/work/tools/xilinx/Vivado/2013.3/data/parts/xilinx/rtl/prims/rtl_prims.xml]
+Finished parsing RTL primitives file [/home/raghu/work/tools/xilinx/Vivado/2013.3/data/parts/xilinx/rtl/prims/rtl_prims.xml]
+start_gui
+open_project /home/raghu/work/projects/dma3/dma3.xpr
+IP Repository Path: Could not find the directory '/home/raghu/work/projects/dma3/hls/simpleHLS/solution1/impl'.
+Scanning sources...
+Finished scanning sources
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+WARNING: [IP_Flow 19-2248] Failed to load user repository '/home/raghu/work/projects/dma3/hls/simpleHLS/solution1/impl'; Can't find the specified path.
+If this directory should no longer be in your list of user repositories, go to the IP Settings dialog and remove it.
+INFO: [IP_Flow 19-2313] Loaded Vivado repository '/home/raghu/work/tools/xilinx/Vivado/2013.3/data/ip'.
+WARNING: [BD 41-1303] One or more IPs have been locked in the design 'dma3.bd'. Please run report_ip_status for more details and recommendations on how to fix this issue.
+open_project: Time (s): cpu = 00:00:14 ; elapsed = 00:00:11 . Memory (MB): peak = 4436.129 ; gain = 49.887
+set_property ip_repo_paths  /home/raghu/work/projects/dma3/hls/simple_top/solution1/impl [current_fileset]
+update_ip_catalog
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user repository '/home/raghu/work/projects/dma3/hls/simple_top/solution1/impl'.
+open_bd_design {/home/raghu/work/projects/dma3/dma3.srcs/sources_1/bd/dma3/dma3.bd}
+Adding component instance block -- xilinx.com:ip:processing_system7:5.3 - processing_system7_0
+Adding component instance block -- xilinx.com:hls:simple_top:1.0 - simple_top_0
+Adding component instance block -- xilinx.com:ip:proc_sys_reset:5.0 - proc_sys_reset
+Adding component instance block -- xilinx.com:ip:axi_protocol_converter:2.1 - auto_pc
+Adding component instance block -- xilinx.com:ip:axi_dwidth_converter:2.1 - auto_us
+Adding component instance block -- xilinx.com:ip:axi_protocol_converter:2.1 - auto_pc
+Adding component instance block -- xilinx.com:ip:axi_dwidth_converter:2.1 - auto_us
+Adding component instance block -- xilinx.com:ip:axi_protocol_converter:2.1 - auto_pc
+Successfully read diagram <dma3> from BD file </home/raghu/work/projects/dma3/dma3.srcs/sources_1/bd/dma3/dma3.bd>
+open_bd_design: Time (s): cpu = 00:00:14 ; elapsed = 00:00:10 . Memory (MB): peak = 4489.859 ; gain = 50.723
+report_ip_status -name ip_status_1 
+current_bd_design dma3
+upgrade_bd_cells [get_bd_cells [list /simple_top_0 ] ]
+INFO: [IP_Flow 19-1972] Upgraded dma3_simple_top_0_0 from Simple_top 1.0 to Simple_top 2.0
+INFO: [IP_Flow 19-3471] Wrote upgrade log to '/home/raghu/work/projects/dma3/dma3.srcs/sources_1/bd/dma3/ip/dma3_simple_top_0_0/dma3_simple_top_0_0.upgrade_log'.
+Wrote  : </home/raghu/work/projects/dma3/dma3.srcs/sources_1/bd/dma3/dma3.bd> 
+upgrade_bd_cells: Time (s): cpu = 00:00:06 ; elapsed = 00:00:05 . Memory (MB): peak = 4492.980 ; gain = 0.000
+report_ip_status -name ip_status_1 
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream
+WARNING: [BD 41-237] Bus Interface property BUSER_WIDTH does not match between /axi_mem_intercon/s00_couplers/auto_pc/S_AXI(0) and /simple_top_0/M_AXI_INPTR(1)
+WARNING: [BD 41-237] Bus Interface property BUSER_WIDTH does not match between /axi_mem_intercon_1/s00_couplers/auto_pc/S_AXI(0) and /simple_top_0/M_AXI_OUTPTR(1)
+INFO: [BD 41-237] Bus Interface property NUM_READ_OUTSTANDING does not match between /simple_top_0/S_AXI_CONTROL(1) and /processing_system7_0_axi_periph/s00_couplers/auto_pc/M_AXI(8)
+INFO: [BD 41-237] Bus Interface property NUM_WRITE_OUTSTANDING does not match between /simple_top_0/S_AXI_CONTROL(1) and /processing_system7_0_axi_periph/s00_couplers/auto_pc/M_AXI(8)
+WARNING: [BD 41-237] Bus Interface property AWUSER_WIDTH does not match between /axi_mem_intercon/s00_couplers/auto_us/S_AXI(0) and /axi_mem_intercon/s00_couplers/auto_pc/M_AXI(1)
+WARNING: [BD 41-237] Bus Interface property ARUSER_WIDTH does not match between /axi_mem_intercon/s00_couplers/auto_us/S_AXI(0) and /axi_mem_intercon/s00_couplers/auto_pc/M_AXI(1)
+WARNING: [BD 41-237] Bus Interface property WUSER_WIDTH does not match between /axi_mem_intercon/s00_couplers/auto_us/S_AXI(0) and /axi_mem_intercon/s00_couplers/auto_pc/M_AXI(1)
+WARNING: [BD 41-237] Bus Interface property RUSER_WIDTH does not match between /axi_mem_intercon/s00_couplers/auto_us/S_AXI(0) and /axi_mem_intercon/s00_couplers/auto_pc/M_AXI(1)
+INFO: [BD 41-237] Bus Interface property NUM_READ_OUTSTANDING does not match between /axi_mem_intercon/s00_couplers/auto_us/S_AXI(8) and /axi_mem_intercon/s00_couplers/auto_pc/M_AXI(1)
+INFO: [BD 41-237] Bus Interface property NUM_WRITE_OUTSTANDING does not match between /axi_mem_intercon/s00_couplers/auto_us/S_AXI(8) and /axi_mem_intercon/s00_couplers/auto_pc/M_AXI(1)
+INFO: [BD 41-237] Bus Interface property ID_WIDTH does not match between /processing_system7_0/S_AXI_HP0(6) and /axi_mem_intercon/s00_couplers/auto_us/M_AXI(0)
+WARNING: [BD 41-237] Bus Interface property AWUSER_WIDTH does not match between /axi_mem_intercon_1/s00_couplers/auto_us/S_AXI(0) and /axi_mem_intercon_1/s00_couplers/auto_pc/M_AXI(1)
+WARNING: [BD 41-237] Bus Interface property ARUSER_WIDTH does not match between /axi_mem_intercon_1/s00_couplers/auto_us/S_AXI(0) and /axi_mem_intercon_1/s00_couplers/auto_pc/M_AXI(1)
+WARNING: [BD 41-237] Bus Interface property WUSER_WIDTH does not match between /axi_mem_intercon_1/s00_couplers/auto_us/S_AXI(0) and /axi_mem_intercon_1/s00_couplers/auto_pc/M_AXI(1)
+WARNING: [BD 41-237] Bus Interface property RUSER_WIDTH does not match between /axi_mem_intercon_1/s00_couplers/auto_us/S_AXI(0) and /axi_mem_intercon_1/s00_couplers/auto_pc/M_AXI(1)
+INFO: [BD 41-237] Bus Interface property NUM_READ_OUTSTANDING does not match between /axi_mem_intercon_1/s00_couplers/auto_us/S_AXI(8) and /axi_mem_intercon_1/s00_couplers/auto_pc/M_AXI(1)
+INFO: [BD 41-237] Bus Interface property NUM_WRITE_OUTSTANDING does not match between /axi_mem_intercon_1/s00_couplers/auto_us/S_AXI(8) and /axi_mem_intercon_1/s00_couplers/auto_pc/M_AXI(1)
+INFO: [BD 41-237] Bus Interface property ID_WIDTH does not match between /processing_system7_0/S_AXI_HP2(6) and /axi_mem_intercon_1/s00_couplers/auto_us/M_AXI(0)
+CRITICAL WARNING: [BD 41-759] The input pins (listed below) are either not connected or do not have a source port, and they don't have a tie-off specified. 
+Please check your design and connect them if needed: 
+/simple_top_0/m_axi_inPtr_BUSER
+/simple_top_0/m_axi_outPtr_BUSER
+
+WARNING: [BD 41-235] Width mismatch when connecting pin: '/axi_mem_intercon/S00_AXI_awlock'(1) to net 'simple_top_0_m_axi_inptr_AWLOCK'(2) - Only lower order bits will be connected.
+WARNING: [BD 41-235] Width mismatch when connecting pin: '/axi_mem_intercon/S00_AXI_arlock'(1) to net 'simple_top_0_m_axi_inptr_ARLOCK'(2) - Only lower order bits will be connected.
+WARNING: [BD 41-235] Width mismatch when connecting pin: '/axi_mem_intercon_1/S00_AXI_awlock'(1) to net 'simple_top_0_m_axi_outptr_AWLOCK'(2) - Only lower order bits will be connected.
+WARNING: [BD 41-235] Width mismatch when connecting pin: '/axi_mem_intercon_1/S00_AXI_arlock'(1) to net 'simple_top_0_m_axi_outptr_ARLOCK'(2) - Only lower order bits will be connected.
+Verilog Output written to : dma3.v
+Verilog Output written to : dma3_wrapper.v
+Wrote  : </home/raghu/work/projects/dma3/dma3.srcs/sources_1/bd/dma3/dma3.bd> 
+Delivering 'Vivado Synthesis' files for IP 'dma3_processing_system7_0_0'.
+INFO: [BD 41-1029] Generation completed for the IP Integrator block /processing_system7_0 .
+Delivering 'Verilog Synthesis' files for IP 'dma3_simple_top_0_0'.
+INFO: [BD 41-1029] Generation completed for the IP Integrator block /simple_top_0 .
+INFO: [IP_Flow 19-1687] The current project language is set to Verilog. However IP 'dma3_proc_sys_reset_1' does not support 'Verilog Synthesis' output products, delivering 'VHDL Synthesis' output products instead.
+Delivering 'VHDL Synthesis' files for IP 'dma3_proc_sys_reset_1'.
+Delivering 'Implementation' files for IP 'dma3_proc_sys_reset_1'.
+INFO: [BD 41-1029] Generation completed for the IP Integrator block /proc_sys_reset .
+Delivering 'Verilog Synthesis' files for IP 'dma3_auto_pc_9'.
+INFO: [IP_Flow 19-616] The current project language is set to Verilog. However the IP definition 'xilinx.com:ip:fifo_generator:11.0' does not support 'Verilog Synthesis' output products, delivering 'VHDL Synthesis' output products instead.
+INFO: [IP_Flow 19-616] The current project language is set to Verilog. However the IP definition 'xilinx.com:ip:blk_mem_gen:8.0' does not support 'Verilog Synthesis' output products, delivering 'VHDL Synthesis' output products instead.
+INFO: [BD 41-1029] Generation completed for the IP Integrator block /processing_system7_0_axi_periph/s00_couplers/auto_pc .
+Delivering 'Verilog Synthesis' files for IP 'dma3_auto_pc_10'.
+INFO: [IP_Flow 19-616] The current project language is set to Verilog. However the IP definition 'xilinx.com:ip:fifo_generator:11.0' does not support 'Verilog Synthesis' output products, delivering 'VHDL Synthesis' output products instead.
+INFO: [IP_Flow 19-616] The current project language is set to Verilog. However the IP definition 'xilinx.com:ip:blk_mem_gen:8.0' does not support 'Verilog Synthesis' output products, delivering 'VHDL Synthesis' output products instead.
+INFO: [BD 41-1029] Generation completed for the IP Integrator block /axi_mem_intercon/s00_couplers/auto_pc .
+Delivering 'Verilog Synthesis' files for IP 'dma3_auto_us_6'.
+INFO: [IP_Flow 19-616] The current project language is set to Verilog. However the IP definition 'xilinx.com:ip:fifo_generator:11.0' does not support 'Verilog Synthesis' output products, delivering 'VHDL Synthesis' output products instead.
+INFO: [IP_Flow 19-616] The current project language is set to Verilog. However the IP definition 'xilinx.com:ip:blk_mem_gen:8.0' does not support 'Verilog Synthesis' output products, delivering 'VHDL Synthesis' output products instead.
+INFO: [BD 41-1029] Generation completed for the IP Integrator block /axi_mem_intercon/s00_couplers/auto_us .
+Delivering 'Verilog Synthesis' files for IP 'dma3_auto_pc_11'.
+INFO: [IP_Flow 19-616] The current project language is set to Verilog. However the IP definition 'xilinx.com:ip:fifo_generator:11.0' does not support 'Verilog Synthesis' output products, delivering 'VHDL Synthesis' output products instead.
+INFO: [IP_Flow 19-616] The current project language is set to Verilog. However the IP definition 'xilinx.com:ip:blk_mem_gen:8.0' does not support 'Verilog Synthesis' output products, delivering 'VHDL Synthesis' output products instead.
+INFO: [BD 41-1029] Generation completed for the IP Integrator block /axi_mem_intercon_1/s00_couplers/auto_pc .
+Delivering 'Verilog Synthesis' files for IP 'dma3_auto_us_7'.
+INFO: [IP_Flow 19-616] The current project language is set to Verilog. However the IP definition 'xilinx.com:ip:fifo_generator:11.0' does not support 'Verilog Synthesis' output products, delivering 'VHDL Synthesis' output products instead.
+INFO: [IP_Flow 19-616] The current project language is set to Verilog. However the IP definition 'xilinx.com:ip:blk_mem_gen:8.0' does not support 'Verilog Synthesis' output products, delivering 'VHDL Synthesis' output products instead.
+INFO: [BD 41-1029] Generation completed for the IP Integrator block /axi_mem_intercon_1/s00_couplers/auto_us .
+INFO: [BD 41-539] Not generating up to date 'Implementation' target for block design dma3
+INFO: [BD 41-1029] Generation completed for the IP Integrator block /processing_system7_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block /simple_top_0 .
+INFO: [IP_Flow 19-1706] Not generating up to date 'Implementation' target for IP 'dma3_proc_sys_reset_1'.
+INFO: [BD 41-1029] Generation completed for the IP Integrator block /proc_sys_reset .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block /processing_system7_0_axi_periph/s00_couplers/auto_pc .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block /axi_mem_intercon/s00_couplers/auto_pc .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block /axi_mem_intercon/s00_couplers/auto_us .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block /axi_mem_intercon_1/s00_couplers/auto_pc .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block /axi_mem_intercon_1/s00_couplers/auto_us .
+[Mon Apr 21 16:01:30 2014] Launched synth_1...
+Run output will be captured here: /home/raghu/work/projects/dma3/dma3.runs/synth_1/runme.log
+[Mon Apr 21 16:01:30 2014] Launched impl_1...
+Run output will be captured here: /home/raghu/work/projects/dma3/dma3.runs/impl_1/runme.log
+launch_runs: Time (s): cpu = 00:00:23 ; elapsed = 00:00:23 . Memory (MB): peak = 4567.012 ; gain = 57.848
+open_run impl_1
+INFO: [Netlist 29-17] Analyzing 5 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2013.3
+Loading clock regions from /home/raghu/work/tools/xilinx/Vivado/2013.3/data/parts/xilinx/zynq/zynq/xc7z045/ClockRegion.xml
+Loading clock buffers from /home/raghu/work/tools/xilinx/Vivado/2013.3/data/parts/xilinx/zynq/zynq/xc7z045/ClockBuffers.xml
+Loading clock placement rules from /home/raghu/work/tools/xilinx/Vivado/2013.3/data/parts/xilinx/zynq/ClockPlacerRules.xml
+Loading package pin functions from /home/raghu/work/tools/xilinx/Vivado/2013.3/data/parts/xilinx/zynq/PinFunctions.xml...
+Loading package from /home/raghu/work/tools/xilinx/Vivado/2013.3/data/parts/xilinx/zynq/zynq/xc7z045/ffg900/Package.xml
+Loading io standards from /home/raghu/work/tools/xilinx/Vivado/2013.3/data/./parts/xilinx/zynq/IOStandards.xml
+INFO: [Opt 31-138] Pushed 0 inverter(s).
+INFO: [Common 17-78] Attempting to get a license: Internal_bitstream
+WARNING: [Common 17-301] Failed to get a license: Internal_bitstream
+Parsing XDC File [/home/raghu/work/projects/dma3/dma3.srcs/.Xil/Vivado-5231-raghu-office/dcp/dma3_wrapper.xdc]
+Finished Parsing XDC File [/home/raghu/work/projects/dma3/dma3.srcs/.Xil/Vivado-5231-raghu-office/dcp/dma3_wrapper.xdc]
+Reading XDEF placement.
+Reading XDEF routing.
+Read XDEF File: Time (s): cpu = 00:00:00.34 ; elapsed = 00:00:00.38 . Memory (MB): peak = 5160.547 ; gain = 0.000
+Restoring placement.
+Restored 1392 out of 1392 XDEF sites from archive | CPU: 1.060000 secs | Memory: 10.691132 MB |
+INFO: [Memdata 28-143] Successfully populated the BRAM INIT strings from the following elf files: 
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 4 instances were transformed.
+  RAM32M => RAM32M (RAMD32, RAMD32, RAMD32, RAMD32, RAMD32, RAMD32, RAMS32, RAMS32): 4 instances
+
+open_run: Time (s): cpu = 00:00:46 ; elapsed = 00:00:38 . Memory (MB): peak = 5375.090 ; gain = 782.375
+open_bd_design {/home/raghu/work/projects/dma3/dma3.srcs/sources_1/bd/dma3/dma3.bd}
+export_hardware [get_files /home/raghu/work/projects/dma3/dma3.srcs/sources_1/bd/dma3/dma3.bd] [get_runs impl_1] -bitstream
+WARNING: [Vivado 12-690] Backannotated BMM file does not exist in the run dir:/home/raghu/work/projects/dma3/dma3.runs/impl_1/dma3_wrapper_bd.bmm
+Exporting to file /home/raghu/work/projects/dma3/dma3.sdk/SDK/SDK_Export/hw/dma3.xml
+INFO: [BD 41-436] exporting bit file '/home/raghu/work/projects/dma3/dma3.runs/impl_1/dma3_wrapper.bit'...
+export_hardware: Time (s): cpu = 00:00:19 ; elapsed = 00:00:19 . Memory (MB): peak = 5375.090 ; gain = 0.000
+startgroup
+set_property -dict [list CONFIG.PCW_S_AXI_HP0_DATA_WIDTH {32} CONFIG.PCW_S_AXI_HP2_DATA_WIDTH {32}] [get_bd_cells processing_system7_0]
+endgroup
+save_bd_design
+Wrote  : </home/raghu/work/projects/dma3/dma3.srcs/sources_1/bd/dma3/dma3.bd> 
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream
+delete_bd_objs: Time (s): cpu = 00:00:11 ; elapsed = 00:00:07 . Memory (MB): peak = 5375.090 ; gain = 0.000
+delete_bd_objs: Time (s): cpu = 00:00:07 ; elapsed = 00:00:05 . Memory (MB): peak = 5375.090 ; gain = 0.000
+delete_bd_objs: Time (s): cpu = 00:00:08 ; elapsed = 00:00:06 . Memory (MB): peak = 5375.090 ; gain = 0.000
+WARNING: [BD 41-237] Bus Interface property BUSER_WIDTH does not match between /axi_mem_intercon/s00_couplers/auto_pc/S_AXI(0) and /simple_top_0/M_AXI_INPTR(1)
+WARNING: [BD 41-237] Bus Interface property BUSER_WIDTH does not match between /axi_mem_intercon_1/s00_couplers/auto_pc/S_AXI(0) and /simple_top_0/M_AXI_OUTPTR(1)
+INFO: [BD 41-237] Bus Interface property NUM_READ_OUTSTANDING does not match between /simple_top_0/S_AXI_CONTROL(1) and /processing_system7_0_axi_periph/s00_couplers/auto_pc/M_AXI(8)
+INFO: [BD 41-237] Bus Interface property NUM_WRITE_OUTSTANDING does not match between /simple_top_0/S_AXI_CONTROL(1) and /processing_system7_0_axi_periph/s00_couplers/auto_pc/M_AXI(8)
+INFO: [BD 41-237] Bus Interface property NUM_WRITE_OUTSTANDING does not match between /processing_system7_0/S_AXI_HP0(8) and /axi_mem_intercon/s00_couplers/auto_pc/M_AXI(1)
+INFO: [BD 41-237] Bus Interface property NUM_READ_OUTSTANDING does not match between /processing_system7_0/S_AXI_HP0(8) and /axi_mem_intercon/s00_couplers/auto_pc/M_AXI(1)
+INFO: [BD 41-237] Bus Interface property ID_WIDTH does not match between /processing_system7_0/S_AXI_HP0(6) and /axi_mem_intercon/s00_couplers/auto_pc/M_AXI(1)
+WARNING: [BD 41-237] Bus Interface property AWUSER_WIDTH does not match between /processing_system7_0/S_AXI_HP0(0) and /axi_mem_intercon/s00_couplers/auto_pc/M_AXI(1)
+WARNING: [BD 41-237] Bus Interface property ARUSER_WIDTH does not match between /processing_system7_0/S_AXI_HP0(0) and /axi_mem_intercon/s00_couplers/auto_pc/M_AXI(1)
+WARNING: [BD 41-237] Bus Interface property WUSER_WIDTH does not match between /processing_system7_0/S_AXI_HP0(0) and /axi_mem_intercon/s00_couplers/auto_pc/M_AXI(1)
+WARNING: [BD 41-237] Bus Interface property RUSER_WIDTH does not match between /processing_system7_0/S_AXI_HP0(0) and /axi_mem_intercon/s00_couplers/auto_pc/M_AXI(1)
+INFO: [BD 41-237] Bus Interface property NUM_WRITE_OUTSTANDING does not match between /processing_system7_0/S_AXI_HP2(8) and /axi_mem_intercon_1/s00_couplers/auto_pc/M_AXI(1)
+INFO: [BD 41-237] Bus Interface property NUM_READ_OUTSTANDING does not match between /processing_system7_0/S_AXI_HP2(8) and /axi_mem_intercon_1/s00_couplers/auto_pc/M_AXI(1)
+INFO: [BD 41-237] Bus Interface property ID_WIDTH does not match between /processing_system7_0/S_AXI_HP2(6) and /axi_mem_intercon_1/s00_couplers/auto_pc/M_AXI(1)
+WARNING: [BD 41-237] Bus Interface property AWUSER_WIDTH does not match between /processing_system7_0/S_AXI_HP2(0) and /axi_mem_intercon_1/s00_couplers/auto_pc/M_AXI(1)
+WARNING: [BD 41-237] Bus Interface property ARUSER_WIDTH does not match between /processing_system7_0/S_AXI_HP2(0) and /axi_mem_intercon_1/s00_couplers/auto_pc/M_AXI(1)
+WARNING: [BD 41-237] Bus Interface property WUSER_WIDTH does not match between /processing_system7_0/S_AXI_HP2(0) and /axi_mem_intercon_1/s00_couplers/auto_pc/M_AXI(1)
+WARNING: [BD 41-237] Bus Interface property RUSER_WIDTH does not match between /processing_system7_0/S_AXI_HP2(0) and /axi_mem_intercon_1/s00_couplers/auto_pc/M_AXI(1)
+CRITICAL WARNING: [BD 41-759] The input pins (listed below) are either not connected or do not have a source port, and they don't have a tie-off specified. 
+Please check your design and connect them if needed: 
+/simple_top_0/m_axi_inPtr_BUSER
+/simple_top_0/m_axi_outPtr_BUSER
+
+WARNING: [BD 41-235] Width mismatch when connecting pin: '/axi_mem_intercon/S00_AXI_awlock'(1) to net 'simple_top_0_m_axi_inptr_AWLOCK'(2) - Only lower order bits will be connected.
+WARNING: [BD 41-235] Width mismatch when connecting pin: '/axi_mem_intercon/S00_AXI_arlock'(1) to net 'simple_top_0_m_axi_inptr_ARLOCK'(2) - Only lower order bits will be connected.
+WARNING: [BD 41-235] Width mismatch when connecting pin: '/processing_system7_0/S_AXI_HP0_ARID'(6) to net 'axi_mem_intercon_m00_axi_ARID'(1) - Only lower order bits will be connected.
+WARNING: [BD 41-235] Width mismatch when connecting pin: '/processing_system7_0/S_AXI_HP0_WID'(6) to net 'axi_mem_intercon_m00_axi_WID'(1) - Only lower order bits will be connected.
+WARNING: [BD 41-235] Width mismatch when connecting pin: '/axi_mem_intercon/M00_AXI_bid'(1) to net 'axi_mem_intercon_m00_axi_BID'(6) - Only lower order bits will be connected.
+WARNING: [BD 41-235] Width mismatch when connecting pin: '/processing_system7_0/S_AXI_HP0_AWID'(6) to net 'axi_mem_intercon_m00_axi_AWID'(1) - Only lower order bits will be connected.
+WARNING: [BD 41-235] Width mismatch when connecting pin: '/axi_mem_intercon/M00_AXI_rid'(1) to net 'axi_mem_intercon_m00_axi_RID'(6) - Only lower order bits will be connected.
+WARNING: [BD 41-235] Width mismatch when connecting pin: '/axi_mem_intercon_1/S00_AXI_awlock'(1) to net 'simple_top_0_m_axi_outptr_AWLOCK'(2) - Only lower order bits will be connected.
+WARNING: [BD 41-235] Width mismatch when connecting pin: '/axi_mem_intercon_1/S00_AXI_arlock'(1) to net 'simple_top_0_m_axi_outptr_ARLOCK'(2) - Only lower order bits will be connected.
+WARNING: [BD 41-235] Width mismatch when connecting pin: '/processing_system7_0/S_AXI_HP2_ARID'(6) to net 'axi_mem_intercon_1_m00_axi_ARID'(1) - Only lower order bits will be connected.
+WARNING: [BD 41-235] Width mismatch when connecting pin: '/processing_system7_0/S_AXI_HP2_WID'(6) to net 'axi_mem_intercon_1_m00_axi_WID'(1) - Only lower order bits will be connected.
+WARNING: [BD 41-235] Width mismatch when connecting pin: '/axi_mem_intercon_1/M00_AXI_bid'(1) to net 'axi_mem_intercon_1_m00_axi_BID'(6) - Only lower order bits will be connected.
+WARNING: [BD 41-235] Width mismatch when connecting pin: '/processing_system7_0/S_AXI_HP2_AWID'(6) to net 'axi_mem_intercon_1_m00_axi_AWID'(1) - Only lower order bits will be connected.
+WARNING: [BD 41-235] Width mismatch when connecting pin: '/axi_mem_intercon_1/M00_AXI_rid'(1) to net 'axi_mem_intercon_1_m00_axi_RID'(6) - Only lower order bits will be connected.
+Verilog Output written to : dma3.v
+Verilog Output written to : dma3_wrapper.v
+Wrote  : </home/raghu/work/projects/dma3/dma3.srcs/sources_1/bd/dma3/dma3.bd> 
+Delivering 'Vivado Synthesis' files for IP 'dma3_processing_system7_0_0'.
+INFO: [BD 41-1029] Generation completed for the IP Integrator block /processing_system7_0 .
+INFO: [IP_Flow 19-1706] Not generating up to date 'Synthesis' target for IP 'dma3_simple_top_0_0'.
+INFO: [BD 41-1029] Generation completed for the IP Integrator block /simple_top_0 .
+INFO: [IP_Flow 19-1706] Not generating up to date 'Synthesis' target for IP 'dma3_proc_sys_reset_1'.
+INFO: [IP_Flow 19-1706] Not generating up to date 'Implementation' target for IP 'dma3_proc_sys_reset_1'.
+INFO: [BD 41-1029] Generation completed for the IP Integrator block /proc_sys_reset .
+Delivering 'Verilog Synthesis' files for IP 'dma3_auto_pc_12'.
+INFO: [IP_Flow 19-616] The current project language is set to Verilog. However the IP definition 'xilinx.com:ip:fifo_generator:11.0' does not support 'Verilog Synthesis' output products, delivering 'VHDL Synthesis' output products instead.
+INFO: [IP_Flow 19-616] The current project language is set to Verilog. However the IP definition 'xilinx.com:ip:blk_mem_gen:8.0' does not support 'Verilog Synthesis' output products, delivering 'VHDL Synthesis' output products instead.
+INFO: [BD 41-1029] Generation completed for the IP Integrator block /processing_system7_0_axi_periph/s00_couplers/auto_pc .
+Delivering 'Verilog Synthesis' files for IP 'dma3_auto_pc_13'.
+INFO: [IP_Flow 19-616] The current project language is set to Verilog. However the IP definition 'xilinx.com:ip:fifo_generator:11.0' does not support 'Verilog Synthesis' output products, delivering 'VHDL Synthesis' output products instead.
+INFO: [IP_Flow 19-616] The current project language is set to Verilog. However the IP definition 'xilinx.com:ip:blk_mem_gen:8.0' does not support 'Verilog Synthesis' output products, delivering 'VHDL Synthesis' output products instead.
+INFO: [BD 41-1029] Generation completed for the IP Integrator block /axi_mem_intercon/s00_couplers/auto_pc .
+Delivering 'Verilog Synthesis' files for IP 'dma3_auto_pc_14'.
+INFO: [IP_Flow 19-616] The current project language is set to Verilog. However the IP definition 'xilinx.com:ip:fifo_generator:11.0' does not support 'Verilog Synthesis' output products, delivering 'VHDL Synthesis' output products instead.
+INFO: [IP_Flow 19-616] The current project language is set to Verilog. However the IP definition 'xilinx.com:ip:blk_mem_gen:8.0' does not support 'Verilog Synthesis' output products, delivering 'VHDL Synthesis' output products instead.
+INFO: [BD 41-1029] Generation completed for the IP Integrator block /axi_mem_intercon_1/s00_couplers/auto_pc .
+INFO: [BD 41-539] Not generating up to date 'Implementation' target for block design dma3
+INFO: [BD 41-1029] Generation completed for the IP Integrator block /processing_system7_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block /simple_top_0 .
+INFO: [IP_Flow 19-1706] Not generating up to date 'Implementation' target for IP 'dma3_proc_sys_reset_1'.
+INFO: [BD 41-1029] Generation completed for the IP Integrator block /proc_sys_reset .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block /processing_system7_0_axi_periph/s00_couplers/auto_pc .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block /axi_mem_intercon/s00_couplers/auto_pc .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block /axi_mem_intercon_1/s00_couplers/auto_pc .
+[Mon Apr 21 16:13:31 2014] Launched synth_1...
+Run output will be captured here: /home/raghu/work/projects/dma3/dma3.runs/synth_1/runme.log
+[Mon Apr 21 16:13:31 2014] Launched impl_1...
+Run output will be captured here: /home/raghu/work/projects/dma3/dma3.runs/impl_1/runme.log
+launch_runs: Time (s): cpu = 00:01:10 ; elapsed = 00:00:57 . Memory (MB): peak = 5375.090 ; gain = 0.000
+export_hardware [get_files /home/raghu/work/projects/dma3/dma3.srcs/sources_1/bd/dma3/dma3.bd] [get_runs impl_1] -bitstream
+WARNING: [Vivado 12-690] Backannotated BMM file does not exist in the run dir:/home/raghu/work/projects/dma3/dma3.runs/impl_1/dma3_wrapper_bd.bmm
+Exporting to file /home/raghu/work/projects/dma3/dma3.sdk/SDK/SDK_Export/hw/dma3.xml
+INFO: [BD 41-436] exporting bit file '/home/raghu/work/projects/dma3/dma3.runs/impl_1/dma3_wrapper.bit'...
+export_hardware: Time (s): cpu = 00:00:23 ; elapsed = 00:00:30 . Memory (MB): peak = 5375.090 ; gain = 0.000
+launch_chipscope_analyzer 
+ERROR: [Vivado 12-3195] The ChipScope Pro Analyzer executable could not be found.
+Resolution: Please source the appropriate settings script included with your ISE Design Suite Lab Tools or Full Product installation, or manually add this location to your path.
+startgroup
+create_bd_cell -type ip -vlnv xilinx.com:ip:ila:3.0 ila_0
+INFO: [xilinx.com:ip:ila:3.0-345] dma3_ila_0_0: Test 11
+endgroup
+set_property location {2 677 207} [get_bd_cells ila_0]
+open_hw
+connect_hw_server -host localhost -port 60001
+INFO: [Labtools 27-109] Started Vivado Cse Server instance on port: 60001
+INFO: [Labtools 27-147] vcse_server: Connecting to hw_server...
+INFO: [Labtools 27-147] vcse_server: Attempting to launch hw_server...
+INFO: [Labtools 27-147] vcse_server: 
+****** Xilinx hw_server v2013.3
+  **** Build date : Oct 16 2013-18:26:21
+    ** Copyright 1986-1999, 2001-2013 Xilinx, Inc. All Rights Reserved.
+
+INFO: hw_server application started
+INFO: Use Ctrl-C to exit hw_server application
+
+INFO: Set the HW_SERVER_ALLOW_PL_ACCESS environment variable to 1 to access any PL address memory in the TCF debugger memory window.
+
+INFO: [Labtools 27-147] vcse_server: Connection established.
+INFO: [Labtools 27-147] vcse_server: Connecting to hw_server...
+INFO: [Labtools 27-147] vcse_server: Connection established.
+current_hw_target [get_hw_targets */xilinx_tcf/Digilent/210251842876]
+open_hw_target
+INFO: [Labtools 27-147] vcse_server: Connecting to hw_server...
+INFO: [Labtools 27-147] vcse_server: Connection established.
+set_property PROGRAM.FILE {/home/raghu/work/projects/dma3/dma3.runs/impl_1/dma3_wrapper.bit} [lindex [get_hw_devices] 1]
+set_property PROBES.FILE {/home/raghu/work/projects/dma3/dma3.runs/impl_1/debug_nets.ltx} [lindex [get_hw_devices] 1]
+current_hw_device [lindex [get_hw_devices] 1]
+refresh_hw_device -update_hw_probes false [lindex [get_hw_devices] 1]
+INFO: [Labtools 27-1434] Device XC7Z045 (JTAG device index = 1) is programmed with a design that has no supported debug core(s) in it.
+refresh_hw_device [lindex [get_hw_devices] 1]
+INFO: [Labtools 27-1434] Device XC7Z045 (JTAG device index = 1) is programmed with a design that has no supported debug core(s) in it.
+open_bd_design {/home/raghu/work/projects/dma3/dma3.srcs/sources_1/bd/dma3/dma3.bd}
+set_property HDL_ATTRIBUTE.MARK_DEBUG true [get_bd_intf_nets {simple_top_0_m_axi_inptr }]
+true
+set_property HDL_ATTRIBUTE.MARK_DEBUG true [get_bd_intf_nets {processing_system7_0_axi_periph_m00_axi }]
+true
+save_bd_design
+Wrote  : </home/raghu/work/projects/dma3/dma3.srcs/sources_1/bd/dma3/dma3.bd> 
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream
+delete_bd_objs: Time (s): cpu = 00:00:18 ; elapsed = 00:00:14 . Memory (MB): peak = 5391.828 ; gain = 0.000
+delete_bd_objs: Time (s): cpu = 00:00:10 ; elapsed = 00:00:08 . Memory (MB): peak = 5391.828 ; gain = 0.000
+delete_bd_objs: Time (s): cpu = 00:00:18 ; elapsed = 00:00:14 . Memory (MB): peak = 5391.828 ; gain = 0.000
+delete_bd_objs: Time (s): cpu = 00:00:10 ; elapsed = 00:00:08 . Memory (MB): peak = 5391.828 ; gain = 0.000
+delete_bd_objs: Time (s): cpu = 00:00:18 ; elapsed = 00:00:14 . Memory (MB): peak = 5391.828 ; gain = 0.000
+delete_bd_objs: Time (s): cpu = 00:00:10 ; elapsed = 00:00:08 . Memory (MB): peak = 5391.828 ; gain = 0.000
+WARNING: [BD 41-237] Bus Interface property BUSER_WIDTH does not match between /axi_mem_intercon/s00_couplers/auto_pc/S_AXI(0) and /simple_top_0/M_AXI_INPTR(1)
+WARNING: [BD 41-237] Bus Interface property BUSER_WIDTH does not match between /axi_mem_intercon_1/s00_couplers/auto_pc/S_AXI(0) and /simple_top_0/M_AXI_OUTPTR(1)
+INFO: [BD 41-237] Bus Interface property NUM_READ_OUTSTANDING does not match between /simple_top_0/S_AXI_CONTROL(1) and /processing_system7_0_axi_periph/s00_couplers/auto_pc/M_AXI(8)
+INFO: [BD 41-237] Bus Interface property NUM_WRITE_OUTSTANDING does not match between /simple_top_0/S_AXI_CONTROL(1) and /processing_system7_0_axi_periph/s00_couplers/auto_pc/M_AXI(8)
+INFO: [BD 41-237] Bus Interface property NUM_WRITE_OUTSTANDING does not match between /processing_system7_0/S_AXI_HP0(8) and /axi_mem_intercon/s00_couplers/auto_pc/M_AXI(1)
+INFO: [BD 41-237] Bus Interface property NUM_READ_OUTSTANDING does not match between /processing_system7_0/S_AXI_HP0(8) and /axi_mem_intercon/s00_couplers/auto_pc/M_AXI(1)
+INFO: [BD 41-237] Bus Interface property ID_WIDTH does not match between /processing_system7_0/S_AXI_HP0(6) and /axi_mem_intercon/s00_couplers/auto_pc/M_AXI(1)
+WARNING: [BD 41-237] Bus Interface property AWUSER_WIDTH does not match between /processing_system7_0/S_AXI_HP0(0) and /axi_mem_intercon/s00_couplers/auto_pc/M_AXI(1)
+WARNING: [BD 41-237] Bus Interface property ARUSER_WIDTH does not match between /processing_system7_0/S_AXI_HP0(0) and /axi_mem_intercon/s00_couplers/auto_pc/M_AXI(1)
+WARNING: [BD 41-237] Bus Interface property WUSER_WIDTH does not match between /processing_system7_0/S_AXI_HP0(0) and /axi_mem_intercon/s00_couplers/auto_pc/M_AXI(1)
+WARNING: [BD 41-237] Bus Interface property RUSER_WIDTH does not match between /processing_system7_0/S_AXI_HP0(0) and /axi_mem_intercon/s00_couplers/auto_pc/M_AXI(1)
+INFO: [BD 41-237] Bus Interface property NUM_WRITE_OUTSTANDING does not match between /processing_system7_0/S_AXI_HP2(8) and /axi_mem_intercon_1/s00_couplers/auto_pc/M_AXI(1)
+INFO: [BD 41-237] Bus Interface property NUM_READ_OUTSTANDING does not match between /processing_system7_0/S_AXI_HP2(8) and /axi_mem_intercon_1/s00_couplers/auto_pc/M_AXI(1)
+INFO: [BD 41-237] Bus Interface property ID_WIDTH does not match between /processing_system7_0/S_AXI_HP2(6) and /axi_mem_intercon_1/s00_couplers/auto_pc/M_AXI(1)
+WARNING: [BD 41-237] Bus Interface property AWUSER_WIDTH does not match between /processing_system7_0/S_AXI_HP2(0) and /axi_mem_intercon_1/s00_couplers/auto_pc/M_AXI(1)
+WARNING: [BD 41-237] Bus Interface property ARUSER_WIDTH does not match between /processing_system7_0/S_AXI_HP2(0) and /axi_mem_intercon_1/s00_couplers/auto_pc/M_AXI(1)
+WARNING: [BD 41-237] Bus Interface property WUSER_WIDTH does not match between /processing_system7_0/S_AXI_HP2(0) and /axi_mem_intercon_1/s00_couplers/auto_pc/M_AXI(1)
+WARNING: [BD 41-237] Bus Interface property RUSER_WIDTH does not match between /processing_system7_0/S_AXI_HP2(0) and /axi_mem_intercon_1/s00_couplers/auto_pc/M_AXI(1)
+CRITICAL WARNING: [BD 41-759] The input pins (listed below) are either not connected or do not have a source port, and they don't have a tie-off specified. 
+Please check your design and connect them if needed: 
+/simple_top_0/m_axi_inPtr_BUSER
+/simple_top_0/m_axi_outPtr_BUSER
+/ila_0/clk
+
+WARNING: [BD 41-235] Width mismatch when connecting pin: '/axi_mem_intercon/S00_AXI_awlock'(1) to net 'simple_top_0_m_axi_inptr_AWLOCK'(2) - Only lower order bits will be connected.
+WARNING: [BD 41-235] Width mismatch when connecting pin: '/axi_mem_intercon/S00_AXI_arlock'(1) to net 'simple_top_0_m_axi_inptr_ARLOCK'(2) - Only lower order bits will be connected.
+WARNING: [BD 41-235] Width mismatch when connecting pin: '/processing_system7_0/S_AXI_HP0_ARID'(6) to net 'axi_mem_intercon_m00_axi_ARID'(1) - Only lower order bits will be connected.
+WARNING: [BD 41-235] Width mismatch when connecting pin: '/processing_system7_0/S_AXI_HP0_WID'(6) to net 'axi_mem_intercon_m00_axi_WID'(1) - Only lower order bits will be connected.
+WARNING: [BD 41-235] Width mismatch when connecting pin: '/axi_mem_intercon/M00_AXI_bid'(1) to net 'axi_mem_intercon_m00_axi_BID'(6) - Only lower order bits will be connected.
+WARNING: [BD 41-235] Width mismatch when connecting pin: '/processing_system7_0/S_AXI_HP0_AWID'(6) to net 'axi_mem_intercon_m00_axi_AWID'(1) - Only lower order bits will be connected.
+WARNING: [BD 41-235] Width mismatch when connecting pin: '/axi_mem_intercon/M00_AXI_rid'(1) to net 'axi_mem_intercon_m00_axi_RID'(6) - Only lower order bits will be connected.
+WARNING: [BD 41-235] Width mismatch when connecting pin: '/axi_mem_intercon_1/S00_AXI_awlock'(1) to net 'simple_top_0_m_axi_outptr_AWLOCK'(2) - Only lower order bits will be connected.
+WARNING: [BD 41-235] Width mismatch when connecting pin: '/axi_mem_intercon_1/S00_AXI_arlock'(1) to net 'simple_top_0_m_axi_outptr_ARLOCK'(2) - Only lower order bits will be connected.
+WARNING: [BD 41-235] Width mismatch when connecting pin: '/processing_system7_0/S_AXI_HP2_ARID'(6) to net 'axi_mem_intercon_1_m00_axi_ARID'(1) - Only lower order bits will be connected.
+WARNING: [BD 41-235] Width mismatch when connecting pin: '/processing_system7_0/S_AXI_HP2_WID'(6) to net 'axi_mem_intercon_1_m00_axi_WID'(1) - Only lower order bits will be connected.
+WARNING: [BD 41-235] Width mismatch when connecting pin: '/axi_mem_intercon_1/M00_AXI_bid'(1) to net 'axi_mem_intercon_1_m00_axi_BID'(6) - Only lower order bits will be connected.
+WARNING: [BD 41-235] Width mismatch when connecting pin: '/processing_system7_0/S_AXI_HP2_AWID'(6) to net 'axi_mem_intercon_1_m00_axi_AWID'(1) - Only lower order bits will be connected.
+WARNING: [BD 41-235] Width mismatch when connecting pin: '/axi_mem_intercon_1/M00_AXI_rid'(1) to net 'axi_mem_intercon_1_m00_axi_RID'(6) - Only lower order bits will be connected.
+Verilog Output written to : dma3.v
+Verilog Output written to : dma3_wrapper.v
+Wrote  : </home/raghu/work/projects/dma3/dma3.srcs/sources_1/bd/dma3/dma3.bd> 
+INFO: [IP_Flow 19-1706] Not generating up to date 'Synthesis' target for IP 'dma3_processing_system7_0_0'.
+INFO: [BD 41-1029] Generation completed for the IP Integrator block /processing_system7_0 .
+INFO: [IP_Flow 19-1706] Not generating up to date 'Synthesis' target for IP 'dma3_simple_top_0_0'.
+INFO: [BD 41-1029] Generation completed for the IP Integrator block /simple_top_0 .
+INFO: [IP_Flow 19-1706] Not generating up to date 'Synthesis' target for IP 'dma3_proc_sys_reset_1'.
+INFO: [IP_Flow 19-1706] Not generating up to date 'Implementation' target for IP 'dma3_proc_sys_reset_1'.
+INFO: [BD 41-1029] Generation completed for the IP Integrator block /proc_sys_reset .
+Delivering 'Synthesis' files for IP 'dma3_ila_0_0'.
+INFO: [BD 41-1029] Generation completed for the IP Integrator block /ila_0 .
+Delivering 'Verilog Synthesis' files for IP 'dma3_auto_pc_15'.
+INFO: [IP_Flow 19-616] The current project language is set to Verilog. However the IP definition 'xilinx.com:ip:fifo_generator:11.0' does not support 'Verilog Synthesis' output products, delivering 'VHDL Synthesis' output products instead.
+INFO: [IP_Flow 19-616] The current project language is set to Verilog. However the IP definition 'xilinx.com:ip:blk_mem_gen:8.0' does not support 'Verilog Synthesis' output products, delivering 'VHDL Synthesis' output products instead.
+INFO: [BD 41-1029] Generation completed for the IP Integrator block /processing_system7_0_axi_periph/s00_couplers/auto_pc .
+Delivering 'Verilog Synthesis' files for IP 'dma3_auto_pc_16'.
+INFO: [IP_Flow 19-616] The current project language is set to Verilog. However the IP definition 'xilinx.com:ip:fifo_generator:11.0' does not support 'Verilog Synthesis' output products, delivering 'VHDL Synthesis' output products instead.
+INFO: [IP_Flow 19-616] The current project language is set to Verilog. However the IP definition 'xilinx.com:ip:blk_mem_gen:8.0' does not support 'Verilog Synthesis' output products, delivering 'VHDL Synthesis' output products instead.
+INFO: [BD 41-1029] Generation completed for the IP Integrator block /axi_mem_intercon/s00_couplers/auto_pc .
+Delivering 'Verilog Synthesis' files for IP 'dma3_auto_pc_17'.
+INFO: [IP_Flow 19-616] The current project language is set to Verilog. However the IP definition 'xilinx.com:ip:fifo_generator:11.0' does not support 'Verilog Synthesis' output products, delivering 'VHDL Synthesis' output products instead.
+INFO: [IP_Flow 19-616] The current project language is set to Verilog. However the IP definition 'xilinx.com:ip:blk_mem_gen:8.0' does not support 'Verilog Synthesis' output products, delivering 'VHDL Synthesis' output products instead.
+INFO: [BD 41-1029] Generation completed for the IP Integrator block /axi_mem_intercon_1/s00_couplers/auto_pc .
+INFO: [BD 41-539] Not generating up to date 'Implementation' target for block design dma3
+INFO: [BD 41-1029] Generation completed for the IP Integrator block /processing_system7_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block /simple_top_0 .
+INFO: [IP_Flow 19-1706] Not generating up to date 'Implementation' target for IP 'dma3_proc_sys_reset_1'.
+INFO: [BD 41-1029] Generation completed for the IP Integrator block /proc_sys_reset .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block /ila_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block /processing_system7_0_axi_periph/s00_couplers/auto_pc .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block /axi_mem_intercon/s00_couplers/auto_pc .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block /axi_mem_intercon_1/s00_couplers/auto_pc .
+[Mon Apr 21 17:00:12 2014] Launched synth_1...
+Run output will be captured here: /home/raghu/work/projects/dma3/dma3.runs/synth_1/runme.log
+[Mon Apr 21 17:00:12 2014] Launched impl_1...
+Run output will be captured here: /home/raghu/work/projects/dma3/dma3.runs/impl_1/runme.log
+launch_runs: Time (s): cpu = 00:02:03 ; elapsed = 00:01:42 . Memory (MB): peak = 5398.812 ; gain = 6.984
+set_property PROGRAM.FILE {/home/raghu/work/projects/dma3/dma3.runs/impl_1/dma3_wrapper.bit} [lindex [get_hw_devices] 1]
+program_hw_devices [lindex [get_hw_devices] 1]
+INFO: [Labtools 27-147] vcse_server: Creating XC7Z045 device.
+INFO: [Labtools 27-147] vcse_server: INFO: [vcseserver-48-1122]  
+INFO: [Labtools 27-147] vcse_server: INFO: [vcseserver-48-1139]  
+INFO: [Labtools 27-147] vcse_server: INFO: [vcseserver-48-1889]  
+INFO: [Labtools 27-147] vcse_server: INFO: [vcseserver-48-1033]  
+INFO: [Labtools 27-32] Done pin status: HIGH
+program_hw_devices: Time (s): cpu = 00:00:02 ; elapsed = 00:00:23 . Memory (MB): peak = 5447.484 ; gain = 31.785
+refresh_hw_device [lindex [get_hw_devices] 1]
+ERROR: [Labtools 27-147] vcse_server: XSDB Master timed out.
+ERROR: [Labtools 27-1437] Failed to get a response from the Debug Core Hub on device XC7Z045_1 (JTAG device index = 1), in user chain = 1.
+Resolution: 
+1) Verify that the clock signal connected to the debug core is clean and free-running.
+2) Verify that the clock connected to the debug core meets all timing constraints.
+refresh_hw_device [lindex [get_hw_devices] 1]
+ERROR: [Labtools 27-147] vcse_server: XSDB Master timed out.
+ERROR: [Labtools 27-1437] Failed to get a response from the Debug Core Hub on device XC7Z045_1 (JTAG device index = 1), in user chain = 1.
+Resolution: 
+1) Verify that the clock signal connected to the debug core is clean and free-running.
+2) Verify that the clock connected to the debug core meets all timing constraints.
+export_hardware [get_files /home/raghu/work/projects/dma3/dma3.srcs/sources_1/bd/dma3/dma3.bd] [get_runs impl_1] -bitstream
+WARNING: [Vivado 12-690] Backannotated BMM file does not exist in the run dir:/home/raghu/work/projects/dma3/dma3.runs/impl_1/dma3_wrapper_bd.bmm
+Exporting to file /home/raghu/work/projects/dma3/dma3.sdk/SDK/SDK_Export/hw/dma3.xml
+INFO: [BD 41-436] exporting bit file '/home/raghu/work/projects/dma3/dma3.runs/impl_1/dma3_wrapper.bit'...
+export_hardware: Time (s): cpu = 00:00:18 ; elapsed = 00:00:22 . Memory (MB): peak = 5447.488 ; gain = 0.000
+refresh_hw_device [lindex [get_hw_devices] 1]
+ERROR: [Labtools 27-147] vcse_server: XSDB Master timed out.
+ERROR: [Labtools 27-1437] Failed to get a response from the Debug Core Hub on device XC7Z045_1 (JTAG device index = 1), in user chain = 1.
+Resolution: 
+1) Verify that the clock signal connected to the debug core is clean and free-running.
+2) Verify that the clock connected to the debug core meets all timing constraints.
+refresh_hw_target {localhost/xilinx_tcf/Digilent/210251842876}
+open_run synth_1 -name netlist_1
+Design is defaulting to impl run constrset: constrs_1
+Design is defaulting to synth run part: xc7z045ffg900-2
+INFO: [Netlist 29-17] Analyzing 40 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2013.3
+INFO: [Opt 31-140] Inserted 0 IBUFs to IO ports without IO buffers.
+INFO: [Opt 31-141] Inserted 0 OBUFs to IO ports without IO buffers.
+INFO: [Opt 31-138] Pushed 0 inverter(s).
+Parsing XDC File [/home/raghu/work/projects/dma3/dma3.srcs/sources_1/bd/dma3/ip/dma3_processing_system7_0_0/dma3_processing_system7_0_0.xdc] for cell 'dma3_i/processing_system7_0/inst'
+Finished Parsing XDC File [/home/raghu/work/projects/dma3/dma3.srcs/sources_1/bd/dma3/ip/dma3_processing_system7_0_0/dma3_processing_system7_0_0.xdc] for cell 'dma3_i/processing_system7_0/inst'
+Parsing XDC File [/home/raghu/work/projects/dma3/dma3.srcs/sources_1/bd/dma3/ip/dma3_proc_sys_reset_1/dma3_proc_sys_reset_1_board.xdc] for cell 'dma3_i/proc_sys_reset/U0'
+Finished Parsing XDC File [/home/raghu/work/projects/dma3/dma3.srcs/sources_1/bd/dma3/ip/dma3_proc_sys_reset_1/dma3_proc_sys_reset_1_board.xdc] for cell 'dma3_i/proc_sys_reset/U0'
+Parsing XDC File [/home/raghu/work/projects/dma3/dma3.srcs/sources_1/bd/dma3/ip/dma3_proc_sys_reset_1/dma3_proc_sys_reset_1.xdc] for cell 'dma3_i/proc_sys_reset/U0'
+INFO: [Vivado 12-1399] There are no top level ports directly connected to pins of cell 'dma3_i/proc_sys_reset/U0', returning the pins matched for query '[get_ports ext_reset_in]' of cell 'dma3_i/proc_sys_reset/U0'. [/home/raghu/work/projects/dma3/dma3.srcs/sources_1/bd/dma3/ip/dma3_proc_sys_reset_1/dma3_proc_sys_reset_1.xdc:55]
+Resolution: The get_ports call is being converted to a get_pins call as there is no direct connection to a top level port. This could be due to the insertion of IO Buffers between the top level terminal and cell pin. If the goal is to apply constraints that will migrate to top level ports it is required that IO Buffers manually be instanced.
+Finished Parsing XDC File [/home/raghu/work/projects/dma3/dma3.srcs/sources_1/bd/dma3/ip/dma3_proc_sys_reset_1/dma3_proc_sys_reset_1.xdc] for cell 'dma3_i/proc_sys_reset/U0'
+Parsing XDC File [/home/raghu/work/projects/dma3/dma3.srcs/sources_1/bd/dma3/ip/dma3_ila_0_0/constraints/ila.xdc] for cell 'dma3_i/ila_0/inst'
+Finished Parsing XDC File [/home/raghu/work/projects/dma3/dma3.srcs/sources_1/bd/dma3/ip/dma3_ila_0_0/constraints/ila.xdc] for cell 'dma3_i/ila_0/inst'
+INFO: [Memdata 28-143] Successfully populated the BRAM INIT strings from the following elf files: 
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 38 instances were transformed.
+  CFGLUT5 => CFGLUT5 (SRLC32E, SRL16E): 32 instances
+  RAM32M => RAM32M (RAMD32, RAMD32, RAMD32, RAMD32, RAMD32, RAMD32, RAMS32, RAMS32): 4 instances
+  RAM32X1D => RAM32X1D (RAMD32, RAMD32): 2 instances
+
+open_run: Time (s): cpu = 00:00:15 ; elapsed = 00:00:26 . Memory (MB): peak = 5708.586 ; gain = 261.098
+open_bd_design {/home/raghu/work/projects/dma3/dma3.srcs/sources_1/bd/dma3/dma3.bd}
+create_debug_core u_ila_0 labtools_ila_v3
+set_property C_DATA_DEPTH 1024 [get_debug_cores u_ila_0]
+set_property C_TRIGIN_EN false [get_debug_cores u_ila_0]
+set_property C_TRIGOUT_EN false [get_debug_cores u_ila_0]
+set_property C_ADV_TRIGGER false [get_debug_cores u_ila_0]
+set_property C_INPUT_PIPE_STAGES 0 [get_debug_cores u_ila_0]
+set_property C_EN_STRG_QUAL false [get_debug_cores u_ila_0]
+set_property ALL_PROBE_SAME_MU true [get_debug_cores u_ila_0]
+set_property ALL_PROBE_SAME_MU_CNT 1 [get_debug_cores u_ila_0]
+startgroup 
+set_property C_EN_STRG_QUAL true [get_debug_cores u_ila_0 ]
+set_property ALL_PROBE_SAME_MU true [get_debug_cores u_ila_0 ]
+set_property ALL_PROBE_SAME_MU_CNT 2 [get_debug_cores u_ila_0 ]
+endgroup
+set_property port_width 1 [get_debug_ports u_ila_0/clk]
+connect_debug_port u_ila_0/clk [get_nets [list dma3_i/processing_system7_0_fclk_clk0 ]]
+set_property port_width 4 [get_debug_ports u_ila_0/probe0]
+connect_debug_port u_ila_0/probe0 [get_nets [list {dma3_i/processing_system7_0_axi_periph_m00_axi_WSTRB[0]} {dma3_i/processing_system7_0_axi_periph_m00_axi_WSTRB[1]} {dma3_i/processing_system7_0_axi_periph_m00_axi_WSTRB[2]} {dma3_i/processing_system7_0_axi_periph_m00_axi_WSTRB[3]} ]]
+create_debug_port u_ila_0 probe
+set_property port_width 32 [get_debug_ports u_ila_0/probe1]
+connect_debug_port u_ila_0/probe1 [get_nets [list {dma3_i/processing_system7_0_axi_periph_m00_axi_WDATA[0]} {dma3_i/processing_system7_0_axi_periph_m00_axi_WDATA[1]} {dma3_i/processing_system7_0_axi_periph_m00_axi_WDATA[2]} {dma3_i/processing_system7_0_axi_periph_m00_axi_WDATA[3]} {dma3_i/processing_system7_0_axi_periph_m00_axi_WDATA[4]} {dma3_i/processing_system7_0_axi_periph_m00_axi_WDATA[5]} {dma3_i/processing_system7_0_axi_periph_m00_axi_WDATA[6]} {dma3_i/processing_system7_0_axi_periph_m00_axi_WDATA[7]} {dma3_i/processing_system7_0_axi_periph_m00_axi_WDATA[8]} {dma3_i/processing_system7_0_axi_periph_m00_axi_WDATA[9]} {dma3_i/processing_system7_0_axi_periph_m00_axi_WDATA[10]} {dma3_i/processing_system7_0_axi_periph_m00_axi_WDATA[11]} {dma3_i/processing_system7_0_axi_periph_m00_axi_WDATA[12]} {dma3_i/processing_system7_0_axi_periph_m00_axi_WDATA[13]} {dma3_i/processing_system7_0_axi_periph_m00_axi_WDATA[14]} {dma3_i/processing_system7_0_axi_periph_m00_axi_WDATA[15]} {dma3_i/processing_system7_0_axi_periph_m00_axi_WDATA[16]} {dma3_i/processing_system7_0_axi_periph_m00_axi_WDATA[17]} {dma3_i/processing_system7_0_axi_periph_m00_axi_WDATA[18]} {dma3_i/processing_system7_0_axi_periph_m00_axi_WDATA[19]} {dma3_i/processing_system7_0_axi_periph_m00_axi_WDATA[20]} {dma3_i/processing_system7_0_axi_periph_m00_axi_WDATA[21]} {dma3_i/processing_system7_0_axi_periph_m00_axi_WDATA[22]} {dma3_i/processing_system7_0_axi_periph_m00_axi_WDATA[23]} {dma3_i/processing_system7_0_axi_periph_m00_axi_WDATA[24]} {dma3_i/processing_system7_0_axi_periph_m00_axi_WDATA[25]} {dma3_i/processing_system7_0_axi_periph_m00_axi_WDATA[26]} {dma3_i/processing_system7_0_axi_periph_m00_axi_WDATA[27]} {dma3_i/processing_system7_0_axi_periph_m00_axi_WDATA[28]} {dma3_i/processing_system7_0_axi_periph_m00_axi_WDATA[29]} {dma3_i/processing_system7_0_axi_periph_m00_axi_WDATA[30]} {dma3_i/processing_system7_0_axi_periph_m00_axi_WDATA[31]} ]]
+create_debug_port u_ila_0 probe
+set_property port_width 2 [get_debug_ports u_ila_0/probe2]
+connect_debug_port u_ila_0/probe2 [get_nets [list {dma3_i/processing_system7_0_axi_periph_m00_axi_RRESP[0]} {dma3_i/processing_system7_0_axi_periph_m00_axi_RRESP[1]} ]]
+create_debug_port u_ila_0 probe
+set_property port_width 32 [get_debug_ports u_ila_0/probe3]
+connect_debug_port u_ila_0/probe3 [get_nets [list {dma3_i/processing_system7_0_axi_periph_m00_axi_RDATA[0]} {dma3_i/processing_system7_0_axi_periph_m00_axi_RDATA[1]} {dma3_i/processing_system7_0_axi_periph_m00_axi_RDATA[2]} {dma3_i/processing_system7_0_axi_periph_m00_axi_RDATA[3]} {dma3_i/processing_system7_0_axi_periph_m00_axi_RDATA[4]} {dma3_i/processing_system7_0_axi_periph_m00_axi_RDATA[5]} {dma3_i/processing_system7_0_axi_periph_m00_axi_RDATA[6]} {dma3_i/processing_system7_0_axi_periph_m00_axi_RDATA[7]} {dma3_i/processing_system7_0_axi_periph_m00_axi_RDATA[8]} {dma3_i/processing_system7_0_axi_periph_m00_axi_RDATA[9]} {dma3_i/processing_system7_0_axi_periph_m00_axi_RDATA[10]} {dma3_i/processing_system7_0_axi_periph_m00_axi_RDATA[11]} {dma3_i/processing_system7_0_axi_periph_m00_axi_RDATA[12]} {dma3_i/processing_system7_0_axi_periph_m00_axi_RDATA[13]} {dma3_i/processing_system7_0_axi_periph_m00_axi_RDATA[14]} {dma3_i/processing_system7_0_axi_periph_m00_axi_RDATA[15]} {dma3_i/processing_system7_0_axi_periph_m00_axi_RDATA[16]} {dma3_i/processing_system7_0_axi_periph_m00_axi_RDATA[17]} {dma3_i/processing_system7_0_axi_periph_m00_axi_RDATA[18]} {dma3_i/processing_system7_0_axi_periph_m00_axi_RDATA[19]} {dma3_i/processing_system7_0_axi_periph_m00_axi_RDATA[20]} {dma3_i/processing_system7_0_axi_periph_m00_axi_RDATA[21]} {dma3_i/processing_system7_0_axi_periph_m00_axi_RDATA[22]} {dma3_i/processing_system7_0_axi_periph_m00_axi_RDATA[23]} {dma3_i/processing_system7_0_axi_periph_m00_axi_RDATA[24]} {dma3_i/processing_system7_0_axi_periph_m00_axi_RDATA[25]} {dma3_i/processing_system7_0_axi_periph_m00_axi_RDATA[26]} {dma3_i/processing_system7_0_axi_periph_m00_axi_RDATA[27]} {dma3_i/processing_system7_0_axi_periph_m00_axi_RDATA[28]} {dma3_i/processing_system7_0_axi_periph_m00_axi_RDATA[29]} {dma3_i/processing_system7_0_axi_periph_m00_axi_RDATA[30]} {dma3_i/processing_system7_0_axi_periph_m00_axi_RDATA[31]} ]]
+create_debug_port u_ila_0 probe
+set_property port_width 2 [get_debug_ports u_ila_0/probe4]
+connect_debug_port u_ila_0/probe4 [get_nets [list {dma3_i/processing_system7_0_axi_periph_m00_axi_BRESP[0]} {dma3_i/processing_system7_0_axi_periph_m00_axi_BRESP[1]} ]]
+create_debug_port u_ila_0 probe
+set_property port_width 4 [get_debug_ports u_ila_0/probe5]
+connect_debug_port u_ila_0/probe5 [get_nets [list {dma3_i/processing_system7_0_axi_periph_m00_axi_AWADDR[0]} {dma3_i/processing_system7_0_axi_periph_m00_axi_AWADDR[1]} {dma3_i/processing_system7_0_axi_periph_m00_axi_AWADDR[2]} {dma3_i/processing_system7_0_axi_periph_m00_axi_AWADDR[3]} ]]
+create_debug_port u_ila_0 probe
+set_property port_width 4 [get_debug_ports u_ila_0/probe6]
+connect_debug_port u_ila_0/probe6 [get_nets [list {dma3_i/processing_system7_0_axi_periph_m00_axi_ARADDR[0]} {dma3_i/processing_system7_0_axi_periph_m00_axi_ARADDR[1]} {dma3_i/processing_system7_0_axi_periph_m00_axi_ARADDR[2]} {dma3_i/processing_system7_0_axi_periph_m00_axi_ARADDR[3]} ]]
+create_debug_port u_ila_0 probe
+set_property port_width 32 [get_debug_ports u_ila_0/probe7]
+connect_debug_port u_ila_0/probe7 [get_nets [list {dma3_i/simple_top_0_m_axi_inptr_WDATA[0]} {dma3_i/simple_top_0_m_axi_inptr_WDATA[1]} {dma3_i/simple_top_0_m_axi_inptr_WDATA[2]} {dma3_i/simple_top_0_m_axi_inptr_WDATA[3]} {dma3_i/simple_top_0_m_axi_inptr_WDATA[4]} {dma3_i/simple_top_0_m_axi_inptr_WDATA[5]} {dma3_i/simple_top_0_m_axi_inptr_WDATA[6]} {dma3_i/simple_top_0_m_axi_inptr_WDATA[7]} {dma3_i/simple_top_0_m_axi_inptr_WDATA[8]} {dma3_i/simple_top_0_m_axi_inptr_WDATA[9]} {dma3_i/simple_top_0_m_axi_inptr_WDATA[10]} {dma3_i/simple_top_0_m_axi_inptr_WDATA[11]} {dma3_i/simple_top_0_m_axi_inptr_WDATA[12]} {dma3_i/simple_top_0_m_axi_inptr_WDATA[13]} {dma3_i/simple_top_0_m_axi_inptr_WDATA[14]} {dma3_i/simple_top_0_m_axi_inptr_WDATA[15]} {dma3_i/simple_top_0_m_axi_inptr_WDATA[16]} {dma3_i/simple_top_0_m_axi_inptr_WDATA[17]} {dma3_i/simple_top_0_m_axi_inptr_WDATA[18]} {dma3_i/simple_top_0_m_axi_inptr_WDATA[19]} {dma3_i/simple_top_0_m_axi_inptr_WDATA[20]} {dma3_i/simple_top_0_m_axi_inptr_WDATA[21]} {dma3_i/simple_top_0_m_axi_inptr_WDATA[22]} {dma3_i/simple_top_0_m_axi_inptr_WDATA[23]} {dma3_i/simple_top_0_m_axi_inptr_WDATA[24]} {dma3_i/simple_top_0_m_axi_inptr_WDATA[25]} {dma3_i/simple_top_0_m_axi_inptr_WDATA[26]} {dma3_i/simple_top_0_m_axi_inptr_WDATA[27]} {dma3_i/simple_top_0_m_axi_inptr_WDATA[28]} {dma3_i/simple_top_0_m_axi_inptr_WDATA[29]} {dma3_i/simple_top_0_m_axi_inptr_WDATA[30]} {dma3_i/simple_top_0_m_axi_inptr_WDATA[31]} ]]
+create_debug_port u_ila_0 probe
+set_property port_width 2 [get_debug_ports u_ila_0/probe8]
+connect_debug_port u_ila_0/probe8 [get_nets [list {dma3_i/simple_top_0_m_axi_inptr_RRESP[0]} {dma3_i/simple_top_0_m_axi_inptr_RRESP[1]} ]]
+create_debug_port u_ila_0 probe
+set_property port_width 2 [get_debug_ports u_ila_0/probe9]
+connect_debug_port u_ila_0/probe9 [get_nets [list {dma3_i/simple_top_0_m_axi_inptr_BRESP[0]} {dma3_i/simple_top_0_m_axi_inptr_BRESP[1]} ]]
+create_debug_port u_ila_0 probe
+set_property port_width 32 [get_debug_ports u_ila_0/probe10]
+connect_debug_port u_ila_0/probe10 [get_nets [list {dma3_i/simple_top_0_m_axi_inptr_RDATA[0]} {dma3_i/simple_top_0_m_axi_inptr_RDATA[1]} {dma3_i/simple_top_0_m_axi_inptr_RDATA[2]} {dma3_i/simple_top_0_m_axi_inptr_RDATA[3]} {dma3_i/simple_top_0_m_axi_inptr_RDATA[4]} {dma3_i/simple_top_0_m_axi_inptr_RDATA[5]} {dma3_i/simple_top_0_m_axi_inptr_RDATA[6]} {dma3_i/simple_top_0_m_axi_inptr_RDATA[7]} {dma3_i/simple_top_0_m_axi_inptr_RDATA[8]} {dma3_i/simple_top_0_m_axi_inptr_RDATA[9]} {dma3_i/simple_top_0_m_axi_inptr_RDATA[10]} {dma3_i/simple_top_0_m_axi_inptr_RDATA[11]} {dma3_i/simple_top_0_m_axi_inptr_RDATA[12]} {dma3_i/simple_top_0_m_axi_inptr_RDATA[13]} {dma3_i/simple_top_0_m_axi_inptr_RDATA[14]} {dma3_i/simple_top_0_m_axi_inptr_RDATA[15]} {dma3_i/simple_top_0_m_axi_inptr_RDATA[16]} {dma3_i/simple_top_0_m_axi_inptr_RDATA[17]} {dma3_i/simple_top_0_m_axi_inptr_RDATA[18]} {dma3_i/simple_top_0_m_axi_inptr_RDATA[19]} {dma3_i/simple_top_0_m_axi_inptr_RDATA[20]} {dma3_i/simple_top_0_m_axi_inptr_RDATA[21]} {dma3_i/simple_top_0_m_axi_inptr_RDATA[22]} {dma3_i/simple_top_0_m_axi_inptr_RDATA[23]} {dma3_i/simple_top_0_m_axi_inptr_RDATA[24]} {dma3_i/simple_top_0_m_axi_inptr_RDATA[25]} {dma3_i/simple_top_0_m_axi_inptr_RDATA[26]} {dma3_i/simple_top_0_m_axi_inptr_RDATA[27]} {dma3_i/simple_top_0_m_axi_inptr_RDATA[28]} {dma3_i/simple_top_0_m_axi_inptr_RDATA[29]} {dma3_i/simple_top_0_m_axi_inptr_RDATA[30]} {dma3_i/simple_top_0_m_axi_inptr_RDATA[31]} ]]
+create_debug_port u_ila_0 probe
+set_property port_width 3 [get_debug_ports u_ila_0/probe11]
+connect_debug_port u_ila_0/probe11 [get_nets [list {dma3_i/simple_top_0_m_axi_inptr_AWSIZE[0]} {dma3_i/simple_top_0_m_axi_inptr_AWSIZE[1]} {dma3_i/simple_top_0_m_axi_inptr_AWSIZE[2]} ]]
+create_debug_port u_ila_0 probe
+set_property port_width 8 [get_debug_ports u_ila_0/probe12]
+connect_debug_port u_ila_0/probe12 [get_nets [list {dma3_i/simple_top_0_m_axi_inptr_AWLEN[0]} {dma3_i/simple_top_0_m_axi_inptr_AWLEN[1]} {dma3_i/simple_top_0_m_axi_inptr_AWLEN[2]} {dma3_i/simple_top_0_m_axi_inptr_AWLEN[3]} {dma3_i/simple_top_0_m_axi_inptr_AWLEN[4]} {dma3_i/simple_top_0_m_axi_inptr_AWLEN[5]} {dma3_i/simple_top_0_m_axi_inptr_AWLEN[6]} {dma3_i/simple_top_0_m_axi_inptr_AWLEN[7]} ]]
+create_debug_port u_ila_0 probe
+set_property port_width 32 [get_debug_ports u_ila_0/probe13]
+connect_debug_port u_ila_0/probe13 [get_nets [list {dma3_i/simple_top_0_m_axi_inptr_AWADDR[0]} {dma3_i/simple_top_0_m_axi_inptr_AWADDR[1]} {dma3_i/simple_top_0_m_axi_inptr_AWADDR[2]} {dma3_i/simple_top_0_m_axi_inptr_AWADDR[3]} {dma3_i/simple_top_0_m_axi_inptr_AWADDR[4]} {dma3_i/simple_top_0_m_axi_inptr_AWADDR[5]} {dma3_i/simple_top_0_m_axi_inptr_AWADDR[6]} {dma3_i/simple_top_0_m_axi_inptr_AWADDR[7]} {dma3_i/simple_top_0_m_axi_inptr_AWADDR[8]} {dma3_i/simple_top_0_m_axi_inptr_AWADDR[9]} {dma3_i/simple_top_0_m_axi_inptr_AWADDR[10]} {dma3_i/simple_top_0_m_axi_inptr_AWADDR[11]} {dma3_i/simple_top_0_m_axi_inptr_AWADDR[12]} {dma3_i/simple_top_0_m_axi_inptr_AWADDR[13]} {dma3_i/simple_top_0_m_axi_inptr_AWADDR[14]} {dma3_i/simple_top_0_m_axi_inptr_AWADDR[15]} {dma3_i/simple_top_0_m_axi_inptr_AWADDR[16]} {dma3_i/simple_top_0_m_axi_inptr_AWADDR[17]} {dma3_i/simple_top_0_m_axi_inptr_AWADDR[18]} {dma3_i/simple_top_0_m_axi_inptr_AWADDR[19]} {dma3_i/simple_top_0_m_axi_inptr_AWADDR[20]} {dma3_i/simple_top_0_m_axi_inptr_AWADDR[21]} {dma3_i/simple_top_0_m_axi_inptr_AWADDR[22]} {dma3_i/simple_top_0_m_axi_inptr_AWADDR[23]} {dma3_i/simple_top_0_m_axi_inptr_AWADDR[24]} {dma3_i/simple_top_0_m_axi_inptr_AWADDR[25]} {dma3_i/simple_top_0_m_axi_inptr_AWADDR[26]} {dma3_i/simple_top_0_m_axi_inptr_AWADDR[27]} {dma3_i/simple_top_0_m_axi_inptr_AWADDR[28]} {dma3_i/simple_top_0_m_axi_inptr_AWADDR[29]} {dma3_i/simple_top_0_m_axi_inptr_AWADDR[30]} {dma3_i/simple_top_0_m_axi_inptr_AWADDR[31]} ]]
+create_debug_port u_ila_0 probe
+set_property port_width 2 [get_debug_ports u_ila_0/probe14]
+connect_debug_port u_ila_0/probe14 [get_nets [list {dma3_i/simple_top_0_m_axi_inptr_AWBURST[0]} {dma3_i/simple_top_0_m_axi_inptr_AWBURST[1]} ]]
+create_debug_port u_ila_0 probe
+set_property port_width 3 [get_debug_ports u_ila_0/probe15]
+connect_debug_port u_ila_0/probe15 [get_nets [list {dma3_i/simple_top_0_m_axi_inptr_ARSIZE[0]} {dma3_i/simple_top_0_m_axi_inptr_ARSIZE[1]} {dma3_i/simple_top_0_m_axi_inptr_ARSIZE[2]} ]]
+create_debug_port u_ila_0 probe
+set_property port_width 8 [get_debug_ports u_ila_0/probe16]
+connect_debug_port u_ila_0/probe16 [get_nets [list {dma3_i/simple_top_0_m_axi_inptr_ARLEN[0]} {dma3_i/simple_top_0_m_axi_inptr_ARLEN[1]} {dma3_i/simple_top_0_m_axi_inptr_ARLEN[2]} {dma3_i/simple_top_0_m_axi_inptr_ARLEN[3]} {dma3_i/simple_top_0_m_axi_inptr_ARLEN[4]} {dma3_i/simple_top_0_m_axi_inptr_ARLEN[5]} {dma3_i/simple_top_0_m_axi_inptr_ARLEN[6]} {dma3_i/simple_top_0_m_axi_inptr_ARLEN[7]} ]]
+create_debug_port u_ila_0 probe
+set_property port_width 4 [get_debug_ports u_ila_0/probe17]
+connect_debug_port u_ila_0/probe17 [get_nets [list {dma3_i/simple_top_0_m_axi_inptr_ARCACHE[0]} {dma3_i/simple_top_0_m_axi_inptr_ARCACHE[1]} {dma3_i/simple_top_0_m_axi_inptr_ARCACHE[2]} {dma3_i/simple_top_0_m_axi_inptr_ARCACHE[3]} ]]
+create_debug_port u_ila_0 probe
+set_property port_width 2 [get_debug_ports u_ila_0/probe18]
+connect_debug_port u_ila_0/probe18 [get_nets [list {dma3_i/simple_top_0_m_axi_inptr_ARBURST[0]} {dma3_i/simple_top_0_m_axi_inptr_ARBURST[1]} ]]
+create_debug_port u_ila_0 probe
+set_property port_width 32 [get_debug_ports u_ila_0/probe19]
+connect_debug_port u_ila_0/probe19 [get_nets [list {dma3_i/simple_top_0_m_axi_inptr_ARADDR[0]} {dma3_i/simple_top_0_m_axi_inptr_ARADDR[1]} {dma3_i/simple_top_0_m_axi_inptr_ARADDR[2]} {dma3_i/simple_top_0_m_axi_inptr_ARADDR[3]} {dma3_i/simple_top_0_m_axi_inptr_ARADDR[4]} {dma3_i/simple_top_0_m_axi_inptr_ARADDR[5]} {dma3_i/simple_top_0_m_axi_inptr_ARADDR[6]} {dma3_i/simple_top_0_m_axi_inptr_ARADDR[7]} {dma3_i/simple_top_0_m_axi_inptr_ARADDR[8]} {dma3_i/simple_top_0_m_axi_inptr_ARADDR[9]} {dma3_i/simple_top_0_m_axi_inptr_ARADDR[10]} {dma3_i/simple_top_0_m_axi_inptr_ARADDR[11]} {dma3_i/simple_top_0_m_axi_inptr_ARADDR[12]} {dma3_i/simple_top_0_m_axi_inptr_ARADDR[13]} {dma3_i/simple_top_0_m_axi_inptr_ARADDR[14]} {dma3_i/simple_top_0_m_axi_inptr_ARADDR[15]} {dma3_i/simple_top_0_m_axi_inptr_ARADDR[16]} {dma3_i/simple_top_0_m_axi_inptr_ARADDR[17]} {dma3_i/simple_top_0_m_axi_inptr_ARADDR[18]} {dma3_i/simple_top_0_m_axi_inptr_ARADDR[19]} {dma3_i/simple_top_0_m_axi_inptr_ARADDR[20]} {dma3_i/simple_top_0_m_axi_inptr_ARADDR[21]} {dma3_i/simple_top_0_m_axi_inptr_ARADDR[22]} {dma3_i/simple_top_0_m_axi_inptr_ARADDR[23]} {dma3_i/simple_top_0_m_axi_inptr_ARADDR[24]} {dma3_i/simple_top_0_m_axi_inptr_ARADDR[25]} {dma3_i/simple_top_0_m_axi_inptr_ARADDR[26]} {dma3_i/simple_top_0_m_axi_inptr_ARADDR[27]} {dma3_i/simple_top_0_m_axi_inptr_ARADDR[28]} {dma3_i/simple_top_0_m_axi_inptr_ARADDR[29]} {dma3_i/simple_top_0_m_axi_inptr_ARADDR[30]} {dma3_i/simple_top_0_m_axi_inptr_ARADDR[31]} ]]
+create_debug_port u_ila_0 probe
+set_property port_width 1 [get_debug_ports u_ila_0/probe20]
+connect_debug_port u_ila_0/probe20 [get_nets [list dma3_i/processing_system7_0_axi_periph_m00_axi_ARREADY ]]
+create_debug_port u_ila_0 probe
+set_property port_width 1 [get_debug_ports u_ila_0/probe21]
+connect_debug_port u_ila_0/probe21 [get_nets [list dma3_i/processing_system7_0_axi_periph_m00_axi_ARVALID ]]
+create_debug_port u_ila_0 probe
+set_property port_width 1 [get_debug_ports u_ila_0/probe22]
+connect_debug_port u_ila_0/probe22 [get_nets [list dma3_i/processing_system7_0_axi_periph_m00_axi_AWREADY ]]
+create_debug_port u_ila_0 probe
+set_property port_width 1 [get_debug_ports u_ila_0/probe23]
+connect_debug_port u_ila_0/probe23 [get_nets [list dma3_i/processing_system7_0_axi_periph_m00_axi_AWVALID ]]
+create_debug_port u_ila_0 probe
+set_property port_width 1 [get_debug_ports u_ila_0/probe24]
+connect_debug_port u_ila_0/probe24 [get_nets [list dma3_i/processing_system7_0_axi_periph_m00_axi_BREADY ]]
+create_debug_port u_ila_0 probe
+set_property port_width 1 [get_debug_ports u_ila_0/probe25]
+connect_debug_port u_ila_0/probe25 [get_nets [list dma3_i/processing_system7_0_axi_periph_m00_axi_BVALID ]]
+create_debug_port u_ila_0 probe
+set_property port_width 1 [get_debug_ports u_ila_0/probe26]
+connect_debug_port u_ila_0/probe26 [get_nets [list dma3_i/processing_system7_0_axi_periph_m00_axi_RREADY ]]
+create_debug_port u_ila_0 probe
+set_property port_width 1 [get_debug_ports u_ila_0/probe27]
+connect_debug_port u_ila_0/probe27 [get_nets [list dma3_i/processing_system7_0_axi_periph_m00_axi_RVALID ]]
+create_debug_port u_ila_0 probe
+set_property port_width 1 [get_debug_ports u_ila_0/probe28]
+connect_debug_port u_ila_0/probe28 [get_nets [list dma3_i/processing_system7_0_axi_periph_m00_axi_WREADY ]]
+create_debug_port u_ila_0 probe
+set_property port_width 1 [get_debug_ports u_ila_0/probe29]
+connect_debug_port u_ila_0/probe29 [get_nets [list dma3_i/processing_system7_0_axi_periph_m00_axi_WVALID ]]
+create_debug_port u_ila_0 probe
+set_property port_width 1 [get_debug_ports u_ila_0/probe30]
+connect_debug_port u_ila_0/probe30 [get_nets [list dma3_i/simple_top_0_m_axi_inptr_ARREADY ]]
+create_debug_port u_ila_0 probe
+set_property port_width 1 [get_debug_ports u_ila_0/probe31]
+connect_debug_port u_ila_0/probe31 [get_nets [list dma3_i/simple_top_0_m_axi_inptr_ARVALID ]]
+create_debug_port u_ila_0 probe
+set_property port_width 1 [get_debug_ports u_ila_0/probe32]
+connect_debug_port u_ila_0/probe32 [get_nets [list dma3_i/simple_top_0_m_axi_inptr_AWREADY ]]
+create_debug_port u_ila_0 probe
+set_property port_width 1 [get_debug_ports u_ila_0/probe33]
+connect_debug_port u_ila_0/probe33 [get_nets [list dma3_i/simple_top_0_m_axi_inptr_AWVALID ]]
+create_debug_port u_ila_0 probe
+set_property port_width 1 [get_debug_ports u_ila_0/probe34]
+connect_debug_port u_ila_0/probe34 [get_nets [list dma3_i/simple_top_0_m_axi_inptr_BID ]]
+create_debug_port u_ila_0 probe
+set_property port_width 1 [get_debug_ports u_ila_0/probe35]
+connect_debug_port u_ila_0/probe35 [get_nets [list dma3_i/simple_top_0_m_axi_inptr_BVALID ]]
+create_debug_port u_ila_0 probe
+set_property port_width 1 [get_debug_ports u_ila_0/probe36]
+connect_debug_port u_ila_0/probe36 [get_nets [list dma3_i/simple_top_0_m_axi_inptr_RID ]]
+create_debug_port u_ila_0 probe
+set_property port_width 1 [get_debug_ports u_ila_0/probe37]
+connect_debug_port u_ila_0/probe37 [get_nets [list dma3_i/simple_top_0_m_axi_inptr_RLAST ]]
+create_debug_port u_ila_0 probe
+set_property port_width 1 [get_debug_ports u_ila_0/probe38]
+connect_debug_port u_ila_0/probe38 [get_nets [list dma3_i/simple_top_0_m_axi_inptr_RREADY ]]
+create_debug_port u_ila_0 probe
+set_property port_width 1 [get_debug_ports u_ila_0/probe39]
+connect_debug_port u_ila_0/probe39 [get_nets [list dma3_i/simple_top_0_m_axi_inptr_RVALID ]]
+create_debug_port u_ila_0 probe
+set_property port_width 1 [get_debug_ports u_ila_0/probe40]
+connect_debug_port u_ila_0/probe40 [get_nets [list dma3_i/simple_top_0_m_axi_inptr_WLAST ]]
+create_debug_port u_ila_0 probe
+set_property port_width 1 [get_debug_ports u_ila_0/probe41]
+connect_debug_port u_ila_0/probe41 [get_nets [list dma3_i/simple_top_0_m_axi_inptr_WREADY ]]
+create_debug_port u_ila_0 probe
+set_property port_width 1 [get_debug_ports u_ila_0/probe42]
+connect_debug_port u_ila_0/probe42 [get_nets [list dma3_i/simple_top_0_m_axi_inptr_WVALID ]]
+save_constraints -force
+INFO: [Vivado 12-3490] The target constraint file will be updated. Since the file was included by the synthesis run, this run will be marked out-of-date. If this is not desired, the run can be forced up-to-date. Also, the USED_IN_SYNTHESIS property can be set to false if synthesis run should not depend on the target constraint file.
+INFO: [Project 1-239] Creating target file '/home/raghu/work/projects/dma3/dma3.srcs/constrs_1/new/dma3_wrapper.xdc' for the 'constrs_1' constraints set.
+INFO: [Project 1-96] Target constrs file set to '/home/raghu/work/projects/dma3/dma3.srcs/constrs_1/new/dma3_wrapper.xdc' for the 'constrs_1' constraints set.
+set_property needs_refresh false [get_runs synth_1]
+reset_run impl_1
+reset_run: Time (s): cpu = 00:00:08 ; elapsed = 00:00:07 . Memory (MB): peak = 5708.586 ; gain = 0.000
+launch_runs impl_1 -jobs 2
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+Writing XDEF routing.
+Writing XDEF routing logical nets.
+Writing XDEF routing special nets.
+Write XDEF Complete: Time (s): cpu = 00:00:00.24 ; elapsed = 00:00:00.99 . Memory (MB): peak = 5724.590 ; gain = 0.000
+[Mon Apr 21 17:33:03 2014] Launched impl_1...
+Run output will be captured here: /home/raghu/work/projects/dma3/dma3.runs/impl_1/runme.log
+launch_runs: Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 5730.598 ; gain = 22.012
+open_bd_design {/home/raghu/work/projects/dma3/dma3.srcs/sources_1/bd/dma3/dma3.bd}
+delete_bd_objs [get_bd_cells ila_0]
+save_bd_design
+Wrote  : </home/raghu/work/projects/dma3/dma3.srcs/sources_1/bd/dma3/dma3.bd> 
+reset_run synth_1
+reset_run: Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 5733.605 ; gain = 0.000
+launch_runs synth_1 -jobs 2
+WARNING: [BD 41-237] Bus Interface property BUSER_WIDTH does not match between /axi_mem_intercon/s00_couplers/auto_pc/S_AXI(0) and /simple_top_0/M_AXI_INPTR(1)
+WARNING: [BD 41-237] Bus Interface property BUSER_WIDTH does not match between /axi_mem_intercon_1/s00_couplers/auto_pc/S_AXI(0) and /simple_top_0/M_AXI_OUTPTR(1)
+INFO: [BD 41-237] Bus Interface property NUM_READ_OUTSTANDING does not match between /simple_top_0/S_AXI_CONTROL(1) and /processing_system7_0_axi_periph/s00_couplers/auto_pc/M_AXI(8)
+INFO: [BD 41-237] Bus Interface property NUM_WRITE_OUTSTANDING does not match between /simple_top_0/S_AXI_CONTROL(1) and /processing_system7_0_axi_periph/s00_couplers/auto_pc/M_AXI(8)
+INFO: [BD 41-237] Bus Interface property NUM_WRITE_OUTSTANDING does not match between /processing_system7_0/S_AXI_HP0(8) and /axi_mem_intercon/s00_couplers/auto_pc/M_AXI(1)
+INFO: [BD 41-237] Bus Interface property NUM_READ_OUTSTANDING does not match between /processing_system7_0/S_AXI_HP0(8) and /axi_mem_intercon/s00_couplers/auto_pc/M_AXI(1)
+INFO: [BD 41-237] Bus Interface property ID_WIDTH does not match between /processing_system7_0/S_AXI_HP0(6) and /axi_mem_intercon/s00_couplers/auto_pc/M_AXI(1)
+WARNING: [BD 41-237] Bus Interface property AWUSER_WIDTH does not match between /processing_system7_0/S_AXI_HP0(0) and /axi_mem_intercon/s00_couplers/auto_pc/M_AXI(1)
+WARNING: [BD 41-237] Bus Interface property ARUSER_WIDTH does not match between /processing_system7_0/S_AXI_HP0(0) and /axi_mem_intercon/s00_couplers/auto_pc/M_AXI(1)
+WARNING: [BD 41-237] Bus Interface property WUSER_WIDTH does not match between /processing_system7_0/S_AXI_HP0(0) and /axi_mem_intercon/s00_couplers/auto_pc/M_AXI(1)
+WARNING: [BD 41-237] Bus Interface property RUSER_WIDTH does not match between /processing_system7_0/S_AXI_HP0(0) and /axi_mem_intercon/s00_couplers/auto_pc/M_AXI(1)
+INFO: [BD 41-237] Bus Interface property NUM_WRITE_OUTSTANDING does not match between /processing_system7_0/S_AXI_HP2(8) and /axi_mem_intercon_1/s00_couplers/auto_pc/M_AXI(1)
+INFO: [BD 41-237] Bus Interface property NUM_READ_OUTSTANDING does not match between /processing_system7_0/S_AXI_HP2(8) and /axi_mem_intercon_1/s00_couplers/auto_pc/M_AXI(1)
+INFO: [BD 41-237] Bus Interface property ID_WIDTH does not match between /processing_system7_0/S_AXI_HP2(6) and /axi_mem_intercon_1/s00_couplers/auto_pc/M_AXI(1)
+WARNING: [BD 41-237] Bus Interface property AWUSER_WIDTH does not match between /processing_system7_0/S_AXI_HP2(0) and /axi_mem_intercon_1/s00_couplers/auto_pc/M_AXI(1)
+WARNING: [BD 41-237] Bus Interface property ARUSER_WIDTH does not match between /processing_system7_0/S_AXI_HP2(0) and /axi_mem_intercon_1/s00_couplers/auto_pc/M_AXI(1)
+WARNING: [BD 41-237] Bus Interface property WUSER_WIDTH does not match between /processing_system7_0/S_AXI_HP2(0) and /axi_mem_intercon_1/s00_couplers/auto_pc/M_AXI(1)
+WARNING: [BD 41-237] Bus Interface property RUSER_WIDTH does not match between /processing_system7_0/S_AXI_HP2(0) and /axi_mem_intercon_1/s00_couplers/auto_pc/M_AXI(1)
+CRITICAL WARNING: [BD 41-759] The input pins (listed below) are either not connected or do not have a source port, and they don't have a tie-off specified. 
+Please check your design and connect them if needed: 
+/simple_top_0/m_axi_inPtr_BUSER
+/simple_top_0/m_axi_outPtr_BUSER
+
+WARNING: [BD 41-235] Width mismatch when connecting pin: '/axi_mem_intercon/S00_AXI_awlock'(1) to net 'simple_top_0_m_axi_inptr_AWLOCK'(2) - Only lower order bits will be connected.
+WARNING: [BD 41-235] Width mismatch when connecting pin: '/axi_mem_intercon/S00_AXI_arlock'(1) to net 'simple_top_0_m_axi_inptr_ARLOCK'(2) - Only lower order bits will be connected.
+WARNING: [BD 41-235] Width mismatch when connecting pin: '/processing_system7_0/S_AXI_HP0_ARID'(6) to net 'axi_mem_intercon_m00_axi_ARID'(1) - Only lower order bits will be connected.
+WARNING: [BD 41-235] Width mismatch when connecting pin: '/processing_system7_0/S_AXI_HP0_WID'(6) to net 'axi_mem_intercon_m00_axi_WID'(1) - Only lower order bits will be connected.
+WARNING: [BD 41-235] Width mismatch when connecting pin: '/axi_mem_intercon/M00_AXI_bid'(1) to net 'axi_mem_intercon_m00_axi_BID'(6) - Only lower order bits will be connected.
+WARNING: [BD 41-235] Width mismatch when connecting pin: '/processing_system7_0/S_AXI_HP0_AWID'(6) to net 'axi_mem_intercon_m00_axi_AWID'(1) - Only lower order bits will be connected.
+WARNING: [BD 41-235] Width mismatch when connecting pin: '/axi_mem_intercon/M00_AXI_rid'(1) to net 'axi_mem_intercon_m00_axi_RID'(6) - Only lower order bits will be connected.
+WARNING: [BD 41-235] Width mismatch when connecting pin: '/axi_mem_intercon_1/S00_AXI_awlock'(1) to net 'simple_top_0_m_axi_outptr_AWLOCK'(2) - Only lower order bits will be connected.
+WARNING: [BD 41-235] Width mismatch when connecting pin: '/axi_mem_intercon_1/S00_AXI_arlock'(1) to net 'simple_top_0_m_axi_outptr_ARLOCK'(2) - Only lower order bits will be connected.
+WARNING: [BD 41-235] Width mismatch when connecting pin: '/processing_system7_0/S_AXI_HP2_ARID'(6) to net 'axi_mem_intercon_1_m00_axi_ARID'(1) - Only lower order bits will be connected.
+WARNING: [BD 41-235] Width mismatch when connecting pin: '/processing_system7_0/S_AXI_HP2_WID'(6) to net 'axi_mem_intercon_1_m00_axi_WID'(1) - Only lower order bits will be connected.
+WARNING: [BD 41-235] Width mismatch when connecting pin: '/axi_mem_intercon_1/M00_AXI_bid'(1) to net 'axi_mem_intercon_1_m00_axi_BID'(6) - Only lower order bits will be connected.
+WARNING: [BD 41-235] Width mismatch when connecting pin: '/processing_system7_0/S_AXI_HP2_AWID'(6) to net 'axi_mem_intercon_1_m00_axi_AWID'(1) - Only lower order bits will be connected.
+WARNING: [BD 41-235] Width mismatch when connecting pin: '/axi_mem_intercon_1/M00_AXI_rid'(1) to net 'axi_mem_intercon_1_m00_axi_RID'(6) - Only lower order bits will be connected.
+Verilog Output written to : dma3.v
+Verilog Output written to : dma3_wrapper.v
+Wrote  : </home/raghu/work/projects/dma3/dma3.srcs/sources_1/bd/dma3/dma3.bd> 
+INFO: [IP_Flow 19-1706] Not generating up to date 'Synthesis' target for IP 'dma3_processing_system7_0_0'.
+INFO: [BD 41-1029] Generation completed for the IP Integrator block /processing_system7_0 .
+INFO: [IP_Flow 19-1706] Not generating up to date 'Synthesis' target for IP 'dma3_simple_top_0_0'.
+INFO: [BD 41-1029] Generation completed for the IP Integrator block /simple_top_0 .
+INFO: [IP_Flow 19-1706] Not generating up to date 'Synthesis' target for IP 'dma3_proc_sys_reset_1'.
+INFO: [IP_Flow 19-1706] Not generating up to date 'Implementation' target for IP 'dma3_proc_sys_reset_1'.
+INFO: [BD 41-1029] Generation completed for the IP Integrator block /proc_sys_reset .
+Delivering 'Verilog Synthesis' files for IP 'dma3_auto_pc_18'.
+INFO: [IP_Flow 19-616] The current project language is set to Verilog. However the IP definition 'xilinx.com:ip:fifo_generator:11.0' does not support 'Verilog Synthesis' output products, delivering 'VHDL Synthesis' output products instead.
+INFO: [IP_Flow 19-616] The current project language is set to Verilog. However the IP definition 'xilinx.com:ip:blk_mem_gen:8.0' does not support 'Verilog Synthesis' output products, delivering 'VHDL Synthesis' output products instead.
+INFO: [BD 41-1029] Generation completed for the IP Integrator block /processing_system7_0_axi_periph/s00_couplers/auto_pc .
+Delivering 'Verilog Synthesis' files for IP 'dma3_auto_pc_19'.
+INFO: [IP_Flow 19-616] The current project language is set to Verilog. However the IP definition 'xilinx.com:ip:fifo_generator:11.0' does not support 'Verilog Synthesis' output products, delivering 'VHDL Synthesis' output products instead.
+INFO: [IP_Flow 19-616] The current project language is set to Verilog. However the IP definition 'xilinx.com:ip:blk_mem_gen:8.0' does not support 'Verilog Synthesis' output products, delivering 'VHDL Synthesis' output products instead.
+INFO: [BD 41-1029] Generation completed for the IP Integrator block /axi_mem_intercon/s00_couplers/auto_pc .
+Delivering 'Verilog Synthesis' files for IP 'dma3_auto_pc_20'.
+INFO: [IP_Flow 19-616] The current project language is set to Verilog. However the IP definition 'xilinx.com:ip:fifo_generator:11.0' does not support 'Verilog Synthesis' output products, delivering 'VHDL Synthesis' output products instead.
+INFO: [IP_Flow 19-616] The current project language is set to Verilog. However the IP definition 'xilinx.com:ip:blk_mem_gen:8.0' does not support 'Verilog Synthesis' output products, delivering 'VHDL Synthesis' output products instead.
+INFO: [BD 41-1029] Generation completed for the IP Integrator block /axi_mem_intercon_1/s00_couplers/auto_pc .
+INFO: [BD 41-539] Not generating up to date 'Implementation' target for block design dma3
+INFO: [BD 41-1029] Generation completed for the IP Integrator block /processing_system7_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block /simple_top_0 .
+INFO: [IP_Flow 19-1706] Not generating up to date 'Implementation' target for IP 'dma3_proc_sys_reset_1'.
+INFO: [BD 41-1029] Generation completed for the IP Integrator block /proc_sys_reset .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block /processing_system7_0_axi_periph/s00_couplers/auto_pc .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block /axi_mem_intercon/s00_couplers/auto_pc .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block /axi_mem_intercon_1/s00_couplers/auto_pc .
+[Mon Apr 21 17:44:39 2014] Launched synth_1...
+Run output will be captured here: /home/raghu/work/projects/dma3/dma3.runs/synth_1/runme.log
+launch_runs: Time (s): cpu = 00:00:33 ; elapsed = 00:00:49 . Memory (MB): peak = 5733.605 ; gain = 0.000
+close_design
+close_design: Time (s): cpu = 00:00:03 ; elapsed = 00:00:15 . Memory (MB): peak = 5733.605 ; gain = 0.000
+open_run synth_1 -name netlist_1
+Design is defaulting to impl run constrset: constrs_1
+Design is defaulting to synth run part: xc7z045ffg900-2
+INFO: [Netlist 29-17] Analyzing 7 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2013.3
+INFO: [Opt 31-140] Inserted 0 IBUFs to IO ports without IO buffers.
+INFO: [Opt 31-141] Inserted 0 OBUFs to IO ports without IO buffers.
+INFO: [Opt 31-138] Pushed 0 inverter(s).
+Parsing XDC File [/home/raghu/work/projects/dma3/dma3.srcs/sources_1/bd/dma3/ip/dma3_processing_system7_0_0/dma3_processing_system7_0_0.xdc] for cell 'dma3_i/processing_system7_0/inst'
+Finished Parsing XDC File [/home/raghu/work/projects/dma3/dma3.srcs/sources_1/bd/dma3/ip/dma3_processing_system7_0_0/dma3_processing_system7_0_0.xdc] for cell 'dma3_i/processing_system7_0/inst'
+Parsing XDC File [/home/raghu/work/projects/dma3/dma3.srcs/sources_1/bd/dma3/ip/dma3_proc_sys_reset_1/dma3_proc_sys_reset_1_board.xdc] for cell 'dma3_i/proc_sys_reset/U0'
+Finished Parsing XDC File [/home/raghu/work/projects/dma3/dma3.srcs/sources_1/bd/dma3/ip/dma3_proc_sys_reset_1/dma3_proc_sys_reset_1_board.xdc] for cell 'dma3_i/proc_sys_reset/U0'
+Parsing XDC File [/home/raghu/work/projects/dma3/dma3.srcs/sources_1/bd/dma3/ip/dma3_proc_sys_reset_1/dma3_proc_sys_reset_1.xdc] for cell 'dma3_i/proc_sys_reset/U0'
+INFO: [Vivado 12-1399] There are no top level ports directly connected to pins of cell 'dma3_i/proc_sys_reset/U0', returning the pins matched for query '[get_ports ext_reset_in]' of cell 'dma3_i/proc_sys_reset/U0'. [/home/raghu/work/projects/dma3/dma3.srcs/sources_1/bd/dma3/ip/dma3_proc_sys_reset_1/dma3_proc_sys_reset_1.xdc:55]
+Resolution: The get_ports call is being converted to a get_pins call as there is no direct connection to a top level port. This could be due to the insertion of IO Buffers between the top level terminal and cell pin. If the goal is to apply constraints that will migrate to top level ports it is required that IO Buffers manually be instanced.
+Finished Parsing XDC File [/home/raghu/work/projects/dma3/dma3.srcs/sources_1/bd/dma3/ip/dma3_proc_sys_reset_1/dma3_proc_sys_reset_1.xdc] for cell 'dma3_i/proc_sys_reset/U0'
+Parsing XDC File [/home/raghu/work/projects/dma3/dma3.srcs/constrs_1/new/dma3_wrapper.xdc]
+Finished Parsing XDC File [/home/raghu/work/projects/dma3/dma3.srcs/constrs_1/new/dma3_wrapper.xdc]
+INFO: [Memdata 28-143] Successfully populated the BRAM INIT strings from the following elf files: 
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 6 instances were transformed.
+  RAM32M => RAM32M (RAMD32, RAMD32, RAMD32, RAMD32, RAMD32, RAMD32, RAMS32, RAMS32): 4 instances
+  RAM32X1D => RAM32X1D (RAMD32, RAMD32): 2 instances
+
+open_run: Time (s): cpu = 00:00:16 ; elapsed = 00:00:17 . Memory (MB): peak = 5771.395 ; gain = 37.789
+implement_debug_core
+INFO: [Common 17-78] Attempting to get a license: Analyzer
+INFO: [Common 17-81] Feature available: Analyzer
+INFO: [Chipscope 16-98] Generating IP xilinx.com:ip:labtools_xsdb_master_lib:2.0 for dbg_hub_CV.
+INFO: [Chipscope 16-132] Adding additional IP repository paths from:
+	/home/raghu/work/projects/dma3/hls/simple_top/solution1/impl
+INFO: [Chipscope 16-78] labtools_xsdbmasterlib_v2 netlist file is './.Xil/Vivado-5231-raghu-office/dbg_hub_CV_1/dbg_hub_CV_0.edn'.
+Parsing EDIF File [./.Xil/Vivado-5231-raghu-office/dbg_hub_CV_1/dbg_hub_CV_0.edn]
+Finished Parsing EDIF File [./.Xil/Vivado-5231-raghu-office/dbg_hub_CV_1/dbg_hub_CV_0.edn]
+INFO: [Netlist 29-17] Analyzing 6 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+Replacing black box 'dbg_hub' with implemented instance
+INFO: [Chipscope 16-98] Generating IP xilinx.com:ip:ila:3.0 for u_ila_0_CV.
+INFO: [Chipscope 16-132] Adding additional IP repository paths from:
+	/home/raghu/work/projects/dma3/hls/simple_top/solution1/impl
+INFO: [Chipscope 16-78] labtools_ila_v3 netlist file is './.Xil/Vivado-5231-raghu-office/u_ila_0_CV_2/u_ila_0_CV_1.edn'.
+Parsing EDIF File [./.Xil/Vivado-5231-raghu-office/u_ila_0_CV_2/u_ila_0_CV_1.edn]
+Finished Parsing EDIF File [./.Xil/Vivado-5231-raghu-office/u_ila_0_CV_2/u_ila_0_CV_1.edn]
+INFO: [Netlist 29-17] Analyzing 645 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+Replacing black box 'u_ila_0' with implemented instance
+WARNING: [Constraints 18-549] Could not create 'IBUF_LOW_PWR' constraint because cell 'u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/xsdb_interface_buffers_inst/SL_IPORT_IBUF[0].temp_buf' is not directly connected to top level port. 'IBUF_LOW_PWR' is ignored by Vivado but preserved inside the database. [./.Xil/Vivado-5231-raghu-office/u_ila_0_CV_2/u_ila_0_CV_1.edn:310]
+WARNING: [Constraints 18-549] Could not create 'IBUF_LOW_PWR' constraint because cell 'u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/xsdb_interface_buffers_inst/SL_IPORT_IBUF[1].temp_buf' is not directly connected to top level port. 'IBUF_LOW_PWR' is ignored by Vivado but preserved inside the database. [./.Xil/Vivado-5231-raghu-office/u_ila_0_CV_2/u_ila_0_CV_1.edn:319]
+WARNING: [Constraints 18-549] Could not create 'IBUF_LOW_PWR' constraint because cell 'u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/xsdb_interface_buffers_inst/SL_IPORT_IBUF[2].temp_buf' is not directly connected to top level port. 'IBUF_LOW_PWR' is ignored by Vivado but preserved inside the database. [./.Xil/Vivado-5231-raghu-office/u_ila_0_CV_2/u_ila_0_CV_1.edn:328]
+WARNING: [Constraints 18-549] Could not create 'IBUF_LOW_PWR' constraint because cell 'u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/xsdb_interface_buffers_inst/SL_IPORT_IBUF[3].temp_buf' is not directly connected to top level port. 'IBUF_LOW_PWR' is ignored by Vivado but preserved inside the database. [./.Xil/Vivado-5231-raghu-office/u_ila_0_CV_2/u_ila_0_CV_1.edn:337]
+WARNING: [Constraints 18-549] Could not create 'IBUF_LOW_PWR' constraint because cell 'u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/xsdb_interface_buffers_inst/SL_IPORT_IBUF[4].temp_buf' is not directly connected to top level port. 'IBUF_LOW_PWR' is ignored by Vivado but preserved inside the database. [./.Xil/Vivado-5231-raghu-office/u_ila_0_CV_2/u_ila_0_CV_1.edn:346]
+WARNING: [Constraints 18-549] Could not create 'IBUF_LOW_PWR' constraint because cell 'u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/xsdb_interface_buffers_inst/SL_IPORT_IBUF[5].temp_buf' is not directly connected to top level port. 'IBUF_LOW_PWR' is ignored by Vivado but preserved inside the database. [./.Xil/Vivado-5231-raghu-office/u_ila_0_CV_2/u_ila_0_CV_1.edn:355]
+WARNING: [Constraints 18-549] Could not create 'IBUF_LOW_PWR' constraint because cell 'u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/xsdb_interface_buffers_inst/SL_IPORT_IBUF[6].temp_buf' is not directly connected to top level port. 'IBUF_LOW_PWR' is ignored by Vivado but preserved inside the database. [./.Xil/Vivado-5231-raghu-office/u_ila_0_CV_2/u_ila_0_CV_1.edn:364]
+WARNING: [Constraints 18-549] Could not create 'IBUF_LOW_PWR' constraint because cell 'u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/xsdb_interface_buffers_inst/SL_IPORT_IBUF[7].temp_buf' is not directly connected to top level port. 'IBUF_LOW_PWR' is ignored by Vivado but preserved inside the database. [./.Xil/Vivado-5231-raghu-office/u_ila_0_CV_2/u_ila_0_CV_1.edn:373]
+WARNING: [Constraints 18-549] Could not create 'IBUF_LOW_PWR' constraint because cell 'u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/xsdb_interface_buffers_inst/SL_IPORT_IBUF[8].temp_buf' is not directly connected to top level port. 'IBUF_LOW_PWR' is ignored by Vivado but preserved inside the database. [./.Xil/Vivado-5231-raghu-office/u_ila_0_CV_2/u_ila_0_CV_1.edn:382]
+WARNING: [Constraints 18-549] Could not create 'IBUF_LOW_PWR' constraint because cell 'u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/xsdb_interface_buffers_inst/SL_IPORT_IBUF[9].temp_buf' is not directly connected to top level port. 'IBUF_LOW_PWR' is ignored by Vivado but preserved inside the database. [./.Xil/Vivado-5231-raghu-office/u_ila_0_CV_2/u_ila_0_CV_1.edn:391]
+WARNING: [Constraints 18-549] Could not create 'IBUF_LOW_PWR' constraint because cell 'u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/xsdb_interface_buffers_inst/SL_IPORT_IBUF[10].temp_buf' is not directly connected to top level port. 'IBUF_LOW_PWR' is ignored by Vivado but preserved inside the database. [./.Xil/Vivado-5231-raghu-office/u_ila_0_CV_2/u_ila_0_CV_1.edn:400]
+WARNING: [Constraints 18-549] Could not create 'IBUF_LOW_PWR' constraint because cell 'u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/xsdb_interface_buffers_inst/SL_IPORT_IBUF[11].temp_buf' is not directly connected to top level port. 'IBUF_LOW_PWR' is ignored by Vivado but preserved inside the database. [./.Xil/Vivado-5231-raghu-office/u_ila_0_CV_2/u_ila_0_CV_1.edn:409]
+WARNING: [Constraints 18-549] Could not create 'IBUF_LOW_PWR' constraint because cell 'u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/xsdb_interface_buffers_inst/SL_IPORT_IBUF[12].temp_buf' is not directly connected to top level port. 'IBUF_LOW_PWR' is ignored by Vivado but preserved inside the database. [./.Xil/Vivado-5231-raghu-office/u_ila_0_CV_2/u_ila_0_CV_1.edn:418]
+WARNING: [Constraints 18-549] Could not create 'IBUF_LOW_PWR' constraint because cell 'u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/xsdb_interface_buffers_inst/SL_IPORT_IBUF[13].temp_buf' is not directly connected to top level port. 'IBUF_LOW_PWR' is ignored by Vivado but preserved inside the database. [./.Xil/Vivado-5231-raghu-office/u_ila_0_CV_2/u_ila_0_CV_1.edn:427]
+WARNING: [Constraints 18-549] Could not create 'IBUF_LOW_PWR' constraint because cell 'u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/xsdb_interface_buffers_inst/SL_IPORT_IBUF[14].temp_buf' is not directly connected to top level port. 'IBUF_LOW_PWR' is ignored by Vivado but preserved inside the database. [./.Xil/Vivado-5231-raghu-office/u_ila_0_CV_2/u_ila_0_CV_1.edn:436]
+WARNING: [Constraints 18-549] Could not create 'IBUF_LOW_PWR' constraint because cell 'u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/xsdb_interface_buffers_inst/SL_IPORT_IBUF[15].temp_buf' is not directly connected to top level port. 'IBUF_LOW_PWR' is ignored by Vivado but preserved inside the database. [./.Xil/Vivado-5231-raghu-office/u_ila_0_CV_2/u_ila_0_CV_1.edn:445]
+WARNING: [Constraints 18-549] Could not create 'IBUF_LOW_PWR' constraint because cell 'u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/xsdb_interface_buffers_inst/SL_IPORT_IBUF[16].temp_buf' is not directly connected to top level port. 'IBUF_LOW_PWR' is ignored by Vivado but preserved inside the database. [./.Xil/Vivado-5231-raghu-office/u_ila_0_CV_2/u_ila_0_CV_1.edn:454]
+WARNING: [Constraints 18-549] Could not create 'IBUF_LOW_PWR' constraint because cell 'u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/xsdb_interface_buffers_inst/SL_IPORT_IBUF[17].temp_buf' is not directly connected to top level port. 'IBUF_LOW_PWR' is ignored by Vivado but preserved inside the database. [./.Xil/Vivado-5231-raghu-office/u_ila_0_CV_2/u_ila_0_CV_1.edn:463]
+WARNING: [Constraints 18-549] Could not create 'IBUF_LOW_PWR' constraint because cell 'u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/xsdb_interface_buffers_inst/SL_IPORT_IBUF[18].temp_buf' is not directly connected to top level port. 'IBUF_LOW_PWR' is ignored by Vivado but preserved inside the database. [./.Xil/Vivado-5231-raghu-office/u_ila_0_CV_2/u_ila_0_CV_1.edn:472]
+WARNING: [Constraints 18-549] Could not create 'IBUF_LOW_PWR' constraint because cell 'u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/xsdb_interface_buffers_inst/SL_IPORT_IBUF[19].temp_buf' is not directly connected to top level port. 'IBUF_LOW_PWR' is ignored by Vivado but preserved inside the database. [./.Xil/Vivado-5231-raghu-office/u_ila_0_CV_2/u_ila_0_CV_1.edn:481]
+WARNING: [Constraints 18-549] Could not create 'IBUF_LOW_PWR' constraint because cell 'u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/xsdb_interface_buffers_inst/SL_IPORT_IBUF[20].temp_buf' is not directly connected to top level port. 'IBUF_LOW_PWR' is ignored by Vivado but preserved inside the database. [./.Xil/Vivado-5231-raghu-office/u_ila_0_CV_2/u_ila_0_CV_1.edn:490]
+WARNING: [Constraints 18-549] Could not create 'IBUF_LOW_PWR' constraint because cell 'u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/xsdb_interface_buffers_inst/SL_IPORT_IBUF[21].temp_buf' is not directly connected to top level port. 'IBUF_LOW_PWR' is ignored by Vivado but preserved inside the database. [./.Xil/Vivado-5231-raghu-office/u_ila_0_CV_2/u_ila_0_CV_1.edn:499]
+WARNING: [Constraints 18-549] Could not create 'IBUF_LOW_PWR' constraint because cell 'u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/xsdb_interface_buffers_inst/SL_IPORT_IBUF[22].temp_buf' is not directly connected to top level port. 'IBUF_LOW_PWR' is ignored by Vivado but preserved inside the database. [./.Xil/Vivado-5231-raghu-office/u_ila_0_CV_2/u_ila_0_CV_1.edn:508]
+WARNING: [Constraints 18-549] Could not create 'IBUF_LOW_PWR' constraint because cell 'u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/xsdb_interface_buffers_inst/SL_IPORT_IBUF[23].temp_buf' is not directly connected to top level port. 'IBUF_LOW_PWR' is ignored by Vivado but preserved inside the database. [./.Xil/Vivado-5231-raghu-office/u_ila_0_CV_2/u_ila_0_CV_1.edn:517]
+WARNING: [Constraints 18-549] Could not create 'IBUF_LOW_PWR' constraint because cell 'u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/xsdb_interface_buffers_inst/SL_IPORT_IBUF[24].temp_buf' is not directly connected to top level port. 'IBUF_LOW_PWR' is ignored by Vivado but preserved inside the database. [./.Xil/Vivado-5231-raghu-office/u_ila_0_CV_2/u_ila_0_CV_1.edn:526]
+WARNING: [Constraints 18-549] Could not create 'IBUF_LOW_PWR' constraint because cell 'u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/xsdb_interface_buffers_inst/SL_IPORT_IBUF[25].temp_buf' is not directly connected to top level port. 'IBUF_LOW_PWR' is ignored by Vivado but preserved inside the database. [./.Xil/Vivado-5231-raghu-office/u_ila_0_CV_2/u_ila_0_CV_1.edn:535]
+WARNING: [Constraints 18-549] Could not create 'IBUF_LOW_PWR' constraint because cell 'u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/xsdb_interface_buffers_inst/SL_IPORT_IBUF[26].temp_buf' is not directly connected to top level port. 'IBUF_LOW_PWR' is ignored by Vivado but preserved inside the database. [./.Xil/Vivado-5231-raghu-office/u_ila_0_CV_2/u_ila_0_CV_1.edn:544]
+WARNING: [Constraints 18-549] Could not create 'IBUF_LOW_PWR' constraint because cell 'u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/xsdb_interface_buffers_inst/SL_IPORT_IBUF[27].temp_buf' is not directly connected to top level port. 'IBUF_LOW_PWR' is ignored by Vivado but preserved inside the database. [./.Xil/Vivado-5231-raghu-office/u_ila_0_CV_2/u_ila_0_CV_1.edn:553]
+WARNING: [Constraints 18-549] Could not create 'IBUF_LOW_PWR' constraint because cell 'u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/xsdb_interface_buffers_inst/SL_IPORT_IBUF[28].temp_buf' is not directly connected to top level port. 'IBUF_LOW_PWR' is ignored by Vivado but preserved inside the database. [./.Xil/Vivado-5231-raghu-office/u_ila_0_CV_2/u_ila_0_CV_1.edn:562]
+WARNING: [Constraints 18-549] Could not create 'IBUF_LOW_PWR' constraint because cell 'u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/xsdb_interface_buffers_inst/SL_IPORT_IBUF[29].temp_buf' is not directly connected to top level port. 'IBUF_LOW_PWR' is ignored by Vivado but preserved inside the database. [./.Xil/Vivado-5231-raghu-office/u_ila_0_CV_2/u_ila_0_CV_1.edn:571]
+WARNING: [Constraints 18-549] Could not create 'IBUF_LOW_PWR' constraint because cell 'u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/xsdb_interface_buffers_inst/SL_IPORT_IBUF[30].temp_buf' is not directly connected to top level port. 'IBUF_LOW_PWR' is ignored by Vivado but preserved inside the database. [./.Xil/Vivado-5231-raghu-office/u_ila_0_CV_2/u_ila_0_CV_1.edn:580]
+WARNING: [Constraints 18-549] Could not create 'IBUF_LOW_PWR' constraint because cell 'u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/xsdb_interface_buffers_inst/SL_IPORT_IBUF[31].temp_buf' is not directly connected to top level port. 'IBUF_LOW_PWR' is ignored by Vivado but preserved inside the database. [./.Xil/Vivado-5231-raghu-office/u_ila_0_CV_2/u_ila_0_CV_1.edn:589]
+WARNING: [Constraints 18-549] Could not create 'IBUF_LOW_PWR' constraint because cell 'u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/xsdb_interface_buffers_inst/SL_IPORT_IBUF[32].temp_buf' is not directly connected to top level port. 'IBUF_LOW_PWR' is ignored by Vivado but preserved inside the database. [./.Xil/Vivado-5231-raghu-office/u_ila_0_CV_2/u_ila_0_CV_1.edn:598]
+WARNING: [Constraints 18-549] Could not create 'IBUF_LOW_PWR' constraint because cell 'u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/xsdb_interface_buffers_inst/SL_IPORT_IBUF[33].temp_buf' is not directly connected to top level port. 'IBUF_LOW_PWR' is ignored by Vivado but preserved inside the database. [./.Xil/Vivado-5231-raghu-office/u_ila_0_CV_2/u_ila_0_CV_1.edn:607]
+WARNING: [Constraints 18-549] Could not create 'IBUF_LOW_PWR' constraint because cell 'u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/xsdb_interface_buffers_inst/SL_IPORT_IBUF[34].temp_buf' is not directly connected to top level port. 'IBUF_LOW_PWR' is ignored by Vivado but preserved inside the database. [./.Xil/Vivado-5231-raghu-office/u_ila_0_CV_2/u_ila_0_CV_1.edn:616]
+WARNING: [Constraints 18-549] Could not create 'IBUF_LOW_PWR' constraint because cell 'u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/xsdb_interface_buffers_inst/SL_IPORT_IBUF[35].temp_buf' is not directly connected to top level port. 'IBUF_LOW_PWR' is ignored by Vivado but preserved inside the database. [./.Xil/Vivado-5231-raghu-office/u_ila_0_CV_2/u_ila_0_CV_1.edn:625]
+WARNING: [Constraints 18-549] Could not create 'IBUF_LOW_PWR' constraint because cell 'u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/xsdb_interface_buffers_inst/SL_IPORT_IBUF[36].temp_buf' is not directly connected to top level port. 'IBUF_LOW_PWR' is ignored by Vivado but preserved inside the database. [./.Xil/Vivado-5231-raghu-office/u_ila_0_CV_2/u_ila_0_CV_1.edn:634]
+WARNING: [Constraints 18-549] Could not create 'DRIVE' constraint because cell 'u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/xsdb_interface_buffers_inst/SL_OPORT_OBUF[0].temp_buf' is not directly connected to top level port. 'DRIVE' is ignored by Vivado but preserved inside the database. [./.Xil/Vivado-5231-raghu-office/u_ila_0_CV_2/u_ila_0_CV_1.edn:642]
+WARNING: [Constraints 18-549] Could not create 'SLEW' constraint because cell 'u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/xsdb_interface_buffers_inst/SL_OPORT_OBUF[0].temp_buf' is not directly connected to top level port. 'SLEW' is ignored by Vivado but preserved inside the database. [./.Xil/Vivado-5231-raghu-office/u_ila_0_CV_2/u_ila_0_CV_1.edn:644]
+WARNING: [Constraints 18-549] Could not create 'DRIVE' constraint because cell 'u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/xsdb_interface_buffers_inst/SL_OPORT_OBUF[1].temp_buf' is not directly connected to top level port. 'DRIVE' is ignored by Vivado but preserved inside the database. [./.Xil/Vivado-5231-raghu-office/u_ila_0_CV_2/u_ila_0_CV_1.edn:650]
+WARNING: [Constraints 18-549] Could not create 'SLEW' constraint because cell 'u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/xsdb_interface_buffers_inst/SL_OPORT_OBUF[1].temp_buf' is not directly connected to top level port. 'SLEW' is ignored by Vivado but preserved inside the database. [./.Xil/Vivado-5231-raghu-office/u_ila_0_CV_2/u_ila_0_CV_1.edn:652]
+WARNING: [Constraints 18-549] Could not create 'DRIVE' constraint because cell 'u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/xsdb_interface_buffers_inst/SL_OPORT_OBUF[2].temp_buf' is not directly connected to top level port. 'DRIVE' is ignored by Vivado but preserved inside the database. [./.Xil/Vivado-5231-raghu-office/u_ila_0_CV_2/u_ila_0_CV_1.edn:658]
+WARNING: [Constraints 18-549] Could not create 'SLEW' constraint because cell 'u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/xsdb_interface_buffers_inst/SL_OPORT_OBUF[2].temp_buf' is not directly connected to top level port. 'SLEW' is ignored by Vivado but preserved inside the database. [./.Xil/Vivado-5231-raghu-office/u_ila_0_CV_2/u_ila_0_CV_1.edn:660]
+WARNING: [Constraints 18-549] Could not create 'DRIVE' constraint because cell 'u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/xsdb_interface_buffers_inst/SL_OPORT_OBUF[3].temp_buf' is not directly connected to top level port. 'DRIVE' is ignored by Vivado but preserved inside the database. [./.Xil/Vivado-5231-raghu-office/u_ila_0_CV_2/u_ila_0_CV_1.edn:666]
+WARNING: [Constraints 18-549] Could not create 'SLEW' constraint because cell 'u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/xsdb_interface_buffers_inst/SL_OPORT_OBUF[3].temp_buf' is not directly connected to top level port. 'SLEW' is ignored by Vivado but preserved inside the database. [./.Xil/Vivado-5231-raghu-office/u_ila_0_CV_2/u_ila_0_CV_1.edn:668]
+WARNING: [Constraints 18-549] Could not create 'DRIVE' constraint because cell 'u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/xsdb_interface_buffers_inst/SL_OPORT_OBUF[4].temp_buf' is not directly connected to top level port. 'DRIVE' is ignored by Vivado but preserved inside the database. [./.Xil/Vivado-5231-raghu-office/u_ila_0_CV_2/u_ila_0_CV_1.edn:674]
+WARNING: [Constraints 18-549] Could not create 'SLEW' constraint because cell 'u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/xsdb_interface_buffers_inst/SL_OPORT_OBUF[4].temp_buf' is not directly connected to top level port. 'SLEW' is ignored by Vivado but preserved inside the database. [./.Xil/Vivado-5231-raghu-office/u_ila_0_CV_2/u_ila_0_CV_1.edn:676]
+WARNING: [Constraints 18-549] Could not create 'DRIVE' constraint because cell 'u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/xsdb_interface_buffers_inst/SL_OPORT_OBUF[5].temp_buf' is not directly connected to top level port. 'DRIVE' is ignored by Vivado but preserved inside the database. [./.Xil/Vivado-5231-raghu-office/u_ila_0_CV_2/u_ila_0_CV_1.edn:682]
+WARNING: [Constraints 18-549] Could not create 'SLEW' constraint because cell 'u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/xsdb_interface_buffers_inst/SL_OPORT_OBUF[5].temp_buf' is not directly connected to top level port. 'SLEW' is ignored by Vivado but preserved inside the database. [./.Xil/Vivado-5231-raghu-office/u_ila_0_CV_2/u_ila_0_CV_1.edn:684]
+WARNING: [Constraints 18-549] Could not create 'DRIVE' constraint because cell 'u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/xsdb_interface_buffers_inst/SL_OPORT_OBUF[6].temp_buf' is not directly connected to top level port. 'DRIVE' is ignored by Vivado but preserved inside the database. [./.Xil/Vivado-5231-raghu-office/u_ila_0_CV_2/u_ila_0_CV_1.edn:690]
+WARNING: [Constraints 18-549] Could not create 'SLEW' constraint because cell 'u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/xsdb_interface_buffers_inst/SL_OPORT_OBUF[6].temp_buf' is not directly connected to top level port. 'SLEW' is ignored by Vivado but preserved inside the database. [./.Xil/Vivado-5231-raghu-office/u_ila_0_CV_2/u_ila_0_CV_1.edn:692]
+WARNING: [Constraints 18-549] Could not create 'DRIVE' constraint because cell 'u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/xsdb_interface_buffers_inst/SL_OPORT_OBUF[7].temp_buf' is not directly connected to top level port. 'DRIVE' is ignored by Vivado but preserved inside the database. [./.Xil/Vivado-5231-raghu-office/u_ila_0_CV_2/u_ila_0_CV_1.edn:698]
+WARNING: [Constraints 18-549] Could not create 'SLEW' constraint because cell 'u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/xsdb_interface_buffers_inst/SL_OPORT_OBUF[7].temp_buf' is not directly connected to top level port. 'SLEW' is ignored by Vivado but preserved inside the database. [./.Xil/Vivado-5231-raghu-office/u_ila_0_CV_2/u_ila_0_CV_1.edn:700]
+WARNING: [Constraints 18-549] Could not create 'DRIVE' constraint because cell 'u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/xsdb_interface_buffers_inst/SL_OPORT_OBUF[8].temp_buf' is not directly connected to top level port. 'DRIVE' is ignored by Vivado but preserved inside the database. [./.Xil/Vivado-5231-raghu-office/u_ila_0_CV_2/u_ila_0_CV_1.edn:706]
+WARNING: [Constraints 18-549] Could not create 'SLEW' constraint because cell 'u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/xsdb_interface_buffers_inst/SL_OPORT_OBUF[8].temp_buf' is not directly connected to top level port. 'SLEW' is ignored by Vivado but preserved inside the database. [./.Xil/Vivado-5231-raghu-office/u_ila_0_CV_2/u_ila_0_CV_1.edn:708]
+WARNING: [Constraints 18-549] Could not create 'DRIVE' constraint because cell 'u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/xsdb_interface_buffers_inst/SL_OPORT_OBUF[9].temp_buf' is not directly connected to top level port. 'DRIVE' is ignored by Vivado but preserved inside the database. [./.Xil/Vivado-5231-raghu-office/u_ila_0_CV_2/u_ila_0_CV_1.edn:714]
+WARNING: [Constraints 18-549] Could not create 'SLEW' constraint because cell 'u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/xsdb_interface_buffers_inst/SL_OPORT_OBUF[9].temp_buf' is not directly connected to top level port. 'SLEW' is ignored by Vivado but preserved inside the database. [./.Xil/Vivado-5231-raghu-office/u_ila_0_CV_2/u_ila_0_CV_1.edn:716]
+WARNING: [Constraints 18-549] Could not create 'DRIVE' constraint because cell 'u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/xsdb_interface_buffers_inst/SL_OPORT_OBUF[10].temp_buf' is not directly connected to top level port. 'DRIVE' is ignored by Vivado but preserved inside the database. [./.Xil/Vivado-5231-raghu-office/u_ila_0_CV_2/u_ila_0_CV_1.edn:722]
+WARNING: [Constraints 18-549] Could not create 'SLEW' constraint because cell 'u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/xsdb_interface_buffers_inst/SL_OPORT_OBUF[10].temp_buf' is not directly connected to top level port. 'SLEW' is ignored by Vivado but preserved inside the database. [./.Xil/Vivado-5231-raghu-office/u_ila_0_CV_2/u_ila_0_CV_1.edn:724]
+WARNING: [Constraints 18-549] Could not create 'DRIVE' constraint because cell 'u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/xsdb_interface_buffers_inst/SL_OPORT_OBUF[11].temp_buf' is not directly connected to top level port. 'DRIVE' is ignored by Vivado but preserved inside the database. [./.Xil/Vivado-5231-raghu-office/u_ila_0_CV_2/u_ila_0_CV_1.edn:730]
+WARNING: [Constraints 18-549] Could not create 'SLEW' constraint because cell 'u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/xsdb_interface_buffers_inst/SL_OPORT_OBUF[11].temp_buf' is not directly connected to top level port. 'SLEW' is ignored by Vivado but preserved inside the database. [./.Xil/Vivado-5231-raghu-office/u_ila_0_CV_2/u_ila_0_CV_1.edn:732]
+WARNING: [Constraints 18-549] Could not create 'DRIVE' constraint because cell 'u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/xsdb_interface_buffers_inst/SL_OPORT_OBUF[12].temp_buf' is not directly connected to top level port. 'DRIVE' is ignored by Vivado but preserved inside the database. [./.Xil/Vivado-5231-raghu-office/u_ila_0_CV_2/u_ila_0_CV_1.edn:738]
+WARNING: [Constraints 18-549] Could not create 'SLEW' constraint because cell 'u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/xsdb_interface_buffers_inst/SL_OPORT_OBUF[12].temp_buf' is not directly connected to top level port. 'SLEW' is ignored by Vivado but preserved inside the database. [./.Xil/Vivado-5231-raghu-office/u_ila_0_CV_2/u_ila_0_CV_1.edn:740]
+WARNING: [Constraints 18-549] Could not create 'DRIVE' constraint because cell 'u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/xsdb_interface_buffers_inst/SL_OPORT_OBUF[13].temp_buf' is not directly connected to top level port. 'DRIVE' is ignored by Vivado but preserved inside the database. [./.Xil/Vivado-5231-raghu-office/u_ila_0_CV_2/u_ila_0_CV_1.edn:746]
+WARNING: [Constraints 18-549] Could not create 'SLEW' constraint because cell 'u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/xsdb_interface_buffers_inst/SL_OPORT_OBUF[13].temp_buf' is not directly connected to top level port. 'SLEW' is ignored by Vivado but preserved inside the database. [./.Xil/Vivado-5231-raghu-office/u_ila_0_CV_2/u_ila_0_CV_1.edn:748]
+WARNING: [Constraints 18-549] Could not create 'DRIVE' constraint because cell 'u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/xsdb_interface_buffers_inst/SL_OPORT_OBUF[14].temp_buf' is not directly connected to top level port. 'DRIVE' is ignored by Vivado but preserved inside the database. [./.Xil/Vivado-5231-raghu-office/u_ila_0_CV_2/u_ila_0_CV_1.edn:754]
+WARNING: [Constraints 18-549] Could not create 'SLEW' constraint because cell 'u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/xsdb_interface_buffers_inst/SL_OPORT_OBUF[14].temp_buf' is not directly connected to top level port. 'SLEW' is ignored by Vivado but preserved inside the database. [./.Xil/Vivado-5231-raghu-office/u_ila_0_CV_2/u_ila_0_CV_1.edn:756]
+WARNING: [Constraints 18-549] Could not create 'DRIVE' constraint because cell 'u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/xsdb_interface_buffers_inst/SL_OPORT_OBUF[15].temp_buf' is not directly connected to top level port. 'DRIVE' is ignored by Vivado but preserved inside the database. [./.Xil/Vivado-5231-raghu-office/u_ila_0_CV_2/u_ila_0_CV_1.edn:762]
+WARNING: [Constraints 18-549] Could not create 'SLEW' constraint because cell 'u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/xsdb_interface_buffers_inst/SL_OPORT_OBUF[15].temp_buf' is not directly connected to top level port. 'SLEW' is ignored by Vivado but preserved inside the database. [./.Xil/Vivado-5231-raghu-office/u_ila_0_CV_2/u_ila_0_CV_1.edn:764]
+WARNING: [Constraints 18-549] Could not create 'DRIVE' constraint because cell 'u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/xsdb_interface_buffers_inst/SL_OPORT_OBUF[16].temp_buf' is not directly connected to top level port. 'DRIVE' is ignored by Vivado but preserved inside the database. [./.Xil/Vivado-5231-raghu-office/u_ila_0_CV_2/u_ila_0_CV_1.edn:770]
+WARNING: [Constraints 18-549] Could not create 'SLEW' constraint because cell 'u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/xsdb_interface_buffers_inst/SL_OPORT_OBUF[16].temp_buf' is not directly connected to top level port. 'SLEW' is ignored by Vivado but preserved inside the database. [./.Xil/Vivado-5231-raghu-office/u_ila_0_CV_2/u_ila_0_CV_1.edn:772]
+WARNING: [Constraints 18-549] Could not create 'IBUF_LOW_PWR' constraint because cell 'u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/xsdb_interface_buffers_inst/SL_IPORT_IBUF[0].temp_buf' is not directly connected to top level port. 'IBUF_LOW_PWR' is ignored by Vivado but preserved inside the database. [./.Xil/Vivado-5231-raghu-office/u_ila_0_CV_2/u_ila_0_CV_1.edn:310]
+WARNING: [Constraints 18-549] Could not create 'IBUF_LOW_PWR' constraint because cell 'u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/xsdb_interface_buffers_inst/SL_IPORT_IBUF[1].temp_buf' is not directly connected to top level port. 'IBUF_LOW_PWR' is ignored by Vivado but preserved inside the database. [./.Xil/Vivado-5231-raghu-office/u_ila_0_CV_2/u_ila_0_CV_1.edn:319]
+WARNING: [Constraints 18-549] Could not create 'IBUF_LOW_PWR' constraint because cell 'u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/xsdb_interface_buffers_inst/SL_IPORT_IBUF[2].temp_buf' is not directly connected to top level port. 'IBUF_LOW_PWR' is ignored by Vivado but preserved inside the database. [./.Xil/Vivado-5231-raghu-office/u_ila_0_CV_2/u_ila_0_CV_1.edn:328]
+WARNING: [Constraints 18-549] Could not create 'IBUF_LOW_PWR' constraint because cell 'u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/xsdb_interface_buffers_inst/SL_IPORT_IBUF[3].temp_buf' is not directly connected to top level port. 'IBUF_LOW_PWR' is ignored by Vivado but preserved inside the database. [./.Xil/Vivado-5231-raghu-office/u_ila_0_CV_2/u_ila_0_CV_1.edn:337]
+WARNING: [Constraints 18-549] Could not create 'IBUF_LOW_PWR' constraint because cell 'u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/xsdb_interface_buffers_inst/SL_IPORT_IBUF[4].temp_buf' is not directly connected to top level port. 'IBUF_LOW_PWR' is ignored by Vivado but preserved inside the database. [./.Xil/Vivado-5231-raghu-office/u_ila_0_CV_2/u_ila_0_CV_1.edn:346]
+WARNING: [Constraints 18-549] Could not create 'IBUF_LOW_PWR' constraint because cell 'u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/xsdb_interface_buffers_inst/SL_IPORT_IBUF[5].temp_buf' is not directly connected to top level port. 'IBUF_LOW_PWR' is ignored by Vivado but preserved inside the database. [./.Xil/Vivado-5231-raghu-office/u_ila_0_CV_2/u_ila_0_CV_1.edn:355]
+WARNING: [Constraints 18-549] Could not create 'IBUF_LOW_PWR' constraint because cell 'u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/xsdb_interface_buffers_inst/SL_IPORT_IBUF[6].temp_buf' is not directly connected to top level port. 'IBUF_LOW_PWR' is ignored by Vivado but preserved inside the database. [./.Xil/Vivado-5231-raghu-office/u_ila_0_CV_2/u_ila_0_CV_1.edn:364]
+WARNING: [Constraints 18-549] Could not create 'IBUF_LOW_PWR' constraint because cell 'u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/xsdb_interface_buffers_inst/SL_IPORT_IBUF[7].temp_buf' is not directly connected to top level port. 'IBUF_LOW_PWR' is ignored by Vivado but preserved inside the database. [./.Xil/Vivado-5231-raghu-office/u_ila_0_CV_2/u_ila_0_CV_1.edn:373]
+WARNING: [Constraints 18-549] Could not create 'IBUF_LOW_PWR' constraint because cell 'u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/xsdb_interface_buffers_inst/SL_IPORT_IBUF[8].temp_buf' is not directly connected to top level port. 'IBUF_LOW_PWR' is ignored by Vivado but preserved inside the database. [./.Xil/Vivado-5231-raghu-office/u_ila_0_CV_2/u_ila_0_CV_1.edn:382]
+WARNING: [Constraints 18-549] Could not create 'IBUF_LOW_PWR' constraint because cell 'u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/xsdb_interface_buffers_inst/SL_IPORT_IBUF[9].temp_buf' is not directly connected to top level port. 'IBUF_LOW_PWR' is ignored by Vivado but preserved inside the database. [./.Xil/Vivado-5231-raghu-office/u_ila_0_CV_2/u_ila_0_CV_1.edn:391]
+WARNING: [Constraints 18-549] Could not create 'IBUF_LOW_PWR' constraint because cell 'u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/xsdb_interface_buffers_inst/SL_IPORT_IBUF[10].temp_buf' is not directly connected to top level port. 'IBUF_LOW_PWR' is ignored by Vivado but preserved inside the database. [./.Xil/Vivado-5231-raghu-office/u_ila_0_CV_2/u_ila_0_CV_1.edn:400]
+WARNING: [Constraints 18-549] Could not create 'IBUF_LOW_PWR' constraint because cell 'u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/xsdb_interface_buffers_inst/SL_IPORT_IBUF[11].temp_buf' is not directly connected to top level port. 'IBUF_LOW_PWR' is ignored by Vivado but preserved inside the database. [./.Xil/Vivado-5231-raghu-office/u_ila_0_CV_2/u_ila_0_CV_1.edn:409]
+WARNING: [Constraints 18-549] Could not create 'IBUF_LOW_PWR' constraint because cell 'u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/xsdb_interface_buffers_inst/SL_IPORT_IBUF[12].temp_buf' is not directly connected to top level port. 'IBUF_LOW_PWR' is ignored by Vivado but preserved inside the database. [./.Xil/Vivado-5231-raghu-office/u_ila_0_CV_2/u_ila_0_CV_1.edn:418]
+WARNING: [Constraints 18-549] Could not create 'IBUF_LOW_PWR' constraint because cell 'u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/xsdb_interface_buffers_inst/SL_IPORT_IBUF[13].temp_buf' is not directly connected to top level port. 'IBUF_LOW_PWR' is ignored by Vivado but preserved inside the database. [./.Xil/Vivado-5231-raghu-office/u_ila_0_CV_2/u_ila_0_CV_1.edn:427]
+WARNING: [Constraints 18-549] Could not create 'IBUF_LOW_PWR' constraint because cell 'u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/xsdb_interface_buffers_inst/SL_IPORT_IBUF[14].temp_buf' is not directly connected to top level port. 'IBUF_LOW_PWR' is ignored by Vivado but preserved inside the database. [./.Xil/Vivado-5231-raghu-office/u_ila_0_CV_2/u_ila_0_CV_1.edn:436]
+WARNING: [Constraints 18-549] Could not create 'IBUF_LOW_PWR' constraint because cell 'u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/xsdb_interface_buffers_inst/SL_IPORT_IBUF[15].temp_buf' is not directly connected to top level port. 'IBUF_LOW_PWR' is ignored by Vivado but preserved inside the database. [./.Xil/Vivado-5231-raghu-office/u_ila_0_CV_2/u_ila_0_CV_1.edn:445]
+WARNING: [Constraints 18-549] Could not create 'IBUF_LOW_PWR' constraint because cell 'u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/xsdb_interface_buffers_inst/SL_IPORT_IBUF[16].temp_buf' is not directly connected to top level port. 'IBUF_LOW_PWR' is ignored by Vivado but preserved inside the database. [./.Xil/Vivado-5231-raghu-office/u_ila_0_CV_2/u_ila_0_CV_1.edn:454]
+WARNING: [Constraints 18-549] Could not create 'IBUF_LOW_PWR' constraint because cell 'u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/xsdb_interface_buffers_inst/SL_IPORT_IBUF[17].temp_buf' is not directly connected to top level port. 'IBUF_LOW_PWR' is ignored by Vivado but preserved inside the database. [./.Xil/Vivado-5231-raghu-office/u_ila_0_CV_2/u_ila_0_CV_1.edn:463]
+WARNING: [Constraints 18-549] Could not create 'IBUF_LOW_PWR' constraint because cell 'u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/xsdb_interface_buffers_inst/SL_IPORT_IBUF[18].temp_buf' is not directly connected to top level port. 'IBUF_LOW_PWR' is ignored by Vivado but preserved inside the database. [./.Xil/Vivado-5231-raghu-office/u_ila_0_CV_2/u_ila_0_CV_1.edn:472]
+WARNING: [Constraints 18-549] Could not create 'IBUF_LOW_PWR' constraint because cell 'u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/xsdb_interface_buffers_inst/SL_IPORT_IBUF[19].temp_buf' is not directly connected to top level port. 'IBUF_LOW_PWR' is ignored by Vivado but preserved inside the database. [./.Xil/Vivado-5231-raghu-office/u_ila_0_CV_2/u_ila_0_CV_1.edn:481]
+WARNING: [Constraints 18-549] Could not create 'IBUF_LOW_PWR' constraint because cell 'u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/xsdb_interface_buffers_inst/SL_IPORT_IBUF[20].temp_buf' is not directly connected to top level port. 'IBUF_LOW_PWR' is ignored by Vivado but preserved inside the database. [./.Xil/Vivado-5231-raghu-office/u_ila_0_CV_2/u_ila_0_CV_1.edn:490]
+WARNING: [Constraints 18-549] Could not create 'IBUF_LOW_PWR' constraint because cell 'u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/xsdb_interface_buffers_inst/SL_IPORT_IBUF[21].temp_buf' is not directly connected to top level port. 'IBUF_LOW_PWR' is ignored by Vivado but preserved inside the database. [./.Xil/Vivado-5231-raghu-office/u_ila_0_CV_2/u_ila_0_CV_1.edn:499]
+WARNING: [Constraints 18-549] Could not create 'IBUF_LOW_PWR' constraint because cell 'u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/xsdb_interface_buffers_inst/SL_IPORT_IBUF[22].temp_buf' is not directly connected to top level port. 'IBUF_LOW_PWR' is ignored by Vivado but preserved inside the database. [./.Xil/Vivado-5231-raghu-office/u_ila_0_CV_2/u_ila_0_CV_1.edn:508]
+WARNING: [Constraints 18-549] Could not create 'IBUF_LOW_PWR' constraint because cell 'u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/xsdb_interface_buffers_inst/SL_IPORT_IBUF[23].temp_buf' is not directly connected to top level port. 'IBUF_LOW_PWR' is ignored by Vivado but preserved inside the database. [./.Xil/Vivado-5231-raghu-office/u_ila_0_CV_2/u_ila_0_CV_1.edn:517]
+WARNING: [Constraints 18-549] Could not create 'IBUF_LOW_PWR' constraint because cell 'u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/xsdb_interface_buffers_inst/SL_IPORT_IBUF[24].temp_buf' is not directly connected to top level port. 'IBUF_LOW_PWR' is ignored by Vivado but preserved inside the database. [./.Xil/Vivado-5231-raghu-office/u_ila_0_CV_2/u_ila_0_CV_1.edn:526]
+WARNING: [Constraints 18-549] Could not create 'IBUF_LOW_PWR' constraint because cell 'u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/xsdb_interface_buffers_inst/SL_IPORT_IBUF[25].temp_buf' is not directly connected to top level port. 'IBUF_LOW_PWR' is ignored by Vivado but preserved inside the database. [./.Xil/Vivado-5231-raghu-office/u_ila_0_CV_2/u_ila_0_CV_1.edn:535]
+WARNING: [Constraints 18-549] Could not create 'IBUF_LOW_PWR' constraint because cell 'u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/xsdb_interface_buffers_inst/SL_IPORT_IBUF[26].temp_buf' is not directly connected to top level port. 'IBUF_LOW_PWR' is ignored by Vivado but preserved inside the database. [./.Xil/Vivado-5231-raghu-office/u_ila_0_CV_2/u_ila_0_CV_1.edn:544]
+WARNING: [Constraints 18-549] Could not create 'IBUF_LOW_PWR' constraint because cell 'u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/xsdb_interface_buffers_inst/SL_IPORT_IBUF[27].temp_buf' is not directly connected to top level port. 'IBUF_LOW_PWR' is ignored by Vivado but preserved inside the database. [./.Xil/Vivado-5231-raghu-office/u_ila_0_CV_2/u_ila_0_CV_1.edn:553]
+WARNING: [Constraints 18-549] Could not create 'IBUF_LOW_PWR' constraint because cell 'u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/xsdb_interface_buffers_inst/SL_IPORT_IBUF[28].temp_buf' is not directly connected to top level port. 'IBUF_LOW_PWR' is ignored by Vivado but preserved inside the database. [./.Xil/Vivado-5231-raghu-office/u_ila_0_CV_2/u_ila_0_CV_1.edn:562]
+INFO: [Common 17-14] Message 'Constraints 18-549' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+Parsing XDC File [/home/raghu/work/projects/dma3/dma3.srcs/.Xil/Vivado-5231-raghu-office/dbg_hub_CV_1/dbg_hub_CV.xdc] for cell 'dbg_hub/inst'
+INFO: [Timing 38-35] Done setting XDC timing constraints. [/home/raghu/work/projects/dma3/dma3.srcs/.Xil/Vivado-5231-raghu-office/dbg_hub_CV_1/dbg_hub_CV.xdc:6]
+Finished Parsing XDC File [/home/raghu/work/projects/dma3/dma3.srcs/.Xil/Vivado-5231-raghu-office/dbg_hub_CV_1/dbg_hub_CV.xdc] for cell 'dbg_hub/inst'
+Parsing XDC File [/home/raghu/work/projects/dma3/dma3.srcs/.Xil/Vivado-5231-raghu-office/u_ila_0_CV_2/u_ila_0_CV.xdc] for cell 'u_ila_0/inst'
+Finished Parsing XDC File [/home/raghu/work/projects/dma3/dma3.srcs/.Xil/Vivado-5231-raghu-office/u_ila_0_CV_2/u_ila_0_CV.xdc] for cell 'u_ila_0/inst'
+implement_debug_core: Time (s): cpu = 00:05:16 ; elapsed = 00:05:31 . Memory (MB): peak = 5784.145 ; gain = 12.750
+launch_runs impl_1 -jobs 2
+Writing XDEF routing.
+Writing XDEF routing logical nets.
+Writing XDEF routing special nets.
+Write XDEF Complete: Time (s): cpu = 00:00:00.29 ; elapsed = 00:00:00.31 . Memory (MB): peak = 5799.078 ; gain = 0.000
+[Mon Apr 21 17:55:43 2014] Launched impl_1...
+Run output will be captured here: /home/raghu/work/projects/dma3/dma3.runs/impl_1/runme.log
+launch_runs: Time (s): cpu = 00:00:10 ; elapsed = 00:00:09 . Memory (MB): peak = 5799.082 ; gain = 14.938
+launch_runs impl_1 -to_step write_bitstream
+[Mon Apr 21 18:03:44 2014] Launched impl_1...
+Run output will be captured here: /home/raghu/work/projects/dma3/dma3.runs/impl_1/runme.log
+set_property PROGRAM.FILE {/home/raghu/work/projects/dma3/dma3.runs/impl_1/dma3_wrapper.bit} [lindex [get_hw_devices] 1]
+program_hw_devices [lindex [get_hw_devices] 1]
+INFO: [Labtools 27-147] vcse_server: Creating XC7Z045 device.
+INFO: [Labtools 27-147] vcse_server: INFO: [vcseserver-48-1122]  
+INFO: [Labtools 27-147] vcse_server: INFO: [vcseserver-48-1139]  
+INFO: [Labtools 27-147] vcse_server: INFO: [vcseserver-48-1889]  
+INFO: [Labtools 27-147] vcse_server: INFO: [vcseserver-48-1033]  
+INFO: [Labtools 27-32] Done pin status: HIGH
+program_hw_devices: Time (s): cpu = 00:00:01 ; elapsed = 00:00:23 . Memory (MB): peak = 5824.500 ; gain = 25.418
+refresh_hw_device [lindex [get_hw_devices] 1]
+INFO: [Labtools 27-1432] Device XC7Z045 (JTAG device index = 1) is programmed with a design that has 1 ILA core(s) in it.
+refresh_hw_device: Time (s): cpu = 00:00:02 ; elapsed = 00:00:08 . Memory (MB): peak = 5840.512 ; gain = 16.012
+run_hw_ila hw_ila_1 -trigger_now 1
+INFO: [Labtools 27-1964] The ILA core 'hw_ila_1' trigger was armed at 2014-Apr-21 18:48:32
+wait_on_hw_ila hw_ila_1
+display_hw_ila_data [upload_hw_ila_data hw_ila_1]
+INFO: [Labtools 27-1966] The ILA core 'hw_ila_1' triggered at 2014-Apr-21 18:48:32
+add_wave -into {hw_ila_data_1.wcfg} -radix hex [get_hw_probes {dma3_i/simple_top_0_m_axi_inptr_ARADDR}]
+set_property TRIGGER_COMPARE_VALUE eq1'b1 [get_hw_probes dma3_i/simple_top_0_m_axi_inptr_ARVALID -of_objects [get_hw_ilas hw_ila_1]]
+run_hw_ila hw_ila_1
+INFO: [Labtools 27-1964] The ILA core 'hw_ila_1' trigger was armed at 2014-Apr-21 19:11:33
+run_hw_ila hw_ila_1
+INFO: [Labtools 27-1964] The ILA core 'hw_ila_1' trigger was armed at 2014-Apr-21 19:11:52
+wait_on_hw_ila -timeout 0 hw_ila_1
+upload_hw_ila_data hw_ila_1
+INFO: [Labtools 27-1965] The ILA core 'hw_ila_1' trigger was stopped by user at 2014-Apr-21 19:12:08
+WARNING: [Labtools 27-157] hw_ila [hw_ila_1] stopped. No data to upload.
+run_hw_ila hw_ila_1
+INFO: [Labtools 27-1964] The ILA core 'hw_ila_1' trigger was armed at 2014-Apr-21 19:12:17
+wait_on_hw_ila -timeout 0 hw_ila_1
+upload_hw_ila_data hw_ila_1
+INFO: [Labtools 27-1965] The ILA core 'hw_ila_1' trigger was stopped by user at 2014-Apr-21 19:13:04
+WARNING: [Labtools 27-157] hw_ila [hw_ila_1] stopped. No data to upload.
+refresh_hw_target {localhost/xilinx_tcf/Digilent/210251842876}
+run_hw_ila hw_ila_1 -trigger_now 1
+ERROR: [Labtools 27-1395] Unable to arm ILA 'hw_ila_1'. The core clock is slow or no core clock connected for this ILA or the ILA core may not meet timing.
+refresh_hw_target {localhost/xilinx_tcf/Digilent/210251842876}
+refresh_hw_device [lindex [get_hw_devices] 1]
+ERROR: [Labtools 27-147] vcse_server: XSDB Master timed out.
+ERROR: [Labtools 27-1437] Failed to get a response from the Debug Core Hub on device XC7Z045_1 (JTAG device index = 1), in user chain = 1.
+Resolution: 
+1) Verify that the clock signal connected to the debug core is clean and free-running.
+2) Verify that the clock connected to the debug core meets all timing constraints.
+run_hw_ila hw_ila_1
+ERROR: [Labtools 27-1395] Unable to arm ILA 'hw_ila_1'. The core clock is slow or no core clock connected for this ILA or the ILA core may not meet timing.
+set_property PROGRAM.FILE {/home/raghu/work/projects/dma3/dma3.runs/impl_1/dma3_wrapper.bit} [lindex [get_hw_devices] 1]
+set_property PROGRAM.FILE {/home/raghu/work/projects/dma3/dma3.runs/impl_1/dma3_wrapper.bit} [lindex [get_hw_devices] 1]
+program_hw_devices [lindex [get_hw_devices] 1]
+INFO: [Labtools 27-147] vcse_server: Creating XC7Z045 device.
+INFO: [Labtools 27-147] vcse_server: INFO: [vcseserver-48-1122]  
+INFO: [Labtools 27-147] vcse_server: INFO: [vcseserver-48-1139]  
+INFO: [Labtools 27-147] vcse_server: INFO: [vcseserver-48-1889]  
+INFO: [Labtools 27-147] vcse_server: INFO: [vcseserver-48-1033]  
+INFO: [Labtools 27-32] Done pin status: HIGH
+program_hw_devices: Time (s): cpu = 00:00:01 ; elapsed = 00:00:12 . Memory (MB): peak = 5853.223 ; gain = 12.707
+refresh_hw_device [lindex [get_hw_devices] 1]
+INFO: [Labtools 27-1432] Device XC7Z045 (JTAG device index = 1) is programmed with a design that has 1 ILA core(s) in it.
+run_hw_ila hw_ila_1
+INFO: [Labtools 27-1964] The ILA core 'hw_ila_1' trigger was armed at 2014-Apr-21 19:21:15
+run_hw_ila hw_ila_1 -trigger_now 1
+INFO: [Labtools 27-1964] The ILA core 'hw_ila_1' trigger was armed at 2014-Apr-21 19:22:01
+wait_on_hw_ila hw_ila_1
+display_hw_ila_data [upload_hw_ila_data hw_ila_1]
+INFO: [Labtools 27-1966] The ILA core 'hw_ila_1' triggered at 2014-Apr-21 19:22:01
+run_hw_ila hw_ila_1 -trigger_now 1
+INFO: [Labtools 27-1964] The ILA core 'hw_ila_1' trigger was armed at 2014-Apr-21 19:23:34
+wait_on_hw_ila hw_ila_1
+display_hw_ila_data [upload_hw_ila_data hw_ila_1]
+INFO: [Labtools 27-1966] The ILA core 'hw_ila_1' triggered at 2014-Apr-21 19:23:34
+run_hw_ila hw_ila_1
+INFO: [Labtools 27-1964] The ILA core 'hw_ila_1' trigger was armed at 2014-Apr-21 19:25:14
+run_hw_ila hw_ila_1 -trigger_now 1
+INFO: [Labtools 27-1964] The ILA core 'hw_ila_1' trigger was armed at 2014-Apr-21 19:26:18
+wait_on_hw_ila hw_ila_1
+display_hw_ila_data [upload_hw_ila_data hw_ila_1]
+INFO: [Labtools 27-1966] The ILA core 'hw_ila_1' triggered at 2014-Apr-21 19:26:19
+run_hw_ila hw_ila_1
+INFO: [Labtools 27-1964] The ILA core 'hw_ila_1' trigger was armed at 2014-Apr-21 19:27:58
+export_hardware [get_files /home/raghu/work/projects/dma3/dma3.srcs/sources_1/bd/dma3/dma3.bd] [get_runs impl_1] -bitstream
+WARNING: [Vivado 12-690] Backannotated BMM file does not exist in the run dir:/home/raghu/work/projects/dma3/dma3.runs/impl_1/dma3_wrapper_bd.bmm
+Exporting to file /home/raghu/work/projects/dma3/dma3.sdk/SDK/SDK_Export/hw/dma3.xml
+INFO: [BD 41-436] exporting bit file '/home/raghu/work/projects/dma3/dma3.runs/impl_1/dma3_wrapper.bit'...
+export_hardware: Time (s): cpu = 00:00:20 ; elapsed = 00:00:28 . Memory (MB): peak = 5853.230 ; gain = 0.000
+set_property PROGRAM.FILE {/home/raghu/work/projects/dma3/dma3.runs/impl_1/dma3_wrapper.bit} [lindex [get_hw_devices] 1]
+program_hw_devices [lindex [get_hw_devices] 1]
+INFO: [Labtools 27-147] vcse_server: Creating XC7Z045 device.
+INFO: [Labtools 27-147] vcse_server: INFO: [vcseserver-48-1122]  
+INFO: [Labtools 27-147] vcse_server: INFO: [vcseserver-48-1139]  
+INFO: [Labtools 27-147] vcse_server: INFO: [vcseserver-48-1889]  
+INFO: [Labtools 27-147] vcse_server: INFO: [vcseserver-48-1033]  
+INFO: [Labtools 27-32] Done pin status: HIGH
+program_hw_devices: Time (s): cpu = 00:00:00.39 ; elapsed = 00:00:12 . Memory (MB): peak = 5865.934 ; gain = 12.703
+refresh_hw_device [lindex [get_hw_devices] 1]
+ERROR: [Labtools 27-147] vcse_server: XSDB Master timed out.
+ERROR: [Labtools 27-1437] Failed to get a response from the Debug Core Hub on device XC7Z045_1 (JTAG device index = 1), in user chain = 1.
+Resolution: 
+1) Verify that the clock signal connected to the debug core is clean and free-running.
+2) Verify that the clock connected to the debug core meets all timing constraints.
+run_hw_ila hw_ila_1
+ERROR: [Labtools 27-1395] Unable to arm ILA 'hw_ila_1'. The core clock is slow or no core clock connected for this ILA or the ILA core may not meet timing.
+refresh_hw_device [lindex [get_hw_devices] 1]
+ERROR: [Labtools 27-147] vcse_server: XSDB Master timed out.
+ERROR: [Labtools 27-1437] Failed to get a response from the Debug Core Hub on device XC7Z045_1 (JTAG device index = 1), in user chain = 1.
+Resolution: 
+1) Verify that the clock signal connected to the debug core is clean and free-running.
+2) Verify that the clock connected to the debug core meets all timing constraints.
+set_property PROGRAM.FILE {/home/raghu/work/projects/dma3/dma3.runs/impl_1/dma3_wrapper.bit} [lindex [get_hw_devices] 1]
+refresh_hw_target {localhost/xilinx_tcf/Digilent/210251842876}
+refresh_hw_device [lindex [get_hw_devices] 1]
+ERROR: [Labtools 27-147] vcse_server: XSDB Master timed out.
+ERROR: [Labtools 27-1437] Failed to get a response from the Debug Core Hub on device XC7Z045_1 (JTAG device index = 1), in user chain = 1.
+Resolution: 
+1) Verify that the clock signal connected to the debug core is clean and free-running.
+2) Verify that the clock connected to the debug core meets all timing constraints.
+set_property PROGRAM.FILE {/home/raghu/work/projects/dma3/dma3.runs/impl_1/dma3_wrapper.bit} [lindex [get_hw_devices] 1]
+program_hw_devices [lindex [get_hw_devices] 1]
+INFO: [Labtools 27-147] vcse_server: Creating XC7Z045 device.
+INFO: [Labtools 27-147] vcse_server: INFO: [vcseserver-48-1122]  
+INFO: [Labtools 27-147] vcse_server: INFO: [vcseserver-48-1139]  
+INFO: [Labtools 27-147] vcse_server: INFO: [vcseserver-48-1889]  
+INFO: [Labtools 27-147] vcse_server: INFO: [vcseserver-48-1033]  
+INFO: [Labtools 27-32] Done pin status: HIGH
+program_hw_devices: Time (s): cpu = 00:00:00.26 ; elapsed = 00:00:12 . Memory (MB): peak = 5865.938 ; gain = 0.000
+refresh_hw_device [lindex [get_hw_devices] 1]
+ERROR: [Labtools 27-147] vcse_server: XSDB Master timed out.
+ERROR: [Labtools 27-1437] Failed to get a response from the Debug Core Hub on device XC7Z045_1 (JTAG device index = 1), in user chain = 1.
+Resolution: 
+1) Verify that the clock signal connected to the debug core is clean and free-running.
+2) Verify that the clock connected to the debug core meets all timing constraints.
+close_hw_target {localhost/xilinx_tcf/Digilent/210251842876}
+refresh_hw_server {localhost}
+INFO: [Labtools 27-147] vcse_server: Connecting to hw_server...
+INFO: [Labtools 27-147] vcse_server: Connection established.
+INFO: [Labtools 27-147] vcse_server: Connecting to hw_server...
+INFO: [Labtools 27-147] vcse_server: Connection established.
+connect_hw_server -host localhost -port 60001
+ERROR: [Labtools 27-3] Attempt to create a duplicate server handle localhost
+INFO: [Labtools 27-147] vcse_server: Connecting to hw_server...
+INFO: [Labtools 27-147] vcse_server: Connection established.
+refresh_hw_device [lindex [get_hw_devices] 1]
+ERROR: [Labtools 27-147] vcse_server: XSDB Master timed out.
+ERROR: [Labtools 27-1437] Failed to get a response from the Debug Core Hub on device XC7Z045_1 (JTAG device index = 1), in user chain = 1.
+Resolution: 
+1) Verify that the clock signal connected to the debug core is clean and free-running.
+2) Verify that the clock connected to the debug core meets all timing constraints.
+set_property PROGRAM.FILE {/home/raghu/work/projects/dma3/dma3.runs/impl_1/dma3_wrapper.bit} [lindex [get_hw_devices] 1]
+set_property PROGRAM.FILE {/home/raghu/work/projects/dma3/dma3.runs/impl_1/dma3_wrapper.bit} [lindex [get_hw_devices] 1]
+program_hw_devices [lindex [get_hw_devices] 1]
+INFO: [Labtools 27-147] vcse_server: Creating XC7Z045 device.
+INFO: [Labtools 27-147] vcse_server: INFO: [vcseserver-48-1122]  
+INFO: [Labtools 27-147] vcse_server: INFO: [vcseserver-48-1139]  
+INFO: [Labtools 27-147] vcse_server: INFO: [vcseserver-48-1889]  
+INFO: [Labtools 27-147] vcse_server: INFO: [vcseserver-48-1033]  
+INFO: [Labtools 27-32] Done pin status: HIGH
+program_hw_devices: Time (s): cpu = 00:00:00.33 ; elapsed = 00:00:12 . Memory (MB): peak = 5865.938 ; gain = 0.000
+refresh_hw_device [lindex [get_hw_devices] 1]
+ERROR: [Labtools 27-147] vcse_server: XSDB Master timed out.
+ERROR: [Labtools 27-1437] Failed to get a response from the Debug Core Hub on device XC7Z045_1 (JTAG device index = 1), in user chain = 1.
+Resolution: 
+1) Verify that the clock signal connected to the debug core is clean and free-running.
+2) Verify that the clock connected to the debug core meets all timing constraints.
+refresh_hw_device [lindex [get_hw_devices] 1]
+ERROR: [Labtools 27-147] vcse_server: XSDB Master timed out.
+ERROR: [Labtools 27-1437] Failed to get a response from the Debug Core Hub on device XC7Z045_1 (JTAG device index = 1), in user chain = 1.
+Resolution: 
+1) Verify that the clock signal connected to the debug core is clean and free-running.
+2) Verify that the clock connected to the debug core meets all timing constraints.
+set_property PROGRAM.FILE {/home/raghu/work/projects/dma3/dma3.runs/impl_1/dma3_wrapper.bit} [lindex [get_hw_devices] 1]
+program_hw_devices [lindex [get_hw_devices] 1]
+INFO: [Labtools 27-147] vcse_server: Creating XC7Z045 device.
+INFO: [Labtools 27-147] vcse_server: INFO: [vcseserver-48-1122]  
+INFO: [Labtools 27-147] vcse_server: INFO: [vcseserver-48-1139]  
+INFO: [Labtools 27-147] vcse_server: INFO: [vcseserver-48-1889]  
+INFO: [Labtools 27-147] vcse_server: INFO: [vcseserver-48-1033]  
+INFO: [Labtools 27-32] Done pin status: HIGH
+program_hw_devices: Time (s): cpu = 00:00:00.38 ; elapsed = 00:00:12 . Memory (MB): peak = 5865.938 ; gain = 0.000
+refresh_hw_device [lindex [get_hw_devices] 1]
+ERROR: [Labtools 27-147] vcse_server: XSDB Master timed out.
+ERROR: [Labtools 27-1437] Failed to get a response from the Debug Core Hub on device XC7Z045_1 (JTAG device index = 1), in user chain = 1.
+Resolution: 
+1) Verify that the clock signal connected to the debug core is clean and free-running.
+2) Verify that the clock connected to the debug core meets all timing constraints.
+reset_run impl_1
+reset_run: Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 5865.938 ; gain = 0.000
+launch_runs impl_1 -jobs 2
+Writing XDEF routing.
+Writing XDEF routing logical nets.
+Writing XDEF routing special nets.
+Write XDEF Complete: Time (s): cpu = 00:00:00.29 ; elapsed = 00:00:00.34 . Memory (MB): peak = 5865.938 ; gain = 0.000
+[Mon Apr 21 19:38:49 2014] Launched impl_1...
+Run output will be captured here: /home/raghu/work/projects/dma3/dma3.runs/impl_1/runme.log
+launch_runs: Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 5865.938 ; gain = 0.000
+current_design impl_1
+refresh_design
+INFO: [Netlist 29-17] Analyzing 620 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2013.3
+INFO: [Opt 31-138] Pushed 0 inverter(s).
+Parsing XDC File [/home/raghu/work/projects/dma3/dma3.srcs/.Xil/Vivado-5231-raghu-office/dcp/dma3_wrapper_board.xdc]
+Finished Parsing XDC File [/home/raghu/work/projects/dma3/dma3.srcs/.Xil/Vivado-5231-raghu-office/dcp/dma3_wrapper_board.xdc]
+Parsing XDC File [/home/raghu/work/projects/dma3/dma3.srcs/.Xil/Vivado-5231-raghu-office/dcp/dma3_wrapper_early.xdc]
+Finished Parsing XDC File [/home/raghu/work/projects/dma3/dma3.srcs/.Xil/Vivado-5231-raghu-office/dcp/dma3_wrapper_early.xdc]
+Parsing XDC File [/home/raghu/work/projects/dma3/dma3.srcs/.Xil/Vivado-5231-raghu-office/dcp/dma3_wrapper.xdc]
+INFO: [Timing 38-35] Done setting XDC timing constraints. [/home/raghu/work/projects/dma3/dma3.srcs/.Xil/Vivado-5231-raghu-office/dbg_hub_CV_1/dbg_hub_CV.xdc:6]
+Finished Parsing XDC File [/home/raghu/work/projects/dma3/dma3.srcs/.Xil/Vivado-5231-raghu-office/dcp/dma3_wrapper.xdc]
+Reading XDEF placement.
+Reading XDEF routing.
+Read XDEF File: Time (s): cpu = 00:00:01 ; elapsed = 00:00:06 . Memory (MB): peak = 5922.148 ; gain = 0.000
+Restoring placement.
+Restored 3404 out of 3404 XDEF sites from archive | CPU: 3.360000 secs | Memory: 27.775330 MB |
+INFO: [Memdata 28-143] Successfully populated the BRAM INIT strings from the following elf files: 
+refresh_design: Time (s): cpu = 00:00:42 ; elapsed = 00:01:06 . Memory (MB): peak = 6071.938 ; gain = 176.801
+close_project
+close_project: Time (s): cpu = 00:00:09 ; elapsed = 00:00:43 . Memory (MB): peak = 6071.938 ; gain = 0.000
+open_project -read_only /home/raghu/work/tools/xilinx/Vivado/2013.3/examples/Vivado_Tutorial/Projects/zynq/zynq.xpr
+Import path for source /home/raghu/work/tools/xilinx/Vivado/2013.3/examples/Vivado_Tutorial/Projects/zynq/zynq.srcs/sources_1/bd/zynq_1/zynq_1.bd: Could not find the file '/home/raghu/tutorials/2013.3/zynq_bfm1/zynq_bfm1.srcs/sources_1/bd/zynq_1/zynq_1.bd'.
+Import path for source /home/raghu/work/tools/xilinx/Vivado/2013.3/examples/Vivado_Tutorial/Projects/zynq/zynq.srcs/sources_1/bd/zynq_1/hdl/zynq_1_wrapper.vhd: Could not find the file '/home/raghu/tutorials/2013.3/zynq_bfm1/zynq_bfm1.srcs/sources_1/bd/zynq_1/hdl/zynq_1_wrapper.vhd'.
+Import path for source /home/raghu/work/tools/xilinx/Vivado/2013.3/examples/Vivado_Tutorial/Projects/zynq/zynq.srcs/sim_1/new/tb.v: Could not find the file '/home/raghu/tutorials/2013.3/zynq_bfm1/zynq_bfm1.srcs/sim_1/new/tb.v'.
+Import path for source /home/raghu/work/tools/xilinx/Vivado/2013.3/examples/Vivado_Tutorial/Projects/zynq/zynq.srcs/sim_1/imports/2013.3/tb_behav.wcfg: Could not find the file '/home/raghu/tutorials/2013.3/tb_behav.wcfg'.
+Scanning sources...
+Finished scanning sources
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado repository '/home/raghu/work/tools/xilinx/Vivado/2013.3/data/ip'.
+WARNING: [BD 41-1303] One or more IPs have been locked in the design 'zynq_1.bd'. Please run report_ip_status for more details and recommendations on how to fix this issue.
+open_project: Time (s): cpu = 00:00:05 ; elapsed = 00:00:08 . Memory (MB): peak = 6071.938 ; gain = 0.000
+save_project_as exampleProjectZynq /home/raghu/work/projects/exampleProjectZynq -force
+open_bd_design {/home/raghu/work/projects/exampleProjectZynq/exampleProjectZynq.srcs/sources_1/bd/zynq_1/zynq_1.bd}
+Adding component instance block -- xilinx.com:ip:processing_system7:5.3 - processing_system7_0
+Adding component instance block -- xilinx.com:ip:axi_gpio:2.0 - axi_gpio_0
+Adding component instance block -- xilinx.com:ip:axi_bram_ctrl:3.0 - axi_bram_ctrl_0
+Adding component instance block -- xilinx.com:ip:proc_sys_reset:5.0 - proc_sys_reset
+Adding component instance block -- xilinx.com:ip:blk_mem_gen:8.0 - axi_bram_ctrl_0_bram
+Adding component instance block -- xilinx.com:ip:axi_crossbar:2.1 - xbar
+Adding component instance block -- xilinx.com:ip:axi_protocol_converter:2.1 - auto_pc
+Adding component instance block -- xilinx.com:ip:axi_protocol_converter:2.1 - auto_pc
+Successfully read diagram <zynq_1> from BD file </home/raghu/work/projects/exampleProjectZynq/exampleProjectZynq.srcs/sources_1/bd/zynq_1/zynq_1.bd>
+open_bd_design: Time (s): cpu = 00:00:09 ; elapsed = 00:00:11 . Memory (MB): peak = 6071.938 ; gain = 0.000
+INFO: [xilinx.com:ip:blk_mem_gen:8.0-9001] zynq_1_axi_bram_ctrl_0_bram_0: update_gui_for_PARAM_VALUE.WRITE_WIDTH_B
+INFO: [xilinx.com:ip:blk_mem_gen:8.0-9001] zynq_1_axi_bram_ctrl_0_bram_0: update_gui_for_PARAM_VALUE.WRITE_WIDTH_B
+INFO: [xilinx.com:ip:blk_mem_gen:8.0-9001] zynq_1_axi_bram_ctrl_0_bram_0: update_gui_for_PARAM_VALUE.WRITE_WIDTH_B
+startgroup
+create_bd_cell -type ip -vlnv xilinx.com:ip:axi_datamover:5.1 axi_datamover_0
+endgroup
+delete_bd_objs [get_bd_cells axi_datamover_0]
+startgroup
+create_bd_cell -type ip -vlnv xilinx.com:ip:axi_dma:7.1 axi_dma_0
+endgroup
+startgroup
+set_property -dict [list CONFIG.c_include_sg {0} CONFIG.c_m_axi_mm2s_data_width {128} CONFIG.c_m_axis_mm2s_tdata_width {32} CONFIG.c_include_s2mm {0}] [get_bd_cells axi_dma_0]
+endgroup
+exit
+INFO: [Common 17-206] Exiting Vivado at Tue Apr 22 12:15:32 2014...

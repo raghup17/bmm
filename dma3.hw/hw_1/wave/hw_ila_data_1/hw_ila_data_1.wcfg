@@ -1,0 +1,231 @@
+<?xml version="1.0"?>
+<wave_config>
+	<wave_state>
+	</wave_state>
+	<db_ref_list>
+		<db_ref path="/home/raghu/work/projects/dma3/dma3.hw/hw_1/wave/hw_ila_data_1/hw_ila_data_1.wdb" id="1" type="auto">
+			<top_modules>
+				<top_module name="top">
+				</top_module>
+			</top_modules>
+		</db_ref>
+	</db_ref_list>
+	<WVObjectSize size="43">
+	</WVObjectSize>
+	<wvobject fp_name="dma3_i/processing_system7_0_axi_periph_m00_axi_WSTRB" type="array" db_ref_id="1">
+		<obj_property name="ElementShortName">dma3_i/processing_system7_0_axi_periph_m00_axi_WSTRB[3:0]</obj_property>
+		<obj_property name="ObjectShortName">dma3_i/processing_system7_0_axi_periph_m00_axi_WSTRB[3:0]</obj_property>
+		<obj_property name="Radix">HEXRADIX</obj_property>
+	</wvobject>
+	<wvobject fp_name="dma3_i/processing_system7_0_axi_periph_m00_axi_WDATA" type="array" db_ref_id="1">
+		<obj_property name="ElementShortName">dma3_i/processing_system7_0_axi_periph_m00_axi_WDATA[31:0]</obj_property>
+		<obj_property name="ObjectShortName">dma3_i/processing_system7_0_axi_periph_m00_axi_WDATA[31:0]</obj_property>
+		<obj_property name="Radix">HEXRADIX</obj_property>
+	</wvobject>
+	<wvobject fp_name="dma3_i/processing_system7_0_axi_periph_m00_axi_RRESP" type="array" db_ref_id="1">
+		<obj_property name="ElementShortName">dma3_i/processing_system7_0_axi_periph_m00_axi_RRESP[1:0]</obj_property>
+		<obj_property name="ObjectShortName">dma3_i/processing_system7_0_axi_periph_m00_axi_RRESP[1:0]</obj_property>
+		<obj_property name="Radix">HEXRADIX</obj_property>
+	</wvobject>
+	<wvobject fp_name="dma3_i/processing_system7_0_axi_periph_m00_axi_RDATA" type="array" db_ref_id="1">
+		<obj_property name="ElementShortName">dma3_i/processing_system7_0_axi_periph_m00_axi_RDATA[31:0]</obj_property>
+		<obj_property name="ObjectShortName">dma3_i/processing_system7_0_axi_periph_m00_axi_RDATA[31:0]</obj_property>
+		<obj_property name="Radix">HEXRADIX</obj_property>
+	</wvobject>
+	<wvobject fp_name="dma3_i/processing_system7_0_axi_periph_m00_axi_BRESP" type="array" db_ref_id="1">
+		<obj_property name="ElementShortName">dma3_i/processing_system7_0_axi_periph_m00_axi_BRESP[1:0]</obj_property>
+		<obj_property name="ObjectShortName">dma3_i/processing_system7_0_axi_periph_m00_axi_BRESP[1:0]</obj_property>
+		<obj_property name="Radix">HEXRADIX</obj_property>
+	</wvobject>
+	<wvobject fp_name="dma3_i/processing_system7_0_axi_periph_m00_axi_AWADDR" type="array" db_ref_id="1">
+		<obj_property name="ElementShortName">dma3_i/processing_system7_0_axi_periph_m00_axi_AWADDR[3:0]</obj_property>
+		<obj_property name="ObjectShortName">dma3_i/processing_system7_0_axi_periph_m00_axi_AWADDR[3:0]</obj_property>
+		<obj_property name="Radix">HEXRADIX</obj_property>
+	</wvobject>
+	<wvobject fp_name="dma3_i/processing_system7_0_axi_periph_m00_axi_ARADDR" type="array" db_ref_id="1">
+		<obj_property name="ElementShortName">dma3_i/processing_system7_0_axi_periph_m00_axi_ARADDR[3:0]</obj_property>
+		<obj_property name="ObjectShortName">dma3_i/processing_system7_0_axi_periph_m00_axi_ARADDR[3:0]</obj_property>
+		<obj_property name="Radix">HEXRADIX</obj_property>
+	</wvobject>
+	<wvobject fp_name="dma3_i/simple_top_0_m_axi_inptr_WDATA" type="array" db_ref_id="1">
+		<obj_property name="ElementShortName">dma3_i/simple_top_0_m_axi_inptr_WDATA[31:0]</obj_property>
+		<obj_property name="ObjectShortName">dma3_i/simple_top_0_m_axi_inptr_WDATA[31:0]</obj_property>
+		<obj_property name="Radix">HEXRADIX</obj_property>
+	</wvobject>
+	<wvobject fp_name="dma3_i/simple_top_0_m_axi_inptr_RRESP" type="array" db_ref_id="1">
+		<obj_property name="ElementShortName">dma3_i/simple_top_0_m_axi_inptr_RRESP[1:0]</obj_property>
+		<obj_property name="ObjectShortName">dma3_i/simple_top_0_m_axi_inptr_RRESP[1:0]</obj_property>
+		<obj_property name="Radix">HEXRADIX</obj_property>
+	</wvobject>
+	<wvobject fp_name="dma3_i/simple_top_0_m_axi_inptr_BRESP" type="array" db_ref_id="1">
+		<obj_property name="ElementShortName">dma3_i/simple_top_0_m_axi_inptr_BRESP[1:0]</obj_property>
+		<obj_property name="ObjectShortName">dma3_i/simple_top_0_m_axi_inptr_BRESP[1:0]</obj_property>
+		<obj_property name="Radix">HEXRADIX</obj_property>
+	</wvobject>
+	<wvobject fp_name="dma3_i/simple_top_0_m_axi_inptr_RDATA" type="array" db_ref_id="1">
+		<obj_property name="ElementShortName">dma3_i/simple_top_0_m_axi_inptr_RDATA[31:0]</obj_property>
+		<obj_property name="ObjectShortName">dma3_i/simple_top_0_m_axi_inptr_RDATA[31:0]</obj_property>
+		<obj_property name="Radix">HEXRADIX</obj_property>
+	</wvobject>
+	<wvobject fp_name="dma3_i/simple_top_0_m_axi_inptr_AWSIZE" type="array" db_ref_id="1">
+		<obj_property name="ElementShortName">dma3_i/simple_top_0_m_axi_inptr_AWSIZE[2:0]</obj_property>
+		<obj_property name="ObjectShortName">dma3_i/simple_top_0_m_axi_inptr_AWSIZE[2:0]</obj_property>
+		<obj_property name="Radix">HEXRADIX</obj_property>
+	</wvobject>
+	<wvobject fp_name="dma3_i/simple_top_0_m_axi_inptr_AWLEN" type="array" db_ref_id="1">
+		<obj_property name="ElementShortName">dma3_i/simple_top_0_m_axi_inptr_AWLEN[7:0]</obj_property>
+		<obj_property name="ObjectShortName">dma3_i/simple_top_0_m_axi_inptr_AWLEN[7:0]</obj_property>
+		<obj_property name="Radix">HEXRADIX</obj_property>
+	</wvobject>
+	<wvobject fp_name="dma3_i/simple_top_0_m_axi_inptr_AWADDR" type="array" db_ref_id="1">
+		<obj_property name="ElementShortName">dma3_i/simple_top_0_m_axi_inptr_AWADDR[31:0]</obj_property>
+		<obj_property name="ObjectShortName">dma3_i/simple_top_0_m_axi_inptr_AWADDR[31:0]</obj_property>
+		<obj_property name="Radix">HEXRADIX</obj_property>
+	</wvobject>
+	<wvobject fp_name="dma3_i/simple_top_0_m_axi_inptr_AWBURST" type="array" db_ref_id="1">
+		<obj_property name="ElementShortName">dma3_i/simple_top_0_m_axi_inptr_AWBURST[1:0]</obj_property>
+		<obj_property name="ObjectShortName">dma3_i/simple_top_0_m_axi_inptr_AWBURST[1:0]</obj_property>
+		<obj_property name="Radix">HEXRADIX</obj_property>
+	</wvobject>
+	<wvobject fp_name="dma3_i/simple_top_0_m_axi_inptr_ARSIZE" type="array" db_ref_id="1">
+		<obj_property name="ElementShortName">dma3_i/simple_top_0_m_axi_inptr_ARSIZE[2:0]</obj_property>
+		<obj_property name="ObjectShortName">dma3_i/simple_top_0_m_axi_inptr_ARSIZE[2:0]</obj_property>
+		<obj_property name="Radix">HEXRADIX</obj_property>
+	</wvobject>
+	<wvobject fp_name="dma3_i/simple_top_0_m_axi_inptr_ARLEN" type="array" db_ref_id="1">
+		<obj_property name="ElementShortName">dma3_i/simple_top_0_m_axi_inptr_ARLEN[7:0]</obj_property>
+		<obj_property name="ObjectShortName">dma3_i/simple_top_0_m_axi_inptr_ARLEN[7:0]</obj_property>
+		<obj_property name="Radix">HEXRADIX</obj_property>
+	</wvobject>
+	<wvobject fp_name="dma3_i/simple_top_0_m_axi_inptr_ARCACHE" type="array" db_ref_id="1">
+		<obj_property name="ElementShortName">dma3_i/simple_top_0_m_axi_inptr_ARCACHE[3:0]</obj_property>
+		<obj_property name="ObjectShortName">dma3_i/simple_top_0_m_axi_inptr_ARCACHE[3:0]</obj_property>
+		<obj_property name="Radix">HEXRADIX</obj_property>
+	</wvobject>
+	<wvobject fp_name="dma3_i/simple_top_0_m_axi_inptr_ARBURST" type="array" db_ref_id="1">
+		<obj_property name="ElementShortName">dma3_i/simple_top_0_m_axi_inptr_ARBURST[1:0]</obj_property>
+		<obj_property name="ObjectShortName">dma3_i/simple_top_0_m_axi_inptr_ARBURST[1:0]</obj_property>
+		<obj_property name="Radix">HEXRADIX</obj_property>
+	</wvobject>
+	<wvobject fp_name="dma3_i/simple_top_0_m_axi_inptr_ARADDR" type="array" db_ref_id="1">
+		<obj_property name="ElementShortName">dma3_i/simple_top_0_m_axi_inptr_ARADDR[31:0]</obj_property>
+		<obj_property name="ObjectShortName">dma3_i/simple_top_0_m_axi_inptr_ARADDR[31:0]</obj_property>
+		<obj_property name="Radix">HEXRADIX</obj_property>
+	</wvobject>
+	<wvobject fp_name="dma3_i/processing_system7_0_axi_periph_m00_axi_ARREADY" type="logic" db_ref_id="1">
+		<obj_property name="ElementShortName">dma3_i/processing_system7_0_axi_periph_m00_axi_ARREADY</obj_property>
+		<obj_property name="ObjectShortName">dma3_i/processing_system7_0_axi_periph_m00_axi_ARREADY</obj_property>
+		<obj_property name="Radix">HEXRADIX</obj_property>
+	</wvobject>
+	<wvobject fp_name="dma3_i/processing_system7_0_axi_periph_m00_axi_ARVALID" type="logic" db_ref_id="1">
+		<obj_property name="ElementShortName">dma3_i/processing_system7_0_axi_periph_m00_axi_ARVALID</obj_property>
+		<obj_property name="ObjectShortName">dma3_i/processing_system7_0_axi_periph_m00_axi_ARVALID</obj_property>
+		<obj_property name="Radix">HEXRADIX</obj_property>
+	</wvobject>
+	<wvobject fp_name="dma3_i/processing_system7_0_axi_periph_m00_axi_AWREADY" type="logic" db_ref_id="1">
+		<obj_property name="ElementShortName">dma3_i/processing_system7_0_axi_periph_m00_axi_AWREADY</obj_property>
+		<obj_property name="ObjectShortName">dma3_i/processing_system7_0_axi_periph_m00_axi_AWREADY</obj_property>
+		<obj_property name="Radix">HEXRADIX</obj_property>
+	</wvobject>
+	<wvobject fp_name="dma3_i/processing_system7_0_axi_periph_m00_axi_AWVALID" type="logic" db_ref_id="1">
+		<obj_property name="ElementShortName">dma3_i/processing_system7_0_axi_periph_m00_axi_AWVALID</obj_property>
+		<obj_property name="ObjectShortName">dma3_i/processing_system7_0_axi_periph_m00_axi_AWVALID</obj_property>
+		<obj_property name="Radix">HEXRADIX</obj_property>
+	</wvobject>
+	<wvobject fp_name="dma3_i/processing_system7_0_axi_periph_m00_axi_BREADY" type="logic" db_ref_id="1">
+		<obj_property name="ElementShortName">dma3_i/processing_system7_0_axi_periph_m00_axi_BREADY</obj_property>
+		<obj_property name="ObjectShortName">dma3_i/processing_system7_0_axi_periph_m00_axi_BREADY</obj_property>
+		<obj_property name="Radix">HEXRADIX</obj_property>
+	</wvobject>
+	<wvobject fp_name="dma3_i/processing_system7_0_axi_periph_m00_axi_BVALID" type="logic" db_ref_id="1">
+		<obj_property name="ElementShortName">dma3_i/processing_system7_0_axi_periph_m00_axi_BVALID</obj_property>
+		<obj_property name="ObjectShortName">dma3_i/processing_system7_0_axi_periph_m00_axi_BVALID</obj_property>
+		<obj_property name="Radix">HEXRADIX</obj_property>
+	</wvobject>
+	<wvobject fp_name="dma3_i/processing_system7_0_axi_periph_m00_axi_RREADY" type="logic" db_ref_id="1">
+		<obj_property name="ElementShortName">dma3_i/processing_system7_0_axi_periph_m00_axi_RREADY</obj_property>
+		<obj_property name="ObjectShortName">dma3_i/processing_system7_0_axi_periph_m00_axi_RREADY</obj_property>
+		<obj_property name="Radix">HEXRADIX</obj_property>
+	</wvobject>
+	<wvobject fp_name="dma3_i/processing_system7_0_axi_periph_m00_axi_RVALID" type="logic" db_ref_id="1">
+		<obj_property name="ElementShortName">dma3_i/processing_system7_0_axi_periph_m00_axi_RVALID</obj_property>
+		<obj_property name="ObjectShortName">dma3_i/processing_system7_0_axi_periph_m00_axi_RVALID</obj_property>
+		<obj_property name="Radix">HEXRADIX</obj_property>
+	</wvobject>
+	<wvobject fp_name="dma3_i/processing_system7_0_axi_periph_m00_axi_WREADY" type="logic" db_ref_id="1">
+		<obj_property name="ElementShortName">dma3_i/processing_system7_0_axi_periph_m00_axi_WREADY</obj_property>
+		<obj_property name="ObjectShortName">dma3_i/processing_system7_0_axi_periph_m00_axi_WREADY</obj_property>
+		<obj_property name="Radix">HEXRADIX</obj_property>
+	</wvobject>
+	<wvobject fp_name="dma3_i/processing_system7_0_axi_periph_m00_axi_WVALID" type="logic" db_ref_id="1">
+		<obj_property name="ElementShortName">dma3_i/processing_system7_0_axi_periph_m00_axi_WVALID</obj_property>
+		<obj_property name="ObjectShortName">dma3_i/processing_system7_0_axi_periph_m00_axi_WVALID</obj_property>
+		<obj_property name="Radix">HEXRADIX</obj_property>
+	</wvobject>
+	<wvobject fp_name="dma3_i/simple_top_0_m_axi_inptr_ARREADY" type="logic" db_ref_id="1">
+		<obj_property name="ElementShortName">dma3_i/simple_top_0_m_axi_inptr_ARREADY</obj_property>
+		<obj_property name="ObjectShortName">dma3_i/simple_top_0_m_axi_inptr_ARREADY</obj_property>
+		<obj_property name="Radix">HEXRADIX</obj_property>
+	</wvobject>
+	<wvobject fp_name="dma3_i/simple_top_0_m_axi_inptr_ARVALID" type="logic" db_ref_id="1">
+		<obj_property name="ElementShortName">dma3_i/simple_top_0_m_axi_inptr_ARVALID</obj_property>
+		<obj_property name="ObjectShortName">dma3_i/simple_top_0_m_axi_inptr_ARVALID</obj_property>
+		<obj_property name="Radix">HEXRADIX</obj_property>
+	</wvobject>
+	<wvobject fp_name="dma3_i/simple_top_0_m_axi_inptr_AWREADY" type="logic" db_ref_id="1">
+		<obj_property name="ElementShortName">dma3_i/simple_top_0_m_axi_inptr_AWREADY</obj_property>
+		<obj_property name="ObjectShortName">dma3_i/simple_top_0_m_axi_inptr_AWREADY</obj_property>
+		<obj_property name="Radix">HEXRADIX</obj_property>
+	</wvobject>
+	<wvobject fp_name="dma3_i/simple_top_0_m_axi_inptr_AWVALID" type="logic" db_ref_id="1">
+		<obj_property name="ElementShortName">dma3_i/simple_top_0_m_axi_inptr_AWVALID</obj_property>
+		<obj_property name="ObjectShortName">dma3_i/simple_top_0_m_axi_inptr_AWVALID</obj_property>
+		<obj_property name="Radix">HEXRADIX</obj_property>
+	</wvobject>
+	<wvobject fp_name="dma3_i/simple_top_0_m_axi_inptr_BID" type="logic" db_ref_id="1">
+		<obj_property name="ElementShortName">dma3_i/simple_top_0_m_axi_inptr_BID</obj_property>
+		<obj_property name="ObjectShortName">dma3_i/simple_top_0_m_axi_inptr_BID</obj_property>
+		<obj_property name="Radix">HEXRADIX</obj_property>
+	</wvobject>
+	<wvobject fp_name="dma3_i/simple_top_0_m_axi_inptr_BVALID" type="logic" db_ref_id="1">
+		<obj_property name="ElementShortName">dma3_i/simple_top_0_m_axi_inptr_BVALID</obj_property>
+		<obj_property name="ObjectShortName">dma3_i/simple_top_0_m_axi_inptr_BVALID</obj_property>
+		<obj_property name="Radix">HEXRADIX</obj_property>
+	</wvobject>
+	<wvobject fp_name="dma3_i/simple_top_0_m_axi_inptr_RID" type="logic" db_ref_id="1">
+		<obj_property name="ElementShortName">dma3_i/simple_top_0_m_axi_inptr_RID</obj_property>
+		<obj_property name="ObjectShortName">dma3_i/simple_top_0_m_axi_inptr_RID</obj_property>
+		<obj_property name="Radix">HEXRADIX</obj_property>
+	</wvobject>
+	<wvobject fp_name="dma3_i/simple_top_0_m_axi_inptr_RLAST" type="logic" db_ref_id="1">
+		<obj_property name="ElementShortName">dma3_i/simple_top_0_m_axi_inptr_RLAST</obj_property>
+		<obj_property name="ObjectShortName">dma3_i/simple_top_0_m_axi_inptr_RLAST</obj_property>
+		<obj_property name="Radix">HEXRADIX</obj_property>
+	</wvobject>
+	<wvobject fp_name="dma3_i/simple_top_0_m_axi_inptr_RREADY" type="logic" db_ref_id="1">
+		<obj_property name="ElementShortName">dma3_i/simple_top_0_m_axi_inptr_RREADY</obj_property>
+		<obj_property name="ObjectShortName">dma3_i/simple_top_0_m_axi_inptr_RREADY</obj_property>
+		<obj_property name="Radix">HEXRADIX</obj_property>
+	</wvobject>
+	<wvobject fp_name="dma3_i/simple_top_0_m_axi_inptr_RVALID" type="logic" db_ref_id="1">
+		<obj_property name="ElementShortName">dma3_i/simple_top_0_m_axi_inptr_RVALID</obj_property>
+		<obj_property name="ObjectShortName">dma3_i/simple_top_0_m_axi_inptr_RVALID</obj_property>
+		<obj_property name="Radix">HEXRADIX</obj_property>
+	</wvobject>
+	<wvobject fp_name="dma3_i/simple_top_0_m_axi_inptr_WLAST" type="logic" db_ref_id="1">
+		<obj_property name="ElementShortName">dma3_i/simple_top_0_m_axi_inptr_WLAST</obj_property>
+		<obj_property name="ObjectShortName">dma3_i/simple_top_0_m_axi_inptr_WLAST</obj_property>
+		<obj_property name="Radix">HEXRADIX</obj_property>
+	</wvobject>
+	<wvobject fp_name="dma3_i/simple_top_0_m_axi_inptr_WREADY" type="logic" db_ref_id="1">
+		<obj_property name="ElementShortName">dma3_i/simple_top_0_m_axi_inptr_WREADY</obj_property>
+		<obj_property name="ObjectShortName">dma3_i/simple_top_0_m_axi_inptr_WREADY</obj_property>
+		<obj_property name="Radix">HEXRADIX</obj_property>
+	</wvobject>
+	<wvobject fp_name="dma3_i/simple_top_0_m_axi_inptr_WVALID" type="logic" db_ref_id="1">
+		<obj_property name="ElementShortName">dma3_i/simple_top_0_m_axi_inptr_WVALID</obj_property>
+		<obj_property name="ObjectShortName">dma3_i/simple_top_0_m_axi_inptr_WVALID</obj_property>
+		<obj_property name="Radix">HEXRADIX</obj_property>
+	</wvobject>
+</wave_config>
+

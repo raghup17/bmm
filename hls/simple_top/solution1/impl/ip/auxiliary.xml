@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xd:acceleratorMap xmlns:xd="http://www.xilinx.com/xd" xd:functionName="simple_top" xd:componentRef="simple_top" xd:clockPeriod="10.000000">
+  <xd:controlReg xd:name="control" xd:interfaceRef="ap_ctrl" xd:busTypeRef="acc_handshake" xd:type="acc_handshake"/>
+  <xd:arg xd:name="*(inPtr)" xd:originalName="inPtr" xd:direction="inout" xd:interfaceRef="M_AXI_INPTR" xd:busTypeRef="aximm"/>
+  <xd:latencyEstimates xd:best-case="undef" xd:worst-case="undef" xd:average-case="undef"/>
+  <xd:resourceEstimates xd:LUT="162" xd:FF="132" xd:BRAM="0" xd:DSP="0"/>
+</xd:acceleratorMap>

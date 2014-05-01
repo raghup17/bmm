@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xd:acceleratorMap xmlns:xd="http://www.xilinx.com/xd" xd:functionName="fe_top" xd:componentRef="fe_top" xd:clockPeriod="10.000000">
+  <xd:controlReg xd:name="control" xd:interfaceRef="S_AXI_CONTROL" xd:busTypeRef="axilite" xd:type="generic_axi_lite" xd:offset="0x0"/>
+  <xd:arg xd:name="*(start)" xd:originalName="start" xd:direction="out" xd:interfaceRef="start" xd:busTypeRef="register" xd:handshakeRef="ap_none"/>
+  <xd:arg xd:name="*(idle)" xd:originalName="idle" xd:direction="in" xd:interfaceRef="idle" xd:busTypeRef="register" xd:handshakeRef="ap_none"/>
+  <xd:arg xd:name="*(done)" xd:originalName="done" xd:direction="in" xd:interfaceRef="done" xd:busTypeRef="register" xd:handshakeRef="ap_none"/>
+  <xd:latencyEstimates xd:best-case="undef" xd:worst-case="undef" xd:average-case="undef"/>
+  <xd:resourceEstimates xd:LUT="144" xd:FF="34" xd:BRAM="0" xd:DSP="0"/>
+</xd:acceleratorMap>
