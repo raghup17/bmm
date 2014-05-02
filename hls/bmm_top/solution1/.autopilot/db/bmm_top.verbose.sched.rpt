@@ -3,7 +3,7 @@
 ================================================================
 == Vivado HLS Report for 'bmm_top'
 ================================================================
-* Date:           Wed Apr 30 15:25:56 2014
+* Date:           Thu May  1 14:16:01 2014
 
 * Version:        2013.3 (build date: Wed Oct 16 18:12:55 PM 2013)
 * Project:        bmm_top
@@ -25,26 +25,25 @@
 
 + Latency (clock cycles): 
     * Summary: 
-    +---------+---------+---------+---------+---------+
-    |      Latency      |      Interval     | Pipeline|
-    |   min   |   max   |   min   |   max   |   Type  |
-    +---------+---------+---------+---------+---------+
-    |  3448961|  3448961|  3448962|  3448962|   none  |
-    +---------+---------+---------+---------+---------+
+    +-----+-----+-----+-----+---------+
+    |  Latency  |  Interval | Pipeline|
+    | min | max | min | max |   Type  |
+    +-----+-----+-----+-----+---------+
+    |    ?|    ?|    ?|    ?|   none  |
+    +-----+-----+-----+-----+---------+
 
     + Detail: 
         * Instance: 
         N/A
 
         * Loop: 
-        +-----------------+---------+---------+----------+-----------+-----------+------+----------+
-        |                 |      Latency      | Iteration|  Initiation Interval  | Trip |          |
-        |    Loop Name    |   min   |   max   |  Latency |  achieved |   target  | Count| Pipelined|
-        +-----------------+---------+---------+----------+-----------+-----------+------+----------+
-        |- Loop 1         |  3448960|  3448960|     53890|          -|          -|    64|    no    |
-        | + Loop 1.1      |    53888|    53888|       842|          -|          -|    64|    no    |
-        |  ++ Loop 1.1.1  |      832|      832|        13|          -|          -|    64|    no    |
-        +-----------------+---------+---------+----------+-----------+-----------+------+----------+
+        +-------------+-----+-----+----------+-----------+-----------+-------+----------+
+        |             |  Latency  | Iteration|  Initiation Interval  |  Trip |          |
+        |  Loop Name  | min | max |  Latency |  achieved |   target  | Count | Pipelined|
+        +-------------+-----+-----+----------+-----------+-----------+-------+----------+
+        |- Loop 1     |    ?|    ?|         ?|          -|          -| 0 ~ ? |    no    |
+        | + Loop 1.1  |    ?|    ?|        16|          4|          1|      ?|    yes   |
+        +-------------+-----+-----+----------+-----------+-----------+-------+----------+
 
 
 
@@ -122,31 +121,33 @@ IsDontTouch: 0
 HasImplIP: 0
 IsGatedGlobalClock: 0
 
++ Individual pipeline summary: 
+  * Pipeline-0: initiation interval (II) = 4, depth = 16
+
 
 ============================================================
 + Verbose Summary: Schedule
 ============================================================
-* Number of FSM states: 24
-* Pipeline: 0
+* Number of FSM states: 32
+* Pipeline: 1
+  Pipeline-0: II = 4, D = 16, States = { 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 }
 * Dataflow Pipeline: 0
 
 * FSM state transitions: 
 1 --> 
 	2  / true
 2 --> 
-	3  / (!exitcond3)
+	3  / true
 3 --> 
-	2  / (exitcond2)
-	4  / (!exitcond2)
+	4  / true
 4 --> 
-	5  / (!exitcond)
-	17  / (exitcond)
+	5  / true
 5 --> 
 	6  / true
 6 --> 
 	7  / true
 7 --> 
-	8  / true
+	8  / (!exitcond_flatten)
 8 --> 
 	9  / true
 9 --> 
@@ -164,7 +165,7 @@ IsGatedGlobalClock: 0
 15 --> 
 	16  / true
 16 --> 
-	4  / true
+	17  / true
 17 --> 
 	18  / true
 18 --> 
@@ -178,285 +179,651 @@ IsGatedGlobalClock: 0
 22 --> 
 	23  / true
 23 --> 
-	24  / true
+	24  / (exitcond) | (!exitcond & exitcond_1) | (!exitcond & !exitcond_1 & exitcond_2) | (!exitcond & !exitcond_1 & !exitcond_2 & exitcond_3)
+	8  / (!exitcond & !exitcond_1 & !exitcond_2 & !exitcond_3)
 24 --> 
-	3  / true
+	25  / true
+25 --> 
+	26  / true
+26 --> 
+	27  / true
+27 --> 
+	28  / true
+28 --> 
+	29  / true
+29 --> 
+	30  / true
+30 --> 
+	31  / true
+31 --> 
+	32  / true
+32 --> 
+	7  / true
 * FSM state operations: 
 
- <State 1>: 1.35ns
-ST_1: stg_25 [1/1] 0.00ns
+ <State 1>: 6.08ns
+ST_1: blockSize_read [1/1] 0.00ns
+:5  %blockSize_read = call i32 @_ssdm_op_Read.ap_hs.i32(i32 %blockSize)
+
+ST_1: cast [1/1] 0.00ns
+:15  %cast = zext i32 %blockSize_read to i64
+
+ST_1: bound [6/6] 6.08ns
+:16  %bound = mul i64 %cast, %cast
+
+
+ <State 2>: 6.08ns
+ST_2: bound [5/6] 6.08ns
+:16  %bound = mul i64 %cast, %cast
+
+
+ <State 3>: 6.08ns
+ST_3: bound [4/6] 6.08ns
+:16  %bound = mul i64 %cast, %cast
+
+
+ <State 4>: 6.08ns
+ST_4: bound [3/6] 6.08ns
+:16  %bound = mul i64 %cast, %cast
+
+
+ <State 5>: 6.08ns
+ST_5: bound [2/6] 6.08ns
+:16  %bound = mul i64 %cast, %cast
+
+
+ <State 6>: 6.08ns
+ST_6: stg_40 [1/1] 0.00ns
 :0  call void (...)* @_ssdm_op_SpecBitsMap(i32* %b1), !map !7
 
-ST_1: stg_26 [1/1] 0.00ns
+ST_6: stg_41 [1/1] 0.00ns
 :1  call void (...)* @_ssdm_op_SpecBitsMap(i32* %b2), !map !13
 
-ST_1: stg_27 [1/1] 0.00ns
+ST_6: stg_42 [1/1] 0.00ns
 :2  call void (...)* @_ssdm_op_SpecBitsMap(i32* %b3), !map !17
 
-ST_1: stg_28 [1/1] 0.00ns
-:3  call void (...)* @_ssdm_op_SpecTopModule([8 x i8]* @str) nounwind
+ST_6: stg_43 [1/1] 0.00ns
+:3  call void (...)* @_ssdm_op_SpecBitsMap(i32 %blockSize) nounwind, !map !21
 
-ST_1: stg_29 [1/1] 0.00ns
-:4  call void (...)* @_ssdm_op_SpecBus(i32* %b1, [7 x i8]* @p_str, i32 0, i32 0, i32 0, [1 x i8]* @p_str1)
+ST_6: stg_44 [1/1] 0.00ns
+:4  call void (...)* @_ssdm_op_SpecTopModule([8 x i8]* @str) nounwind
 
-ST_1: stg_30 [1/1] 0.00ns
-:5  call void (...)* @_ssdm_op_SpecIFCore(i32* %b1, [1 x i8]* @p_str1, [6 x i8]* @p_str2, [1 x i8]* @p_str1, [1 x i8]* @p_str1, [1 x i8]* @p_str1, [1 x i8]* @p_str1)
+ST_6: stg_45 [1/1] 0.00ns
+:6  call void (...)* @_ssdm_op_SpecBus(i32* %b1, [7 x i8]* @p_str, i32 0, i32 0, i32 0, [1 x i8]* @p_str1)
 
-ST_1: stg_31 [1/1] 0.00ns
-:6  call void (...)* @_ssdm_op_SpecBus(i32* %b2, [7 x i8]* @p_str, i32 0, i32 0, i32 0, [1 x i8]* @p_str1)
+ST_6: stg_46 [1/1] 0.00ns
+:7  call void (...)* @_ssdm_op_SpecIFCore(i32* %b1, [1 x i8]* @p_str1, [6 x i8]* @p_str2, [1 x i8]* @p_str1, [1 x i8]* @p_str1, [1 x i8]* @p_str1, [1 x i8]* @p_str1)
 
-ST_1: stg_32 [1/1] 0.00ns
-:7  call void (...)* @_ssdm_op_SpecIFCore(i32* %b2, [1 x i8]* @p_str1, [6 x i8]* @p_str2, [1 x i8]* @p_str1, [1 x i8]* @p_str1, [1 x i8]* @p_str1, [1 x i8]* @p_str1)
+ST_6: stg_47 [1/1] 0.00ns
+:8  call void (...)* @_ssdm_op_SpecBus(i32* %b2, [7 x i8]* @p_str, i32 0, i32 0, i32 0, [1 x i8]* @p_str1)
 
-ST_1: stg_33 [1/1] 0.00ns
-:8  call void (...)* @_ssdm_op_SpecBus(i32* %b3, [7 x i8]* @p_str, i32 0, i32 0, i32 0, [1 x i8]* @p_str1)
+ST_6: stg_48 [1/1] 0.00ns
+:9  call void (...)* @_ssdm_op_SpecIFCore(i32* %b2, [1 x i8]* @p_str1, [6 x i8]* @p_str2, [1 x i8]* @p_str1, [1 x i8]* @p_str1, [1 x i8]* @p_str1, [1 x i8]* @p_str1)
 
-ST_1: stg_34 [1/1] 0.00ns
-:9  call void (...)* @_ssdm_op_SpecIFCore(i32* %b3, [1 x i8]* @p_str1, [6 x i8]* @p_str2, [1 x i8]* @p_str1, [1 x i8]* @p_str1, [1 x i8]* @p_str1, [1 x i8]* @p_str1)
+ST_6: stg_49 [1/1] 0.00ns
+:10  call void (...)* @_ssdm_op_SpecBus(i32* %b3, [7 x i8]* @p_str, i32 0, i32 0, i32 0, [1 x i8]* @p_str1)
 
-ST_1: stg_35 [1/1] 0.00ns
-:10  call void (...)* @_ssdm_op_SpecIFCore(i32 0, [1 x i8]* @p_str1, [10 x i8]* @p_str3, [1 x i8]* @p_str1, [1 x i8]* @p_str1, [1 x i8]* @p_str1, [20 x i8]* @p_str4) nounwind
+ST_6: stg_50 [1/1] 0.00ns
+:11  call void (...)* @_ssdm_op_SpecIFCore(i32* %b3, [1 x i8]* @p_str1, [6 x i8]* @p_str2, [1 x i8]* @p_str1, [1 x i8]* @p_str1, [1 x i8]* @p_str1, [1 x i8]* @p_str1)
 
-ST_1: stg_36 [1/1] 1.35ns
-:11  br label %.loopexit
+ST_6: stg_51 [1/1] 0.00ns
+:12  call void (...)* @_ssdm_op_SpecIFCore(i32 0, [1 x i8]* @p_str1, [10 x i8]* @p_str3, [1 x i8]* @p_str1, [1 x i8]* @p_str1, [1 x i8]* @p_str1, [20 x i8]* @p_str4) nounwind
+
+ST_6: stg_52 [1/1] 0.00ns
+:13  call void (...)* @_ssdm_op_SpecWire(i32 %blockSize, [6 x i8]* @p_str5, i32 0, i32 0, i32 0, [1 x i8]* @p_str1) nounwind
+
+ST_6: stg_53 [1/1] 0.00ns
+:14  call void (...)* @_ssdm_op_SpecIFCore(i32 %blockSize, [1 x i8]* @p_str1, [10 x i8]* @p_str3, [1 x i8]* @p_str1, [1 x i8]* @p_str1, [1 x i8]* @p_str1, [20 x i8]* @p_str4) nounwind
+
+ST_6: bound [1/6] 6.08ns
+:16  %bound = mul i64 %cast, %cast
+
+ST_6: stg_55 [1/1] 1.57ns
+:17  br label %1
 
 
- <State 2>: 1.97ns
-ST_2: i [1/1] 0.00ns
-.loopexit:0  %i = phi i7 [ 0, %0 ], [ %i_1, %1 ]
+ <State 7>: 3.89ns
+ST_7: indvar_flatten [1/1] 0.00ns
+:0  %indvar_flatten = phi i64 [ 0, %0 ], [ %indvar_flatten_next, %7 ]
 
-ST_2: exitcond3 [1/1] 1.97ns
-.loopexit:1  %exitcond3 = icmp eq i7 %i, -64
+ST_7: i [1/1] 0.00ns
+:1  %i = phi i32 [ 0, %0 ], [ %i_mid2, %7 ]
 
-ST_2: empty [1/1] 0.00ns
-.loopexit:2  %empty = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 64, i64 64, i64 64)
+ST_7: j [1/1] 0.00ns
+:2  %j = phi i32 [ 0, %0 ], [ %j_1, %7 ]
 
-ST_2: i_1 [1/1] 1.72ns
-.loopexit:3  %i_1 = add i7 %i, 1
+ST_7: exitcond_flatten [1/1] 2.71ns
+:3  %exitcond_flatten = icmp eq i64 %indvar_flatten, %bound
 
-ST_2: stg_41 [1/1] 0.00ns
-.loopexit:4  br i1 %exitcond3, label %5, label %.preheader1
+ST_7: empty [1/1] 0.00ns
+:4  %empty = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 0, i64 -8589934591, i64 0)
 
-ST_2: tmp [1/1] 0.00ns
-.preheader1:0  %tmp = trunc i7 %i to i6
+ST_7: indvar_flatten_next [1/1] 3.40ns
+:5  %indvar_flatten_next = add i64 %indvar_flatten, 1
 
-ST_2: tmp_7 [1/1] 0.00ns
-.preheader1:1  %tmp_7 = call i12 @_ssdm_op_BitConcatenate.i12.i6.i6(i6 %tmp, i6 0)
+ST_7: stg_62 [1/1] 0.00ns
+:6  br i1 %exitcond_flatten, label %8, label %.preheader1
 
-ST_2: stg_44 [1/1] 1.35ns
-.preheader1:2  br label %1
+ST_7: exitcond1 [1/1] 2.52ns
+.preheader1:0  %exitcond1 = icmp eq i32 %j, %blockSize_read
 
-ST_2: stg_45 [1/1] 0.00ns
+ST_7: j_mid2 [1/1] 1.37ns
+.preheader1:1  %j_mid2 = select i1 %exitcond1, i32 0, i32 %j
+
+ST_7: i_s [1/1] 2.44ns
+.preheader1:2  %i_s = add nsw i32 %i, 1
+
+ST_7: i_mid2 [1/1] 1.37ns
+.preheader1:3  %i_mid2 = select i1 %exitcond1, i32 %i_s, i32 %i
+
+ST_7: tmp_5 [1/1] 0.00ns
+.preheader1:4  %tmp_5 = call i39 @_ssdm_op_BitConcatenate.i39.i32.i7(i32 %i_mid2, i7 0)
+
+ST_7: tmp_5_cast [1/1] 0.00ns
+.preheader1:5  %tmp_5_cast = sext i39 %tmp_5 to i40
+
+ST_7: tmp_3_cast [1/1] 0.00ns
+.preheader1:6  %tmp_3_cast = sext i32 %j_mid2 to i40
+
+ST_7: stg_70 [1/1] 1.57ns
+.preheader1:7  br label %2
+
+ST_7: stg_71 [1/1] 0.00ns
 :0  ret void
 
 
- <State 3>: 1.97ns
-ST_3: j [1/1] 0.00ns
-:0  %j = phi i7 [ %j_1, %4 ], [ 0, %.preheader1 ]
+ <State 8>: 2.68ns
+ST_8: k [1/1] 0.00ns
+:0  %k = phi i32 [ %k_1_3, %6 ], [ 0, %.preheader1 ]
 
-ST_3: exitcond2 [1/1] 1.97ns
-:1  %exitcond2 = icmp eq i7 %j, -64
+ST_8: exitcond [1/1] 2.52ns
+:2  %exitcond = icmp eq i32 %k, %blockSize_read
 
-ST_3: empty_7 [1/1] 0.00ns
-:2  %empty_7 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 64, i64 64, i64 64)
+ST_8: tmp_6_cast4 [1/1] 0.00ns
+:3  %tmp_6_cast4 = sext i32 %k to i40
 
-ST_3: j_1 [1/1] 1.72ns
-:3  %j_1 = add i7 %j, 1
+ST_8: tmp_7 [1/1] 2.68ns
+:4  %tmp_7 = add i40 %tmp_5_cast, %tmp_6_cast4
 
-ST_3: stg_50 [1/1] 0.00ns
-:4  br i1 %exitcond2, label %.loopexit, label %.preheader
+ST_8: tmp_7_cast [1/1] 0.00ns
+:5  %tmp_7_cast = sext i40 %tmp_7 to i64
 
-ST_3: tmp_2_cast [1/1] 0.00ns
-.preheader:0  %tmp_2_cast = zext i7 %j to i12
+ST_8: b1_addr [1/1] 0.00ns
+:6  %b1_addr = getelementptr i32* %b1, i64 %tmp_7_cast
 
-ST_3: stg_52 [1/1] 1.57ns
-.preheader:1  br label %2
+ST_8: tmp_8 [1/1] 0.00ns
+:9  %tmp_8 = call i39 @_ssdm_op_BitConcatenate.i39.i32.i7(i32 %k, i7 0)
 
+ST_8: tmp_8_cast [1/1] 0.00ns
+:10  %tmp_8_cast = sext i39 %tmp_8 to i40
 
- <State 4>: 1.97ns
-ST_4: k [1/1] 0.00ns
-:0  %k = phi i7 [ %k_1, %3 ], [ 0, %.preheader ]
+ST_8: tmp_9 [1/1] 2.68ns
+:11  %tmp_9 = add i40 %tmp_8_cast, %tmp_3_cast
 
-ST_4: tmpVal [1/1] 0.00ns
-:1  %tmpVal = phi i32 [ %tmpVal_1, %3 ], [ 0, %.preheader ]
+ST_8: tmp_9_cast [1/1] 0.00ns
+:12  %tmp_9_cast = sext i40 %tmp_9 to i64
 
-ST_4: exitcond [1/1] 1.97ns
-:2  %exitcond = icmp eq i7 %k, -64
-
-ST_4: empty_8 [1/1] 0.00ns
-:3  %empty_8 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 64, i64 64, i64 64)
-
-ST_4: k_1 [1/1] 1.72ns
-:4  %k_1 = add i7 %k, 1
-
-ST_4: stg_58 [1/1] 0.00ns
-:5  br i1 %exitcond, label %4, label %3
-
-ST_4: tmp_5_cast [1/1] 0.00ns
-:0  %tmp_5_cast = zext i7 %k to i12
-
-ST_4: tmp_8 [1/1] 1.84ns
-:1  %tmp_8 = add i12 %tmp_7, %tmp_5_cast
-
-ST_4: tmp_1 [1/1] 0.00ns
-:6  %tmp_1 = trunc i7 %k to i6
-
-ST_4: tmp_9 [1/1] 0.00ns
-:7  %tmp_9 = call i12 @_ssdm_op_BitConcatenate.i12.i6.i6(i6 %tmp_1, i6 0)
-
-ST_4: tmp_s [1/1] 1.84ns
-:8  %tmp_s = add i12 %tmp_9, %tmp_2_cast
-
-ST_4: tmp_4 [1/1] 1.84ns
-:0  %tmp_4 = add i12 %tmp_7, %tmp_2_cast
-
-
- <State 5>: 8.75ns
-ST_5: tmp_8_cast [1/1] 0.00ns
-:2  %tmp_8_cast = zext i12 %tmp_8 to i64
-
-ST_5: b1_addr [1/1] 0.00ns
-:3  %b1_addr = getelementptr i32* %b1, i64 %tmp_8_cast
-
-ST_5: b1_load_req [5/5] 8.75ns
-:4  %b1_load_req = call i1 @_ssdm_op_ReadReq.ap_bus.i32P(i32* %b1_addr, i32 1)
-
-ST_5: tmp_cast [1/1] 0.00ns
-:9  %tmp_cast = zext i12 %tmp_s to i64
-
-ST_5: b2_addr [1/1] 0.00ns
-:10  %b2_addr = getelementptr i32* %b2, i64 %tmp_cast
-
-ST_5: b2_load_req [5/5] 8.75ns
-:11  %b2_load_req = call i1 @_ssdm_op_ReadReq.ap_bus.i32P(i32* %b2_addr, i32 1)
-
-
- <State 6>: 8.75ns
-ST_6: b1_load_req [4/5] 8.75ns
-:4  %b1_load_req = call i1 @_ssdm_op_ReadReq.ap_bus.i32P(i32* %b1_addr, i32 1)
-
-ST_6: b2_load_req [4/5] 8.75ns
-:11  %b2_load_req = call i1 @_ssdm_op_ReadReq.ap_bus.i32P(i32* %b2_addr, i32 1)
-
-
- <State 7>: 8.75ns
-ST_7: b1_load_req [3/5] 8.75ns
-:4  %b1_load_req = call i1 @_ssdm_op_ReadReq.ap_bus.i32P(i32* %b1_addr, i32 1)
-
-ST_7: b2_load_req [3/5] 8.75ns
-:11  %b2_load_req = call i1 @_ssdm_op_ReadReq.ap_bus.i32P(i32* %b2_addr, i32 1)
-
-
- <State 8>: 8.75ns
-ST_8: b1_load_req [2/5] 8.75ns
-:4  %b1_load_req = call i1 @_ssdm_op_ReadReq.ap_bus.i32P(i32* %b1_addr, i32 1)
-
-ST_8: b2_load_req [2/5] 8.75ns
-:11  %b2_load_req = call i1 @_ssdm_op_ReadReq.ap_bus.i32P(i32* %b2_addr, i32 1)
+ST_8: b2_addr [1/1] 0.00ns
+:13  %b2_addr = getelementptr i32* %b2, i64 %tmp_9_cast
 
 
  <State 9>: 8.75ns
-ST_9: b1_load_req [1/5] 8.75ns
-:4  %b1_load_req = call i1 @_ssdm_op_ReadReq.ap_bus.i32P(i32* %b1_addr, i32 1)
+ST_9: b1_load_req [5/5] 8.75ns
+:7  %b1_load_req = call i1 @_ssdm_op_ReadReq.ap_bus.i32P(i32* %b1_addr, i32 1)
 
-ST_9: b2_load_req [1/5] 8.75ns
-:11  %b2_load_req = call i1 @_ssdm_op_ReadReq.ap_bus.i32P(i32* %b2_addr, i32 1)
+ST_9: b2_load_req [5/5] 8.75ns
+:14  %b2_load_req = call i1 @_ssdm_op_ReadReq.ap_bus.i32P(i32* %b2_addr, i32 1)
+
+ST_9: tmp [1/1] 0.00ns
+:19  %tmp = call i31 @_ssdm_op_PartSelect.i31.i32.i32.i32(i32 %k, i32 1, i32 31)
+
+ST_9: k_1_s [1/1] 0.00ns
+:20  %k_1_s = call i32 @_ssdm_op_BitConcatenate.i32.i31.i1(i31 %tmp, i1 true)
+
+ST_9: exitcond_1 [1/1] 2.52ns
+:21  %exitcond_1 = icmp eq i32 %k_1_s, %blockSize_read
+
+ST_9: tmp_6_1_cast3 [1/1] 0.00ns
+:0  %tmp_6_1_cast3 = sext i32 %k_1_s to i40
+
+ST_9: tmp_1 [1/1] 2.68ns
+:1  %tmp_1 = add i40 %tmp_5_cast, %tmp_6_1_cast3
+
+ST_9: tmp_11_cast [1/1] 0.00ns
+:2  %tmp_11_cast = sext i40 %tmp_1 to i64
+
+ST_9: b1_addr_1 [1/1] 0.00ns
+:3  %b1_addr_1 = getelementptr i32* %b1, i64 %tmp_11_cast
+
+ST_9: tmp_3 [1/1] 0.00ns
+:6  %tmp_3 = call i39 @_ssdm_op_BitConcatenate.i39.i31.i8(i31 %tmp, i8 -128)
+
+ST_9: tmp_12_cast [1/1] 0.00ns
+:7  %tmp_12_cast = sext i39 %tmp_3 to i40
+
+ST_9: tmp_6 [1/1] 2.68ns
+:8  %tmp_6 = add i40 %tmp_12_cast, %tmp_3_cast
+
+ST_9: tmp_13_cast [1/1] 0.00ns
+:9  %tmp_13_cast = sext i40 %tmp_6 to i64
+
+ST_9: b2_addr_1 [1/1] 0.00ns
+:10  %b2_addr_1 = getelementptr i32* %b2, i64 %tmp_13_cast
 
 
  <State 10>: 8.75ns
-ST_10: b1_addr_read [1/1] 8.75ns
-:5  %b1_addr_read = call i32 @_ssdm_op_Read.ap_bus.volatile.i32P(i32* %b1_addr)
+ST_10: b1_load_req [4/5] 8.75ns
+:7  %b1_load_req = call i1 @_ssdm_op_ReadReq.ap_bus.i32P(i32* %b1_addr, i32 1)
 
-ST_10: b2_addr_read [1/1] 8.75ns
-:12  %b2_addr_read = call i32 @_ssdm_op_Read.ap_bus.volatile.i32P(i32* %b2_addr)
+ST_10: b2_load_req [4/5] 8.75ns
+:14  %b2_load_req = call i1 @_ssdm_op_ReadReq.ap_bus.i32P(i32* %b2_addr, i32 1)
+
+ST_10: b1_load_1_req [5/5] 8.75ns
+:4  %b1_load_1_req = call i1 @_ssdm_op_ReadReq.ap_bus.i32P(i32* %b1_addr_1, i32 1)
+
+ST_10: b2_load_1_req [5/5] 8.75ns
+:11  %b2_load_1_req = call i1 @_ssdm_op_ReadReq.ap_bus.i32P(i32* %b2_addr_1, i32 1)
+
+ST_10: tmp_13 [1/1] 0.00ns
+:15  %tmp_13 = call i30 @_ssdm_op_PartSelect.i30.i32.i32.i32(i32 %k, i32 2, i32 31)
+
+ST_10: k_1_1 [1/1] 0.00ns
+:16  %k_1_1 = call i32 @_ssdm_op_BitConcatenate.i32.i30.i2(i30 %tmp_13, i2 -2)
+
+ST_10: exitcond_2 [1/1] 2.52ns
+:17  %exitcond_2 = icmp eq i32 %k_1_1, %blockSize_read
+
+ST_10: tmp_6_2_cast2 [1/1] 0.00ns
+:0  %tmp_6_2_cast2 = sext i32 %k_1_1 to i40
+
+ST_10: tmp_10 [1/1] 2.68ns
+:1  %tmp_10 = add i40 %tmp_5_cast, %tmp_6_2_cast2
+
+ST_10: tmp_15_cast [1/1] 0.00ns
+:2  %tmp_15_cast = sext i40 %tmp_10 to i64
+
+ST_10: b1_addr_2 [1/1] 0.00ns
+:3  %b1_addr_2 = getelementptr i32* %b1, i64 %tmp_15_cast
+
+ST_10: tmp_11 [1/1] 0.00ns
+:6  %tmp_11 = call i39 @_ssdm_op_BitConcatenate.i39.i30.i9(i30 %tmp_13, i9 -256)
+
+ST_10: tmp_16_cast [1/1] 0.00ns
+:7  %tmp_16_cast = sext i39 %tmp_11 to i40
+
+ST_10: tmp_12 [1/1] 2.68ns
+:8  %tmp_12 = add i40 %tmp_16_cast, %tmp_3_cast
+
+ST_10: tmp_17_cast [1/1] 0.00ns
+:9  %tmp_17_cast = sext i40 %tmp_12 to i64
+
+ST_10: b2_addr_2 [1/1] 0.00ns
+:10  %b2_addr_2 = getelementptr i32* %b2, i64 %tmp_17_cast
+
+ST_10: k_1_2 [1/1] 0.00ns
+:15  %k_1_2 = call i32 @_ssdm_op_BitConcatenate.i32.i30.i2(i30 %tmp_13, i2 -1)
+
+ST_10: exitcond_3 [1/1] 2.52ns
+:16  %exitcond_3 = icmp eq i32 %k_1_2, %blockSize_read
+
+ST_10: k_1_3 [1/1] 2.44ns
+:15  %k_1_3 = add nsw i32 %k, 4
 
 
- <State 11>: 6.08ns
-ST_11: tmp_6 [6/6] 6.08ns
-:13  %tmp_6 = mul nsw i32 %b2_addr_read, %b1_addr_read
+ <State 11>: 8.75ns
+ST_11: b1_load_req [3/5] 8.75ns
+:7  %b1_load_req = call i1 @_ssdm_op_ReadReq.ap_bus.i32P(i32* %b1_addr, i32 1)
+
+ST_11: b2_load_req [3/5] 8.75ns
+:14  %b2_load_req = call i1 @_ssdm_op_ReadReq.ap_bus.i32P(i32* %b2_addr, i32 1)
+
+ST_11: b1_load_1_req [4/5] 8.75ns
+:4  %b1_load_1_req = call i1 @_ssdm_op_ReadReq.ap_bus.i32P(i32* %b1_addr_1, i32 1)
+
+ST_11: b2_load_1_req [4/5] 8.75ns
+:11  %b2_load_1_req = call i1 @_ssdm_op_ReadReq.ap_bus.i32P(i32* %b2_addr_1, i32 1)
+
+ST_11: b1_load_2_req [5/5] 8.75ns
+:4  %b1_load_2_req = call i1 @_ssdm_op_ReadReq.ap_bus.i32P(i32* %b1_addr_2, i32 1)
+
+ST_11: b2_load_2_req [5/5] 8.75ns
+:11  %b2_load_2_req = call i1 @_ssdm_op_ReadReq.ap_bus.i32P(i32* %b2_addr_2, i32 1)
+
+ST_11: tmp_6_3_cast1 [1/1] 0.00ns
+:0  %tmp_6_3_cast1 = sext i32 %k_1_2 to i40
+
+ST_11: tmp_15 [1/1] 2.68ns
+:1  %tmp_15 = add i40 %tmp_5_cast, %tmp_6_3_cast1
+
+ST_11: tmp_21_cast [1/1] 0.00ns
+:2  %tmp_21_cast = sext i40 %tmp_15 to i64
+
+ST_11: b1_addr_3 [1/1] 0.00ns
+:3  %b1_addr_3 = getelementptr i32* %b1, i64 %tmp_21_cast
+
+ST_11: tmp_16 [1/1] 0.00ns
+:6  %tmp_16 = call i39 @_ssdm_op_BitConcatenate.i39.i30.i9(i30 %tmp_13, i9 -128)
+
+ST_11: tmp_22_cast [1/1] 0.00ns
+:7  %tmp_22_cast = sext i39 %tmp_16 to i40
+
+ST_11: tmp_17 [1/1] 2.68ns
+:8  %tmp_17 = add i40 %tmp_22_cast, %tmp_3_cast
+
+ST_11: tmp_23_cast [1/1] 0.00ns
+:9  %tmp_23_cast = sext i40 %tmp_17 to i64
+
+ST_11: b2_addr_3 [1/1] 0.00ns
+:10  %b2_addr_3 = getelementptr i32* %b2, i64 %tmp_23_cast
 
 
- <State 12>: 6.08ns
-ST_12: tmp_6 [5/6] 6.08ns
-:13  %tmp_6 = mul nsw i32 %b2_addr_read, %b1_addr_read
+ <State 12>: 8.75ns
+ST_12: b1_load_req [2/5] 8.75ns
+:7  %b1_load_req = call i1 @_ssdm_op_ReadReq.ap_bus.i32P(i32* %b1_addr, i32 1)
+
+ST_12: b2_load_req [2/5] 8.75ns
+:14  %b2_load_req = call i1 @_ssdm_op_ReadReq.ap_bus.i32P(i32* %b2_addr, i32 1)
+
+ST_12: b1_load_1_req [3/5] 8.75ns
+:4  %b1_load_1_req = call i1 @_ssdm_op_ReadReq.ap_bus.i32P(i32* %b1_addr_1, i32 1)
+
+ST_12: b2_load_1_req [3/5] 8.75ns
+:11  %b2_load_1_req = call i1 @_ssdm_op_ReadReq.ap_bus.i32P(i32* %b2_addr_1, i32 1)
+
+ST_12: b1_load_2_req [4/5] 8.75ns
+:4  %b1_load_2_req = call i1 @_ssdm_op_ReadReq.ap_bus.i32P(i32* %b1_addr_2, i32 1)
+
+ST_12: b2_load_2_req [4/5] 8.75ns
+:11  %b2_load_2_req = call i1 @_ssdm_op_ReadReq.ap_bus.i32P(i32* %b2_addr_2, i32 1)
+
+ST_12: b1_load_3_req [5/5] 8.75ns
+:4  %b1_load_3_req = call i1 @_ssdm_op_ReadReq.ap_bus.i32P(i32* %b1_addr_3, i32 1)
+
+ST_12: b2_load_3_req [5/5] 8.75ns
+:11  %b2_load_3_req = call i1 @_ssdm_op_ReadReq.ap_bus.i32P(i32* %b2_addr_3, i32 1)
 
 
- <State 13>: 6.08ns
-ST_13: tmp_6 [4/6] 6.08ns
-:13  %tmp_6 = mul nsw i32 %b2_addr_read, %b1_addr_read
+ <State 13>: 8.75ns
+ST_13: b1_load_req [1/5] 8.75ns
+:7  %b1_load_req = call i1 @_ssdm_op_ReadReq.ap_bus.i32P(i32* %b1_addr, i32 1)
+
+ST_13: b2_load_req [1/5] 8.75ns
+:14  %b2_load_req = call i1 @_ssdm_op_ReadReq.ap_bus.i32P(i32* %b2_addr, i32 1)
+
+ST_13: b1_load_1_req [2/5] 8.75ns
+:4  %b1_load_1_req = call i1 @_ssdm_op_ReadReq.ap_bus.i32P(i32* %b1_addr_1, i32 1)
+
+ST_13: b2_load_1_req [2/5] 8.75ns
+:11  %b2_load_1_req = call i1 @_ssdm_op_ReadReq.ap_bus.i32P(i32* %b2_addr_1, i32 1)
+
+ST_13: b1_load_2_req [3/5] 8.75ns
+:4  %b1_load_2_req = call i1 @_ssdm_op_ReadReq.ap_bus.i32P(i32* %b1_addr_2, i32 1)
+
+ST_13: b2_load_2_req [3/5] 8.75ns
+:11  %b2_load_2_req = call i1 @_ssdm_op_ReadReq.ap_bus.i32P(i32* %b2_addr_2, i32 1)
+
+ST_13: b1_load_3_req [4/5] 8.75ns
+:4  %b1_load_3_req = call i1 @_ssdm_op_ReadReq.ap_bus.i32P(i32* %b1_addr_3, i32 1)
+
+ST_13: b2_load_3_req [4/5] 8.75ns
+:11  %b2_load_3_req = call i1 @_ssdm_op_ReadReq.ap_bus.i32P(i32* %b2_addr_3, i32 1)
 
 
- <State 14>: 6.08ns
-ST_14: tmp_6 [3/6] 6.08ns
-:13  %tmp_6 = mul nsw i32 %b2_addr_read, %b1_addr_read
+ <State 14>: 8.75ns
+ST_14: b1_addr_read [1/1] 8.75ns
+:8  %b1_addr_read = call i32 @_ssdm_op_Read.ap_bus.volatile.i32P(i32* %b1_addr)
+
+ST_14: b2_addr_read [1/1] 8.75ns
+:15  %b2_addr_read = call i32 @_ssdm_op_Read.ap_bus.volatile.i32P(i32* %b2_addr)
+
+ST_14: b1_load_1_req [1/5] 8.75ns
+:4  %b1_load_1_req = call i1 @_ssdm_op_ReadReq.ap_bus.i32P(i32* %b1_addr_1, i32 1)
+
+ST_14: b2_load_1_req [1/5] 8.75ns
+:11  %b2_load_1_req = call i1 @_ssdm_op_ReadReq.ap_bus.i32P(i32* %b2_addr_1, i32 1)
+
+ST_14: b1_load_2_req [2/5] 8.75ns
+:4  %b1_load_2_req = call i1 @_ssdm_op_ReadReq.ap_bus.i32P(i32* %b1_addr_2, i32 1)
+
+ST_14: b2_load_2_req [2/5] 8.75ns
+:11  %b2_load_2_req = call i1 @_ssdm_op_ReadReq.ap_bus.i32P(i32* %b2_addr_2, i32 1)
+
+ST_14: b1_load_3_req [3/5] 8.75ns
+:4  %b1_load_3_req = call i1 @_ssdm_op_ReadReq.ap_bus.i32P(i32* %b1_addr_3, i32 1)
+
+ST_14: b2_load_3_req [3/5] 8.75ns
+:11  %b2_load_3_req = call i1 @_ssdm_op_ReadReq.ap_bus.i32P(i32* %b2_addr_3, i32 1)
 
 
- <State 15>: 6.08ns
-ST_15: tmp_6 [2/6] 6.08ns
-:13  %tmp_6 = mul nsw i32 %b2_addr_read, %b1_addr_read
+ <State 15>: 8.75ns
+ST_15: tmp_s [6/6] 6.08ns
+:16  %tmp_s = mul nsw i32 %b2_addr_read, %b1_addr_read
+
+ST_15: b1_addr_1_read [1/1] 8.75ns
+:5  %b1_addr_1_read = call i32 @_ssdm_op_Read.ap_bus.volatile.i32P(i32* %b1_addr_1)
+
+ST_15: b2_addr_1_read [1/1] 8.75ns
+:12  %b2_addr_1_read = call i32 @_ssdm_op_Read.ap_bus.volatile.i32P(i32* %b2_addr_1)
+
+ST_15: b1_load_2_req [1/5] 8.75ns
+:4  %b1_load_2_req = call i1 @_ssdm_op_ReadReq.ap_bus.i32P(i32* %b1_addr_2, i32 1)
+
+ST_15: b2_load_2_req [1/5] 8.75ns
+:11  %b2_load_2_req = call i1 @_ssdm_op_ReadReq.ap_bus.i32P(i32* %b2_addr_2, i32 1)
+
+ST_15: b1_load_3_req [2/5] 8.75ns
+:4  %b1_load_3_req = call i1 @_ssdm_op_ReadReq.ap_bus.i32P(i32* %b1_addr_3, i32 1)
+
+ST_15: b2_load_3_req [2/5] 8.75ns
+:11  %b2_load_3_req = call i1 @_ssdm_op_ReadReq.ap_bus.i32P(i32* %b2_addr_3, i32 1)
 
 
- <State 16>: 8.52ns
-ST_16: tmp_6 [1/6] 6.08ns
-:13  %tmp_6 = mul nsw i32 %b2_addr_read, %b1_addr_read
+ <State 16>: 8.75ns
+ST_16: tmp_s [5/6] 6.08ns
+:16  %tmp_s = mul nsw i32 %b2_addr_read, %b1_addr_read
 
-ST_16: tmpVal_1 [1/1] 2.44ns
-:14  %tmpVal_1 = add nsw i32 %tmp_6, %tmpVal
+ST_16: tmp_7_1 [6/6] 6.08ns
+:13  %tmp_7_1 = mul nsw i32 %b2_addr_1_read, %b1_addr_1_read
 
-ST_16: stg_88 [1/1] 0.00ns
-:15  br label %2
+ST_16: b1_addr_2_read [1/1] 8.75ns
+:5  %b1_addr_2_read = call i32 @_ssdm_op_Read.ap_bus.volatile.i32P(i32* %b1_addr_2)
+
+ST_16: b2_addr_2_read [1/1] 8.75ns
+:12  %b2_addr_2_read = call i32 @_ssdm_op_Read.ap_bus.volatile.i32P(i32* %b2_addr_2)
+
+ST_16: b1_load_3_req [1/5] 8.75ns
+:4  %b1_load_3_req = call i1 @_ssdm_op_ReadReq.ap_bus.i32P(i32* %b1_addr_3, i32 1)
+
+ST_16: b2_load_3_req [1/5] 8.75ns
+:11  %b2_load_3_req = call i1 @_ssdm_op_ReadReq.ap_bus.i32P(i32* %b2_addr_3, i32 1)
 
 
  <State 17>: 8.75ns
-ST_17: tmp_4_cast [1/1] 0.00ns
-:1  %tmp_4_cast = zext i12 %tmp_4 to i64
+ST_17: tmp_s [4/6] 6.08ns
+:16  %tmp_s = mul nsw i32 %b2_addr_read, %b1_addr_read
 
-ST_17: b3_addr [1/1] 0.00ns
-:2  %b3_addr = getelementptr i32* %b3, i64 %tmp_4_cast
+ST_17: tmp_7_1 [5/6] 6.08ns
+:13  %tmp_7_1 = mul nsw i32 %b2_addr_1_read, %b1_addr_1_read
 
-ST_17: b3_load_req [5/5] 8.75ns
-:3  %b3_load_req = call i1 @_ssdm_op_ReadReq.ap_bus.i32P(i32* %b3_addr, i32 1)
+ST_17: tmp_7_2 [6/6] 6.08ns
+:13  %tmp_7_2 = mul nsw i32 %b2_addr_2_read, %b1_addr_2_read
 
+ST_17: b1_addr_3_read [1/1] 8.75ns
+:5  %b1_addr_3_read = call i32 @_ssdm_op_Read.ap_bus.volatile.i32P(i32* %b1_addr_3)
 
- <State 18>: 8.75ns
-ST_18: b3_load_req [4/5] 8.75ns
-:3  %b3_load_req = call i1 @_ssdm_op_ReadReq.ap_bus.i32P(i32* %b3_addr, i32 1)
-
-
- <State 19>: 8.75ns
-ST_19: b3_load_req [3/5] 8.75ns
-:3  %b3_load_req = call i1 @_ssdm_op_ReadReq.ap_bus.i32P(i32* %b3_addr, i32 1)
+ST_17: b2_addr_3_read [1/1] 8.75ns
+:12  %b2_addr_3_read = call i32 @_ssdm_op_Read.ap_bus.volatile.i32P(i32* %b2_addr_3)
 
 
- <State 20>: 8.75ns
-ST_20: b3_load_req [2/5] 8.75ns
-:3  %b3_load_req = call i1 @_ssdm_op_ReadReq.ap_bus.i32P(i32* %b3_addr, i32 1)
+ <State 18>: 6.08ns
+ST_18: tmp_s [3/6] 6.08ns
+:16  %tmp_s = mul nsw i32 %b2_addr_read, %b1_addr_read
+
+ST_18: tmp_7_1 [4/6] 6.08ns
+:13  %tmp_7_1 = mul nsw i32 %b2_addr_1_read, %b1_addr_1_read
+
+ST_18: tmp_7_2 [5/6] 6.08ns
+:13  %tmp_7_2 = mul nsw i32 %b2_addr_2_read, %b1_addr_2_read
+
+ST_18: tmp_7_3 [6/6] 6.08ns
+:13  %tmp_7_3 = mul nsw i32 %b2_addr_3_read, %b1_addr_3_read
 
 
- <State 21>: 8.75ns
-ST_21: b3_load_req [1/5] 8.75ns
-:3  %b3_load_req = call i1 @_ssdm_op_ReadReq.ap_bus.i32P(i32* %b3_addr, i32 1)
+ <State 19>: 6.08ns
+ST_19: tmp_s [2/6] 6.08ns
+:16  %tmp_s = mul nsw i32 %b2_addr_read, %b1_addr_read
+
+ST_19: tmp_7_1 [3/6] 6.08ns
+:13  %tmp_7_1 = mul nsw i32 %b2_addr_1_read, %b1_addr_1_read
+
+ST_19: tmp_7_2 [4/6] 6.08ns
+:13  %tmp_7_2 = mul nsw i32 %b2_addr_2_read, %b1_addr_2_read
+
+ST_19: tmp_7_3 [5/6] 6.08ns
+:13  %tmp_7_3 = mul nsw i32 %b2_addr_3_read, %b1_addr_3_read
 
 
- <State 22>: 8.75ns
-ST_22: b3_addr_read [1/1] 8.75ns
-:4  %b3_addr_read = call i32 @_ssdm_op_Read.ap_bus.volatile.i32P(i32* %b3_addr)
+ <State 20>: 8.52ns
+ST_20: tmpVal [1/1] 0.00ns
+:1  %tmpVal = phi i32 [ %tmpVal_1_3, %6 ], [ 0, %.preheader1 ]
+
+ST_20: stg_182 [1/1] 1.74ns
+:3  br i1 %exitcond, label %7, label %3
+
+ST_20: tmp_s [1/6] 6.08ns
+:16  %tmp_s = mul nsw i32 %b2_addr_read, %b1_addr_read
+
+ST_20: tmpVal_1 [1/1] 2.44ns
+:17  %tmpVal_1 = add nsw i32 %tmp_s, %tmpVal
+
+ST_20: tmp_7_1 [2/6] 6.08ns
+:13  %tmp_7_1 = mul nsw i32 %b2_addr_1_read, %b1_addr_1_read
+
+ST_20: tmp_7_2 [3/6] 6.08ns
+:13  %tmp_7_2 = mul nsw i32 %b2_addr_2_read, %b1_addr_2_read
+
+ST_20: tmp_7_3 [4/6] 6.08ns
+:13  %tmp_7_3 = mul nsw i32 %b2_addr_3_read, %b1_addr_3_read
 
 
- <State 23>: 2.44ns
-ST_23: tmp_3 [1/1] 2.44ns
-:5  %tmp_3 = add nsw i32 %b3_addr_read, %tmpVal
+ <State 21>: 6.08ns
+ST_21: empty_30 [1/1] 0.00ns
+:0  %empty_30 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 0, i64 0, i64 0)
+
+ST_21: tmp_2 [1/1] 0.00ns
+:1  %tmp_2 = call i32 (...)* @_ssdm_op_SpecRegionBegin([12 x i8]* @p_str6) nounwind
+
+ST_21: stg_190 [1/1] 0.00ns
+:2  call void (...)* @_ssdm_op_SpecPipeline(i32 1, i32 1, i32 1, [1 x i8]* @p_str1) nounwind
+
+ST_21: empty_31 [1/1] 0.00ns
+:18  %empty_31 = call i32 (...)* @_ssdm_op_SpecRegionEnd([12 x i8]* @p_str6, i32 %tmp_2) nounwind
+
+ST_21: stg_192 [1/1] 1.74ns
+:22  br i1 %exitcond_1, label %7, label %4
+
+ST_21: tmp_7_1 [1/6] 6.08ns
+:13  %tmp_7_1 = mul nsw i32 %b2_addr_1_read, %b1_addr_1_read
+
+ST_21: tmp_7_2 [2/6] 6.08ns
+:13  %tmp_7_2 = mul nsw i32 %b2_addr_2_read, %b1_addr_2_read
+
+ST_21: tmp_7_3 [3/6] 6.08ns
+:13  %tmp_7_3 = mul nsw i32 %b2_addr_3_read, %b1_addr_3_read
 
 
- <State 24>: 8.75ns
-ST_24: b3_addr_req [1/1] 8.75ns
-:6  %b3_addr_req = call i1 @_ssdm_op_WriteReq.ap_bus.i32P(i32* %b3_addr, i32 1)
+ <State 22>: 6.08ns
+ST_22: tmpVal_1_1 [1/1] 2.44ns
+:14  %tmpVal_1_1 = add nsw i32 %tmp_7_1, %tmpVal_1
 
-ST_24: stg_99 [1/1] 8.75ns
-:7  call void @_ssdm_op_Write.ap_bus.volatile.i32P(i32* %b3_addr, i32 %tmp_3)
+ST_22: stg_197 [1/1] 1.74ns
+:18  br i1 %exitcond_2, label %7, label %5
 
-ST_24: stg_100 [1/1] 0.00ns
-:8  br label %1
+ST_22: tmp_7_2 [1/6] 6.08ns
+:13  %tmp_7_2 = mul nsw i32 %b2_addr_2_read, %b1_addr_2_read
+
+ST_22: tmp_7_3 [2/6] 6.08ns
+:13  %tmp_7_3 = mul nsw i32 %b2_addr_3_read, %b1_addr_3_read
+
+
+ <State 23>: 8.52ns
+ST_23: tmpVal_1_2 [1/1] 2.44ns
+:14  %tmpVal_1_2 = add nsw i32 %tmp_7_2, %tmpVal_1_1
+
+ST_23: stg_201 [1/1] 1.74ns
+:17  br i1 %exitcond_3, label %7, label %6
+
+ST_23: tmp_7_3 [1/6] 6.08ns
+:13  %tmp_7_3 = mul nsw i32 %b2_addr_3_read, %b1_addr_3_read
+
+ST_23: tmpVal_1_3 [1/1] 2.44ns
+:14  %tmpVal_1_3 = add nsw i32 %tmp_7_3, %tmpVal_1_2
+
+ST_23: stg_204 [1/1] 0.00ns
+:16  br label %2
+
+
+ <State 24>: 2.68ns
+ST_24: tmpVal_lcssa [1/1] 0.00ns
+:0  %tmpVal_lcssa = phi i32 [ %tmpVal, %2 ], [ %tmpVal_1, %3 ], [ %tmpVal_1_1, %4 ], [ %tmpVal_1_2, %5 ]
+
+ST_24: tmp_14 [1/1] 2.68ns
+:1  %tmp_14 = add i40 %tmp_5_cast, %tmp_3_cast
+
+ST_24: tmp_19_cast [1/1] 0.00ns
+:2  %tmp_19_cast = sext i40 %tmp_14 to i64
+
+ST_24: b3_addr [1/1] 0.00ns
+:3  %b3_addr = getelementptr i32* %b3, i64 %tmp_19_cast
+
+ST_24: j_1 [1/1] 2.44ns
+:9  %j_1 = add nsw i32 %j_mid2, 1
+
+
+ <State 25>: 8.75ns
+ST_25: b3_load_req [5/5] 8.75ns
+:4  %b3_load_req = call i1 @_ssdm_op_ReadReq.ap_bus.i32P(i32* %b3_addr, i32 1)
+
+
+ <State 26>: 8.75ns
+ST_26: b3_load_req [4/5] 8.75ns
+:4  %b3_load_req = call i1 @_ssdm_op_ReadReq.ap_bus.i32P(i32* %b3_addr, i32 1)
+
+
+ <State 27>: 8.75ns
+ST_27: b3_load_req [3/5] 8.75ns
+:4  %b3_load_req = call i1 @_ssdm_op_ReadReq.ap_bus.i32P(i32* %b3_addr, i32 1)
+
+
+ <State 28>: 8.75ns
+ST_28: b3_load_req [2/5] 8.75ns
+:4  %b3_load_req = call i1 @_ssdm_op_ReadReq.ap_bus.i32P(i32* %b3_addr, i32 1)
+
+
+ <State 29>: 8.75ns
+ST_29: b3_load_req [1/5] 8.75ns
+:4  %b3_load_req = call i1 @_ssdm_op_ReadReq.ap_bus.i32P(i32* %b3_addr, i32 1)
+
+
+ <State 30>: 8.75ns
+ST_30: b3_addr_read [1/1] 8.75ns
+:5  %b3_addr_read = call i32 @_ssdm_op_Read.ap_bus.volatile.i32P(i32* %b3_addr)
+
+
+ <State 31>: 2.44ns
+ST_31: tmp_4 [1/1] 2.44ns
+:6  %tmp_4 = add nsw i32 %b3_addr_read, %tmpVal_lcssa
+
+
+ <State 32>: 8.75ns
+ST_32: b3_addr_req [1/1] 8.75ns
+:7  %b3_addr_req = call i1 @_ssdm_op_WriteReq.ap_bus.i32P(i32* %b3_addr, i32 1)
+
+ST_32: stg_218 [1/1] 8.75ns
+:8  call void @_ssdm_op_Write.ap_bus.volatile.i32P(i32* %b3_addr, i32 %tmp_4)
+
+ST_32: stg_219 [1/1] 0.00ns
+:10  br label %1
 
 
 
@@ -491,6 +858,14 @@ N/A
 	State 22
 	State 23
 	State 24
+	State 25
+	State 26
+	State 27
+	State 28
+	State 29
+	State 30
+	State 31
+	State 32
 
 
 ============================================================

@@ -1,2 +1,3 @@
+bmm_top_mul_32ns_32ns_64_6
 bmm_top_mul_32s_32s_32_6
 bmm_top

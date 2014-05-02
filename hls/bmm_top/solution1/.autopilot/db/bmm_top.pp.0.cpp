@@ -39481,7 +39481,7 @@ struct ap_ufixed: ap_fixed_base<_AP_W, _AP_I, false, _AP_Q, _AP_O, _AP_N> {
 # 2 "bmm_top/bmm_top.cpp" 2
 
 
-void bmm_top(volatile int b1[64][64], volatile int b2[64][64], volatile int b3[64][64]) // , volatile int option)
+void bmm_top(volatile int b1[128][128], volatile int b2[128][128], volatile int b3[128][128], int blockSize)
 {
 #pragma HLS INTERFACE ap_bus port=b1
 #pragma HLS RESOURCE core=AXI4M variable=b1
@@ -39490,14 +39490,18 @@ void bmm_top(volatile int b1[64][64], volatile int b2[64][64], volatile int b3[6
 #pragma HLS INTERFACE ap_bus port=b3
 #pragma HLS RESOURCE core=AXI4M variable=b3
 #pragma HLS RESOURCE core=AXI4LiteS variable=return metadata="-bus_bundle CONTROL"
+#pragma HLS INTERFACE ap_hs port=blockSize
+#pragma HLS RESOURCE core=AXI4LiteS variable=blockSize metadata="-bus_bundle CONTROL"
 
  int i, j,k;
- for (i=0; i<64; i++) {
-  for (j=0; j<64; j++) {
+ int bsize = blockSize;
+ for (i=0; i<bsize; i++) {
+  for (j=0; j<bsize; j++) {
    int tmpVal = 0;
-   for (k=0; k<64; k++) {
-// #pragma HLS PIPELINE II=1
-    tmpVal += b1[i][k] * b2[k][j];
+   for (k=0; k<bsize; k++) {
+#pragma HLS UNROLL factor=4
+#pragma HLS PIPELINE II=1
+ tmpVal += b1[i][k] * b2[k][j];
    }
    b3[i][j] += tmpVal;
   }

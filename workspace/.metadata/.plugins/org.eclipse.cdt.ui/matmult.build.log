@@ -1,103 +1,107 @@
-18:55:22 **** Auto Build of configuration Debug for project matmult ****
+20:07:43 **** Auto Build of configuration Debug for project matmult ****
 make all 
 Building file: ../src/helloworld.c
 Invoking: ARM gcc compiler
 arm-xilinx-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../dma3_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.d" -o "src/helloworld.o" "../src/helloworld.c"
+../src/helloworld.c: In function 'timerStart':
+../src/helloworld.c:79:2: warning: implicit declaration of function 'Xpm_EnableEventCounters' [-Wimplicit-function-declaration]
+../src/helloworld.c:80:2: warning: implicit declaration of function 'Xpm_ResetEventCounters' [-Wimplicit-function-declaration]
 ../src/helloworld.c: In function 'dma_init':
-../src/helloworld.c:88:9: warning: implicit declaration of function 'XAxiCdma_SwitchMode' [-Wimplicit-function-declaration]
-../src/helloworld.c:95:9: warning: implicit declaration of function 'XAxiCdma_IsSimpleMode' [-Wimplicit-function-declaration]
+../src/helloworld.c:123:9: warning: implicit declaration of function 'XAxiCdma_SwitchMode' [-Wimplicit-function-declaration]
+../src/helloworld.c:130:9: warning: implicit declaration of function 'XAxiCdma_IsSimpleMode' [-Wimplicit-function-declaration]
 ../src/helloworld.c: In function 'copyBlockToBRAM':
-../src/helloworld.c:164:3: warning: passing argument 2 of 'XAxiCdma_BdSetDstBufAddr' makes integer from pointer without a cast [enabled by default]
+../src/helloworld.c:198:3: warning: passing argument 2 of 'XAxiCdma_BdSetDstBufAddr' makes integer from pointer without a cast [enabled by default]
 In file included from ../../dma3_bsp/ps7_cortexa9_0/include/xaxicdma.h:349:0,
                  from ../src/helloworld.c:37:
 ../../dma3_bsp/ps7_cortexa9_0/include/xaxicdma_bd.h:128:5: note: expected 'u32' but argument is of type 'int *'
-../src/helloworld.c:165:3: warning: passing argument 2 of 'XAxiCdma_BdSetSrcBufAddr' makes integer from pointer without a cast [enabled by default]
+../src/helloworld.c:199:3: warning: passing argument 2 of 'XAxiCdma_BdSetSrcBufAddr' makes integer from pointer without a cast [enabled by default]
 In file included from ../../dma3_bsp/ps7_cortexa9_0/include/xaxicdma.h:349:0,
                  from ../src/helloworld.c:37:
 ../../dma3_bsp/ps7_cortexa9_0/include/xaxicdma_bd.h:126:5: note: expected 'u32' but argument is of type 'int *'
-../src/helloworld.c:173:2: warning: passing argument 2 of 'Xil_Out32' makes integer from pointer without a cast [enabled by default]
+../src/helloworld.c:206:2: warning: passing argument 2 of 'Xil_Out32' makes integer from pointer without a cast [enabled by default]
 In file included from ../../dma3_bsp/ps7_cortexa9_0/include/xaxicdma_hw.h:67:0,
-Finished building: ../src/helloworld.c
- 
-Building target: matmult.elf
-Invoking: ARM gcc linker
-arm-xilinx-eabi-gcc -Wl,-T -Wl,../src/lscript.ld -L../../dma3_bsp/ps7_cortexa9_0/lib -o "matmult.elf"  ./src/helloworld.o ./src/platform.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
                  from ../../dma3_bsp/ps7_cortexa9_0/include/xaxicdma_bd.h:66,
                  from ../../dma3_bsp/ps7_cortexa9_0/include/xaxicdma.h:349,
                  from ../src/helloworld.c:37:
 ../../dma3_bsp/ps7_cortexa9_0/include/xil_io.h:240:6: note: expected 'u32' but argument is of type 'u32 (*)[16]'
 ../src/helloworld.c: In function 'copyBlockFromBRAM':
-../src/helloworld.c:230:3: warning: passing argument 2 of 'XAxiCdma_BdSetSrcBufAddr' makes integer from pointer without a cast [enabled by default]
-Finished building target: matmult.elf
- 
-Invoking: ARM Print Size
-arm-xilinx-eabi-size matmult.elf  |tee "matmult.elf.size"
-   text	   data	    bss	    dec	    hex	filename
-  77428	   2304	  30236	 109968	  1ad90	matmult.elf
-Finished building: matmult.elf.size
+../src/helloworld.c:259:3: warning: passing argument 2 of 'XAxiCdma_BdSetSrcBufAddr' makes integer from pointer without a cast [enabled by default]
+Finished building: ../src/helloworld.c
  
 In file included from ../../dma3_bsp/ps7_cortexa9_0/include/xaxicdma.h:349:0,
                  from ../src/helloworld.c:37:
 ../../dma3_bsp/ps7_cortexa9_0/include/xaxicdma_bd.h:126:5: note: expected 'u32' but argument is of type 'int *'
-../src/helloworld.c:231:3: warning: passing argument 2 of 'XAxiCdma_BdSetDstBufAddr' makes integer from pointer without a cast [enabled by default]
+../src/helloworld.c:260:3: warning: passing argument 2 of 'XAxiCdma_BdSetDstBufAddr' makes integer from pointer without a cast [enabled by default]
+Building target: matmult.elf
+Invoking: ARM gcc linker
+arm-xilinx-eabi-gcc -Wl,-T -Wl,../src/lscript.ld -L../../dma3_bsp/ps7_cortexa9_0/lib -o "matmult.elf"  ./src/helloworld.o ./src/platform.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
 In file included from ../../dma3_bsp/ps7_cortexa9_0/include/xaxicdma.h:349:0,
                  from ../src/helloworld.c:37:
 ../../dma3_bsp/ps7_cortexa9_0/include/xaxicdma_bd.h:128:5: note: expected 'u32' but argument is of type 'int *'
-../src/helloworld.c:236:2: warning: passing argument 2 of 'Xil_Out32' makes integer from pointer without a cast [enabled by default]
+../src/helloworld.c:265:2: warning: passing argument 2 of 'Xil_Out32' makes integer from pointer without a cast [enabled by default]
 In file included from ../../dma3_bsp/ps7_cortexa9_0/include/xaxicdma_hw.h:67:0,
                  from ../../dma3_bsp/ps7_cortexa9_0/include/xaxicdma_bd.h:66,
                  from ../../dma3_bsp/ps7_cortexa9_0/include/xaxicdma.h:349,
                  from ../src/helloworld.c:37:
 ../../dma3_bsp/ps7_cortexa9_0/include/xil_io.h:240:6: note: expected 'u32' but argument is of type 'u32 (*)[16]'
-../src/helloworld.c: In function 'initMatrices':
-../src/helloworld.c:290:19: warning: statement with no effect [-Wunused-value]
 ../src/helloworld.c: In function 'printArray':
-../src/helloworld.c:317:3: warning: format '%x' expects argument of type 'unsigned int', but argument 2 has type 'int *' [-Wformat]
-../src/helloworld.c:317:3: warning: format '%x' expects argument of type 'unsigned int', but argument 2 has type 'int *' [-Wformat]
+../src/helloworld.c:346:3: warning: format '%x' expects argument of type 'unsigned int', but argument 2 has type 'int *' [-Wformat]
+../src/helloworld.c:346:3: warning: format '%x' expects argument of type 'unsigned int', but argument 2 has type 'int *' [-Wformat]
 ../src/helloworld.c: In function 'dumpBRAM':
-../src/helloworld.c:328:3: warning: 'return' with a value, in function returning void [enabled by default]
-../src/helloworld.c:332:3: warning: format '%x' expects argument of type 'unsigned int', but argument 2 has type 'int *' [-Wformat]
-../src/helloworld.c:332:3: warning: format '%x' expects argument of type 'unsigned int', but argument 2 has type 'int *' [-Wformat]
-../src/helloworld.c:333:3: warning: format '%x' expects argument of type 'unsigned int', but argument 2 has type 'int *' [-Wformat]
-../src/helloworld.c:333:3: warning: format '%x' expects argument of type 'unsigned int', but argument 2 has type 'int *' [-Wformat]
-../src/helloworld.c:334:3: warning: format '%x' expects argument of type 'unsigned int', but argument 2 has type 'int *' [-Wformat]
-../src/helloworld.c:334:3: warning: format '%x' expects argument of type 'unsigned int', but argument 2 has type 'int *' [-Wformat]
-../src/helloworld.c:335:3: warning: format '%x' expects argument of type 'unsigned int', but argument 2 has type 'int *' [-Wformat]
-../src/helloworld.c:335:3: warning: format '%x' expects argument of type 'unsigned int', but argument 2 has type 'int *' [-Wformat]
+../src/helloworld.c:357:3: warning: 'return' with a value, in function returning void [enabled by default]
+../src/helloworld.c:361:3: warning: format '%x' expects argument of type 'unsigned int', but argument 2 has type 'int *' [-Wformat]
+Finished building target: matmult.elf
+../src/helloworld.c:361:3: warning: format '%x' expects argument of type 'unsigned int', but argument 2 has type 'int *' [-Wformat]
+ 
+../src/helloworld.c:362:3: warning: format '%x' expects argument of type 'unsigned int', but argument 2 has type 'int *' [-Wformat]
+../src/helloworld.c:362:3: warning: format '%x' expects argument of type 'unsigned int', but argument 2 has type 'int *' [-Wformat]
+Invoking: ARM Print Size
+arm-xilinx-eabi-size matmult.elf  |tee "matmult.elf.size"
+../src/helloworld.c:363:3: warning: format '%x' expects argument of type 'unsigned int', but argument 2 has type 'int *' [-Wformat]
+../src/helloworld.c:363:3: warning: format '%x' expects argument of type 'unsigned int', but argument 2 has type 'int *' [-Wformat]
+../src/helloworld.c:364:3: warning: format '%x' expects argument of type 'unsigned int', but argument 2 has type 'int *' [-Wformat]
+   text	   data	    bss	    dec	    hex	filename
+  79332	   2304	  30280	 111916	  1b52c	matmult.elf
+Finished building: matmult.elf.size
+ 
+../src/helloworld.c:364:3: warning: format '%x' expects argument of type 'unsigned int', but argument 2 has type 'int *' [-Wformat]
 ../src/helloworld.c: In function 'zeroBRAM':
-../src/helloworld.c:351:3: warning: 'return' with a value, in function returning void [enabled by default]
+../src/helloworld.c:380:3: warning: 'return' with a value, in function returning void [enabled by default]
+../src/helloworld.c: In function 'flushMatrix':
+../src/helloworld.c:449:4: warning: implicit declaration of function 'Xil_DCacheFlushLine' [-Wimplicit-function-declaration]
+../src/helloworld.c:450:4: warning: implicit declaration of function 'Xil_DCacheInvalidateLine' [-Wimplicit-function-declaration]
 ../src/helloworld.c: In function 'main':
-../src/helloworld.c:408:2: warning: implicit declaration of function 'Xpm_EnableEventCounters' [-Wimplicit-function-declaration]
-../src/helloworld.c:410:2: warning: passing argument 1 of 'Xpm_GetEventCounters' from incompatible pointer type [enabled by default]
-In file included from ../src/helloworld.c:39:0:
-../../dma3_bsp/ps7_cortexa9_0/include/xpm_counter.h:574:6: note: expected 'u32 *' but argument is of type 'int *'
-../src/helloworld.c:415:5: warning: passing argument 1 of 'Xpm_GetEventCounters' from incompatible pointer type [enabled by default]
-In file included from ../src/helloworld.c:39:0:
-../../dma3_bsp/ps7_cortexa9_0/include/xpm_counter.h:574:6: note: expected 'u32 *' but argument is of type 'int *'
-../src/helloworld.c:426:5: warning: passing argument 1 of 'initMatrices' from incompatible pointer type [enabled by default]
-../src/helloworld.c:282:6: note: expected 'int (*)[1024]' but argument is of type 'int **'
-../src/helloworld.c:426:5: warning: passing argument 2 of 'initMatrices' from incompatible pointer type [enabled by default]
-../src/helloworld.c:282:6: note: expected 'int (*)[1024]' but argument is of type 'int **'
-../src/helloworld.c:426:5: warning: passing argument 3 of 'initMatrices' from incompatible pointer type [enabled by default]
-../src/helloworld.c:282:6: note: expected 'int (*)[1024]' but argument is of type 'int **'
-../src/helloworld.c:440:5: warning: passing argument 1 of 'matMult' from incompatible pointer type [enabled by default]
-../src/helloworld.c:356:6: note: expected 'int (*)[1024]' but argument is of type 'int **'
-../src/helloworld.c:440:5: warning: passing argument 2 of 'matMult' from incompatible pointer type [enabled by default]
-../src/helloworld.c:356:6: note: expected 'int (*)[1024]' but argument is of type 'int **'
-../src/helloworld.c:440:5: warning: passing argument 3 of 'matMult' from incompatible pointer type [enabled by default]
-../src/helloworld.c:356:6: note: expected 'int (*)[1024]' but argument is of type 'int **'
-../src/helloworld.c:440:5: warning: passing argument 4 of 'matMult' from incompatible pointer type [enabled by default]
-../src/helloworld.c:356:6: note: expected 'int (*)[64]' but argument is of type 'int **'
-../src/helloworld.c:440:5: warning: passing argument 5 of 'matMult' from incompatible pointer type [enabled by default]
-../src/helloworld.c:356:6: note: expected 'int (*)[64]' but argument is of type 'int **'
-../src/helloworld.c:440:5: warning: passing argument 6 of 'matMult' from incompatible pointer type [enabled by default]
-../src/helloworld.c:356:6: note: expected 'int (*)[64]' but argument is of type 'int **'
-../src/helloworld.c:442:5: warning: passing argument 1 of 'matMultVerify' from incompatible pointer type [enabled by default]
-../src/helloworld.c:376:5: note: expected 'int (*)[1024]' but argument is of type 'int **'
-../src/helloworld.c:442:5: warning: passing argument 2 of 'matMultVerify' from incompatible pointer type [enabled by default]
-../src/helloworld.c:376:5: note: expected 'int (*)[1024]' but argument is of type 'int **'
-../src/helloworld.c:442:5: warning: passing argument 3 of 'matMultVerify' from incompatible pointer type [enabled by default]
-../src/helloworld.c:376:5: note: expected 'int (*)[1024]' but argument is of type 'int **'
+../src/helloworld.c:482:2: warning: implicit declaration of function 'sleep' [-Wimplicit-function-declaration]
+../src/helloworld.c:500:5: warning: passing argument 1 of 'initMatrices' from incompatible pointer type [enabled by default]
+../src/helloworld.c:311:6: note: expected 'int (*)[512]' but argument is of type 'int **'
+../src/helloworld.c:500:5: warning: passing argument 2 of 'initMatrices' from incompatible pointer type [enabled by default]
+../src/helloworld.c:311:6: note: expected 'int (*)[512]' but argument is of type 'int **'
+../src/helloworld.c:500:5: warning: passing argument 3 of 'initMatrices' from incompatible pointer type [enabled by default]
+../src/helloworld.c:311:6: note: expected 'int (*)[512]' but argument is of type 'int **'
+../src/helloworld.c:514:5: warning: passing argument 1 of 'flushMatrix' from incompatible pointer type [enabled by default]
+../src/helloworld.c:443:6: note: expected 'int (*)[512]' but argument is of type 'int **'
+../src/helloworld.c:515:5: warning: passing argument 1 of 'flushMatrix' from incompatible pointer type [enabled by default]
+../src/helloworld.c:443:6: note: expected 'int (*)[512]' but argument is of type 'int **'
+../src/helloworld.c:516:5: warning: passing argument 1 of 'flushMatrix' from incompatible pointer type [enabled by default]
+../src/helloworld.c:443:6: note: expected 'int (*)[512]' but argument is of type 'int **'
+../src/helloworld.c:521:5: warning: passing argument 1 of 'matMult' from incompatible pointer type [enabled by default]
+../src/helloworld.c:385:6: note: expected 'int (*)[512]' but argument is of type 'int **'
+../src/helloworld.c:521:5: warning: passing argument 2 of 'matMult' from incompatible pointer type [enabled by default]
+../src/helloworld.c:385:6: note: expected 'int (*)[512]' but argument is of type 'int **'
+../src/helloworld.c:521:5: warning: passing argument 3 of 'matMult' from incompatible pointer type [enabled by default]
+../src/helloworld.c:385:6: note: expected 'int (*)[512]' but argument is of type 'int **'
+../src/helloworld.c:521:5: warning: passing argument 4 of 'matMult' from incompatible pointer type [enabled by default]
+../src/helloworld.c:385:6: note: expected 'int (*)[128]' but argument is of type 'int **'
+../src/helloworld.c:521:5: warning: passing argument 5 of 'matMult' from incompatible pointer type [enabled by default]
+../src/helloworld.c:385:6: note: expected 'int (*)[128]' but argument is of type 'int **'
+../src/helloworld.c:521:5: warning: passing argument 6 of 'matMult' from incompatible pointer type [enabled by default]
+../src/helloworld.c:385:6: note: expected 'int (*)[128]' but argument is of type 'int **'
+../src/helloworld.c:523:5: warning: passing argument 1 of 'matMultVerify' from incompatible pointer type [enabled by default]
+../src/helloworld.c:418:5: note: expected 'int (*)[512]' but argument is of type 'int **'
+../src/helloworld.c:523:5: warning: passing argument 2 of 'matMultVerify' from incompatible pointer type [enabled by default]
+../src/helloworld.c:418:5: note: expected 'int (*)[512]' but argument is of type 'int **'
+../src/helloworld.c:523:5: warning: passing argument 3 of 'matMultVerify' from incompatible pointer type [enabled by default]
+../src/helloworld.c:418:5: note: expected 'int (*)[512]' but argument is of type 'int **'
 
-18:55:22 Build Finished (took 688ms)
+20:07:44 Build Finished (took 702ms)
 

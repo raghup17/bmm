@@ -289,7 +289,7 @@ set gport25 [list $gportName25 $gportInterface25 $gportData25 $gportPointer25 $g
 lappend globalVariable $gport25
 set staticVariable ""
 set moduleName "bmm_top"
-set rawDecl [list "void" "bmm_top\(volatile int b1\[64\]\[64\], volatile int b2\[64\]\[64\], volatile int b3\[64\]\[64\]\)"]
+set rawDecl [list "void" "bmm_top\(volatile int b1\[128\]\[128\], volatile int b2\[128\]\[128\], volatile int b3\[128\]\[128\], int blockSize\)"]
 set argAPint ""
 set returnAPint ""
 set portList ""
@@ -297,7 +297,7 @@ set portName0 "b1"
 set portInterface0 "[list bus 0]"
 set portData0 "int"
 set portPointer0 "0"
-set portArrayDim0 [list 64 64]
+set portArrayDim0 [list 128 128]
 set portConst0 "0"
 set portVolatile0 "1"
 set portArrayOpt0 ""
@@ -307,7 +307,7 @@ set portName1 "b2"
 set portInterface1 "[list bus 0]"
 set portData1 "int"
 set portPointer1 "0"
-set portArrayDim1 [list 64 64]
+set portArrayDim1 [list 128 128]
 set portConst1 "0"
 set portVolatile1 "1"
 set portArrayOpt1 ""
@@ -317,12 +317,22 @@ set portName2 "b3"
 set portInterface2 "[list bus 0]"
 set portData2 "int"
 set portPointer2 "0"
-set portArrayDim2 [list 64 64]
+set portArrayDim2 [list 128 128]
 set portConst2 "0"
 set portVolatile2 "1"
 set portArrayOpt2 ""
 set port2 [list $portName2 $portInterface2 $portData2 $portPointer2 $portArrayDim2 $portConst2 $portVolatile2 $portArrayOpt2]
 lappend portList $port2
+set portName3 "blockSize"
+set portInterface3 "wire"
+set portData3 "int"
+set portPointer3 "0"
+set portArrayDim3 0
+set portConst3 "0"
+set portVolatile3 "0"
+set portArrayOpt3 ""
+set port3 [list $portName3 $portInterface3 $portData3 $portPointer3 $portArrayDim3 $portConst3 $portVolatile3 $portArrayOpt3]
+lappend portList $port3
 set dataPackList ""
 set module [list $moduleName $portList $rawDecl $argAPint $returnAPint $dataPackList]
 set hasCPPAPInt 0

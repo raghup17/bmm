@@ -51,16 +51,16 @@
 /* Definitions for driver BMM_TOP_TOP */
 #define XPAR_XBMM_TOP_NUM_INSTANCES 1
 
-/* Definitions for peripheral BMM_TOP_0 */
-#define XPAR_BMM_TOP_0_DEVICE_ID 0
-#define XPAR_BMM_TOP_0_S_AXI_CONTROL_BASEADDR 0x43C00000
-#define XPAR_BMM_TOP_0_S_AXI_CONTROL_HIGHADDR 0x43C0FFFF
+/* Definitions for peripheral BMM0_BMM_TOP_0 */
+#define XPAR_BMM0_BMM_TOP_0_DEVICE_ID 0
+#define XPAR_BMM0_BMM_TOP_0_S_AXI_CONTROL_BASEADDR 0x43C00000
+#define XPAR_BMM0_BMM_TOP_0_S_AXI_CONTROL_HIGHADDR 0x43C0FFFF
 
 
 /******************************************************************/
 
-/* Canonical definitions for peripheral BMM_TOP_0 */
-#define XPAR_XBMM_TOP_0_DEVICE_ID XPAR_BMM_TOP_0_DEVICE_ID
+/* Canonical definitions for peripheral BMM0_BMM_TOP_0 */
+#define XPAR_XBMM_TOP_0_DEVICE_ID XPAR_BMM0_BMM_TOP_0_DEVICE_ID
 #define XPAR_XBMM_TOP_0_S_AXI_CONTROL_BASEADDR 0x43C00000
 #define XPAR_XBMM_TOP_0_S_AXI_CONTROL_HIGHADDR 0x43C0FFFF
 

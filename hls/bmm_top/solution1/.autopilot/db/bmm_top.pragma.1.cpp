@@ -39501,8 +39501,8 @@ struct ap_ufixed: ap_fixed_base<_AP_W, _AP_I, false, _AP_Q, _AP_O, _AP_N> {
 #2 "bmm_top/bmm_top.cpp" 2
 
 
-void bmm_top(volatile int b1[64][64], volatile int b2[64][64], volatile int b3[64][64]) // , volatile int option)
-{_ssdm_SpecArrayDimSize(b1,64);_ssdm_SpecArrayDimSize(b3,64);_ssdm_SpecArrayDimSize(b2,64);
+void bmm_top(volatile int b1[128][128], volatile int b2[128][128], volatile int b3[128][128], int blockSize)
+{_ssdm_SpecArrayDimSize(b1,128);_ssdm_SpecArrayDimSize(b3,128);_ssdm_SpecArrayDimSize(b2,128);
 _ssdm_op_SpecBus(b1, "ap_bus", 0, 0, 0, "");
 _ssdm_op_SpecResource(b1, "", "AXI4M", "", "", "", "");
 _ssdm_op_SpecBus(b2, "ap_bus", 0, 0, 0, "");
@@ -39510,15 +39510,19 @@ _ssdm_op_SpecResource(b2, "", "AXI4M", "", "", "", "");
 _ssdm_op_SpecBus(b3, "ap_bus", 0, 0, 0, "");
 _ssdm_op_SpecResource(b3, "", "AXI4M", "", "", "", "");
 _ssdm_op_SpecResource(0, "", "AXI4LiteS", "", "", "", "-bus_bundle CONTROL");
+_ssdm_op_SpecWire(&blockSize, "ap_hs", 0, 0, 0, "");
+_ssdm_op_SpecResource(&blockSize, "", "AXI4LiteS", "", "", "", "-bus_bundle CONTROL");
 
  int i, j,k;
- for (i=0; i<64; i++) {
-  for (j=0; j<64; j++) {
+ int bsize = blockSize;
+ for (i=0; i<bsize; i++) {
+  for (j=0; j<bsize; j++) {
    int tmpVal = 0;
-   for (k=0; k<64; k++) {
-// #pragma HLS PIPELINE II=1
-    tmpVal += b1[i][k] * b2[k][j];
-   }
+   for (k=0; k<bsize; k++) {_ssdm_RegionBegin("hls_label_0");
+_ssdm_Unroll(1, 0, 4, "");
+_ssdm_op_SpecPipeline(1, 1, 1, "");
+ tmpVal += b1[i][k] * b2[k][j];
+   _ssdm_RegionEnd("hls_label_0");}
    b3[i][j] += tmpVal;
   }
  }

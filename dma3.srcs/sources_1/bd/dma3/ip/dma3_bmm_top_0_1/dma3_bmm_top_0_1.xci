@@ -7,7 +7,7 @@
   <spirit:componentInstances>
     <spirit:componentInstance>
       <spirit:instanceName>dma3_bmm_top_0_1</spirit:instanceName>
-      <spirit:componentRef spirit:vendor="xilinx.com" spirit:library="hls" spirit:name="bmm_top" spirit:version="14.0"/>
+      <spirit:componentRef spirit:vendor="xilinx.com" spirit:library="hls" spirit:name="bmm_top" spirit:version="16.0"/>
       <spirit:configurableElementValues>
         <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.C_M_AXI_B1_ID_WIDTH">1</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.C_M_AXI_B1_DATA_WIDTH">32</spirit:configurableElementValue>

@@ -3,7 +3,7 @@
 ================================================================
 == Vivado HLS Report for 'bmm_top'
 ================================================================
-* Date:           Wed Apr 30 15:25:56 2014
+* Date:           Thu May  1 14:16:02 2014
 
 * Version:        2013.3 (build date: Wed Oct 16 18:12:55 PM 2013)
 * Project:        bmm_top
@@ -25,26 +25,25 @@
 
 + Latency (clock cycles): 
     * Summary: 
-    +---------+---------+---------+---------+---------+
-    |      Latency      |      Interval     | Pipeline|
-    |   min   |   max   |   min   |   max   |   Type  |
-    +---------+---------+---------+---------+---------+
-    |  3448961|  3448961|  3448962|  3448962|   none  |
-    +---------+---------+---------+---------+---------+
+    +-----+-----+-----+-----+---------+
+    |  Latency  |  Interval | Pipeline|
+    | min | max | min | max |   Type  |
+    +-----+-----+-----+-----+---------+
+    |    ?|    ?|    ?|    ?|   none  |
+    +-----+-----+-----+-----+---------+
 
     + Detail: 
         * Instance: 
         N/A
 
         * Loop: 
-        +-----------------+---------+---------+----------+-----------+-----------+------+----------+
-        |                 |      Latency      | Iteration|  Initiation Interval  | Trip |          |
-        |    Loop Name    |   min   |   max   |  Latency |  achieved |   target  | Count| Pipelined|
-        +-----------------+---------+---------+----------+-----------+-----------+------+----------+
-        |- Loop 1         |  3448960|  3448960|     53890|          -|          -|    64|    no    |
-        | + Loop 1.1      |    53888|    53888|       842|          -|          -|    64|    no    |
-        |  ++ Loop 1.1.1  |      832|      832|        13|          -|          -|    64|    no    |
-        +-----------------+---------+---------+----------+-----------+-----------+------+----------+
+        +-------------+-----+-----+----------+-----------+-----------+-------+----------+
+        |             |  Latency  | Iteration|  Initiation Interval  |  Trip |          |
+        |  Loop Name  | min | max |  Latency |  achieved |   target  | Count | Pipelined|
+        +-------------+-----+-----+----------+-----------+-----------+-------+----------+
+        |- Loop 1     |    ?|    ?|         ?|          -|          -| 0 ~ ? |    no    |
+        | + Loop 1.1  |    ?|    ?|        16|          4|          1|      ?|    yes   |
+        +-------------+-----+-----+----------+-----------+-----------+-------+----------+
 
 
 
@@ -55,30 +54,34 @@
 +-----------------+---------+-------+--------+--------+
 |       Name      | BRAM_18K| DSP48E|   FF   |   LUT  |
 +-----------------+---------+-------+--------+--------+
-|Expression       |        -|      -|       0|     147|
+|Expression       |        -|      -|       0|    1051|
 |FIFO             |        -|      -|       -|       -|
-|Instance         |        -|      4|      45|      21|
+|Instance         |        -|     20|     225|     105|
 |Memory           |        -|      -|       -|       -|
-|Multiplexer      |        -|      -|       -|      85|
-|Register         |        -|      -|     268|       -|
-|ShiftMemory      |        -|      -|       -|       -|
+|Multiplexer      |        -|      -|       -|     320|
+|Register         |        -|      -|    1389|       -|
+|ShiftMemory      |        -|      -|       0|       4|
 +-----------------+---------+-------+--------+--------+
-|Total            |        0|      4|     313|     253|
+|Total            |        0|     20|    1614|    1480|
 +-----------------+---------+-------+--------+--------+
 |Available        |     1090|    900|  437200|  218600|
 +-----------------+---------+-------+--------+--------+
-|Utilization (%)  |        0|   ~0  |   ~0   |   ~0   |
+|Utilization (%)  |        0|      2|   ~0   |   ~0   |
 +-----------------+---------+-------+--------+--------+
 
 + Detail: 
     * Instance: 
-    +-----------------------------+--------------------------+---------+-------+----+----+
-    |           Instance          |          Module          | BRAM_18K| DSP48E| FF | LUT|
-    +-----------------------------+--------------------------+---------+-------+----+----+
-    |bmm_top_mul_32s_32s_32_6_U1  |bmm_top_mul_32s_32s_32_6  |        0|      4|  45|  21|
-    +-----------------------------+--------------------------+---------+-------+----+----+
-    |Total                        |                          |        0|      4|  45|  21|
-    +-----------------------------+--------------------------+---------+-------+----+----+
+    +-------------------------------+----------------------------+---------+-------+----+----+
+    |            Instance           |           Module           | BRAM_18K| DSP48E| FF | LUT|
+    +-------------------------------+----------------------------+---------+-------+----+----+
+    |bmm_top_mul_32ns_32ns_64_6_U1  |bmm_top_mul_32ns_32ns_64_6  |        0|      4|  45|  21|
+    |bmm_top_mul_32s_32s_32_6_U2    |bmm_top_mul_32s_32s_32_6    |        0|      4|  45|  21|
+    |bmm_top_mul_32s_32s_32_6_U3    |bmm_top_mul_32s_32s_32_6    |        0|      4|  45|  21|
+    |bmm_top_mul_32s_32s_32_6_U4    |bmm_top_mul_32s_32s_32_6    |        0|      4|  45|  21|
+    |bmm_top_mul_32s_32s_32_6_U5    |bmm_top_mul_32s_32s_32_6    |        0|      4|  45|  21|
+    +-------------------------------+----------------------------+---------+-------+----+----+
+    |Total                          |                            |        0|     20| 225| 105|
+    +-------------------------------+----------------------------+---------+-------+----+----+
 
     * Memory: 
     N/A
@@ -87,66 +90,137 @@
     N/A
 
     * Shift register: 
-    N/A
+    +--------------------+---+----+-----+-----------+
+    |        Name        | FF| LUT| Bits| Const Bits|
+    +--------------------+---+----+-----+-----------+
+    |exitcond_1_reg_661  |  0|   1|    1|          0|
+    |exitcond_2_reg_682  |  0|   1|    1|          0|
+    |exitcond_3_reg_703  |  0|   1|    1|          0|
+    |exitcond_reg_645    |  0|   1|    1|          0|
+    +--------------------+---+----+-----+-----------+
+    |Total               |  0|   4|    4|          0|
+    +--------------------+---+----+-----+-----------+
 
     * Expression: 
-    +---------------------+----------+-------+---+----+------------+------------+
-    |    Variable Name    | Operation| DSP48E| FF| LUT| Bitwidth P0| Bitwidth P1|
-    +---------------------+----------+-------+---+----+------------+------------+
-    |i_1_fu_142_p2        |     +    |      0|  0|   7|           7|           1|
-    |j_1_fu_166_p2        |     +    |      0|  0|   7|           7|           1|
-    |k_1_fu_182_p2        |     +    |      0|  0|   7|           7|           1|
-    |tmpVal_1_fu_242_p2   |     +    |      0|  0|  32|          32|          32|
-    |tmp_3_fu_258_p2      |     +    |      0|  0|  32|          32|          32|
-    |tmp_4_fu_214_p2      |     +    |      0|  0|  12|          12|          12|
-    |tmp_8_fu_192_p2      |     +    |      0|  0|  12|          12|          12|
-    |tmp_s_fu_209_p2      |     +    |      0|  0|  12|          12|          12|
-    |exitcond2_fu_160_p2  |   icmp   |      0|  0|   8|           7|           8|
-    |exitcond3_fu_136_p2  |   icmp   |      0|  0|   8|           7|           8|
-    |exitcond_fu_176_p2   |   icmp   |      0|  0|   8|           7|           8|
-    |ap_sig_bdd_121       |    or    |      0|  0|   2|           1|           1|
-    +---------------------+----------+-------+---+----+------------+------------+
-    |Total                |          |      0|  0| 147|         143|         128|
-    +---------------------+----------+-------+---+----+------------+------------+
+    +-------------------------------+----------+-------+---+----+------------+------------+
+    |         Variable Name         | Operation| DSP48E| FF| LUT| Bitwidth P0| Bitwidth P1|
+    +-------------------------------+----------+-------+---+----+------------+------------+
+    |i_s_fu_247_p2                  |     +    |      0|  0|  32|          32|           1|
+    |indvar_flatten_next_fu_228_p2  |     +    |      0|  0|  64|          64|           1|
+    |j_1_fu_579_p2                  |     +    |      0|  0|  32|          32|           1|
+    |k_1_3_fu_479_p2                |     +    |      0|  0|  32|          32|           3|
+    |tmpVal_1_1_fu_551_p2           |     +    |      0|  0|  32|          32|          32|
+    |tmpVal_1_2_fu_555_p2           |     +    |      0|  0|  32|          32|          32|
+    |tmpVal_1_3_fu_559_p2           |     +    |      0|  0|  32|          32|          32|
+    |tmpVal_1_fu_545_p2             |     +    |      0|  0|  32|          32|          32|
+    |tmp_10_fu_424_p2               |     +    |      0|  0|  40|          40|          40|
+    |tmp_12_fu_451_p2               |     +    |      0|  0|  40|          40|          40|
+    |tmp_14_fu_565_p2               |     +    |      0|  0|  40|          40|          40|
+    |tmp_15_fu_488_p2               |     +    |      0|  0|  40|          40|          40|
+    |tmp_17_fu_514_p2               |     +    |      0|  0|  40|          40|          40|
+    |tmp_1_fu_355_p2                |     +    |      0|  0|  40|          40|          40|
+    |tmp_4_fu_584_p2                |     +    |      0|  0|  32|          32|          32|
+    |tmp_6_fu_382_p2                |     +    |      0|  0|  40|          40|          40|
+    |tmp_7_fu_286_p2                |     +    |      0|  0|  40|          40|          40|
+    |tmp_9_fu_313_p2                |     +    |      0|  0|  40|          40|          40|
+    |i_mid2_fu_253_p3               |  Select  |      0|  0|  32|           1|          32|
+    |j_mid2_fu_239_p3               |  Select  |      0|  0|  32|           1|           1|
+    |ap_sig_bdd_172                 |    and   |      0|  0|   2|           1|           1|
+    |ap_sig_bdd_728                 |    and   |      0|  0|   2|           1|           1|
+    |ap_sig_bdd_733                 |    and   |      0|  0|   2|           1|           1|
+    |ap_sig_bdd_737                 |    and   |      0|  0|   2|           1|           1|
+    |ap_sig_bdd_739                 |    and   |      0|  0|   2|           1|           1|
+    |ap_sig_bdd_742                 |    and   |      0|  0|   2|           1|           1|
+    |ap_sig_bdd_746                 |    and   |      0|  0|   2|           1|           1|
+    |ap_sig_bdd_751                 |    and   |      0|  0|   2|           1|           1|
+    |exitcond1_fu_234_p2            |   icmp   |      0|  0|  40|          32|          32|
+    |exitcond_1_fu_346_p2           |   icmp   |      0|  0|  40|          32|          32|
+    |exitcond_2_fu_415_p2           |   icmp   |      0|  0|  40|          32|          32|
+    |exitcond_3_fu_474_p2           |   icmp   |      0|  0|  40|          32|          32|
+    |exitcond_flatten_fu_223_p2     |   icmp   |      0|  0|  81|          64|          64|
+    |exitcond_fu_277_p2             |   icmp   |      0|  0|  40|          32|          32|
+    |ap_sig_bdd_133                 |    or    |      0|  0|   2|           1|           1|
+    |ap_sig_bdd_168                 |    or    |      0|  0|   2|           1|           1|
+    |ap_sig_bdd_196                 |    or    |      0|  0|   2|           1|           1|
+    |ap_sig_bdd_237                 |    or    |      0|  0|   2|           1|           1|
+    |ap_sig_bdd_87                  |    or    |      0|  0|   2|           1|           1|
+    +-------------------------------+----------+-------+---+----+------------+------------+
+    |Total                          |          |      0|  0|1051|         919|         796|
+    +-------------------------------+----------+-------+---+----+------------+------------+
 
     * Multiplexer: 
-    +----------------+----+-----------+-----+-----------+
-    |      Name      | LUT| Input Size| Bits| Total Bits|
-    +----------------+----+-----------+-----+-----------+
-    |b3_address      |  32|          3|   32|         96|
-    |i_reg_90        |   7|          2|    7|         14|
-    |j_reg_101       |   7|          2|    7|         14|
-    |k_reg_112       |   7|          2|    7|         14|
-    |tmpVal_reg_123  |  32|          2|   32|         64|
-    +----------------+----+-----------+-----+-----------+
-    |Total           |  85|         11|   85|        202|
-    +----------------+----+-----------+-----+-----------+
+    +------------------------+----+-----------+-----+-----------+
+    |          Name          | LUT| Input Size| Bits| Total Bits|
+    +------------------------+----+-----------+-----+-----------+
+    |b1_address              |  32|          5|   32|        160|
+    |b2_address              |  32|          5|   32|        160|
+    |i_reg_151               |  32|          2|   32|         64|
+    |indvar_flatten_reg_140  |  64|          2|   64|        128|
+    |j_reg_162               |  32|          2|   32|         64|
+    |k_phi_fu_177_p4         |  32|          2|   32|         64|
+    |k_reg_173               |  32|          2|   32|         64|
+    |tmpVal_lcssa_reg_197    |  32|          4|   32|        128|
+    |tmpVal_reg_185          |  32|          2|   32|         64|
+    +------------------------+----+-----------+-----+-----------+
+    |Total                   | 320|         26|  320|        896|
+    +------------------------+----+-----------+-----+-----------+
 
     * Register: 
-    +----------------------+----+-----+-----------+
-    |         Name         | FF | Bits| Const Bits|
-    +----------------------+----+-----+-----------+
-    |ap_CS_fsm             |   5|    5|          0|
-    |b1_addr_read_reg_326  |  32|   32|          0|
-    |b2_addr_read_reg_331  |  32|   32|          0|
-    |b3_addr_read_reg_347  |  32|   32|          0|
-    |b3_addr_reg_341       |  12|   32|         20|
-    |i_1_reg_266           |   7|    7|          0|
-    |i_reg_90              |   7|    7|          0|
-    |j_1_reg_280           |   7|    7|          0|
-    |j_reg_101             |   7|    7|          0|
-    |k_1_reg_294           |   7|    7|          0|
-    |k_reg_112             |   7|    7|          0|
-    |tmpVal_reg_123        |  32|   32|          0|
-    |tmp_2_cast_reg_285    |   7|   12|          5|
-    |tmp_3_reg_352         |  32|   32|          0|
-    |tmp_4_reg_309         |  12|   12|          0|
-    |tmp_7_reg_271         |   6|   12|          6|
-    |tmp_8_reg_299         |  12|   12|          0|
-    |tmp_s_reg_304         |  12|   12|          0|
-    +----------------------+----+-----+-----------+
-    |Total                 | 268|  299|         31|
-    +----------------------+----+-----+-----------+
+    +-----------------------------+----+-----+-----------+
+    |             Name            | FF | Bits| Const Bits|
+    +-----------------------------+----+-----+-----------+
+    |ap_CS_fsm                    |   5|    5|          0|
+    |ap_reg_ppiten_pp0_it0        |   1|    1|          0|
+    |ap_reg_ppiten_pp0_it1        |   1|    1|          0|
+    |ap_reg_ppiten_pp0_it2        |   1|    1|          0|
+    |ap_reg_ppiten_pp0_it3        |   1|    1|          0|
+    |b1_addr_1_read_reg_734       |  32|   32|          0|
+    |b1_addr_1_reg_665            |  31|   32|          1|
+    |b1_addr_2_read_reg_744       |  32|   32|          0|
+    |b1_addr_2_reg_686            |  30|   32|          2|
+    |b1_addr_3_read_reg_754       |  32|   32|          0|
+    |b1_addr_3_reg_712            |  30|   32|          2|
+    |b1_addr_read_reg_724         |  32|   32|          0|
+    |b1_addr_reg_649              |  32|   32|          0|
+    |b2_addr_1_read_reg_739       |  32|   32|          0|
+    |b2_addr_1_reg_671            |  32|   32|          0|
+    |b2_addr_2_read_reg_749       |  32|   32|          0|
+    |b2_addr_2_reg_692            |  32|   32|          0|
+    |b2_addr_3_read_reg_759       |  32|   32|          0|
+    |b2_addr_3_reg_718            |  32|   32|          0|
+    |b2_addr_read_reg_729         |  32|   32|          0|
+    |b2_addr_reg_655              |  32|   32|          0|
+    |b3_addr_read_reg_807         |  32|   32|          0|
+    |b3_addr_reg_796              |  32|   32|          0|
+    |blockSize_read_reg_589       |  32|   32|          0|
+    |bound_reg_604                |  64|   64|          0|
+    |exitcond_1_reg_661           |   1|    1|          0|
+    |exitcond_2_reg_682           |   1|    1|          0|
+    |exitcond_3_reg_703           |   1|    1|          0|
+    |exitcond_reg_645             |   1|    1|          0|
+    |i_mid2_reg_622               |  32|   32|          0|
+    |i_reg_151                    |  32|   32|          0|
+    |indvar_flatten_next_reg_612  |  64|   64|          0|
+    |indvar_flatten_reg_140       |  64|   64|          0|
+    |j_1_reg_802                  |  32|   32|          0|
+    |j_mid2_reg_617               |  32|   32|          0|
+    |j_reg_162                    |  32|   32|          0|
+    |k_1_2_reg_698                |  30|   32|          2|
+    |k_1_3_reg_707                |  32|   32|          0|
+    |k_reg_173                    |  32|   32|          0|
+    |tmpVal_1_1_reg_775           |  32|   32|          0|
+    |tmpVal_1_reg_764             |  32|   32|          0|
+    |tmpVal_lcssa_reg_197         |  32|   32|          0|
+    |tmpVal_reg_185               |  32|   32|          0|
+    |tmp_13_reg_677               |  30|   30|          0|
+    |tmp_3_cast_reg_636           |  40|   40|          0|
+    |tmp_4_reg_812                |  32|   32|          0|
+    |tmp_5_cast_reg_627           |  33|   40|          7|
+    |tmp_7_1_reg_770              |  32|   32|          0|
+    |tmp_7_2_reg_781              |  32|   32|          0|
+    +-----------------------------+----+-----+-----------+
+    |Total                        |1389| 1403|         14|
+    +-----------------------------+----+-----+-----------+
 
 
 
@@ -154,41 +228,44 @@
 == Interface
 ================================================================
 * Summary: 
-+----------------+-----+-----+------------+--------------+--------------+
-|    RTL Ports   | Dir | Bits|  Protocol  | Source Object|    C Type    |
-+----------------+-----+-----+------------+--------------+--------------+
-|ap_clk          |  in |    1| ap_ctrl_hs |    bmm_top   | return value |
-|ap_rst          |  in |    1| ap_ctrl_hs |    bmm_top   | return value |
-|ap_start        |  in |    1| ap_ctrl_hs |    bmm_top   | return value |
-|ap_done         | out |    1| ap_ctrl_hs |    bmm_top   | return value |
-|ap_idle         | out |    1| ap_ctrl_hs |    bmm_top   | return value |
-|ap_ready        | out |    1| ap_ctrl_hs |    bmm_top   | return value |
-|b1_req_din      | out |    1|   ap_bus   |      b1      |    pointer   |
-|b1_req_full_n   |  in |    1|   ap_bus   |      b1      |    pointer   |
-|b1_req_write    | out |    1|   ap_bus   |      b1      |    pointer   |
-|b1_rsp_empty_n  |  in |    1|   ap_bus   |      b1      |    pointer   |
-|b1_rsp_read     | out |    1|   ap_bus   |      b1      |    pointer   |
-|b1_address      | out |   32|   ap_bus   |      b1      |    pointer   |
-|b1_datain       |  in |   32|   ap_bus   |      b1      |    pointer   |
-|b1_dataout      | out |   32|   ap_bus   |      b1      |    pointer   |
-|b1_size         | out |   32|   ap_bus   |      b1      |    pointer   |
-|b2_req_din      | out |    1|   ap_bus   |      b2      |    pointer   |
-|b2_req_full_n   |  in |    1|   ap_bus   |      b2      |    pointer   |
-|b2_req_write    | out |    1|   ap_bus   |      b2      |    pointer   |
-|b2_rsp_empty_n  |  in |    1|   ap_bus   |      b2      |    pointer   |
-|b2_rsp_read     | out |    1|   ap_bus   |      b2      |    pointer   |
-|b2_address      | out |   32|   ap_bus   |      b2      |    pointer   |
-|b2_datain       |  in |   32|   ap_bus   |      b2      |    pointer   |
-|b2_dataout      | out |   32|   ap_bus   |      b2      |    pointer   |
-|b2_size         | out |   32|   ap_bus   |      b2      |    pointer   |
-|b3_req_din      | out |    1|   ap_bus   |      b3      |    pointer   |
-|b3_req_full_n   |  in |    1|   ap_bus   |      b3      |    pointer   |
-|b3_req_write    | out |    1|   ap_bus   |      b3      |    pointer   |
-|b3_rsp_empty_n  |  in |    1|   ap_bus   |      b3      |    pointer   |
-|b3_rsp_read     | out |    1|   ap_bus   |      b3      |    pointer   |
-|b3_address      | out |   32|   ap_bus   |      b3      |    pointer   |
-|b3_datain       |  in |   32|   ap_bus   |      b3      |    pointer   |
-|b3_dataout      | out |   32|   ap_bus   |      b3      |    pointer   |
-|b3_size         | out |   32|   ap_bus   |      b3      |    pointer   |
-+----------------+-----+-----+------------+--------------+--------------+
++------------------+-----+-----+------------+--------------+--------------+
+|     RTL Ports    | Dir | Bits|  Protocol  | Source Object|    C Type    |
++------------------+-----+-----+------------+--------------+--------------+
+|ap_clk            |  in |    1| ap_ctrl_hs |    bmm_top   | return value |
+|ap_rst            |  in |    1| ap_ctrl_hs |    bmm_top   | return value |
+|ap_start          |  in |    1| ap_ctrl_hs |    bmm_top   | return value |
+|ap_done           | out |    1| ap_ctrl_hs |    bmm_top   | return value |
+|ap_idle           | out |    1| ap_ctrl_hs |    bmm_top   | return value |
+|ap_ready          | out |    1| ap_ctrl_hs |    bmm_top   | return value |
+|b1_req_din        | out |    1|   ap_bus   |      b1      |    pointer   |
+|b1_req_full_n     |  in |    1|   ap_bus   |      b1      |    pointer   |
+|b1_req_write      | out |    1|   ap_bus   |      b1      |    pointer   |
+|b1_rsp_empty_n    |  in |    1|   ap_bus   |      b1      |    pointer   |
+|b1_rsp_read       | out |    1|   ap_bus   |      b1      |    pointer   |
+|b1_address        | out |   32|   ap_bus   |      b1      |    pointer   |
+|b1_datain         |  in |   32|   ap_bus   |      b1      |    pointer   |
+|b1_dataout        | out |   32|   ap_bus   |      b1      |    pointer   |
+|b1_size           | out |   32|   ap_bus   |      b1      |    pointer   |
+|b2_req_din        | out |    1|   ap_bus   |      b2      |    pointer   |
+|b2_req_full_n     |  in |    1|   ap_bus   |      b2      |    pointer   |
+|b2_req_write      | out |    1|   ap_bus   |      b2      |    pointer   |
+|b2_rsp_empty_n    |  in |    1|   ap_bus   |      b2      |    pointer   |
+|b2_rsp_read       | out |    1|   ap_bus   |      b2      |    pointer   |
+|b2_address        | out |   32|   ap_bus   |      b2      |    pointer   |
+|b2_datain         |  in |   32|   ap_bus   |      b2      |    pointer   |
+|b2_dataout        | out |   32|   ap_bus   |      b2      |    pointer   |
+|b2_size           | out |   32|   ap_bus   |      b2      |    pointer   |
+|b3_req_din        | out |    1|   ap_bus   |      b3      |    pointer   |
+|b3_req_full_n     |  in |    1|   ap_bus   |      b3      |    pointer   |
+|b3_req_write      | out |    1|   ap_bus   |      b3      |    pointer   |
+|b3_rsp_empty_n    |  in |    1|   ap_bus   |      b3      |    pointer   |
+|b3_rsp_read       | out |    1|   ap_bus   |      b3      |    pointer   |
+|b3_address        | out |   32|   ap_bus   |      b3      |    pointer   |
+|b3_datain         |  in |   32|   ap_bus   |      b3      |    pointer   |
+|b3_dataout        | out |   32|   ap_bus   |      b3      |    pointer   |
+|b3_size           | out |   32|   ap_bus   |      b3      |    pointer   |
+|blockSize         |  in |   32|    ap_hs   |   blockSize  |    scalar    |
+|blockSize_ap_vld  |  in |    1|    ap_hs   |   blockSize  |    scalar    |
+|blockSize_ap_ack  | out |    1|    ap_hs   |   blockSize  |    scalar    |
++------------------+-----+-----+------------+--------------+--------------+
 

@@ -6,7 +6,7 @@
 ================================================================
 @I [LIC-101] Checked out feature [HLS]
 @I [HLS-10] Running '/home/raghu/work/tools/xilinx/Vivado_HLS/2013.3/bin/unwrapped/lnx64.o/vivado_hls'
-            for user 'raghu' on host 'raghu-office' (Linux_x86_64 version 3.11.0-17-generic) on Wed Apr 30 15:25:27 PDT 2014
+            for user 'raghu' on host 'raghu-office' (Linux_x86_64 version 3.11.0-17-generic) on Thu May 01 14:15:32 PDT 2014
             in directory '/home/raghu/work/projects/dma3'
 @I [HLS-10] Opening project '/home/raghu/work/projects/dma3/hls/bmm_top'.
 @I [HLS-10] Opening solution '/home/raghu/work/projects/dma3/hls/bmm_top/solution1'.
@@ -16,15 +16,25 @@
 @I [HLS-10] Validating synthesis directives ...
 @I [HLS-10] Checking synthesizability ...
 @I [HLS-10] Starting code transformations ...
-@I [HLS-111] Elapsed time: 2.56 seconds; current memory usage: 50.2 MB.
+@I [XFORM-501] Unrolling loop 'Loop-1.1.1' (bmm_top/bmm_top.cpp:21) in function 'bmm_top' partially with a factor of 4.
+@I [XFORM-541] Flattening a loop nest 'Loop-0' (bmm_top/bmm_top.cpp:18) in function 'bmm_top'.
+@I [HLS-111] Elapsed time: 2.91 seconds; current memory usage: 50.8 MB.
 @I [HLS-10] Starting hardware synthesis ...
 @I [HLS-10] Synthesizing 'bmm_top' ...
 @I [HLS-10] ----------------------------------------------------------------
 @I [HLS-10] -- Scheduling module 'bmm_top' 
 @I [HLS-10] ----------------------------------------------------------------
 @I [SCHED-11] Starting scheduling ...
+@I [SCHED-61] Pipelining loop 'Loop 1.1'.
+@W [SCHED-68] Unable to enforce a carried dependency constraint (II = 1, distance = 1)
+   between bus request on port 'b1' (bmm_top/bmm_top.cpp:24) and bus request on port 'b1' (bmm_top/bmm_top.cpp:24).
+@W [SCHED-68] Unable to enforce a carried dependency constraint (II = 2, distance = 1)
+   between bus request on port 'b1' (bmm_top/bmm_top.cpp:24) and bus request on port 'b1' (bmm_top/bmm_top.cpp:24).
+@W [SCHED-68] Unable to enforce a carried dependency constraint (II = 3, distance = 1)
+   between bus request on port 'b1' (bmm_top/bmm_top.cpp:24) and bus request on port 'b1' (bmm_top/bmm_top.cpp:24).
+@I [SCHED-61] Pipelining result: Target II: 1, Final II: 4, Depth: 16.
 @I [SCHED-11] Finished scheduling.
-@I [HLS-111] Elapsed time: 0.1 seconds; current memory usage: 50.6 MB.
+@I [HLS-111] Elapsed time: 0.36 seconds; current memory usage: 51.6 MB.
 @I [HLS-10] ----------------------------------------------------------------
 @I [HLS-10] -- Exploring micro-architecture for module 'bmm_top' 
 @I [HLS-10] ----------------------------------------------------------------
@@ -33,20 +43,23 @@
 @I [BIND-101] Exploring resource sharing.
 @I [BIND-101] Binding ...
 @I [BIND-100] Finished micro-architecture generation.
-@I [HLS-111] Elapsed time: 0.02 seconds; current memory usage: 51 MB.
+@I [HLS-111] Elapsed time: 0.05 seconds; current memory usage: 52.3 MB.
 @I [HLS-10] ----------------------------------------------------------------
 @I [HLS-10] -- Generating RTL for module 'bmm_top' 
 @I [HLS-10] ----------------------------------------------------------------
 @I [RTGEN-500] Setting interface mode on port 'bmm_top/b1' to 'ap_bus'.
 @I [RTGEN-500] Setting interface mode on port 'bmm_top/b2' to 'ap_bus'.
 @I [RTGEN-500] Setting interface mode on port 'bmm_top/b3' to 'ap_bus'.
+@I [RTGEN-500] Setting interface mode on port 'bmm_top/blockSize' to 'ap_hs'.
 @I [RTGEN-500] Setting interface mode on function 'bmm_top' to 'ap_ctrl_hs'.
 @W [RTGEN-101] Setting dangling out port 'bmm_top/b1_dataout' to 0.
 @W [RTGEN-101] Setting dangling out port 'bmm_top/b2_dataout' to 0.
-@I [RTGEN-100] Generating core module 'bmm_top_mul_32s_32s_32_6': 1 instance(s).
+@I [RTGEN-100] Generating core module 'bmm_top_mul_32ns_32ns_64_6': 1 instance(s).
+@I [RTGEN-100] Generating core module 'bmm_top_mul_32s_32s_32_6': 4 instance(s).
 @I [RTGEN-100] Finished creating RTL model for 'bmm_top'.
-@I [HLS-111] Elapsed time: 0.05 seconds; current memory usage: 51.3 MB.
-@I [RTMG-282] Generating pipelined core: 'bmm_top_mul_32s_32s_32_6_MulnS_0'
+@I [HLS-111] Elapsed time: 0.17 seconds; current memory usage: 53.3 MB.
+@I [RTMG-282] Generating pipelined core: 'bmm_top_mul_32ns_32ns_64_6_MulnS_0'
+@I [RTMG-282] Generating pipelined core: 'bmm_top_mul_32s_32s_32_6_MulnS_1'
 @I [HLS-10] Finished generating all RTL models.
 @I [WSYSC-301] Generating RTL SystemC for 'bmm_top'.
 @I [WVHDL-304] Generating RTL VHDL for 'bmm_top'.
@@ -64,6 +77,6 @@ INFO: [Device 21-36] Loading parts and site information from /home/raghu/work/to
 Parsing RTL primitives file [/home/raghu/work/tools/xilinx/Vivado/2013.3/data/parts/xilinx/rtl/prims/rtl_prims.xml]
 Finished parsing RTL primitives file [/home/raghu/work/tools/xilinx/Vivado/2013.3/data/parts/xilinx/rtl/prims/rtl_prims.xml]
 source run_ippack.tcl -notrace
-INFO: [Common 17-206] Exiting Vivado at Wed Apr 30 15:26:20 2014...
-@I [HLS-112] Total elapsed time: 72.555 seconds; peak memory usage: 51.3 MB.
+INFO: [Common 17-206] Exiting Vivado at Thu May  1 14:16:28 2014...
+@I [HLS-112] Total elapsed time: 88.43 seconds; peak memory usage: 53.3 MB.
 @I [LIC-101] Checked in feature [HLS]

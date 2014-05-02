@@ -33,5 +33,8 @@ const Port_Property HLS_Design_Meta::port_props[]={
 	Port_Property("b3_datain", 32, hls_in, 2, "ap_bus", "unknown", 1),
 	Port_Property("b3_dataout", 32, hls_out, 2, "ap_bus", "unknown", 1),
 	Port_Property("b3_size", 32, hls_out, 2, "ap_bus", "unknown", 1),
+	Port_Property("blockSize", 32, hls_in, 3, "ap_hs", "in_data", 1),
+	Port_Property("blockSize_ap_vld", 1, hls_in, 3, "ap_hs", "in_vld", 1),
+	Port_Property("blockSize_ap_ack", 1, hls_out, 3, "ap_hs", "in_acc", 1),
 };
 const char* HLS_Design_Meta::dut_name = "bmm_top";

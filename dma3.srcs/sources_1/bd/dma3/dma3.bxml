@@ -2,131 +2,131 @@
 <Root MajorVersion="0" MinorVersion="27">
   <CompositeFile CompositeFileTopName="dma3" CanBeSetAsTop="true" CanDisplayChildGraph="true">
     <Description>Composite Fileset</Description>
-    <Generation Name="SYNTHESIS" State="GENERATED"/>
-    <Generation Name="IMPLEMENTATION" State="GENERATED"/>
+    <Generation Name="SYNTHESIS" State="STALE"/>
+    <Generation Name="IMPLEMENTATION" State="STALE"/>
     <Generation Name="SIMULATION" State="STALE"/>
     <FileCollection Name="SOURCES" Type="SOURCES">
       <File Name="ip/dma3_processing_system7_0_0/dma3_processing_system7_0_0.xci" Type="IP">
-        <Properties IsEditable="false" IsVisible="true" Timestamp="1398902604" IsTrackable="true"/>
+        <Properties IsEditable="false" IsVisible="true" Timestamp="1398979202" IsTrackable="true"/>
         <Library Name="work"/>
         <UsedIn Val="SYNTHESIS"/>
         <UsedIn Val="IMPLEMENTATION"/>
         <UsedIn Val="SIMULATION"/>
       </File>
       <File Name="ip/dma3_processing_system7_0_axi_periph_1/dma3_processing_system7_0_axi_periph_1.xci" Type="IP">
-        <Properties IsEditable="false" IsVisible="false" Timestamp="1398902604" IsTrackable="true"/>
+        <Properties IsEditable="false" IsVisible="false" Timestamp="1399000534" IsTrackable="true"/>
         <Library Name="work"/>
         <UsedIn Val="SYNTHESIS"/>
         <UsedIn Val="IMPLEMENTATION"/>
         <UsedIn Val="SIMULATION"/>
       </File>
       <File Name="ip/dma3_proc_sys_reset_1/dma3_proc_sys_reset_1.xci" Type="IP">
-        <Properties IsEditable="false" IsVisible="true" Timestamp="1398902604" IsTrackable="true"/>
+        <Properties IsEditable="false" IsVisible="true" Timestamp="1398979204" IsTrackable="true"/>
         <Library Name="work"/>
         <UsedIn Val="SYNTHESIS"/>
         <UsedIn Val="IMPLEMENTATION"/>
         <UsedIn Val="SIMULATION"/>
       </File>
       <File Name="ip/dma3_axi_mem_intercon_2/dma3_axi_mem_intercon_2.xci" Type="IP">
-        <Properties IsEditable="false" IsVisible="false" Timestamp="1398902604" IsTrackable="true"/>
+        <Properties IsEditable="false" IsVisible="false" Timestamp="1399000534" IsTrackable="true"/>
         <Library Name="work"/>
         <UsedIn Val="SYNTHESIS"/>
         <UsedIn Val="IMPLEMENTATION"/>
         <UsedIn Val="SIMULATION"/>
       </File>
       <File Name="ip/dma3_axi_bram_ctrl_0_0/dma3_axi_bram_ctrl_0_0.xci" Type="IP">
-        <Properties IsEditable="false" IsVisible="true" Timestamp="1398902604" IsTrackable="true"/>
+        <Properties IsEditable="false" IsVisible="true" Timestamp="1398979205" IsTrackable="true"/>
         <Library Name="work"/>
         <UsedIn Val="SYNTHESIS"/>
         <UsedIn Val="IMPLEMENTATION"/>
         <UsedIn Val="SIMULATION"/>
       </File>
       <File Name="ip/dma3_axi_cdma_0_0/dma3_axi_cdma_0_0.xci" Type="IP">
-        <Properties IsEditable="false" IsVisible="true" Timestamp="1398902604" IsTrackable="true"/>
+        <Properties IsEditable="false" IsVisible="true" Timestamp="1398979206" IsTrackable="true"/>
         <Library Name="work"/>
         <UsedIn Val="SYNTHESIS"/>
         <UsedIn Val="IMPLEMENTATION"/>
         <UsedIn Val="SIMULATION"/>
       </File>
       <File Name="ip/dma3_xbar_1/dma3_xbar_1.xci" Type="IP">
-        <Properties IsEditable="false" IsVisible="true" Timestamp="1398902610" IsTrackable="true"/>
+        <Properties IsEditable="false" IsVisible="true" Timestamp="1399000540" IsTrackable="true"/>
         <Library Name="work"/>
         <UsedIn Val="SYNTHESIS"/>
         <UsedIn Val="IMPLEMENTATION"/>
         <UsedIn Val="SIMULATION"/>
       </File>
       <File Name="ip/dma3_xbar_2/dma3_xbar_2.xci" Type="IP">
-        <Properties IsEditable="false" IsVisible="true" Timestamp="1398902605" IsTrackable="true"/>
+        <Properties IsEditable="false" IsVisible="true" Timestamp="1399000541" IsTrackable="true"/>
         <Library Name="work"/>
         <UsedIn Val="SYNTHESIS"/>
         <UsedIn Val="IMPLEMENTATION"/>
         <UsedIn Val="SIMULATION"/>
       </File>
       <File Name="ip/dma3_axi_interconnect_0_6/dma3_axi_interconnect_0_6.xci" Type="IP">
-        <Properties IsEditable="false" IsVisible="false" Timestamp="1398902604" IsTrackable="true"/>
+        <Properties IsEditable="false" IsVisible="false" Timestamp="1398967180" IsTrackable="true"/>
         <Library Name="work"/>
         <UsedIn Val="SYNTHESIS"/>
         <UsedIn Val="IMPLEMENTATION"/>
         <UsedIn Val="SIMULATION"/>
       </File>
       <File Name="ip/dma3_xbar_5/dma3_xbar_5.xci" Type="IP">
-        <Properties IsEditable="false" IsVisible="true" Timestamp="1398902604" IsTrackable="true"/>
+        <Properties IsEditable="false" IsVisible="true" Timestamp="1398979212" IsTrackable="true"/>
         <Library Name="work"/>
         <UsedIn Val="SYNTHESIS"/>
         <UsedIn Val="IMPLEMENTATION"/>
         <UsedIn Val="SIMULATION"/>
       </File>
       <File Name="ip/dma3_blk_mem_gen_1_1/dma3_blk_mem_gen_1_1.xci" Type="IP">
-        <Properties IsEditable="false" IsVisible="true" Timestamp="1398905897" IsTrackable="true"/>
+        <Properties IsEditable="false" IsVisible="true" Timestamp="1398979213" IsTrackable="true"/>
         <Library Name="work"/>
         <UsedIn Val="SYNTHESIS"/>
         <UsedIn Val="IMPLEMENTATION"/>
         <UsedIn Val="SIMULATION"/>
       </File>
       <File Name="ip/dma3_fe_top_0_0/dma3_fe_top_0_0.xci" Type="IP">
-        <Properties IsEditable="false" IsVisible="true" Timestamp="1398902604" IsTrackable="true"/>
+        <Properties IsEditable="false" IsVisible="true" Timestamp="1398979214" IsTrackable="true"/>
         <Library Name="work"/>
         <UsedIn Val="SYNTHESIS"/>
         <UsedIn Val="IMPLEMENTATION"/>
         <UsedIn Val="SIMULATION"/>
       </File>
       <File Name="ip/dma3_axi_mem_intercon_1_7/dma3_axi_mem_intercon_1_7.xci" Type="IP">
-        <Properties IsEditable="false" IsVisible="false" Timestamp="1398902604" IsTrackable="true"/>
+        <Properties IsEditable="false" IsVisible="false" Timestamp="1398967180" IsTrackable="true"/>
         <Library Name="work"/>
         <UsedIn Val="SYNTHESIS"/>
         <UsedIn Val="IMPLEMENTATION"/>
         <UsedIn Val="SIMULATION"/>
       </File>
       <File Name="ip/dma3_bmm_top_0_1/dma3_bmm_top_0_1.xci" Type="IP">
-        <Properties IsEditable="false" IsVisible="true" Timestamp="1398902604" IsTrackable="true"/>
+        <Properties IsEditable="false" IsVisible="true" Timestamp="1398979214" IsTrackable="true"/>
         <Library Name="work"/>
         <UsedIn Val="SYNTHESIS"/>
         <UsedIn Val="IMPLEMENTATION"/>
         <UsedIn Val="SIMULATION"/>
       </File>
       <File Name="ip/dma3_axi_bram_ctrl_0_1/dma3_axi_bram_ctrl_0_1.xci" Type="IP">
-        <Properties IsEditable="false" IsVisible="true" Timestamp="1398902604" IsTrackable="true"/>
+        <Properties IsEditable="false" IsVisible="true" Timestamp="1398979214" IsTrackable="true"/>
         <Library Name="work"/>
         <UsedIn Val="SYNTHESIS"/>
         <UsedIn Val="IMPLEMENTATION"/>
         <UsedIn Val="SIMULATION"/>
       </File>
       <File Name="ip/dma3_blk_mem_gen_1_2/dma3_blk_mem_gen_1_2.xci" Type="IP">
-        <Properties IsEditable="false" IsVisible="true" Timestamp="1398905988" IsTrackable="true"/>
+        <Properties IsEditable="false" IsVisible="true" Timestamp="1398979215" IsTrackable="true"/>
         <Library Name="work"/>
         <UsedIn Val="SYNTHESIS"/>
         <UsedIn Val="IMPLEMENTATION"/>
         <UsedIn Val="SIMULATION"/>
       </File>
       <File Name="ip/dma3_bram_ctrl_in_blk_2/dma3_bram_ctrl_in_blk_2.xci" Type="IP">
-        <Properties IsEditable="false" IsVisible="true" Timestamp="1398902604" IsTrackable="true"/>
+        <Properties IsEditable="false" IsVisible="true" Timestamp="1398979215" IsTrackable="true"/>
         <Library Name="work"/>
         <UsedIn Val="SYNTHESIS"/>
         <UsedIn Val="IMPLEMENTATION"/>
         <UsedIn Val="SIMULATION"/>
       </File>
       <File Name="ip/dma3_blk_mem_gen_inblk_3/dma3_blk_mem_gen_inblk_3.xci" Type="IP">
-        <Properties IsEditable="false" IsVisible="true" Timestamp="1398905958" IsTrackable="true"/>
+        <Properties IsEditable="false" IsVisible="true" Timestamp="1398979216" IsTrackable="true"/>
         <Library Name="work"/>
         <UsedIn Val="SYNTHESIS"/>
         <UsedIn Val="IMPLEMENTATION"/>
@@ -139,33 +139,103 @@
         <UsedIn Val="IMPLEMENTATION"/>
         <UsedIn Val="SIMULATION"/>
       </File>
-      <File Name="ip/dma3_auto_pc_141/dma3_auto_pc_141.xci" Type="IP">
-        <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="true"/>
-        <Library Name="work"/>
-        <UsedIn Val="SYNTHESIS"/>
-        <UsedIn Val="IMPLEMENTATION"/>
-        <UsedIn Val="SIMULATION"/>
-      </File>
-      <File Name="ip/dma3_auto_pc_142/dma3_auto_pc_142.xci" Type="IP">
-        <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="true"/>
-        <Library Name="work"/>
-        <UsedIn Val="SYNTHESIS"/>
-        <UsedIn Val="IMPLEMENTATION"/>
-        <UsedIn Val="SIMULATION"/>
-      </File>
-      <File Name="ip/dma3_auto_pc_143/dma3_auto_pc_143.xci" Type="IP">
-        <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="true"/>
-        <Library Name="work"/>
-        <UsedIn Val="SYNTHESIS"/>
-        <UsedIn Val="IMPLEMENTATION"/>
-        <UsedIn Val="SIMULATION"/>
-      </File>
       <File Name="dma3_ooc.xdc" Type="XDC">
         <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="false"/>
         <Library Name="work"/>
         <UsedIn Val="SYNTHESIS"/>
         <UsedIn Val="IMPLEMENTATION"/>
         <UsedIn Val="OUT_OF_CONTEXT"/>
+      </File>
+      <File Name="ip/dma3_bmm_bram_cdma_intercon_8/dma3_bmm_bram_cdma_intercon_8.xci" Type="IP">
+        <Properties IsEditable="false" IsVisible="false" Timestamp="1399000535" IsTrackable="true"/>
+        <Library Name="work"/>
+        <UsedIn Val="SYNTHESIS"/>
+        <UsedIn Val="IMPLEMENTATION"/>
+        <UsedIn Val="SIMULATION"/>
+      </File>
+      <File Name="ip/dma3_bram_ctrl_in_blk_6/dma3_bram_ctrl_in_blk_6.xci" Type="IP">
+        <Properties IsEditable="false" IsVisible="true" Timestamp="1399000535" IsTrackable="true"/>
+        <Library Name="work"/>
+        <UsedIn Val="SYNTHESIS"/>
+        <UsedIn Val="IMPLEMENTATION"/>
+        <UsedIn Val="SIMULATION"/>
+      </File>
+      <File Name="ip/dma3_blk_mem_gen_inblk_8/dma3_blk_mem_gen_inblk_8.xci" Type="IP">
+        <Properties IsEditable="false" IsVisible="true" Timestamp="1399000306" IsTrackable="true"/>
+        <Library Name="work"/>
+        <UsedIn Val="SYNTHESIS"/>
+        <UsedIn Val="IMPLEMENTATION"/>
+        <UsedIn Val="SIMULATION"/>
+      </File>
+      <File Name="ip/dma3_bram_ctrl_in_blk_7/dma3_bram_ctrl_in_blk_7.xci" Type="IP">
+        <Properties IsEditable="false" IsVisible="true" Timestamp="1399000535" IsTrackable="true"/>
+        <Library Name="work"/>
+        <UsedIn Val="SYNTHESIS"/>
+        <UsedIn Val="IMPLEMENTATION"/>
+        <UsedIn Val="SIMULATION"/>
+      </File>
+      <File Name="ip/dma3_blk_mem_gen_inblk_9/dma3_blk_mem_gen_inblk_9.xci" Type="IP">
+        <Properties IsEditable="false" IsVisible="true" Timestamp="1399000324" IsTrackable="true"/>
+        <Library Name="work"/>
+        <UsedIn Val="SYNTHESIS"/>
+        <UsedIn Val="IMPLEMENTATION"/>
+        <UsedIn Val="SIMULATION"/>
+      </File>
+      <File Name="ip/dma3_bram_ctrl_outblk_8/dma3_bram_ctrl_outblk_8.xci" Type="IP">
+        <Properties IsEditable="false" IsVisible="true" Timestamp="1399000535" IsTrackable="true"/>
+        <Library Name="work"/>
+        <UsedIn Val="SYNTHESIS"/>
+        <UsedIn Val="IMPLEMENTATION"/>
+        <UsedIn Val="SIMULATION"/>
+      </File>
+      <File Name="ip/dma3_blk_mem_gen_outblk_10/dma3_blk_mem_gen_outblk_10.xci" Type="IP">
+        <Properties IsEditable="false" IsVisible="true" Timestamp="1399000343" IsTrackable="true"/>
+        <Library Name="work"/>
+        <UsedIn Val="SYNTHESIS"/>
+        <UsedIn Val="IMPLEMENTATION"/>
+        <UsedIn Val="SIMULATION"/>
+      </File>
+      <File Name="ip/dma3_bmm_bram_cdma_intercon_9/dma3_bmm_bram_cdma_intercon_9.xci" Type="IP">
+        <Properties IsEditable="false" IsVisible="false" Timestamp="1399000534" IsTrackable="true"/>
+        <Library Name="work"/>
+        <UsedIn Val="SYNTHESIS"/>
+        <UsedIn Val="IMPLEMENTATION"/>
+        <UsedIn Val="SIMULATION"/>
+      </File>
+      <File Name="ip/dma3_xbar_7/dma3_xbar_7.xci" Type="IP">
+        <Properties IsEditable="false" IsVisible="true" Timestamp="1399000535" IsTrackable="true"/>
+        <Library Name="work"/>
+        <UsedIn Val="SYNTHESIS"/>
+        <UsedIn Val="IMPLEMENTATION"/>
+        <UsedIn Val="SIMULATION"/>
+      </File>
+      <File Name="ip/dma3_bmm_top_0_2/dma3_bmm_top_0_2.xci" Type="IP">
+        <Properties IsEditable="false" IsVisible="true" Timestamp="1399000789" IsTrackable="true"/>
+        <Library Name="work"/>
+        <UsedIn Val="SYNTHESIS"/>
+        <UsedIn Val="IMPLEMENTATION"/>
+        <UsedIn Val="SIMULATION"/>
+      </File>
+      <File Name="ip/dma3_auto_pc_159/dma3_auto_pc_159.xci" Type="IP">
+        <Properties IsEditable="false" IsVisible="true" Timestamp="1399000930" IsTrackable="true"/>
+        <Library Name="work"/>
+        <UsedIn Val="SYNTHESIS"/>
+        <UsedIn Val="IMPLEMENTATION"/>
+        <UsedIn Val="SIMULATION"/>
+      </File>
+      <File Name="ip/dma3_auto_pc_160/dma3_auto_pc_160.xci" Type="IP">
+        <Properties IsEditable="false" IsVisible="true" Timestamp="1399000931" IsTrackable="true"/>
+        <Library Name="work"/>
+        <UsedIn Val="SYNTHESIS"/>
+        <UsedIn Val="IMPLEMENTATION"/>
+        <UsedIn Val="SIMULATION"/>
+      </File>
+      <File Name="ip/dma3_auto_pc_161/dma3_auto_pc_161.xci" Type="IP">
+        <Properties IsEditable="false" IsVisible="true" Timestamp="1399000931" IsTrackable="true"/>
+        <Library Name="work"/>
+        <UsedIn Val="SYNTHESIS"/>
+        <UsedIn Val="IMPLEMENTATION"/>
+        <UsedIn Val="SIMULATION"/>
       </File>
     </FileCollection>
   </CompositeFile>

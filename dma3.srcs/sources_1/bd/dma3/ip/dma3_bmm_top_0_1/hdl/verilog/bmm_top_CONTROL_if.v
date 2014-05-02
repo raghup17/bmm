@@ -8,7 +8,7 @@
 `timescale 1ns/1ps
 module bmm_top_CONTROL_if
 #(parameter
-    C_ADDR_WIDTH = 4,
+    C_ADDR_WIDTH = 5,
     C_DATA_WIDTH = 32
 )(
     // axi4 lite slave signals
@@ -33,43 +33,54 @@ module bmm_top_CONTROL_if
     input  wire                      RREADY,
     output wire                      interrupt,
     // user signals
+    output wire [31:0]               I_blockSize,
+    output wire                      I_blockSize_ap_vld,
+    input  wire                      I_blockSize_ap_ack,
     output wire                      I_ap_start,
     input  wire                      O_ap_ready,
     input  wire                      O_ap_done,
     input  wire                      O_ap_idle
 );
 //------------------------Address Info-------------------
-// 0x0 : Control signals
-//       bit 0  - ap_start (Read/Write/COH)
-//       bit 1  - ap_done (Read/COR)
-//       bit 2  - ap_idle (Read)
-//       bit 3  - ap_ready (Read)
-//       bit 7  - auto_restart (Read/Write)
-//       others - reserved
-// 0x4 : Global Interrupt Enable Register
-//       bit 0  - Global Interrupt Enable (Read/Write)
-//       others - reserved
-// 0x8 : IP Interrupt Enable Register (Read/Write)
-//       bit 0  - Channel 0 (ap_done)
-//       bit 1  - Channel 1 (ap_ready)
-//       others - reserved
-// 0xc : IP Interrupt Status Register (Read/TOW)
-//       bit 0  - Channel 0 (ap_done)
-//       bit 1  - Channel 1 (ap_ready)
-//       others - reserved
+// 0x00 : Control signals
+//        bit 0  - ap_start (Read/Write/COH)
+//        bit 1  - ap_done (Read/COR)
+//        bit 2  - ap_idle (Read)
+//        bit 3  - ap_ready (Read)
+//        bit 7  - auto_restart (Read/Write)
+//        others - reserved
+// 0x04 : Global Interrupt Enable Register
+//        bit 0  - Global Interrupt Enable (Read/Write)
+//        others - reserved
+// 0x08 : IP Interrupt Enable Register (Read/Write)
+//        bit 0  - Channel 0 (ap_done)
+//        bit 1  - Channel 1 (ap_ready)
+//        others - reserved
+// 0x0c : IP Interrupt Status Register (Read/TOW)
+//        bit 0  - Channel 0 (ap_done)
+//        bit 1  - Channel 1 (ap_ready)
+//        others - reserved
+// 0x10 : Control signal of blockSize
+//        bit 0  - blockSize_ap_vld (Read/Write/COH)
+//        bit 1  - blockSize_ap_ack (Read)
+//        others - reserved
+// 0x14 : Data signal of blockSize
+//        bit 31~0 - blockSize[31:0] (Read/Write)
 // (SC = Self Clear, COR = Clear on Read, TOW = Toggle on Write, COH = Clear on Handshake)
 
 //------------------------Parameter----------------------
 // address bits
 localparam
-    ADDR_BITS = 4;
+    ADDR_BITS = 5;
 
 // address
 localparam
-    ADDR_AP_CTRL = 4'h0,
-    ADDR_GIE     = 4'h4,
-    ADDR_IER     = 4'h8,
-    ADDR_ISR     = 4'hc;
+    ADDR_AP_CTRL          = 5'h00,
+    ADDR_GIE              = 5'h04,
+    ADDR_IER              = 5'h08,
+    ADDR_ISR              = 5'h0c,
+    ADDR_BLOCKSIZE_CTRL   = 5'h10,
+    ADDR_BLOCKSIZE_DATA_0 = 5'h14;
 
 // axi write fsm
 localparam
@@ -105,6 +116,9 @@ reg                  auto_restart;
 reg                  gie;
 reg  [1:0]           ier;
 reg  [1:0]           isr;
+reg  [31:0]          _blockSize;
+reg                  _blockSize_ap_vld;
+wire                 _blockSize_ap_ack;
 
 //------------------------Body---------------------------
 //++++++++++++++++++++++++axi write++++++++++++++++++++++
@@ -209,16 +223,26 @@ always @(posedge ACLK) begin
             ADDR_ISR: begin
                 rdata <= isr;
             end
+            ADDR_BLOCKSIZE_CTRL: begin
+                rdata[0] <= _blockSize_ap_vld;
+                rdata[1] <= _blockSize_ap_ack;
+            end
+            ADDR_BLOCKSIZE_DATA_0: begin
+                rdata <= _blockSize[31:0];
+            end
         endcase
     end
 end
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 //++++++++++++++++++++++++internal registers+++++++++++++
-assign interrupt  = gie & (|isr);
-assign I_ap_start = ap_start;
-assign ap_idle    = O_ap_idle;
-assign ap_ready   = O_ap_ready;
+assign interrupt          = gie & (|isr);
+assign I_ap_start         = ap_start;
+assign ap_idle            = O_ap_idle;
+assign ap_ready           = O_ap_ready;
+assign I_blockSize_ap_vld = _blockSize_ap_vld;
+assign _blockSize_ap_ack  = I_blockSize_ap_ack;
+assign I_blockSize        = _blockSize;
 
 // ap_start
 always @(posedge ACLK) begin
@@ -282,6 +306,22 @@ always @(posedge ACLK) begin
         isr[1] <= 1'b1;
     else if (w_hs && waddr == ADDR_ISR && WSTRB[0])
         isr[1] <= isr[1] ^ WDATA[1]; // toggle on write
+end
+
+// _blockSize_ap_vld
+always @(posedge ACLK) begin
+    if (~ARESETN)
+        _blockSize_ap_vld <= 1'b0;
+    else if (w_hs && waddr == ADDR_BLOCKSIZE_CTRL && WSTRB[0] && WDATA[0])
+        _blockSize_ap_vld <= 1'b1;
+    else if (I_blockSize_ap_ack)
+        _blockSize_ap_vld <= 1'b0; // clear on handshake
+end
+
+// _blockSize[31:0]
+always @(posedge ACLK) begin
+    if (w_hs && waddr == ADDR_BLOCKSIZE_DATA_0)
+        _blockSize[31:0] <= (WDATA[31:0] & wmask) | (_blockSize[31:0] & ~wmask);
 end
 
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++

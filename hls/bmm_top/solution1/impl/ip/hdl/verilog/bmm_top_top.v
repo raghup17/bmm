@@ -194,7 +194,7 @@ parameter C_M_AXI_B3_TARGET_ADDR = 32'h00000000;
 parameter C_M_AXI_B3_USER_VALUE = 1'b0;
 parameter C_M_AXI_B3_PROT_VALUE = 3'b010;
 parameter C_M_AXI_B3_CACHE_VALUE = 4'b0000;
-parameter C_S_AXI_CONTROL_ADDR_WIDTH = 4;
+parameter C_S_AXI_CONTROL_ADDR_WIDTH = 5;
 parameter C_S_AXI_CONTROL_DATA_WIDTH = 32;
 parameter RESET_ACTIVE_LOW = 1;
 
@@ -538,6 +538,9 @@ wire sig_bmm_top_b3_req_write;
 wire sig_bmm_top_b3_rsp_empty_n;
 wire sig_bmm_top_b3_rsp_read;
 
+wire [32 - 1:0] sig_bmm_top_blockSize;
+wire sig_bmm_top_blockSize_ap_vld;
+wire sig_bmm_top_blockSize_ap_ack;
 wire sig_bmm_top_ap_start;
 wire sig_bmm_top_ap_ready;
 wire sig_bmm_top_ap_done;
@@ -575,6 +578,9 @@ bmm_top bmm_top_U(
     .b3_req_write(sig_bmm_top_b3_req_write),
     .b3_rsp_empty_n(sig_bmm_top_b3_rsp_empty_n),
     .b3_rsp_read(sig_bmm_top_b3_rsp_read),
+    .blockSize(sig_bmm_top_blockSize),
+    .blockSize_ap_vld(sig_bmm_top_blockSize_ap_vld),
+    .blockSize_ap_ack(sig_bmm_top_blockSize_ap_ack),
     .ap_start(sig_bmm_top_ap_start),
     .ap_ready(sig_bmm_top_ap_ready),
     .ap_done(sig_bmm_top_ap_done),
@@ -796,6 +802,9 @@ bmm_top_CONTROL_if #(
 bmm_top_CONTROL_if_U(
     .ACLK(aclk),
     .ARESETN(aresetn),
+    .I_blockSize(sig_bmm_top_blockSize),
+    .I_blockSize_ap_vld(sig_bmm_top_blockSize_ap_vld),
+    .I_blockSize_ap_ack(sig_bmm_top_blockSize_ap_ack),
     .I_ap_start(sig_bmm_top_ap_start),
     .O_ap_ready(sig_bmm_top_ap_ready),
     .O_ap_done(sig_bmm_top_ap_done),

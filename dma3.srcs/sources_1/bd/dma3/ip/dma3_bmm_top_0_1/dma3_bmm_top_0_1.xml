@@ -1285,7 +1285,7 @@
       <spirit:parameters>
         <spirit:parameter>
           <spirit:name>ADDR_WIDTH</spirit:name>
-          <spirit:value spirit:resolve="immediate" spirit:id="BUSIFPARAM_VALUE.S_AXI_CONTROL.ADDR_WIDTH">4</spirit:value>
+          <spirit:value spirit:resolve="immediate" spirit:id="BUSIFPARAM_VALUE.S_AXI_CONTROL.ADDR_WIDTH">5</spirit:value>
         </spirit:parameter>
         <spirit:parameter>
           <spirit:name>DATA_WIDTH</spirit:name>
@@ -1415,7 +1415,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>customizationCRC</spirit:name>
-            <spirit:value>1914765243</spirit:value>
+            <spirit:value>1187594726</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>customizationCRCversion</spirit:name>
@@ -1423,7 +1423,7 @@
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Wed Apr 30 22:35:20 UTC 2014</spirit:value>
+            <spirit:value>Thu May 01 21:20:14 UTC 2014</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>StaleAtRelink</spirit:name>
@@ -3780,6 +3780,10 @@
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
+        <spirit:name>hdl/verilog/bmm_top_mul_32ns_32ns_64_6.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
         <spirit:name>hdl/verilog/bmm_top_b2_if.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
@@ -3971,7 +3975,7 @@
     <spirit:parameter>
       <spirit:name>C_S_AXI_CONTROL_ADDR_WIDTH</spirit:name>
       <spirit:displayName>Address width</spirit:displayName>
-      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.C_S_AXI_CONTROL_ADDR_WIDTH" spirit:order="35" spirit:configGroups="1 S_AXI_CONTROL (AXI4Lite Slave Interface)" spirit:minimum="4" spirit:maximum="32">5</spirit:value>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.C_S_AXI_CONTROL_ADDR_WIDTH" spirit:order="35" spirit:configGroups="1 S_AXI_CONTROL (AXI4Lite Slave Interface)" spirit:minimum="5" spirit:maximum="32">5</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>Component_Name</spirit:name>
@@ -3987,7 +3991,7 @@
         <xilinx:taxonomy>/VIVADO_HLS_IP</xilinx:taxonomy>
       </xilinx:taxonomies>
       <xilinx:displayName>Bmm_top</xilinx:displayName>
-      <xilinx:coreCreationDateTime>2014-04-30T22:26:20Z</xilinx:coreCreationDateTime>
+      <xilinx:coreCreationDateTime>2014-05-01T21:16:28Z</xilinx:coreCreationDateTime>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>
       <xilinx:xilinxVersion>2013.3</xilinx:xilinxVersion>

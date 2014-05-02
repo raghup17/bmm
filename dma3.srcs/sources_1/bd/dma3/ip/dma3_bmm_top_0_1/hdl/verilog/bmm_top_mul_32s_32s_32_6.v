@@ -8,7 +8,7 @@
 
 `timescale 1 ns / 1 ps
 
-module bmm_top_mul_32s_32s_32_6_MulnS_0(clk, ce, a, b, p);
+module bmm_top_mul_32s_32s_32_6_MulnS_1(clk, ce, a, b, p);
 input clk;
 input ce;
 input[32 - 1 : 0] a; // synthesis attribute keep a "true"
@@ -60,7 +60,7 @@ output[dout_WIDTH - 1:0] dout;
 
 
 
-bmm_top_mul_32s_32s_32_6_MulnS_0 bmm_top_mul_32s_32s_32_6_MulnS_0_U(
+bmm_top_mul_32s_32s_32_6_MulnS_1 bmm_top_mul_32s_32s_32_6_MulnS_1_U(
     .clk( clk ),
     .ce( ce ),
     .a( din0 ),
