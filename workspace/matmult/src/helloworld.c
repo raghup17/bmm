@@ -46,23 +46,35 @@
 #define BDRING_ALIGN	0x40
 
 
-#define B1_BASE 		0xC0000000
-#define B2_BASE 		0xC1000000
-#define B3_BASE 		0xC2000000
+#define B_A 		0xC0000000
+
+#define B0_B 		0xC1000000
+#define B0_AB 		0xC2000000
+
+#define B1_B 		0xC3000000
+#define B1_AB 		0xC4000000
+
+#define B2_B 		0xC5000000
+#define B2_AB 		0xC6000000
+
+#define B3_B 		0xC7000000
+#define B3_AB 		0xC8000000
+
 #define BRAM_SIZE_BYTES 4096*32
 
 #define TMPBUF			0x3E000000
 // Matrix and block sizes
-#define SIZE 512
-#define BSIZE 64
+#define SIZE 1024
+#define BSIZE 128
 #define BRAM_SIZE 128
+#define NUM_MULTIPLIERS 4
 
 #define DCACHE_ENABLE
 
 XAxiCdma dmaInstance;
 //XFe_top hlsInstance;
 
-XBmm_top hlsInstance;
+XBmm_top hlsInstance[NUM_MULTIPLIERS];
 
 double copyTime = 0.0;
 double hlsTime = 0.0;
@@ -146,19 +158,35 @@ int dma_init(XAxiCdma_Config* cfg_ptr)
         return XST_SUCCESS;
 }
 
+u32 getHlsID(int i)
+{
+	u32 idList[] = {XPAR_XBMM_TOP_0_DEVICE_ID, XPAR_XBMM_TOP_1_DEVICE_ID, XPAR_XBMM_TOP_2_DEVICE_ID, XPAR_XBMM_TOP_3_DEVICE_ID};
+	if (i >=NUM_MULTIPLIERS) {
+		printf("Error: Invalid i (%d) passed to getHlsID!\n\r", i);
+		return -1;
+	}
+	else {
+		return idList[i];
+	}
+}
+
 int hls_ip_init()
 {
         int status = XST_SUCCESS;
-
+        int i = 0;
         // status = XFe_top_Initialize(&hlsInstance, XPAR_FE_TOP_0_DEVICE_ID);
 
-        status = XBmm_top_Initialize(&hlsInstance, XPAR_XBMM_TOP_0_DEVICE_ID);
-        if (status != XST_SUCCESS) {
-                xil_printf("Error: Could not initialize HLS device, status = %d\n\r", status);
-                return status;
+        for (i=0; i<NUM_MULTIPLIERS; i++) {
+
+        	status = XBmm_top_Initialize(&hlsInstance[i], getHlsID(i));
+        	if (status != XST_SUCCESS) {
+                	xil_printf("Error: Could not initialize HLS device, status = %d\n\r", status);
+                	return status;
+        	}
+        	XBmm_top_InterruptClear(&hlsInstance[i], 0xFFFFFFFF);
+        	XBmm_top_InterruptDisable(&hlsInstance[i], 0xFFFFFFFF);
         }
-        XBmm_top_InterruptClear(&hlsInstance, 0xFFFFFFFF);
-        XBmm_top_InterruptDisable(&hlsInstance, 0xFFFFFFFF);
+
         printf("HLS initialization complete!\n\r");
         return status;
 }
@@ -314,8 +342,8 @@ void initMatrices(int m1[][SIZE], int m2[][SIZE], int m3[][SIZE], int val)
 	for (i=0; i<SIZE; i++) {
 		for (j=0; j<SIZE; j++) {
 			if (val == -1) {
-				m1[i][j] = 1 *(i*SIZE+j);
-				m2[i][j] = 2 *(i*SIZE+j);
+				m1[i][j] = 1; // *(i*SIZE+j);
+				m2[i][j] = 2; // *(i*SIZE+j);
 				m3[i][j] = 0; // (i*SIZE+j);
 			}
 			else {
@@ -382,31 +410,77 @@ void zeroBRAM(int *bramAddr)
 
 }
 
-void matMult(int a[][SIZE], int b[][SIZE], int c[][SIZE], int blocka[][BRAM_SIZE], int blockb[][BRAM_SIZE], int blockc[][BRAM_SIZE])
+void matMult(
+		int a[][SIZE], int b[][SIZE], int c[][SIZE],
+		int block_a[][BRAM_SIZE],
+		int block0_b[][BRAM_SIZE], int block0_ab[][BRAM_SIZE],
+		int block1_b[][BRAM_SIZE], int block1_ab[][BRAM_SIZE],
+	    int block2_b[][BRAM_SIZE], int block2_ab[][BRAM_SIZE],
+	    int block3_b[][BRAM_SIZE], int block3_ab[][BRAM_SIZE]
+		)
 {
     int ia=0, ja=0, jb=0;
     double elapsed = 0.0;
     for (ia=0; ia < SIZE; ia += BSIZE) {
         for (ja=0; ja < SIZE; ja += BSIZE) {
         	timerStart();
-        	copyBlockToBRAM(a, ia, ja, blocka);
+        	copyBlockToBRAM(a, ia, ja, block_a);
         	elapsed = timerStop();
         	copyTime += elapsed - counterOverhead;
-            for (jb = 0; jb < SIZE; jb+=BSIZE) {
+            for (jb = 0; jb < SIZE; jb+=BSIZE*NUM_MULTIPLIERS) {
+            	int iter = 0;
+
+            	// Copy blocks to the multiplier modules
+            	for (iter = 0; iter < NUM_MULTIPLIERS; iter++) {
+            		int jb0 = jb + BSIZE*iter;
+            	}
+            	int jb0 = jb;
+            	int jb1 = jb0+BSIZE;
+            	int jb2 = jb1+BSIZE;
+            	int jb3 = jb2+BSIZE;
             	timerStart();
-            	copyBlockToBRAM(b, ja, jb, blockb);
-            	copyBlockToBRAM(c, ia, jb, blockc);
+            	copyBlockToBRAM(b, ja, jb0, block0_b);
+            	copyBlockToBRAM(c, ia, jb0, block0_ab);
+            	copyBlockToBRAM(b, ja, jb1, block1_b);
+            	copyBlockToBRAM(c, ia, jb1, block1_ab);
+            	copyBlockToBRAM(b, ja, jb2, block2_b);
+            	copyBlockToBRAM(c, ia, jb2, block2_ab);
+            	copyBlockToBRAM(b, ja, jb3, block3_b);
+            	copyBlockToBRAM(c, ia, jb3, block3_ab);
             	elapsed = timerStop();
             	copyTime += elapsed - counterOverhead;
             	timerStart();
-            	XBmm_top_SetBlocksize(&hlsInstance, BSIZE);
-            	XBmm_top_SetBlocksizeVld(&hlsInstance);
-                XBmm_top_Start(&hlsInstance);
-                while (!(XBmm_top_IsDone(&hlsInstance) || XBmm_top_IsIdle(&hlsInstance)));
+            	XBmm_top_SetBlocksize(&hlsInstance0, BSIZE);
+            	XBmm_top_SetBlocksizeVld(&hlsInstance0);
+            	XBmm_top_SetBlocksize(&hlsInstance1, BSIZE);
+            	XBmm_top_SetBlocksizeVld(&hlsInstance1);
+            	XBmm_top_SetBlocksize(&hlsInstance2, BSIZE);
+            	XBmm_top_SetBlocksizeVld(&hlsInstance2);
+            	XBmm_top_SetBlocksize(&hlsInstance3, BSIZE);
+            	XBmm_top_SetBlocksizeVld(&hlsInstance3);
+            	XBmm_top_Start(&hlsInstance0);
+                XBmm_top_Start(&hlsInstance1);
+            	XBmm_top_Start(&hlsInstance2);
+                XBmm_top_Start(&hlsInstance3);
+
+                while (
+                		!(XBmm_top_IsDone(&hlsInstance0) ||
+                				XBmm_top_IsIdle(&hlsInstance0) ||
+                				XBmm_top_IsIdle(&hlsInstance1) ||
+                				XBmm_top_IsIdle(&hlsInstance1) ||
+                				XBmm_top_IsIdle(&hlsInstance2) ||
+                				XBmm_top_IsIdle(&hlsInstance2) ||
+                				XBmm_top_IsIdle(&hlsInstance3) ||
+                				XBmm_top_IsIdle(&hlsInstance3)
+                		  )
+                	  );
                 elapsed = timerStop();
                 hlsTime += elapsed - counterOverhead;
                 timerStart();
-                copyBlockFromBRAM(c, ia, jb, blockc);
+                copyBlockFromBRAM(c, ia, jb0, block0_ab);
+                copyBlockFromBRAM(c, ia, jb1, block1_ab);
+                copyBlockFromBRAM(c, ia, jb2, block2_ab);
+                copyBlockFromBRAM(c, ia, jb3, block3_ab);
                 elapsed = timerStop();
                 copyTime += elapsed - counterOverhead;
              }
@@ -469,9 +543,15 @@ int main()
 	int **m1 = (int**)MATRIX_BASE;
 	int **m2 = (int**)(MATRIX_BASE+(SIZE*SIZE*sizeof(int)));
 	int **m3 = (int**)(MATRIX_BASE+(2*SIZE*SIZE*sizeof(int)));
-	int **b1 = (int**)B1_BASE;
-	int **b2 = (int**)B2_BASE;
-	int **b3 = (int**)B3_BASE;
+	int **b_a = (int**)B_A;
+	int **b0_b = (int**)B0_B;
+	int **b0_ab = (int**)B0_AB;
+	int **b1_b = (int**)B1_B;
+	int **b1_ab = (int**)B1_AB;
+	int **b2_b = (int**)B2_B;
+	int **b2_ab = (int**)B2_AB;
+	int **b3_b = (int**)B3_B;
+	int **b3_ab = (int**)B3_AB;
 
 	// Measure counter overhead
 	timerStart();
@@ -518,7 +598,14 @@ int main()
     elapsed = timerStop();
     initTime += elapsed;
     printf("Beginning matrix multiply\n\r");
-    matMult(m1, m2, m3, b1, b2, b3);
+    matMult(
+    		m1, m2, m3,
+    		b_a,
+    		b0_b, b0_ab,
+    		b1_b, b1_ab,
+    		b2_b, b2_ab,
+    		b3_b, b3_ab
+    		);
     printf("Matrix multiply done. Verifying..\n\r");
     mismatchCount = matMultVerify(m1, m2, m3);
     printf("Verification done\n\r");

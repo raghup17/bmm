@@ -52,4 +52,36 @@ if [ $? -ne 0 ]; then
 	exit $?
 fi
 
-# vivado -mode batch -source "update.tcl ${projectsHome} ${vivadoProjName} ${hlsTop}_0"
+
+echo "Creating vivado update script.."
+vivadoScriptName=updateVivado.tcl
+rm -f ${vivadoScriptName}
+
+echo "set projPrefix ${projectsHome} " >> ${vivadoScriptName}
+echo "set projName ${vivadoProjName}" >> ${vivadoScriptName}
+echo "set hlsName ${hlsTop}_0" >> ${vivadoScriptName}
+echo "set projPath \"${projPrefix}/${projName}\"" >> ${vivadoScriptName}
+echo "set topLevelDesign \"${projName}.bd\"" >> ${vivadoScriptName}
+
+echo "puts \"Vivado update script: Running with the following args\"" >> ${vivadoScriptName}
+echo "puts \"projPath : $projPath\"" >> ${vivadoScriptName}
+echo "puts \"topLevelDesign: $topLevelDesign\"" >> ${vivadoScriptName}
+echo "puts \"HLS module name: $hlsName, solution1\"" >> ${vivadoScriptName}
+
+echo "cd $projPath" >> ${vivadoScriptName}
+echo "open_project ${projName}.xpr" >> ${vivadoScriptName}
+echo "open_bd_design ${projName}.srcs/sources_1/bd/${projName}/${projName}.bd" >> ${vivadoScriptName}
+echo "update_ip_catalog -rebuild " >> ${vivadoScriptName}
+echo "upgrade_bd_cells [get_bd_cells [list /${hlsName}]" >> ${vivadoScriptName}
+echo "reset_run synth_1" >> ${vivadoScriptName}
+echo "launch_runs synth_1 -jobs 2" >> ${vivadoScriptName}
+echo "wait_on_run synth_1" >> ${vivadoScriptName}
+echo "launch_runs impl_1 -to_step write_bitstream -jobs 2" >> ${vivadoScriptName}
+echo "wait_on_run impl_1" >> ${vivadoScriptName}
+echo "open_run impl_1" >> ${vivadoScriptName}
+echo "open_bd_design ${projName}.srcs/sources_1/bd/${projName}/${projName}.bd" >> ${vivadoScriptName}
+echo "export_hardware [get_files ${projName}.srcs/sources_1/bd/${projName}/${projName}.bd] [get_runs impl_1] -bitstream" >> ${vivadoScriptName}
+echo "exit" >> ${vivadoScriptName}
+
+
+vivado -mode batch -source ${vivadoScriptName}

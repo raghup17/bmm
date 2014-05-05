@@ -1,26 +1,26 @@
 {
    guistr: "# # String gsaved with Nlview version 6.3.3  2013-08-16 bk=1.2871 VDI=33 GEI=35
 #  -string -flagsOSRD
-preplace port ACLK -pg 1 -y 130 -defaultsOSRD
-preplace port S01_AXI -pg 1 -y 40 -defaultsOSRD
-preplace port S_AXI_CONTROL -pg 1 -y 110 -defaultsOSRD
-preplace portBus ARESETN -pg 1 -y 150 -defaultsOSRD
-preplace inst bmm_top_0 -pg 1 -lvl 1 -y 130 -defaultsOSRD
-preplace inst bmm_bram_cdma_intercon -pg 1 -lvl 2 -y 270 -defaultsOSRD
-preplace inst blkA -pg 1 -lvl 3 -y 290 -defaultsOSRD
-preplace inst blkAB -pg 1 -lvl 3 -y 160 -defaultsOSRD
-preplace inst blkB -pg 1 -lvl 3 -y 420 -defaultsOSRD
-preplace netloc axi_interconnect_0_m01_axi 1 2 1 N
+preplace port ACLK -pg 1 -y 110 -defaultsOSRD
+preplace port M01_AXI -pg 1 -y 250 -defaultsOSRD
+preplace port S01_AXI -pg 1 -y 20 -defaultsOSRD
+preplace port S_AXI_CONTROL -pg 1 -y 90 -defaultsOSRD
+preplace portBus ARESETN -pg 1 -y 130 -defaultsOSRD
+preplace inst bmm_top_0 -pg 1 -lvl 1 -y 110 -defaultsOSRD
+preplace inst bmm_bram_cdma_intercon -pg 1 -lvl 2 -y 250 -defaultsOSRD
+preplace inst blkAB -pg 1 -lvl 3 -y 140 -defaultsOSRD
+preplace inst blkB -pg 1 -lvl 3 -y 400 -defaultsOSRD
+preplace netloc Conn1 1 2 3 N 250 NJ 250 NJ
 preplace netloc bmm_top_0_m_axi_b1 1 1 1 510
-preplace netloc proc_sys_reset_peripheral_aresetn 1 0 3 180 230 540 10 820
-preplace netloc axi_mem_intercon_m01_axi 1 0 2 NJ 240 520
-preplace netloc axi_interconnect_0_m00_axi 1 2 1 810
+preplace netloc proc_sys_reset_peripheral_aresetn 1 0 3 180 210 540 500 810
+preplace netloc axi_mem_intercon_m01_axi 1 0 2 NJ 220 520
+preplace netloc axi_interconnect_0_m00_axi 1 2 1 800
 preplace netloc bmm_top_0_m_axi_b2 1 1 1 N
 preplace netloc bmm_top_0_m_axi_b3 1 1 1 N
 preplace netloc ctrl_axilite_intercon_m01_axi 1 0 1 N
-preplace netloc bmm_bram_cdma_intercon_m02_axi 1 2 1 810
-preplace netloc processing_system7_0_fclk_clk0 1 0 3 190 220 530 20 800
-levelinfo -pg 1 150 350 670 920 1050
+preplace netloc bmm_bram_cdma_intercon_m02_axi 1 2 1 800
+preplace netloc processing_system7_0_fclk_clk0 1 0 3 190 200 530 510 820
+levelinfo -pg 1 150 350 670 960 1200 1250
 ",
 }
 0

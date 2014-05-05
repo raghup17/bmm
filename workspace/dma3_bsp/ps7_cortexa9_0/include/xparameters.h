@@ -49,20 +49,53 @@
 /******************************************************************/
 
 /* Definitions for driver BMM_TOP_TOP */
-#define XPAR_XBMM_TOP_NUM_INSTANCES 1
+#define XPAR_XBMM_TOP_NUM_INSTANCES 4
 
-/* Definitions for peripheral BMM0_BMM_TOP_0 */
-#define XPAR_BMM0_BMM_TOP_0_DEVICE_ID 0
-#define XPAR_BMM0_BMM_TOP_0_S_AXI_CONTROL_BASEADDR 0x43C00000
-#define XPAR_BMM0_BMM_TOP_0_S_AXI_CONTROL_HIGHADDR 0x43C0FFFF
+/* Definitions for peripheral BMM_TOP_0 */
+#define XPAR_BMM_TOP_0_DEVICE_ID 0
+#define XPAR_BMM_TOP_0_S_AXI_CONTROL_BASEADDR 0x43C00000
+#define XPAR_BMM_TOP_0_S_AXI_CONTROL_HIGHADDR 0x43C0FFFF
+
+
+/* Definitions for peripheral BMM_TOP_1 */
+#define XPAR_BMM_TOP_1_DEVICE_ID 1
+#define XPAR_BMM_TOP_1_S_AXI_CONTROL_BASEADDR 0x43C10000
+#define XPAR_BMM_TOP_1_S_AXI_CONTROL_HIGHADDR 0x43C1FFFF
+
+
+/* Definitions for peripheral BMM_TOP_2 */
+#define XPAR_BMM_TOP_2_DEVICE_ID 2
+#define XPAR_BMM_TOP_2_S_AXI_CONTROL_BASEADDR 0x43C20000
+#define XPAR_BMM_TOP_2_S_AXI_CONTROL_HIGHADDR 0x43C2FFFF
+
+
+/* Definitions for peripheral BMM_TOP_3 */
+#define XPAR_BMM_TOP_3_DEVICE_ID 3
+#define XPAR_BMM_TOP_3_S_AXI_CONTROL_BASEADDR 0x43C30000
+#define XPAR_BMM_TOP_3_S_AXI_CONTROL_HIGHADDR 0x43C3FFFF
 
 
 /******************************************************************/
 
-/* Canonical definitions for peripheral BMM0_BMM_TOP_0 */
-#define XPAR_XBMM_TOP_0_DEVICE_ID XPAR_BMM0_BMM_TOP_0_DEVICE_ID
+/* Canonical definitions for peripheral BMM_TOP_0 */
+#define XPAR_XBMM_TOP_0_DEVICE_ID XPAR_BMM_TOP_0_DEVICE_ID
 #define XPAR_XBMM_TOP_0_S_AXI_CONTROL_BASEADDR 0x43C00000
 #define XPAR_XBMM_TOP_0_S_AXI_CONTROL_HIGHADDR 0x43C0FFFF
+
+/* Canonical definitions for peripheral BMM_TOP_1 */
+#define XPAR_XBMM_TOP_1_DEVICE_ID XPAR_BMM_TOP_1_DEVICE_ID
+#define XPAR_XBMM_TOP_1_S_AXI_CONTROL_BASEADDR 0x43C10000
+#define XPAR_XBMM_TOP_1_S_AXI_CONTROL_HIGHADDR 0x43C1FFFF
+
+/* Canonical definitions for peripheral BMM_TOP_2 */
+#define XPAR_XBMM_TOP_2_DEVICE_ID XPAR_BMM_TOP_2_DEVICE_ID
+#define XPAR_XBMM_TOP_2_S_AXI_CONTROL_BASEADDR 0x43C20000
+#define XPAR_XBMM_TOP_2_S_AXI_CONTROL_HIGHADDR 0x43C2FFFF
+
+/* Canonical definitions for peripheral BMM_TOP_3 */
+#define XPAR_XBMM_TOP_3_DEVICE_ID XPAR_BMM_TOP_3_DEVICE_ID
+#define XPAR_XBMM_TOP_3_S_AXI_CONTROL_BASEADDR 0x43C30000
+#define XPAR_XBMM_TOP_3_S_AXI_CONTROL_HIGHADDR 0x43C3FFFF
 
 
 /******************************************************************/

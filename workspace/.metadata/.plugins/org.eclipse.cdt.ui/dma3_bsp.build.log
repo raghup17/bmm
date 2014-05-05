@@ -1,4 +1,4 @@
-15:26:51 **** Build of project dma3_bsp ****
+16:56:19 **** Build of project dma3_bsp ****
 make -k all 
 libgen -hw ../dma3/system.xml\
 	       -lp /home/raghu/work/projects/dma3/hls/bmm_top/solution1/impl -lp /home/raghu/work/projects/dma3/hls/simple_top/solution1/impl -lp /home/raghu/work/projects/dma3/hls/fe_top/solution1/impl\
@@ -49,5 +49,5 @@ Compiling cpu_cortexa9
 Running execs_generate.
 Finished building libraries
 
-15:27:06 Build Finished (took 14s.991ms)
+16:56:36 Build Finished (took 17s.199ms)
 
