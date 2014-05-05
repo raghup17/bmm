@@ -1,2 +1,2 @@
    text	   data	    bss	    dec	    hex	filename
-  80212	   2328	  30312	 112852	  1b8d4	matmult.elf
+  80100	   2328	  30280	 112708	  1b844	matmult.elf

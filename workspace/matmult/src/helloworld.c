@@ -67,7 +67,7 @@
 #define SIZE 1024
 #define BSIZE 128
 #define BRAM_SIZE 128
-#define NUM_MULTIPLIERS 4
+#define NUM_MULTIPLIERS 1
 
 #define DCACHE_ENABLE
 
@@ -413,10 +413,8 @@ void zeroBRAM(int *bramAddr)
 void matMult(
 		int a[][SIZE], int b[][SIZE], int c[][SIZE],
 		int block_a[][BRAM_SIZE],
-		int block0_b[][BRAM_SIZE], int block0_ab[][BRAM_SIZE],
-		int block1_b[][BRAM_SIZE], int block1_ab[][BRAM_SIZE],
-	    int block2_b[][BRAM_SIZE], int block2_ab[][BRAM_SIZE],
-	    int block3_b[][BRAM_SIZE], int block3_ab[][BRAM_SIZE]
+		int* blocks_b[NUM_MULTIPLIERS],
+		int* blocks_ab[NUM_MULTIPLIERS]
 		)
 {
     int ia=0, ja=0, jb=0;
@@ -431,56 +429,42 @@ void matMult(
             	int iter = 0;
 
             	// Copy blocks to the multiplier modules
+            	timerStart();
             	for (iter = 0; iter < NUM_MULTIPLIERS; iter++) {
             		int jb0 = jb + BSIZE*iter;
+                	copyBlockToBRAM(b, ja, jb0, blocks_b[iter]);
+                	copyBlockToBRAM(c, ia, jb0, blocks_ab[iter]);
             	}
-            	int jb0 = jb;
-            	int jb1 = jb0+BSIZE;
-            	int jb2 = jb1+BSIZE;
-            	int jb3 = jb2+BSIZE;
-            	timerStart();
-            	copyBlockToBRAM(b, ja, jb0, block0_b);
-            	copyBlockToBRAM(c, ia, jb0, block0_ab);
-            	copyBlockToBRAM(b, ja, jb1, block1_b);
-            	copyBlockToBRAM(c, ia, jb1, block1_ab);
-            	copyBlockToBRAM(b, ja, jb2, block2_b);
-            	copyBlockToBRAM(c, ia, jb2, block2_ab);
-            	copyBlockToBRAM(b, ja, jb3, block3_b);
-            	copyBlockToBRAM(c, ia, jb3, block3_ab);
             	elapsed = timerStop();
             	copyTime += elapsed - counterOverhead;
-            	timerStart();
-            	XBmm_top_SetBlocksize(&hlsInstance0, BSIZE);
-            	XBmm_top_SetBlocksizeVld(&hlsInstance0);
-            	XBmm_top_SetBlocksize(&hlsInstance1, BSIZE);
-            	XBmm_top_SetBlocksizeVld(&hlsInstance1);
-            	XBmm_top_SetBlocksize(&hlsInstance2, BSIZE);
-            	XBmm_top_SetBlocksizeVld(&hlsInstance2);
-            	XBmm_top_SetBlocksize(&hlsInstance3, BSIZE);
-            	XBmm_top_SetBlocksizeVld(&hlsInstance3);
-            	XBmm_top_Start(&hlsInstance0);
-                XBmm_top_Start(&hlsInstance1);
-            	XBmm_top_Start(&hlsInstance2);
-                XBmm_top_Start(&hlsInstance3);
 
-                while (
-                		!(XBmm_top_IsDone(&hlsInstance0) ||
-                				XBmm_top_IsIdle(&hlsInstance0) ||
-                				XBmm_top_IsIdle(&hlsInstance1) ||
-                				XBmm_top_IsIdle(&hlsInstance1) ||
-                				XBmm_top_IsIdle(&hlsInstance2) ||
-                				XBmm_top_IsIdle(&hlsInstance2) ||
-                				XBmm_top_IsIdle(&hlsInstance3) ||
-                				XBmm_top_IsIdle(&hlsInstance3)
-                		  )
-                	  );
+            	// Set the block size in all multipliers
+            	timerStart();
+            	for (iter = 0; iter < NUM_MULTIPLIERS; iter++) {
+            		XBmm_top_SetBlocksize(&hlsInstance[iter], BSIZE);
+            		XBmm_top_SetBlocksizeVld(&hlsInstance[iter]);
+            	}
+
+            	// Start the HLS block
+            	for (iter = 0; iter < NUM_MULTIPLIERS; iter++) {
+            		XBmm_top_Start(&hlsInstance[iter]);
+            	}
+
+            	// Wait for all HLS blocks to finish
+            	for (iter = 0; iter < NUM_MULTIPLIERS; iter++) {
+            		while (
+            		         !(XBmm_top_IsDone(&hlsInstance[iter]) || XBmm_top_IsIdle(&hlsInstance[iter]))
+            		      );
+            	}
                 elapsed = timerStop();
                 hlsTime += elapsed - counterOverhead;
+
+                // Copy result blocks back to the original matrix
                 timerStart();
-                copyBlockFromBRAM(c, ia, jb0, block0_ab);
-                copyBlockFromBRAM(c, ia, jb1, block1_ab);
-                copyBlockFromBRAM(c, ia, jb2, block2_ab);
-                copyBlockFromBRAM(c, ia, jb3, block3_ab);
+                for (iter = 0; iter < NUM_MULTIPLIERS; iter++) {
+                	int jb0 = jb + BSIZE*iter;
+                	copyBlockFromBRAM(c, ia, jb0, blocks_ab[iter]);
+                }
                 elapsed = timerStop();
                 copyTime += elapsed - counterOverhead;
              }
@@ -544,15 +528,10 @@ int main()
 	int **m2 = (int**)(MATRIX_BASE+(SIZE*SIZE*sizeof(int)));
 	int **m3 = (int**)(MATRIX_BASE+(2*SIZE*SIZE*sizeof(int)));
 	int **b_a = (int**)B_A;
-	int **b0_b = (int**)B0_B;
-	int **b0_ab = (int**)B0_AB;
-	int **b1_b = (int**)B1_B;
-	int **b1_ab = (int**)B1_AB;
-	int **b2_b = (int**)B2_B;
-	int **b2_ab = (int**)B2_AB;
-	int **b3_b = (int**)B3_B;
-	int **b3_ab = (int**)B3_AB;
+	int* blocks_b[] = {(int*)B0_B, (int*)B1_B, (int*)B2_B, (int*)B3_B};
+	int* blocks_ab[] = {(int*)B0_AB, (int*)B1_AB, (int*)B2_AB, (int*)B3_AB};
 
+	printf("\nMatrix multiply on the Zynq\n\r");
 	// Measure counter overhead
 	timerStart();
 	counterOverhead = timerStop();
@@ -601,10 +580,8 @@ int main()
     matMult(
     		m1, m2, m3,
     		b_a,
-    		b0_b, b0_ab,
-    		b1_b, b1_ab,
-    		b2_b, b2_ab,
-    		b3_b, b3_ab
+    		blocks_b,
+    		blocks_ab
     		);
     printf("Matrix multiply done. Verifying..\n\r");
     mismatchCount = matMultVerify(m1, m2, m3);
