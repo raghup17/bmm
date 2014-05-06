@@ -1,0 +1,32 @@
+#-----------------------------------------------------------
+# Vivado v2013.3 (64-bit)
+# SW Build 329390 on Wed Oct 16 18:26:55 MDT 2013
+# IP Build 192953 on Wed Oct 16 08:44:02 MDT 2013
+# Start of session at: Mon May  5 16:00:07 2014
+# Process ID: 10119
+# Log file: /home/raghu/work/projects/dma3/vivado.log
+# Journal file: /home/raghu/work/projects/dma3/vivado.jou
+#-----------------------------------------------------------
+INFO: [Common 17-78] Attempting to get a license: Implementation
+INFO: [Common 17-81] Feature available: Implementation
+INFO: [Device 21-36] Loading parts and site information from /home/raghu/work/tools/xilinx/Vivado/2013.3/data/parts/arch.xml
+Parsing RTL primitives file [/home/raghu/work/tools/xilinx/Vivado/2013.3/data/parts/xilinx/rtl/prims/rtl_prims.xml]
+Finished parsing RTL primitives file [/home/raghu/work/tools/xilinx/Vivado/2013.3/data/parts/xilinx/rtl/prims/rtl_prims.xml]
+source updateVivado.tcl
+# set projPrefix /home/raghu/work/projects 
+# set projName dma3
+# set hlsName bmm_top_0
+# set projPath "/"
+# set topLevelDesign ".bd"
+# puts "Vivado update script: Running with the following args"
+Vivado update script: Running with the following args
+# puts "projPath : "
+projPath : 
+# puts "topLevelDesign: "
+topLevelDesign: 
+# puts "HLS module name: , solution1"
+HLS module name: , solution1
+# cd 
+# open_project .xpr
+ERROR: [Coretcl 2-27] Can't find specified project.
+INFO: [Common 17-206] Exiting Vivado at Mon May  5 16:00:15 2014...
