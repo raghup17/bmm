@@ -90,32 +90,32 @@
 		<link>
 			<name>testbench</name>
 			<type>2</type>
-			<location>/home/raghu/work/projects/dma3/hls/bmm_top/bmm_top/.apc/.tb</location>
+			<location>/home/raghu/work/projects/dma3/hls/bmm_top/.apc/.tb</location>
 		</link>
 		<link>
 			<name>solution1/constraints</name>
 			<type>2</type>
-			<location>/home/raghu/work/projects/dma3/hls/bmm_top/bmm_top/solution1/.tcls</location>
+			<location>/home/raghu/work/projects/dma3/hls/bmm_top/solution1/.tcls</location>
 		</link>
 		<link>
 			<name>source/bmm_top.cpp</name>
 			<type>1</type>
-			<location>/home/raghu/work/projects/dma3/hls/bmm_top/bmm_top/bmm_top.cpp</location>
+			<location>/home/raghu/work/projects/dma3/hls/bmm_top/bmm_top.cpp</location>
 		</link>
 		<link>
 			<name>solution1/constraints/.xml.directive</name>
 			<type>1</type>
-			<location>/home/raghu/work/projects/dma3/hls/bmm_top/bmm_top/solution1/solution1.directive</location>
+			<location>/home/raghu/work/projects/dma3/hls/bmm_top/solution1/solution1.directive</location>
 		</link>
 		<link>
 			<name>solution1/constraints/directives.tcl</name>
 			<type>1</type>
-			<location>/home/raghu/work/projects/dma3/hls/bmm_top/bmm_top/solution1/directives.tcl</location>
+			<location>/home/raghu/work/projects/dma3/hls/bmm_top/solution1/directives.tcl</location>
 		</link>
 		<link>
 			<name>solution1/constraints/script.tcl</name>
 			<type>1</type>
-			<location>/home/raghu/work/projects/dma3/hls/bmm_top/bmm_top/solution1/script.tcl</location>
+			<location>/home/raghu/work/projects/dma3/hls/bmm_top/solution1/script.tcl</location>
 		</link>
 	</linkedResources>
 </projectDescription>

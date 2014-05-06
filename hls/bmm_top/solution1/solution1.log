@@ -8,28 +8,41 @@ Copyright (C) 2013 Xilinx Inc. All rights reserved.
 @I [SYN-201] Setting up clock 'default' with a period of 10ns.
 @I [HLS-10] Setting target device to 'xc7z045ffg900-1'
 @I [HLS-10] Analyzing design file 'bmm_top/bmm_top.cpp' ... 
+bmm_top/bmm_top.cpp:75:5: warning: expression result unused [-Wunused-value]
+                                apint_set_range(curElemC, t2*ELEM_WIDTH_BITS + ELEM_WIDTH_BITS-1, t2*ELEM_WIDTH_BITS, crow[t1*ELEMS_PER_BUS+t2]);
+                                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/raghu/work/tools/xilinx/Vivado_HLS/2013.3/include/etc/autopilot_apint.h:47:44: note: expanded from macro 'apint_set_range'
+#define apint_set_range(Val, Hi, Lo, Repl) _ssdm_op_SetRange(Val, Hi, Lo, Repl)
+                                           ^
+/home/raghu/work/tools/xilinx/Vivado_HLS/2013.3/include/etc/autopilot_ssdm_bits.h:105:3: note: expanded from macro '_ssdm_op_SetRange'
+  __Result__; \
+  ^~~~~~~~~~
+1 warning generated.
 @I [HLS-10] Validating synthesis directives ...
 @I [HLS-10] Checking synthesizability ...
+@W [SYNCHK-23] bmm_top/bmm_top.cpp:47: variable-indexed range selection may cause suboptimal QoR.
+@I [SYNCHK-10] 0 error(s), 1 warning(s).
 @I [HLS-10] Starting code transformations ...
-@I [XFORM-501] Unrolling loop 'Loop-1.1.1' (bmm_top/bmm_top.cpp:21) in function 'bmm_top' partially with a factor of 4.
-@I [XFORM-541] Flattening a loop nest 'Loop-0' (bmm_top/bmm_top.cpp:18) in function 'bmm_top'.
-@I [HLS-111] Elapsed time: 2.91 seconds; current memory usage: 50.8 MB.
+@I [XFORM-501] Unrolling loop 'Loop-1.1.1' (bmm_top/bmm_top.cpp:45) in function 'bmm_top' completely.
+@I [XFORM-501] Unrolling loop 'Loop-1.2.1.1' (bmm_top/bmm_top.cpp:56) in function 'bmm_top' completely.
+@I [XFORM-501] Unrolling loop 'Loop-1.2.2' (bmm_top/bmm_top.cpp:64) in function 'bmm_top' partially with a factor of 4.
+@W [XFORM-104] Completely partitioning array 'arow' (bmm_top/bmm_top.cpp:31) accessed through non-constant indices on dimension 1 (bmm_top/bmm_top.cpp:67:2), which may result in long runtime and suboptimal QoR due to large multiplexers. Please consider wrapping the array access into a function or using a register file core instead.
+@I [XFORM-101] Partitioning array 'arow' (bmm_top/bmm_top.cpp:31) in dimension 1 completely.
+@W [XFORM-104] Completely partitioning array 'brow' (bmm_top/bmm_top.cpp:31) accessed through non-constant indices on dimension 1 (bmm_top/bmm_top.cpp:67:2), which may result in long runtime and suboptimal QoR due to large multiplexers. Please consider wrapping the array access into a function or using a register file core instead.
+@I [XFORM-101] Partitioning array 'brow' (bmm_top/bmm_top.cpp:31) in dimension 1 completely.
+@W [XFORM-104] Completely partitioning array 'crow' (bmm_top/bmm_top.cpp:31) accessed through non-constant indices on dimension 1 (bmm_top/bmm_top.cpp:67:2), which may result in long runtime and suboptimal QoR due to large multiplexers. Please consider wrapping the array access into a function or using a register file core instead.
+@I [XFORM-101] Partitioning array 'crow' (bmm_top/bmm_top.cpp:31) in dimension 1 completely.
+@I [XFORM-401] Performing if-conversion on hyperblock to (bmm_top/bmm_top.cpp:52:22) in function 'bmm_top'... converting 2 basic blocks.
+@I [XFORM-401] Performing if-conversion on hyperblock from (bmm_top/bmm_top.cpp:74:17) to (bmm_top/bmm_top.cpp:72:26) in function 'bmm_top'... converting 2 basic blocks.
+@I [HLS-111] Elapsed time: 148.34 seconds; current memory usage: 52.1 MB.
 @I [HLS-10] Starting hardware synthesis ...
 @I [HLS-10] Synthesizing 'bmm_top' ...
 @I [HLS-10] ----------------------------------------------------------------
 @I [HLS-10] -- Scheduling module 'bmm_top' 
 @I [HLS-10] ----------------------------------------------------------------
 @I [SCHED-11] Starting scheduling ...
-@I [SCHED-61] Pipelining loop 'Loop 1.1'.
-@W [SCHED-68] Unable to enforce a carried dependency constraint (II = 1, distance = 1)
-   between bus request on port 'b1' (bmm_top/bmm_top.cpp:24) and bus request on port 'b1' (bmm_top/bmm_top.cpp:24).
-@W [SCHED-68] Unable to enforce a carried dependency constraint (II = 2, distance = 1)
-   between bus request on port 'b1' (bmm_top/bmm_top.cpp:24) and bus request on port 'b1' (bmm_top/bmm_top.cpp:24).
-@W [SCHED-68] Unable to enforce a carried dependency constraint (II = 3, distance = 1)
-   between bus request on port 'b1' (bmm_top/bmm_top.cpp:24) and bus request on port 'b1' (bmm_top/bmm_top.cpp:24).
-@I [SCHED-61] Pipelining result: Target II: 1, Final II: 4, Depth: 16.
 @I [SCHED-11] Finished scheduling.
-@I [HLS-111] Elapsed time: 0.36 seconds; current memory usage: 51.6 MB.
+@I [HLS-111] Elapsed time: 0.07 seconds; current memory usage: 52.2 MB.
 @I [HLS-10] ----------------------------------------------------------------
 @I [HLS-10] -- Exploring micro-architecture for module 'bmm_top' 
 @I [HLS-10] ----------------------------------------------------------------
@@ -38,7 +51,7 @@ Copyright (C) 2013 Xilinx Inc. All rights reserved.
 @I [BIND-101] Exploring resource sharing.
 @I [BIND-101] Binding ...
 @I [BIND-100] Finished micro-architecture generation.
-@I [HLS-111] Elapsed time: 0.05 seconds; current memory usage: 52.3 MB.
+@I [HLS-111] Elapsed time: 0.03 seconds; current memory usage: 52.5 MB.
 @I [HLS-10] ----------------------------------------------------------------
 @I [HLS-10] -- Generating RTL for module 'bmm_top' 
 @I [HLS-10] ----------------------------------------------------------------
@@ -49,16 +62,12 @@ Copyright (C) 2013 Xilinx Inc. All rights reserved.
 @I [RTGEN-500] Setting interface mode on function 'bmm_top' to 'ap_ctrl_hs'.
 @W [RTGEN-101] Setting dangling out port 'bmm_top/b1_dataout' to 0.
 @W [RTGEN-101] Setting dangling out port 'bmm_top/b2_dataout' to 0.
-@I [RTGEN-100] Generating core module 'bmm_top_mul_32ns_32ns_64_6': 1 instance(s).
-@I [RTGEN-100] Generating core module 'bmm_top_mul_32s_32s_32_6': 4 instance(s).
 @I [RTGEN-100] Finished creating RTL model for 'bmm_top'.
-@I [HLS-111] Elapsed time: 0.17 seconds; current memory usage: 53.3 MB.
-@I [RTMG-282] Generating pipelined core: 'bmm_top_mul_32ns_32ns_64_6_MulnS_0'
-@I [RTMG-282] Generating pipelined core: 'bmm_top_mul_32s_32s_32_6_MulnS_1'
+@I [HLS-111] Elapsed time: 0.05 seconds; current memory usage: 53 MB.
 @I [HLS-10] Finished generating all RTL models.
 @I [WSYSC-301] Generating RTL SystemC for 'bmm_top'.
 @I [WVHDL-304] Generating RTL VHDL for 'bmm_top'.
 @I [WVLOG-307] Generating RTL Verilog for 'bmm_top'.
 @I [IMPL-8] Exporting RTL as an IP in IP-XACT.
-@I [HLS-112] Total elapsed time: 88.43 seconds; peak memory usage: 53.3 MB.
+@I [HLS-112] Total elapsed time: 208.226 seconds; peak memory usage: 53 MB.
 @I [LIC-101] Checked in feature [HLS]

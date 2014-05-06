@@ -29,6 +29,9 @@
     <File Path="$PSRCDIR/sources_1/bd/dma3/ip/dma3_simple_top_0_1/dma3_simple_top_0_1.upgrade_log"/>
     <File Path="$PSRCDIR/sources_1/bd/dma3/ip/dma3_fe_top_0_0/dma3_fe_top_0_0.upgrade_log"/>
     <File Path="$PSRCDIR/sources_1/bd/dma3/ip/dma3_bmm_top_0_1/dma3_bmm_top_0_1.upgrade_log"/>
+    <File Path="$PSRCDIR/sources_1/bd/dma3/ip/dma3_bmm_top_0_2/dma3_bmm_top_0_2.upgrade_log"/>
+    <File Path="$PSRCDIR/sources_1/bd/dma3/ip/dma3_bmm_top_0_3/dma3_bmm_top_0_3.upgrade_log"/>
+    <File Path="$PSRCDIR/sources_1/bd/dma3/ip/dma3_bmm_top_0_4/dma3_bmm_top_0_4.upgrade_log"/>
     <Config>
       <Option Name="DesignMode" Val="RTL"/>
       <Option Name="TopModule" Val="dma3_wrapper"/>

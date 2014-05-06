@@ -2,5 +2,5 @@ cd /home/raghu/work/projects/dma3/hls
 open_project bmm_top
 open_solution solution1
 csynth_design
-export_design -format ipxact -version "16.0"
+export_design -format ipxact -version "18.0"
 exit

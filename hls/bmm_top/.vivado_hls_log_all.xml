@@ -12,8 +12,12 @@
   <warningLogs>
     <logs>
       <synLog>
-        <logs message="@W [RTGEN-101] Setting dangling out port 'bmm_top/b2_dataout' to 0." projectName="bmm_top" solutionName="solution1" date="2014-04-25T14:43:41.332-0700" type="Warning"/>
-        <logs message="@W [RTGEN-101] Setting dangling out port 'bmm_top/b1_dataout' to 0." projectName="bmm_top" solutionName="solution1" date="2014-04-25T14:43:41.307-0700" type="Warning"/>
+        <logs message="@W [RTGEN-101] Setting dangling out port 'bmm_top/b2_dataout' to 0." projectName="bmm_top" solutionName="solution1" date="2014-05-05T18:34:14.122-0700" type="Warning"/>
+        <logs message="@W [RTGEN-101] Setting dangling out port 'bmm_top/b1_dataout' to 0." projectName="bmm_top" solutionName="solution1" date="2014-05-05T18:34:14.086-0700" type="Warning"/>
+        <logs message="@W [XFORM-104] Completely partitioning array 'crow' (bmm_top/bmm_top.cpp:31) accessed through non-constant indices on dimension 1 (bmm_top/bmm_top.cpp:67:2), which may result in long runtime and suboptimal QoR due to large multiplexers. Please consider wrapping the array access into a function or using a register file core instead." projectName="bmm_top" solutionName="solution1" date="2014-05-05T18:31:51.026-0700" type="Warning"/>
+        <logs message="@W [XFORM-104] Completely partitioning array 'brow' (bmm_top/bmm_top.cpp:31) accessed through non-constant indices on dimension 1 (bmm_top/bmm_top.cpp:67:2), which may result in long runtime and suboptimal QoR due to large multiplexers. Please consider wrapping the array access into a function or using a register file core instead." projectName="bmm_top" solutionName="solution1" date="2014-05-05T18:31:50.739-0700" type="Warning"/>
+        <logs message="@W [XFORM-104] Completely partitioning array 'arow' (bmm_top/bmm_top.cpp:31) accessed through non-constant indices on dimension 1 (bmm_top/bmm_top.cpp:67:2), which may result in long runtime and suboptimal QoR due to large multiplexers. Please consider wrapping the array access into a function or using a register file core instead." projectName="bmm_top" solutionName="solution1" date="2014-05-05T18:31:50.474-0700" type="Warning"/>
+        <logs message="@W [SYNCHK-23] bmm_top/bmm_top.cpp:47: variable-indexed range selection may cause suboptimal QoR." projectName="bmm_top" solutionName="solution1" date="2014-05-05T18:31:44.112-0700" type="Warning"/>
       </synLog>
       <simLog/>
       <mgLog/>

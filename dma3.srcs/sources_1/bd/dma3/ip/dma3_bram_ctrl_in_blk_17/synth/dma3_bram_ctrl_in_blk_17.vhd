@@ -60,7 +60,7 @@ ENTITY dma3_bram_ctrl_in_blk_17 IS
   PORT (
     s_axi_aclk : IN STD_LOGIC;
     s_axi_aresetn : IN STD_LOGIC;
-    s_axi_awid : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
+    s_axi_awid : IN STD_LOGIC_VECTOR(2 DOWNTO 0);
     s_axi_awaddr : IN STD_LOGIC_VECTOR(16 DOWNTO 0);
     s_axi_awlen : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
     s_axi_awsize : IN STD_LOGIC_VECTOR(2 DOWNTO 0);
@@ -70,16 +70,16 @@ ENTITY dma3_bram_ctrl_in_blk_17 IS
     s_axi_awprot : IN STD_LOGIC_VECTOR(2 DOWNTO 0);
     s_axi_awvalid : IN STD_LOGIC;
     s_axi_awready : OUT STD_LOGIC;
-    s_axi_wdata : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
-    s_axi_wstrb : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
+    s_axi_wdata : IN STD_LOGIC_VECTOR(255 DOWNTO 0);
+    s_axi_wstrb : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
     s_axi_wlast : IN STD_LOGIC;
     s_axi_wvalid : IN STD_LOGIC;
     s_axi_wready : OUT STD_LOGIC;
-    s_axi_bid : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
+    s_axi_bid : OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
     s_axi_bresp : OUT STD_LOGIC_VECTOR(1 DOWNTO 0);
     s_axi_bvalid : OUT STD_LOGIC;
     s_axi_bready : IN STD_LOGIC;
-    s_axi_arid : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
+    s_axi_arid : IN STD_LOGIC_VECTOR(2 DOWNTO 0);
     s_axi_araddr : IN STD_LOGIC_VECTOR(16 DOWNTO 0);
     s_axi_arlen : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
     s_axi_arsize : IN STD_LOGIC_VECTOR(2 DOWNTO 0);
@@ -89,8 +89,8 @@ ENTITY dma3_bram_ctrl_in_blk_17 IS
     s_axi_arprot : IN STD_LOGIC_VECTOR(2 DOWNTO 0);
     s_axi_arvalid : IN STD_LOGIC;
     s_axi_arready : OUT STD_LOGIC;
-    s_axi_rid : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
-    s_axi_rdata : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
+    s_axi_rid : OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
+    s_axi_rdata : OUT STD_LOGIC_VECTOR(255 DOWNTO 0);
     s_axi_rresp : OUT STD_LOGIC_VECTOR(1 DOWNTO 0);
     s_axi_rlast : OUT STD_LOGIC;
     s_axi_rvalid : OUT STD_LOGIC;
@@ -98,10 +98,10 @@ ENTITY dma3_bram_ctrl_in_blk_17 IS
     bram_rst_a : OUT STD_LOGIC;
     bram_clk_a : OUT STD_LOGIC;
     bram_en_a : OUT STD_LOGIC;
-    bram_we_a : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
+    bram_we_a : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
     bram_addr_a : OUT STD_LOGIC_VECTOR(16 DOWNTO 0);
-    bram_wrdata_a : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
-    bram_rddata_a : IN STD_LOGIC_VECTOR(31 DOWNTO 0)
+    bram_wrdata_a : OUT STD_LOGIC_VECTOR(255 DOWNTO 0);
+    bram_rddata_a : IN STD_LOGIC_VECTOR(255 DOWNTO 0)
   );
 END dma3_bram_ctrl_in_blk_17;
 
@@ -131,7 +131,7 @@ ARCHITECTURE dma3_bram_ctrl_in_blk_17_arch OF dma3_bram_ctrl_in_blk_17 IS
       s_axi_aresetn : IN STD_LOGIC;
       ecc_interrupt : OUT STD_LOGIC;
       ecc_ue : OUT STD_LOGIC;
-      s_axi_awid : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
+      s_axi_awid : IN STD_LOGIC_VECTOR(2 DOWNTO 0);
       s_axi_awaddr : IN STD_LOGIC_VECTOR(16 DOWNTO 0);
       s_axi_awlen : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
       s_axi_awsize : IN STD_LOGIC_VECTOR(2 DOWNTO 0);
@@ -141,16 +141,16 @@ ARCHITECTURE dma3_bram_ctrl_in_blk_17_arch OF dma3_bram_ctrl_in_blk_17 IS
       s_axi_awprot : IN STD_LOGIC_VECTOR(2 DOWNTO 0);
       s_axi_awvalid : IN STD_LOGIC;
       s_axi_awready : OUT STD_LOGIC;
-      s_axi_wdata : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
-      s_axi_wstrb : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
+      s_axi_wdata : IN STD_LOGIC_VECTOR(255 DOWNTO 0);
+      s_axi_wstrb : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
       s_axi_wlast : IN STD_LOGIC;
       s_axi_wvalid : IN STD_LOGIC;
       s_axi_wready : OUT STD_LOGIC;
-      s_axi_bid : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
+      s_axi_bid : OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
       s_axi_bresp : OUT STD_LOGIC_VECTOR(1 DOWNTO 0);
       s_axi_bvalid : OUT STD_LOGIC;
       s_axi_bready : IN STD_LOGIC;
-      s_axi_arid : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
+      s_axi_arid : IN STD_LOGIC_VECTOR(2 DOWNTO 0);
       s_axi_araddr : IN STD_LOGIC_VECTOR(16 DOWNTO 0);
       s_axi_arlen : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
       s_axi_arsize : IN STD_LOGIC_VECTOR(2 DOWNTO 0);
@@ -160,8 +160,8 @@ ARCHITECTURE dma3_bram_ctrl_in_blk_17_arch OF dma3_bram_ctrl_in_blk_17 IS
       s_axi_arprot : IN STD_LOGIC_VECTOR(2 DOWNTO 0);
       s_axi_arvalid : IN STD_LOGIC;
       s_axi_arready : OUT STD_LOGIC;
-      s_axi_rid : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
-      s_axi_rdata : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
+      s_axi_rid : OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
+      s_axi_rdata : OUT STD_LOGIC_VECTOR(255 DOWNTO 0);
       s_axi_rresp : OUT STD_LOGIC_VECTOR(1 DOWNTO 0);
       s_axi_rlast : OUT STD_LOGIC;
       s_axi_rvalid : OUT STD_LOGIC;
@@ -185,17 +185,17 @@ ARCHITECTURE dma3_bram_ctrl_in_blk_17_arch OF dma3_bram_ctrl_in_blk_17 IS
       bram_rst_a : OUT STD_LOGIC;
       bram_clk_a : OUT STD_LOGIC;
       bram_en_a : OUT STD_LOGIC;
-      bram_we_a : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
+      bram_we_a : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
       bram_addr_a : OUT STD_LOGIC_VECTOR(16 DOWNTO 0);
-      bram_wrdata_a : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
-      bram_rddata_a : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
+      bram_wrdata_a : OUT STD_LOGIC_VECTOR(255 DOWNTO 0);
+      bram_rddata_a : IN STD_LOGIC_VECTOR(255 DOWNTO 0);
       bram_rst_b : OUT STD_LOGIC;
       bram_clk_b : OUT STD_LOGIC;
       bram_en_b : OUT STD_LOGIC;
-      bram_we_b : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
+      bram_we_b : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
       bram_addr_b : OUT STD_LOGIC_VECTOR(16 DOWNTO 0);
-      bram_wrdata_b : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
-      bram_rddata_b : IN STD_LOGIC_VECTOR(31 DOWNTO 0)
+      bram_wrdata_b : OUT STD_LOGIC_VECTOR(255 DOWNTO 0);
+      bram_rddata_b : IN STD_LOGIC_VECTOR(255 DOWNTO 0)
     );
   END COMPONENT axi_bram_ctrl;
   ATTRIBUTE X_CORE_INFO : STRING;
@@ -203,7 +203,7 @@ ARCHITECTURE dma3_bram_ctrl_in_blk_17_arch OF dma3_bram_ctrl_in_blk_17 IS
   ATTRIBUTE CHECK_LICENSE_TYPE : STRING;
   ATTRIBUTE CHECK_LICENSE_TYPE OF dma3_bram_ctrl_in_blk_17_arch : ARCHITECTURE IS "dma3_bram_ctrl_in_blk_17,axi_bram_ctrl,{}";
   ATTRIBUTE CORE_GENERATION_INFO : STRING;
-  ATTRIBUTE CORE_GENERATION_INFO OF dma3_bram_ctrl_in_blk_17_arch: ARCHITECTURE IS "dma3_bram_ctrl_in_blk_17,axi_bram_ctrl,{x_ipProduct=Vivado 2013.3,x_ipVendor=xilinx.com,x_ipLibrary=ip,x_ipName=axi_bram_ctrl,x_ipVersion=3.0,x_ipCoreRevision=2,x_ipLanguage=VERILOG,C_MEMORY_DEPTH=32768,C_BRAM_INST_MODE=EXTERNAL,C_BRAM_ADDR_WIDTH=15,C_S_AXI_ADDR_WIDTH=17,C_S_AXI_DATA_WIDTH=32,C_S_AXI_ID_WIDTH=4,C_S_AXI_PROTOCOL=AXI4,C_S_AXI_SUPPORTS_NARROW_BURST=0,C_SINGLE_PORT_BRAM=1,C_S_AXI_CTRL_ADDR_WIDTH=32,C_S_AXI_CTRL_DATA_WIDTH=32,C_ECC=0,C_FAULT_INJECT=0,C_ECC_ONOFF_RESET_VALUE=0}";
+  ATTRIBUTE CORE_GENERATION_INFO OF dma3_bram_ctrl_in_blk_17_arch: ARCHITECTURE IS "dma3_bram_ctrl_in_blk_17,axi_bram_ctrl,{x_ipProduct=Vivado 2013.3,x_ipVendor=xilinx.com,x_ipLibrary=ip,x_ipName=axi_bram_ctrl,x_ipVersion=3.0,x_ipCoreRevision=2,x_ipLanguage=VERILOG,C_MEMORY_DEPTH=4096,C_BRAM_INST_MODE=EXTERNAL,C_BRAM_ADDR_WIDTH=12,C_S_AXI_ADDR_WIDTH=17,C_S_AXI_DATA_WIDTH=256,C_S_AXI_ID_WIDTH=3,C_S_AXI_PROTOCOL=AXI4,C_S_AXI_SUPPORTS_NARROW_BURST=0,C_SINGLE_PORT_BRAM=1,C_S_AXI_CTRL_ADDR_WIDTH=32,C_S_AXI_CTRL_DATA_WIDTH=32,C_ECC=0,C_FAULT_INJECT=0,C_ECC_ONOFF_RESET_VALUE=0}";
   ATTRIBUTE X_INTERFACE_INFO : STRING;
   ATTRIBUTE X_INTERFACE_INFO OF s_axi_aclk: SIGNAL IS "xilinx.com:signal:clock:1.0 CLKIF CLK";
   ATTRIBUTE X_INTERFACE_INFO OF s_axi_aresetn: SIGNAL IS "xilinx.com:signal:reset:1.0 RSTIF RST";
@@ -252,12 +252,12 @@ ARCHITECTURE dma3_bram_ctrl_in_blk_17_arch OF dma3_bram_ctrl_in_blk_17 IS
 BEGIN
   U0 : axi_bram_ctrl
     GENERIC MAP (
-      C_MEMORY_DEPTH => 32768,
+      C_MEMORY_DEPTH => 4096,
       C_BRAM_INST_MODE => "EXTERNAL",
-      C_BRAM_ADDR_WIDTH => 15,
+      C_BRAM_ADDR_WIDTH => 12,
       C_S_AXI_ADDR_WIDTH => 17,
-      C_S_AXI_DATA_WIDTH => 32,
-      C_S_AXI_ID_WIDTH => 4,
+      C_S_AXI_DATA_WIDTH => 256,
+      C_S_AXI_ID_WIDTH => 3,
       C_S_AXI_PROTOCOL => "AXI4",
       C_S_AXI_SUPPORTS_NARROW_BURST => 0,
       C_SINGLE_PORT_BRAM => 1,
@@ -320,6 +320,6 @@ BEGIN
       bram_addr_a => bram_addr_a,
       bram_wrdata_a => bram_wrdata_a,
       bram_rddata_a => bram_rddata_a,
-      bram_rddata_b => STD_LOGIC_VECTOR(TO_UNSIGNED(0, 32))
+      bram_rddata_b => STD_LOGIC_VECTOR(TO_UNSIGNED(0, 256))
     );
 END dma3_bram_ctrl_in_blk_17_arch;

@@ -1415,7 +1415,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>customizationCRC</spirit:name>
-            <spirit:value>375081105</spirit:value>
+            <spirit:value>1498993561</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>customizationCRCversion</spirit:name>
@@ -1423,7 +1423,7 @@
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Fri May 02 23:08:15 UTC 2014</spirit:value>
+            <spirit:value>Tue May 06 02:03:25 UTC 2014</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>StaleAtRelink</spirit:name>
@@ -3756,10 +3756,6 @@
     <spirit:fileSet>
       <spirit:name>xilinx_verilogsynthesis_view_fileset</spirit:name>
       <spirit:file>
-        <spirit:name>hdl/verilog/bmm_top_mul_32s_32s_32_6.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
         <spirit:name>hdl/verilog/bmm_top_b1_if.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
@@ -3777,10 +3773,6 @@
       </spirit:file>
       <spirit:file>
         <spirit:name>hdl/verilog/bmm_top.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>hdl/verilog/bmm_top_mul_32ns_32ns_64_6.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
@@ -3815,7 +3807,7 @@
     <spirit:parameter>
       <spirit:name>C_M_AXI_B1_DATA_WIDTH</spirit:name>
       <spirit:displayName>Data width</spirit:displayName>
-      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.C_M_AXI_B1_DATA_WIDTH" spirit:choiceRef="choices_0" spirit:order="3" spirit:configGroups="1 M_AXI_B1 (AXI4 Master Interface)">32</spirit:value>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.C_M_AXI_B1_DATA_WIDTH" spirit:choiceRef="choices_0" spirit:order="3" spirit:configGroups="1 M_AXI_B1 (AXI4 Master Interface)">256</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>C_M_AXI_B1_AWUSER_WIDTH</spirit:name>
@@ -3870,7 +3862,7 @@
     <spirit:parameter>
       <spirit:name>C_M_AXI_B2_DATA_WIDTH</spirit:name>
       <spirit:displayName>Data width</spirit:displayName>
-      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.C_M_AXI_B2_DATA_WIDTH" spirit:choiceRef="choices_1" spirit:order="14" spirit:configGroups="1 M_AXI_B2 (AXI4 Master Interface)">32</spirit:value>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.C_M_AXI_B2_DATA_WIDTH" spirit:choiceRef="choices_1" spirit:order="14" spirit:configGroups="1 M_AXI_B2 (AXI4 Master Interface)">256</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>C_M_AXI_B2_AWUSER_WIDTH</spirit:name>
@@ -3925,7 +3917,7 @@
     <spirit:parameter>
       <spirit:name>C_M_AXI_B3_DATA_WIDTH</spirit:name>
       <spirit:displayName>Data width</spirit:displayName>
-      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.C_M_AXI_B3_DATA_WIDTH" spirit:choiceRef="choices_2" spirit:order="25" spirit:configGroups="1 M_AXI_B3 (AXI4 Master Interface)">32</spirit:value>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.C_M_AXI_B3_DATA_WIDTH" spirit:choiceRef="choices_2" spirit:order="25" spirit:configGroups="1 M_AXI_B3 (AXI4 Master Interface)">256</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>C_M_AXI_B3_AWUSER_WIDTH</spirit:name>
@@ -3991,7 +3983,7 @@
         <xilinx:taxonomy>/VIVADO_HLS_IP</xilinx:taxonomy>
       </xilinx:taxonomies>
       <xilinx:displayName>Bmm_top</xilinx:displayName>
-      <xilinx:coreCreationDateTime>2014-05-01T21:16:28Z</xilinx:coreCreationDateTime>
+      <xilinx:coreCreationDateTime>2014-05-06T01:45:37Z</xilinx:coreCreationDateTime>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>
       <xilinx:xilinxVersion>2013.3</xilinx:xilinxVersion>

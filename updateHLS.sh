@@ -29,9 +29,10 @@ hlsProjLoc=${projectsHome}/${vivadoProjName}/hls/$hlsTop
 solName=solution1
 
 echo "HLS top is $hlsTop"
-version=`grep "MODULE.*${hlsTop}.*HWVERSION" ${vivadoProjName}.sdk/SDK/SDK_Export/hw/${vivadoProjName}.xml | grep -o "HWVERSION=\"[0123456789.]*\"" | grep -o "[0-9]*\.[0-9]*"`
-newVersion=$(float_eval "$version + 1.0")
-# newVersion="10.0"
+version=`grep "MODULE.*${hlsTop}_0.*HWVERSION" ${vivadoProjName}.sdk/SDK/SDK_Export/hw/${vivadoProjName}.xml | grep -o "HWVERSION=\"[0123456789.]*\"" | grep -o "[0-9]*\.[0-9]*"`
+#newVersion=$(float_eval "$version + 1.0")
+newVersion="18.0"
+echo "IP will be upgraded to version ${newVersion} from ${version}"
 
 hlsScriptName=hls.tcl
 # Create a script
@@ -60,28 +61,29 @@ rm -f ${vivadoScriptName}
 echo "set projPrefix ${projectsHome} " >> ${vivadoScriptName}
 echo "set projName ${vivadoProjName}" >> ${vivadoScriptName}
 echo "set hlsName ${hlsTop}_0" >> ${vivadoScriptName}
-echo "set projPath \"${projPrefix}/${projName}\"" >> ${vivadoScriptName}
-echo "set topLevelDesign \"${projName}.bd\"" >> ${vivadoScriptName}
+echo 'set projPath "${projPrefix}/${projName}"' >> ${vivadoScriptName}
+echo 'set topLevelDesign "${projName}.bd"' >> ${vivadoScriptName}
 
-echo "puts \"Vivado update script: Running with the following args\"" >> ${vivadoScriptName}
-echo "puts \"projPath : $projPath\"" >> ${vivadoScriptName}
-echo "puts \"topLevelDesign: $topLevelDesign\"" >> ${vivadoScriptName}
-echo "puts \"HLS module name: $hlsName, solution1\"" >> ${vivadoScriptName}
+echo 'puts "Vivado update script: Running with the following args"' >> ${vivadoScriptName}
+echo 'puts "projPath : $projPath"' >> ${vivadoScriptName}
+echo 'puts "topLevelDesign: $topLevelDesign"' >> ${vivadoScriptName}
+echo 'puts "HLS module name: $hlsName, solution1"' >> ${vivadoScriptName}
 
-echo "cd $projPath" >> ${vivadoScriptName}
-echo "open_project ${projName}.xpr" >> ${vivadoScriptName}
-echo "open_bd_design ${projName}.srcs/sources_1/bd/${projName}/${projName}.bd" >> ${vivadoScriptName}
-echo "update_ip_catalog -rebuild " >> ${vivadoScriptName}
-echo "upgrade_bd_cells [get_bd_cells [list /${hlsName}]" >> ${vivadoScriptName}
-echo "reset_run synth_1" >> ${vivadoScriptName}
-echo "launch_runs synth_1 -jobs 2" >> ${vivadoScriptName}
-echo "wait_on_run synth_1" >> ${vivadoScriptName}
-echo "launch_runs impl_1 -to_step write_bitstream -jobs 2" >> ${vivadoScriptName}
-echo "wait_on_run impl_1" >> ${vivadoScriptName}
-echo "open_run impl_1" >> ${vivadoScriptName}
-echo "open_bd_design ${projName}.srcs/sources_1/bd/${projName}/${projName}.bd" >> ${vivadoScriptName}
-echo "export_hardware [get_files ${projName}.srcs/sources_1/bd/${projName}/${projName}.bd] [get_runs impl_1] -bitstream" >> ${vivadoScriptName}
-echo "exit" >> ${vivadoScriptName}
+echo 'cd $projPath' >> ${vivadoScriptName}
+echo 'open_project ${projName}.xpr' >> ${vivadoScriptName}
+echo 'open_bd_design ${projName}.srcs/sources_1/bd/${projName}/${projName}.bd' >> ${vivadoScriptName}
+echo 'report_ip_status -name ipstatus' >> ${vivadoScriptName}
+echo 'update_ip_catalog -rebuild'  >> ${vivadoScriptName}
+echo 'upgrade_bd_cells [get_bd_cells [list /${hlsName}]]' >> ${vivadoScriptName}
+echo 'reset_run synth_1' >> ${vivadoScriptName}
+echo 'launch_runs synth_1 -jobs 2' >> ${vivadoScriptName}
+echo 'wait_on_run synth_1' >> ${vivadoScriptName}
+echo 'launch_runs impl_1 -to_step write_bitstream -jobs 2' >> ${vivadoScriptName}
+echo 'wait_on_run impl_1' >> ${vivadoScriptName}
+echo 'open_run impl_1' >> ${vivadoScriptName}
+echo 'open_bd_design ${projName}.srcs/sources_1/bd/${projName}/${projName}.bd' >> ${vivadoScriptName}
+echo 'export_hardware [get_files ${projName}.srcs/sources_1/bd/${projName}/${projName}.bd] [get_runs impl_1] -bitstream' >> ${vivadoScriptName}
+echo 'exit' >> ${vivadoScriptName}
 
 
 vivado -mode batch -source ${vivadoScriptName}

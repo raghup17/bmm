@@ -1,4 +1,4 @@
-<project xmlns="com.autoesl.autopilot.project" top="bmm_top" name="bmm_top">
+<project xmlns="com.autoesl.autopilot.project" name="bmm_top" top="bmm_top">
     <includePaths/>
     <libraryPaths/>
     <Simulation>
