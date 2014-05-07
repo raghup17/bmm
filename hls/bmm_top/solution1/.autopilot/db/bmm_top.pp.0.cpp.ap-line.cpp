@@ -45279,7 +45279,7 @@ typedef unsigned int __attribute__ ((bitwidth(2048))) uint2048;
 #pragma empty_line
 #pragma empty_line
 //void bmm_top(volatile ap_uint<BUS_WIDTH> b1[RAM_SIZE], volatile ap_uint<BUS_WIDTH> b2[RAM_SIZE],  volatile ap_uint<BUS_WIDTH> b3[RAM_SIZE], int blockSize)
-void bmm_top(volatile int256 b1[(128*128*sizeof(int)*8)/(256)], volatile int256 b2[(128*128*sizeof(int)*8)/(256)], volatile int256 b3[(128*128*sizeof(int)*8)/(256)], int blockSize)
+void bmm_top(volatile int256 b1[(((128*128)*(4*8))/(256))], volatile int256 b2[(((128*128)*(4*8))/(256))], volatile int256 b3[(((128*128)*(4*8))/(256))], int blockSize)
 {
 #pragma HLS INTERFACE ap_bus port=b1
 #pragma HLS RESOURCE core=AXI4M variable=b1
@@ -45292,59 +45292,104 @@ void bmm_top(volatile int256 b1[(128*128*sizeof(int)*8)/(256)], volatile int256 
 #pragma HLS RESOURCE core=AXI4LiteS variable=blockSize metadata="-bus_bundle CONTROL"
 #pragma empty_line
 #pragma empty_line
- int i, j,k;
+ int i,j,k;
  int arow[128], brow[128], crow[128];
 #pragma HLS ARRAY_PARTITION variable=arow complete dim=1
 #pragma HLS ARRAY_PARTITION variable=brow complete dim=1
 #pragma HLS ARRAY_PARTITION variable=crow complete dim=1
 #pragma empty_line
+ b1[0] = 10*blockSize;
+ b2[0] = 20*blockSize;
+ b3[0] = 30*blockSize;
+#pragma empty_line
  int bsize = blockSize;
- int dim = bsize / 256/sizeof(int)*8;
- for (i=0; i<bsize; i+=dim) {
+ int dim = bsize / (256/(4*8));
 #pragma empty_line
-  // Read row i from b1 into arow
-  // Read row i from b3 into crow
-  for (int t1=0; t1<dim; t1++) {
-   int256 curElemA = b1[i+t1];
-   int256 curElemC = b3[i+t1];
-   for (int t2=0; t2<256/sizeof(int)*8; t2++) {
+ int total = bsize*bsize/(256/(4*8));
+ for (i = 0; i<total; i++) {
+  int256 curElemA = b1[i];
+  int256 curElemB = b2[i];
+  int256 curElemC = b3[i];
+  for (int t2=0; t2<(256/(4*8)); t2++) {
 #pragma HLS UNROLL
- arow[t1*256/sizeof(int)*8 +t2] = ({ ; unsigned int __attribute__((bitwidth(__bitwidthof__(curElemA)))) __Result__ = 0; unsigned int __attribute__((bitwidth(__bitwidthof__(curElemA)))) __Val2__ = curElemA; __builtin_bit_part_select((void*)(&__Result__), (void*)(&__Val2__), t2*sizeof(int)*8, t2*sizeof(int)*8 + sizeof(int)*8 -1); __Result__; }); // curElemA & mask; 
-    crow[t1*256/sizeof(int)*8 +t2] = ({ ; unsigned int __attribute__((bitwidth(__bitwidthof__(curElemC)))) __Result__ = 0; unsigned int __attribute__((bitwidth(__bitwidthof__(curElemC)))) __Val2__ = curElemC; __builtin_bit_part_select((void*)(&__Result__), (void*)(&__Val2__), t2*sizeof(int)*8, t2*sizeof(int)*8 + sizeof(int)*8 -1); __Result__; }); // curElemC & mask; 
-   }
-  }
-#pragma empty_line
-  for (j=0; j<bsize; j++) {
-   // Read row j from b2 into brow		
-   for (int t1=0; t1<dim; t1++) {
-    int256 curElemB = b2[j+t1];
-    for (int t2=0; t2<256/sizeof(int)*8; t2++) {
-#pragma HLS UNROLL
- brow[t1*256/sizeof(int)*8 +t2] = ({ ; unsigned int __attribute__((bitwidth(__bitwidthof__(curElemB)))) __Result__ = 0; unsigned int __attribute__((bitwidth(__bitwidthof__(curElemB)))) __Val2__ = curElemB; __builtin_bit_part_select((void*)(&__Result__), (void*)(&__Val2__), t2*sizeof(int)*8, t2*sizeof(int)*8 + sizeof(int)*8 -1); __Result__; }); // curElemB & mask;
-    }
-   }
-#pragma empty_line
-   // At this point, you have arow, brow and crow loaded
-   // Perform dot product-accumulate: crow += arow.brow
-   for (k=0; k<bsize; k++) {
-#pragma AP UNROLL factor=4
-#pragma AP PIPELINE II=1
- crow[k] += arow[k] * brow[k];
-   }
-  }
-#pragma empty_line
-  // Store crow into row i in b3 (b3[i+0] b3[i+1]...b3[i+t1]...b3[i+dim-1])
-  for (int t1=0; t1<dim; t1++) {
-   int256 curElemC = 0; // b3[i+t1]
-   for (int t2=0; t2<256/sizeof(int)*8; t2++) {
-    ({ ; typeof(curElemC) __Result__ = 0; typeof(curElemC) __Val2__ = curElemC; typeof(crow[t1*256/sizeof(int)*8 +t2]) __Repl2__ = crow[t1*256/sizeof(int)*8 +t2]; __builtin_bit_part_set((void*)(&__Result__), (void*)(&__Val2__), (void*)(&__Repl2__), t2*sizeof(int)*8, t2*sizeof(int)*8 + sizeof(int)*8 -1); __Result__; });
-#pragma empty_line
-   }
-   b3[i+t1] = curElemC;
+ arow[i*(256/(4*8))+t2] = ({ ; unsigned int __attribute__((bitwidth(__bitwidthof__(curElemA)))) __Result__ = 0; unsigned int __attribute__((bitwidth(__bitwidthof__(curElemA)))) __Val2__ = curElemA; __builtin_bit_part_select((void*)(&__Result__), (void*)(&__Val2__), t2*(4*8), t2*(4*8) + (4*8)-1); __Result__; }); // curElemA & mask; 
+    brow[i*(256/(4*8))+t2] = ({ ; unsigned int __attribute__((bitwidth(__bitwidthof__(curElemB)))) __Result__ = 0; unsigned int __attribute__((bitwidth(__bitwidthof__(curElemB)))) __Val2__ = curElemB; __builtin_bit_part_select((void*)(&__Result__), (void*)(&__Val2__), t2*(4*8), t2*(4*8) + (4*8)-1); __Result__; }); // curElemA & mask; 
+    crow[i*(256/(4*8))+t2] = ({ ; unsigned int __attribute__((bitwidth(__bitwidthof__(curElemC)))) __Result__ = 0; unsigned int __attribute__((bitwidth(__bitwidthof__(curElemC)))) __Val2__ = curElemC; __builtin_bit_part_select((void*)(&__Result__), (void*)(&__Val2__), t2*(4*8), t2*(4*8) + (4*8)-1); __Result__; }); // curElemC & mask; 
   }
  }
 #pragma empty_line
+ for (int t1=0; t1<bsize; t1++) {
+  arow[t1] *= 2;
+  brow[t1] *= 5;
+  crow[t1] *= 10;
+ }
 #pragma empty_line
+ for (int i=0; i<total; i++) {
+  int256 curElemA = 0; // b3[i+t1]
+  int256 curElemB = 0; // b3[i+t1]
+  int256 curElemC = 0; // b3[i+t1]
+  for (int t2=0; t2<(256/(4*8)); t2++) {
+#pragma HLS UNROLL
+ ({ ; typeof(curElemA) __Result__ = 0; typeof(curElemA) __Val2__ = curElemA; typeof(crow[i*(256/(4*8))+t2]) __Repl2__ = crow[i*(256/(4*8))+t2]; __builtin_bit_part_set((void*)(&__Result__), (void*)(&__Val2__), (void*)(&__Repl2__), t2*(4*8), t2*(4*8) + (4*8)-1); __Result__; });
+   ({ ; typeof(curElemB) __Result__ = 0; typeof(curElemB) __Val2__ = curElemB; typeof(crow[i*(256/(4*8))+t2]) __Repl2__ = crow[i*(256/(4*8))+t2]; __builtin_bit_part_set((void*)(&__Result__), (void*)(&__Val2__), (void*)(&__Repl2__), t2*(4*8), t2*(4*8) + (4*8)-1); __Result__; });
+   ({ ; typeof(curElemC) __Result__ = 0; typeof(curElemC) __Val2__ = curElemC; typeof(crow[i*(256/(4*8))+t2]) __Repl2__ = crow[i*(256/(4*8))+t2]; __builtin_bit_part_set((void*)(&__Result__), (void*)(&__Val2__), (void*)(&__Repl2__), t2*(4*8), t2*(4*8) + (4*8)-1); __Result__; });
+  }
+  b1[i] = curElemA;
+  b2[i] = curElemB;
+  b3[i] = curElemC;
+ }
+#pragma empty_line
+/*
+	for (i=0; i<bsize; i+=dim) {
+#pragma empty_line
+		// Read row i from b1 into arow
+		// Read row i from b3 into crow
+		for (int t1=0; t1<dim; t1++) {
+			BRAM_DT curElemA = b1[i+t1];
+			BRAM_DT curElemB = b2[i+t1];
+			BRAM_DT curElemC = b3[i+t1];
+			for (int t2=0; t2<ELEMS_PER_BUS; t2++) {
+#pragma HLS UNROLL
+				arow[t1*ELEMS_PER_BUS+t2] =  apint_get_range(curElemA, t2*ELEM_WIDTH_BITS + ELEM_WIDTH_BITS-1, t2*ELEM_WIDTH_BITS); // curElemA & mask; 
+				brow[t1*ELEMS_PER_BUS+t2] =  apint_get_range(curElemB, t2*ELEM_WIDTH_BITS + ELEM_WIDTH_BITS-1, t2*ELEM_WIDTH_BITS); // curElemA & mask; 
+				crow[t1*ELEMS_PER_BUS+t2] =  apint_get_range(curElemC, t2*ELEM_WIDTH_BITS + ELEM_WIDTH_BITS-1, t2*ELEM_WIDTH_BITS); // curElemC & mask; 
+			}
+		}
+#pragma empty_line
+#pragma empty_line
+#pragma empty_line
+#pragma empty_line
+		for (j=0; j<bsize; j++) {
+			// Read row j from b2 into brow		
+			for (int t1=0; t1<dim; t1++) {
+				BRAM_DT curElemB = b2[j+t1];
+				for (int t2=0; t2<ELEMS_PER_BUS; t2++) {
+#pragma HLS UNROLL
+					brow[t1*ELEMS_PER_BUS+t2] = apint_get_range(curElemB, t2*ELEM_WIDTH_BITS + ELEM_WIDTH_BITS-1, t2*ELEM_WIDTH_BITS); // curElemB & mask;
+				}
+			}
+#pragma empty_line
+			// At this point, you have arow, brow and crow loaded
+			// Perform dot product-accumulate: crow += arow.brow
+			for (k=0; k<bsize; k++) {
+#pragma AP UNROLL factor=4
+#pragma AP PIPELINE II=1
+				crow[k] += arow[k] * brow[k];
+			}
+		}
+#pragma empty_line
+		// Store crow into row i in b3 (b3[i+0] b3[i+1]...b3[i+t1]...b3[i+dim-1])
+		for (int t1=0; t1<dim; t1++) {
+			BRAM_DT curElemC = 0;   // b3[i+t1]
+			for (int t2=0; t2<ELEMS_PER_BUS; t2++) {
+				apint_set_range(curElemC, t2*ELEM_WIDTH_BITS + ELEM_WIDTH_BITS-1, t2*ELEM_WIDTH_BITS, crow[t1*ELEMS_PER_BUS+t2]);
+#pragma empty_line
+			}
+			b3[i+t1] = curElemC;
+		}
+	}
+#pragma empty_line
+*/
 #pragma empty_line
 /*
 	// SIMD-style matrix multiply

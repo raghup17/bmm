@@ -57,83 +57,68 @@ define void @bmm_top(i256* %b1, i256* %b2, i256* %b3, i32 %blockSize) {
   call void (...)* @_ssdm_op_SpecIFCore(i32 0, [1 x i8]* @p_str1, [10 x i8]* @p_str3, [1 x i8]* @p_str1, [1 x i8]* @p_str1, [1 x i8]* @p_str1, [20 x i8]* @p_str4) nounwind
   call void (...)* @_ssdm_op_SpecWire(i32 %blockSize, [6 x i8]* @p_str5, i32 0, i32 0, i32 0, [1 x i8]* @p_str1) nounwind
   call void (...)* @_ssdm_op_SpecIFCore(i32 %blockSize, [1 x i8]* @p_str1, [10 x i8]* @p_str3, [1 x i8]* @p_str1, [1 x i8]* @p_str1, [1 x i8]* @p_str1, [20 x i8]* @p_str4) nounwind
-  %tmp_14 = call i1 @_ssdm_op_BitSelect.i1.i32.i32(i32 %blockSize_read, i32 31)
-  %p_neg = sub i32 0, %blockSize_read
-  %tmp_1 = call i24 @_ssdm_op_PartSelect.i24.i32.i32.i32(i32 %p_neg, i32 8, i32 31)
-  %p_lshr_cast = zext i24 %tmp_1 to i25
-  %p_neg_t = sub i25 0, %p_lshr_cast
-  %tmp_12 = call i24 @_ssdm_op_PartSelect.i24.i32.i32.i32(i32 %blockSize_read, i32 8, i32 31)
-  %p_lshr_f_cast = zext i24 %tmp_12 to i25
-  %tmp = select i1 %tmp_14, i25 %p_neg_t, i25 %p_lshr_f_cast
-  %tmp_13 = call i23 @_ssdm_op_PartSelect.i23.i25.i32.i32(i25 %tmp, i32 2, i32 24)
-  %dim = call i26 @_ssdm_op_BitConcatenate.i26.i23.i3(i23 %tmp_13, i3 0)
-  %dim_cast = sext i26 %dim to i32
+  %tmp_7 = shl i32 %blockSize_read, 3
+  %tmp_10 = shl i32 %blockSize_read, 1
+  %tmp = add i32 %tmp_7, %tmp_10
+  %tmp_1 = sext i32 %tmp to i256
+  %b1_req = call i1 @_ssdm_op_WriteReq.ap_bus.i256P(i256* %b1, i32 1)
+  call void @_ssdm_op_Write.ap_bus.volatile.i256P(i256* %b1, i256 %tmp_1)
+  %tmp_11 = shl i32 %blockSize_read, 4
+  %tmp_12 = shl i32 %blockSize_read, 2
+  %tmp_2 = add i32 %tmp_11, %tmp_12
+  %tmp_3 = sext i32 %tmp_2 to i256
+  %b2_req = call i1 @_ssdm_op_WriteReq.ap_bus.i256P(i256* %b2, i32 1)
+  call void @_ssdm_op_Write.ap_bus.volatile.i256P(i256* %b2, i256 %tmp_3)
+  %tmp_13 = shl i32 %blockSize_read, 5
+  %tmp_4 = sub i32 %tmp_13, %tmp_10
+  %tmp_5 = sext i32 %tmp_4 to i256
+  %b3_req = call i1 @_ssdm_op_WriteReq.ap_bus.i256P(i256* %b3, i32 1)
+  call void @_ssdm_op_Write.ap_bus.volatile.i256P(i256* %b3, i256 %tmp_5)
+  %tmp_6 = mul nsw i32 %blockSize_read, %blockSize_read
+  %tmp_s = call i29 @_ssdm_op_PartSelect.i29.i32.i32.i32(i32 %tmp_6, i32 3, i32 31)
   br label %1
 
-; <label>:1                                       ; preds = %2, %0
-  %i = phi i32 [ 0, %0 ], [ %i_1, %2 ]
-  %tmp_3 = icmp slt i32 %i, %blockSize_read
-  br i1 %tmp_3, label %.preheader5, label %3
+; <label>:1                                       ; preds = %branch896, %0
+  %i = phi i29 [ 0, %0 ], [ %i_1, %branch896 ]
+  %empty = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 0, i64 536870911, i64 0)
+  %exitcond1 = icmp eq i29 %i, %tmp_s
+  %i_1 = add i29 %i, 1
+  br i1 %exitcond1, label %.preheader1, label %branch896
 
-.preheader5:                                      ; preds = %1, %branch65920
-  %t1 = phi i32 [ %t1_1, %branch65920 ], [ 0, %1 ]
-  %tmp_4 = icmp slt i32 %t1, %dim_cast
-  %empty = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 0, i64 33554431, i64 0)
-  %t1_1 = add nsw i32 %t1, 1
-  br i1 %tmp_4, label %branch65920, label %.preheader4
-
-branch65920:                                      ; preds = %.preheader5
-  %tmp_5 = add nsw i32 %t1, %i
-  %tmp_6 = sext i32 %tmp_5 to i64
-  %b1_addr = getelementptr i256* %b1, i64 %tmp_6
+branch896:                                        ; preds = %1
+  %tmp_8 = zext i29 %i to i64
+  %b1_addr = getelementptr i256* %b1, i64 %tmp_8
   %curElemA_req = call i1 @_ssdm_op_ReadReq.ap_bus.i256P(i256* %b1_addr, i32 1)
   %curElemA = call i256 @_ssdm_op_Read.ap_bus.volatile.i256P(i256* %b1_addr)
-  %b3_addr = getelementptr i256* %b3, i64 %tmp_6
-  %curElemC_req = call i1 @_ssdm_op_ReadReq.ap_bus.i256P(i256* %b3_addr, i32 1)
-  %curElemC = call i256 @_ssdm_op_Read.ap_bus.volatile.i256P(i256* %b3_addr)
-  br label %.preheader5
-
-.preheader4:                                      ; preds = %.preheader3, %.preheader5
-  %j = phi i32 [ 0, %.preheader5 ], [ %j_1, %.preheader3 ]
-  %tmp_s = icmp slt i32 %j, %blockSize_read
-  %j_1 = add nsw i32 %j, 1
-  br i1 %tmp_s, label %.preheader3, label %.preheader1
-
-.preheader3:                                      ; preds = %.preheader4, %branch131968
-  %t = phi i32 [ %t1_2, %branch131968 ], [ 0, %.preheader4 ]
-  %tmp_2 = icmp slt i32 %t, %dim_cast
-  %empty_11 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 0, i64 33554431, i64 0)
-  %t1_2 = add nsw i32 %t, 1
-  br i1 %tmp_2, label %branch131968, label %.preheader4
-
-branch131968:                                     ; preds = %.preheader3
-  %tmp_8 = add nsw i32 %t, %j
-  %tmp_9 = sext i32 %tmp_8 to i64
-  %b2_addr = getelementptr i256* %b2, i64 %tmp_9
+  %b2_addr = getelementptr i256* %b2, i64 %tmp_8
   %curElemB_req = call i1 @_ssdm_op_ReadReq.ap_bus.i256P(i256* %b2_addr, i32 1)
   %curElemB = call i256 @_ssdm_op_Read.ap_bus.volatile.i256P(i256* %b2_addr)
-  br label %.preheader3
+  %b3_addr = getelementptr i256* %b3, i64 %tmp_8
+  %curElemC_req = call i1 @_ssdm_op_ReadReq.ap_bus.i256P(i256* %b3_addr, i32 1)
+  %curElemC = call i256 @_ssdm_op_Read.ap_bus.volatile.i256P(i256* %b3_addr)
+  br label %1
 
-.preheader1:                                      ; preds = %.preheader4, %.preheader.preheader_ifconv
-  %t3 = phi i32 [ %t1_3, %.preheader.preheader_ifconv ], [ 0, %.preheader4 ]
-  %tmp_7 = icmp slt i32 %t3, %dim_cast
-  %empty_12 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 0, i64 33554431, i64 0)
-  %t1_3 = add nsw i32 %t3, 1
-  br i1 %tmp_7, label %.preheader.preheader_ifconv, label %2
+.preheader1:                                      ; preds = %1, %.preheader
+  %i5 = phi i29 [ %i_2, %.preheader ], [ 0, %1 ]
+  %empty_4 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 0, i64 536870911, i64 0)
+  %exitcond = icmp eq i29 %i5, %tmp_s
+  %i_2 = add i29 %i5, 1
+  br i1 %exitcond, label %2, label %.preheader
 
-.preheader.preheader_ifconv:                      ; preds = %.preheader1
-  %tmp_10 = add nsw i32 %t3, %i
-  %tmp_11 = sext i32 %tmp_10 to i64
-  %b3_addr_1 = getelementptr i256* %b3, i64 %tmp_11
+.preheader:                                       ; preds = %.preheader1
+  %tmp_9 = zext i29 %i5 to i64
+  %b1_addr_1 = getelementptr i256* %b1, i64 %tmp_9
+  %b1_addr_1_req = call i1 @_ssdm_op_WriteReq.ap_bus.i256P(i256* %b1_addr_1, i32 1)
+  call void @_ssdm_op_Write.ap_bus.volatile.i256P(i256* %b1_addr_1, i256 0)
+  %b2_addr_1 = getelementptr i256* %b2, i64 %tmp_9
+  %b2_addr_1_req = call i1 @_ssdm_op_WriteReq.ap_bus.i256P(i256* %b2_addr_1, i32 1)
+  call void @_ssdm_op_Write.ap_bus.volatile.i256P(i256* %b2_addr_1, i256 0)
+  %b3_addr_1 = getelementptr i256* %b3, i64 %tmp_9
   %b3_addr_1_req = call i1 @_ssdm_op_WriteReq.ap_bus.i256P(i256* %b3_addr_1, i32 1)
   call void @_ssdm_op_Write.ap_bus.volatile.i256P(i256* %b3_addr_1, i256 0)
   br label %.preheader1
 
 ; <label>:2                                       ; preds = %.preheader1
-  %i_1 = add nsw i32 %i, %dim_cast
-  br label %1
-
-; <label>:3                                       ; preds = %1
   ret void
 }
 
@@ -142,45 +127,16 @@ entry:
   ret i32 0
 }
 
-define weak i26 @_ssdm_op_BitConcatenate.i26.i23.i3(i23, i3) nounwind readnone {
-entry:
-  %empty = zext i23 %0 to i26
-  %empty_13 = zext i3 %1 to i26
-  %empty_14 = trunc i26 %empty to i23
-  %empty_15 = call i23 @_ssdm_op_PartSelect.i23.i26.i32.i32(i26 %empty_13, i32 3, i32 25)
-  %empty_16 = or i23 %empty_14, %empty_15
-  %empty_17 = call i26 @_ssdm_op_PartSet.i26.i26.i23.i32.i32(i26 %empty_13, i23 %empty_16, i32 3, i32 25)
-  ret i26 %empty_17
-}
-
-define weak i24 @_ssdm_op_PartSelect.i24.i32.i32.i32(i32, i32, i32) nounwind readnone {
+define weak i29 @_ssdm_op_PartSelect.i29.i32.i32.i32(i32, i32, i32) nounwind readnone {
 entry:
   %empty = call i32 @llvm.part.select.i32(i32 %0, i32 %1, i32 %2)
-  %empty_18 = trunc i32 %empty to i24
-  ret i24 %empty_18
-}
-
-define weak i23 @_ssdm_op_PartSelect.i23.i25.i32.i32(i25, i32, i32) nounwind readnone {
-entry:
-  %empty = call i25 @llvm.part.select.i25(i25 %0, i32 %1, i32 %2)
-  %empty_19 = trunc i25 %empty to i23
-  ret i23 %empty_19
+  %empty_5 = trunc i32 %empty to i29
+  ret i29 %empty_5
 }
 
 define weak i32 @_ssdm_op_Read.ap_hs.i32(i32) {
 entry:
   ret i32 %0
-}
-
-define weak i256 @_ssdm_op_Read.ap_bus.volatile.i256P(i256*) {
-entry:
-  %empty = load i256* %0
-  ret i256 %empty
-}
-
-define weak i1 @_ssdm_op_ReadReq.ap_bus.i256P(i256*, i32) {
-entry:
-  ret i1 true
 }
 
 define weak void @_ssdm_op_Write.ap_bus.volatile.i256P(i256*, i256) {
@@ -194,34 +150,36 @@ entry:
   ret i1 true
 }
 
-define weak i1 @_ssdm_op_BitSelect.i1.i32.i32(i32, i32) nounwind readnone {
+define weak i256 @_ssdm_op_Read.ap_bus.volatile.i256P(i256*) {
 entry:
-  %empty = shl i32 1, %1
-  %empty_20 = and i32 %0, %empty
-  %empty_21 = icmp ne i32 %empty_20, 0
-  ret i1 %empty_21
+  %empty = load i256* %0
+  ret i256 %empty
+}
+
+define weak i1 @_ssdm_op_ReadReq.ap_bus.i256P(i256*, i32) {
+entry:
+  ret i1 true
 }
 
 declare i32 @llvm.part.select.i32(i32, i32, i32) nounwind readnone
 
-declare i25 @llvm.part.select.i25(i25, i32, i32) nounwind readnone
+declare i32 @_ssdm_op_BitConcatenate.i32.i29.i3(i29, i3) nounwind readnone
 
-define weak i23 @_ssdm_op_PartSelect.i23.i26.i32.i32(i26, i32, i32) nounwind readnone {
-entry:
-  %empty = call i26 @llvm.part.select.i26(i26 %0, i32 %1, i32 %2)
-  %empty_22 = trunc i26 %empty to i23
-  ret i23 %empty_22
-}
+declare i31 @_ssdm_op_PartSelect.i31.i32.i32.i32(i32, i32, i32) nounwind readnone
 
-define weak i26 @_ssdm_op_PartSet.i26.i26.i23.i32.i32(i26, i23, i32, i32) nounwind readnone {
-entry:
-  %empty = call i26 @llvm.part.set.i26.i23(i26 %0, i23 %1, i32 %2, i32 %3)
-  ret i26 %empty
-}
+declare i32 @_ssdm_op_BitConcatenate.i32.i31.i1(i31, i1) nounwind readnone
 
-declare i26 @llvm.part.select.i26(i26, i32, i32) nounwind readnone
+declare i28 @_ssdm_op_PartSelect.i28.i32.i32.i32(i32, i32, i32) nounwind readnone
 
-declare i26 @llvm.part.set.i26.i23(i26, i23, i32, i32) nounwind readnone
+declare i32 @_ssdm_op_BitConcatenate.i32.i28.i4(i28, i4) nounwind readnone
+
+declare i30 @_ssdm_op_PartSelect.i30.i32.i32.i32(i32, i32, i32) nounwind readnone
+
+declare i32 @_ssdm_op_BitConcatenate.i32.i30.i2(i30, i2) nounwind readnone
+
+declare i27 @_ssdm_op_PartSelect.i27.i32.i32.i32(i32, i32, i32) nounwind readnone
+
+declare i32 @_ssdm_op_BitConcatenate.i32.i27.i5(i27, i5) nounwind readnone
 
 !llvm.map.gv = !{!0}
 

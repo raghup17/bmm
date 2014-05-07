@@ -64,12 +64,12 @@
 
 #define TMPBUF			0x3E000000
 // Matrix and block sizes
-#define SIZE 1024
-#define BSIZE 128
+#define SIZE 32
+#define BSIZE 16
 #define BRAM_SIZE 128
 #define NUM_MULTIPLIERS 1
 
-#define DCACHE_ENABLE
+// #define DCACHE_ENABLE
 
 XAxiCdma dmaInstance;
 //XFe_top hlsInstance;
@@ -108,6 +108,22 @@ double timerStop()
 		endCounter = counters[3];
 	}
 	return (double)(endCounter-startCounter)/XPAR_PS7_CORTEXA9_0_CPU_CLK_FREQ_HZ;
+}
+
+void printHlsStatus(XBmm_top hlsInstance)
+{
+        xil_printf("*** HLS status signals ***\n\r");
+        if (!hlsInstance.IsReady) {
+                xil_printf("\tHLS instance is not ready\n\r");
+                return;
+        }
+
+        xil_printf("\tHLS done: %08x\n\r", XBmm_top_IsDone(&hlsInstance));
+        xil_printf("\tHLS idle: %08x\n\r", XBmm_top_IsIdle(&hlsInstance));
+        xil_printf("\tHLS ready: %08x\n\r", XBmm_top_IsReady(&hlsInstance));
+
+        xil_printf("\tHLS interrupt enabled: %08x\n\r", XBmm_top_InterruptGetEnabled(&hlsInstance));
+        xil_printf("\tHLS interrupt status: %08x\n\r", XBmm_top_InterruptGetStatus(&hlsInstance));
 }
 
 int dma_init(XAxiCdma_Config* cfg_ptr)
@@ -185,6 +201,10 @@ int hls_ip_init()
         	}
         	XBmm_top_InterruptClear(&hlsInstance[i], 0xFFFFFFFF);
         	XBmm_top_InterruptDisable(&hlsInstance[i], 0xFFFFFFFF);
+
+        	while (! (XBmm_top_IsIdle(&hlsInstance[i]) || XBmm_top_IsDone(&hlsInstance[i]))) {
+        		printHlsStatus(hlsInstance[i]);
+        	}
         }
 
         printf("HLS initialization complete!\n\r");
@@ -344,7 +364,7 @@ void initMatrices(int m1[][SIZE], int m2[][SIZE], int m3[][SIZE], int val)
 			if (val == -1) {
 				m1[i][j] = 1; // *(i*SIZE+j);
 				m2[i][j] = 2; // *(i*SIZE+j);
-				m3[i][j] = 0; // (i*SIZE+j);
+				m3[i][j] = 3; // (i*SIZE+j);
 			}
 			else {
 				m1[i][j] = 0;
@@ -447,6 +467,7 @@ void matMult(
 
             	// Start the HLS block
             	for (iter = 0; iter < NUM_MULTIPLIERS; iter++) {
+            		printHlsStatus(hlsInstance[iter]);
             		XBmm_top_Start(&hlsInstance[iter]);
             	}
 
@@ -454,7 +475,9 @@ void matMult(
             	for (iter = 0; iter < NUM_MULTIPLIERS; iter++) {
             		while (
             		         !(XBmm_top_IsDone(&hlsInstance[iter]) || XBmm_top_IsIdle(&hlsInstance[iter]))
-            		      );
+            		      ) {
+            			printHlsStatus(hlsInstance[iter]);
+            		}
             	}
                 elapsed = timerStop();
                 hlsTime += elapsed - counterOverhead;
@@ -531,6 +554,9 @@ int main()
 	int* blocks_b[] = {(int*)B0_B, (int*)B1_B, (int*)B2_B, (int*)B3_B};
 	int* blocks_ab[] = {(int*)B0_AB, (int*)B1_AB, (int*)B2_AB, (int*)B3_AB};
 
+	int **b1 = (int**)b_a;
+	int **b2 = (int**)blocks_b[0];
+	int **b3 = (int**)blocks_ab[0];
 	printf("\nMatrix multiply on the Zynq\n\r");
 	// Measure counter overhead
 	timerStart();
@@ -557,18 +583,28 @@ int main()
     }
 
     initMatrices(m1, m2, m3, -1);
-/*
+
+#ifdef DCACHE_ENABLE
+    flushMatrix(m1);
+    flushMatrix(m2);
+    flushMatrix(m3);
+#endif
     printMatrix(m3);
     copyBlockToBRAM(m1, 0, 0, b1);
     copyBlockToBRAM(m2, 0, 0, b2);
     copyBlockToBRAM(m3, 0, 0, b3);
     initMatrices(m1, m2, m3, 0);
+    XBmm_top_SetBlocksize(&hlsInstance[0], BSIZE);
+    XBmm_top_SetBlocksizeVld(&hlsInstance[0]);
+    XBmm_top_Start(&hlsInstance[0]);
+    while (! (XBmm_top_IsIdle(&hlsInstance[0]) || XBmm_top_IsDone(&hlsInstance[0])));
     copyBlockFromBRAM(m1, 0, 0, b1);
     copyBlockFromBRAM(m2, 0, 0, b2);
     copyBlockFromBRAM(m3, 0, 0, b3);
     printMatrix(m3);
+    printMatrix(m2);
     printMatrix(m1);
-*/
+
 #ifdef DCACHE_ENABLE
     flushMatrix(m1);
     flushMatrix(m2);

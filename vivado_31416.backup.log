@@ -1,0 +1,117 @@
+#-----------------------------------------------------------
+# Vivado v2013.3 (64-bit)
+# SW Build 329390 on Wed Oct 16 18:26:55 MDT 2013
+# IP Build 192953 on Wed Oct 16 08:44:02 MDT 2013
+# Start of session at: Tue May  6 19:34:36 2014
+# Process ID: 31302
+# Log file: /home/raghu/work/projects/dma3/vivado.log
+# Journal file: /home/raghu/work/projects/dma3/vivado.jou
+#-----------------------------------------------------------
+INFO: [Common 17-78] Attempting to get a license: Implementation
+INFO: [Common 17-81] Feature available: Implementation
+INFO: [Device 21-36] Loading parts and site information from /home/raghu/work/tools/xilinx/Vivado/2013.3/data/parts/arch.xml
+Parsing RTL primitives file [/home/raghu/work/tools/xilinx/Vivado/2013.3/data/parts/xilinx/rtl/prims/rtl_prims.xml]
+Finished parsing RTL primitives file [/home/raghu/work/tools/xilinx/Vivado/2013.3/data/parts/xilinx/rtl/prims/rtl_prims.xml]
+source updateVivado.tcl
+# set projPrefix /home/raghu/work/projects 
+# set projName dma3
+# set hlsName bmm_top_0
+# set projPath "${projPrefix}/${projName}"
+# set topLevelDesign "${projName}.bd"
+# puts "Vivado update script: Running with the following args"
+Vivado update script: Running with the following args
+# puts "projPath : $projPath"
+projPath : /home/raghu/work/projects/dma3
+# puts "topLevelDesign: $topLevelDesign"
+topLevelDesign: dma3.bd
+# puts "HLS module name: $hlsName, solution1"
+HLS module name: bmm_top_0, solution1
+# cd $projPath
+# open_project ${projName}.xpr
+CRITICAL WARNING: [Project 1-19] Could not find the file '/home/raghu/work/projects/dma3/dma3.srcs/sources_1/bd/dma3/ip/dma3_simple_top_0_0/dma3_simple_top_0_0.upgrade_log'.
+CRITICAL WARNING: [Project 1-19] Could not find the file '/home/raghu/work/projects/dma3/dma3.srcs/sources_1/bd/dma3/ip/dma3_simple_top_0_1/dma3_simple_top_0_1.upgrade_log'.
+Scanning sources...
+Finished scanning sources
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user repository '/home/raghu/work/projects/dma3/hls/simple_top/solution1/impl'.
+INFO: [IP_Flow 19-1700] Loaded user repository '/home/raghu/work/projects/dma3/hls/bmm_top/solution1/impl'.
+INFO: [IP_Flow 19-1700] Loaded user repository '/home/raghu/work/projects/dma3/hls/fe_top/solution1/impl'.
+INFO: [IP_Flow 19-2313] Loaded Vivado repository '/home/raghu/work/tools/xilinx/Vivado/2013.3/data/ip'.
+WARNING: [BD 41-1303] One or more IPs have been locked in the design 'dma3.bd'. Please run report_ip_status for more details and recommendations on how to fix this issue.
+open_project: Time (s): cpu = 00:00:12 ; elapsed = 00:00:29 . Memory (MB): peak = 831.641 ; gain = 130.352
+# open_bd_design ${projName}.srcs/sources_1/bd/${projName}/${projName}.bd
+Adding component instance block -- xilinx.com:ip:processing_system7:5.3 - processing_system7_0
+Adding component instance block -- xilinx.com:ip:proc_sys_reset:5.0 - proc_sys_reset
+Adding component instance block -- xilinx.com:ip:axi_cdma:4.1 - axi_cdma_0
+Adding component instance block -- xilinx.com:hls:fe_top:8.0 - fe_top_0
+Adding component instance block -- xilinx.com:ip:axi_dwidth_converter:2.1 - axi_dwidth_converter_0
+Adding component instance block -- xilinx.com:hls:bmm_top:19.0 - bmm_top_0
+Adding component instance block -- xilinx.com:hls:bmm_top:19.0 - bmm_top_1
+Adding component instance block -- xilinx.com:hls:bmm_top:19.0 - bmm_top_2
+Adding component instance block -- xilinx.com:hls:bmm_top:19.0 - bmm_top_3
+Adding component instance block -- xilinx.com:ip:axi_crossbar:2.1 - xbar
+Adding component instance block -- xilinx.com:ip:axi_crossbar:2.1 - xbar
+Adding component instance block -- xilinx.com:ip:axi_dwidth_converter:2.1 - auto_us
+Adding component instance block -- xilinx.com:ip:axi_dwidth_converter:2.1 - auto_us
+Adding component instance block -- xilinx.com:ip:axi_dwidth_converter:2.1 - auto_us
+Adding component instance block -- xilinx.com:ip:axi_dwidth_converter:2.1 - auto_us
+Adding component instance block -- xilinx.com:ip:axi_crossbar:2.1 - xbar
+Adding component instance block -- xilinx.com:ip:axi_dwidth_converter:2.1 - auto_us
+Adding component instance block -- xilinx.com:ip:axi_dwidth_converter:2.1 - auto_us
+Adding component instance block -- xilinx.com:ip:axi_dwidth_converter:2.1 - auto_us
+Adding component instance block -- xilinx.com:ip:axi_dwidth_converter:2.1 - auto_us
+Adding component instance block -- xilinx.com:ip:axi_crossbar:2.1 - xbar
+Adding component instance block -- xilinx.com:ip:axi_dwidth_converter:2.1 - auto_us
+Adding component instance block -- xilinx.com:ip:axi_dwidth_converter:2.1 - auto_us
+Adding component instance block -- xilinx.com:ip:axi_dwidth_converter:2.1 - auto_us
+Adding component instance block -- xilinx.com:ip:axi_dwidth_converter:2.1 - auto_us
+Adding component instance block -- xilinx.com:ip:axi_bram_ctrl:3.0 - bram_ctrl_outblk
+Adding component instance block -- xilinx.com:ip:blk_mem_gen:8.0 - blk_mem_gen_outblk
+Adding component instance block -- xilinx.com:ip:axi_bram_ctrl:3.0 - bram_ctrl_in_blk
+Adding component instance block -- xilinx.com:ip:blk_mem_gen:8.0 - blk_mem_gen_inblk
+Adding component instance block -- xilinx.com:ip:axi_bram_ctrl:3.0 - bram_ctrl_outblk
+Adding component instance block -- xilinx.com:ip:blk_mem_gen:8.0 - blk_mem_gen_outblk
+Adding component instance block -- xilinx.com:ip:axi_bram_ctrl:3.0 - bram_ctrl_in_blk
+Adding component instance block -- xilinx.com:ip:blk_mem_gen:8.0 - blk_mem_gen_inblk
+Adding component instance block -- xilinx.com:ip:axi_bram_ctrl:3.0 - bram_ctrl_in_blk
+Adding component instance block -- xilinx.com:ip:blk_mem_gen:8.0 - blk_mem_gen_inblk
+Adding component instance block -- xilinx.com:ip:axi_bram_ctrl:3.0 - bram_ctrl_outblk
+Adding component instance block -- xilinx.com:ip:blk_mem_gen:8.0 - blk_mem_gen_outblk
+Adding component instance block -- xilinx.com:ip:axi_bram_ctrl:3.0 - bram_ctrl_in_blk
+Adding component instance block -- xilinx.com:ip:blk_mem_gen:8.0 - blk_mem_gen_inblk
+Adding component instance block -- xilinx.com:ip:axi_bram_ctrl:3.0 - bram_ctrl_outblk
+Adding component instance block -- xilinx.com:ip:blk_mem_gen:8.0 - blk_mem_gen_outblk
+Adding component instance block -- xilinx.com:ip:axi_bram_ctrl:3.0 - bram_ctrl_in_blk
+Adding component instance block -- xilinx.com:ip:blk_mem_gen:8.0 - blk_mem_gen_inblk
+Adding component instance block -- xilinx.com:ip:axi_protocol_converter:2.1 - auto_pc
+Adding component instance block -- xilinx.com:ip:axi_crossbar:2.1 - xbar
+Adding component instance block -- xilinx.com:ip:axi_protocol_converter:2.1 - auto_pc
+Adding component instance block -- xilinx.com:ip:axi_crossbar:2.1 - xbar
+Adding component instance block -- xilinx.com:ip:axi_protocol_converter:2.1 - auto_pc
+Successfully read diagram <dma3> from BD file <dma3.srcs/sources_1/bd/dma3/dma3.bd>
+open_bd_design: Time (s): cpu = 00:00:13 ; elapsed = 00:00:18 . Memory (MB): peak = 1082.672 ; gain = 243.668
+# report_ip_status -name ipstatus
+# update_ip_catalog -rebuild
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user repository '/home/raghu/work/projects/dma3/hls/simple_top/solution1/impl'.
+INFO: [IP_Flow 19-1700] Loaded user repository '/home/raghu/work/projects/dma3/hls/bmm_top/solution1/impl'.
+INFO: [IP_Flow 19-1700] Loaded user repository '/home/raghu/work/projects/dma3/hls/fe_top/solution1/impl'.
+update_ip_catalog: Time (s): cpu = 00:00:03 ; elapsed = 00:01:47 . Memory (MB): peak = 1082.676 ; gain = 0.004
+# open_bd_design ${projName}.srcs/sources_1/bd/${projName}/${projName}.bd
+# report_ip_status -name ipstatus
+# upgrade_bd_cells [get_bd_cells [list /${hlsName}]]
+INFO: [IP_Flow 19-1972] Upgraded dma3_bmm_top_0_1 from Bmm_top 19.0 to Bmm_top 20.0
+INFO: [IP_Flow 19-3471] Wrote upgrade log to '/home/raghu/work/projects/dma3/dma3.srcs/sources_1/bd/dma3/ip/dma3_bmm_top_0_1/dma3_bmm_top_0_1.upgrade_log'.
+CRITICAL WARNING: [Designutils 20-1366] Unable to reset target(s) for the following file is locked: /home/raghu/work/projects/dma3/dma3.srcs/sources_1/bd/dma3/ip/dma3_bmm_top_0_2/dma3_bmm_top_0_2.xci
+Locked reason: IP definition 'Bmm_top' for IP 'dma3_bmm_top_0_2' (customized with software release 2013.3) has a newer major version in the IP Catalog. No useable simulation outputs (source HDL and data files) are available for this IP, so simulation cannot be run. Either upgrade the IP or generate the simulation outputs for this IP using the Vivado software it was customized with, then import into this project.  Please select 'Report IP Status' from the 'Tools/Report' menu for instructions to unlock.
+CRITICAL WARNING: [Designutils 20-1366] Unable to reset target(s) for the following file is locked: /home/raghu/work/projects/dma3/dma3.srcs/sources_1/bd/dma3/ip/dma3_bmm_top_0_3/dma3_bmm_top_0_3.xci
+Locked reason: IP definition 'Bmm_top' for IP 'dma3_bmm_top_0_3' (customized with software release 2013.3) has a newer major version in the IP Catalog. No useable simulation outputs (source HDL and data files) are available for this IP, so simulation cannot be run. Either upgrade the IP or generate the simulation outputs for this IP using the Vivado software it was customized with, then import into this project.  Please select 'Report IP Status' from the 'Tools/Report' menu for instructions to unlock.
+CRITICAL WARNING: [Designutils 20-1366] Unable to reset target(s) for the following file is locked: /home/raghu/work/projects/dma3/dma3.srcs/sources_1/bd/dma3/ip/dma3_bmm_top_0_4/dma3_bmm_top_0_4.xci
+Locked reason: IP definition 'Bmm_top' for IP 'dma3_bmm_top_0_4' (customized with software release 2013.3) has a newer major version in the IP Catalog. No useable simulation outputs (source HDL and data files) are available for this IP, so simulation cannot be run. Either upgrade the IP or generate the simulation outputs for this IP using the Vivado software it was customized with, then import into this project.  Please select 'Report IP Status' from the 'Tools/Report' menu for instructions to unlock.
+INFO: [Common 17-365] Interrupt caught but 'source' cannot be canceled. Please wait for command to finish.
+WARNING: [BD 41-597] NET <bmm_top_0_ap_idle> has no source
+WARNING: [BD 41-597] NET <bmm_top_0_ap_done> has no source
+Wrote  : </home/raghu/work/projects/dma3/dma3.srcs/sources_1/bd/dma3/dma3.bd> 
+upgrade_bd_cells: Time (s): cpu = 00:00:15 ; elapsed = 00:02:40 . Memory (MB): peak = 1107.703 ; gain = 25.027
+INFO: [Common 17-681] Processing pending cancel.
+INFO: [Common 17-206] Exiting Vivado at Tue May  6 19:39:59 2014...

@@ -1,7 +1,7 @@
 Copyright 1986-1999, 2001-2013 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2013.3 (lin64) Build 329390 Wed Oct 16 18:26:55 MDT 2013
-| Date         : Mon May  5 19:42:46 2014
+| Date         : Tue May  6 20:17:26 2014
 | Host         : raghu-office running 64-bit unknown
 | Command      : report_utilization -file dma3_wrapper_utilization_synth.rpt -pb dma3_wrapper_utilization_synth.pb
 | Design       : dma3_wrapper
@@ -29,15 +29,15 @@ Table of Contents
 +----------------------------+-------+-------+-----------+-------+
 |          Site Type         |  Used | Loced | Available | Util% |
 +----------------------------+-------+-------+-----------+-------+
-| Slice LUTs*                | 55624 |     0 |    218600 | 25.44 |
-|   LUT as Logic             | 50393 |     0 |    218600 | 23.05 |
-|   LUT as Memory            |  5231 |     0 |     70400 |  7.43 |
+| Slice LUTs*                | 55286 |     0 |    218600 | 25.29 |
+|   LUT as Logic             | 49999 |     0 |    218600 | 22.87 |
+|   LUT as Memory            |  5287 |     0 |     70400 |  7.50 |
 |     LUT as Distributed RAM |   176 |     0 |           |       |
-|     LUT as Shift Register  |  5055 |     0 |           |       |
-| Slice Registers            | 49832 |     0 |    437200 | 11.39 |
-|   Register as Flip Flop    | 49832 |     0 |    437200 | 11.39 |
+|     LUT as Shift Register  |  5111 |     0 |           |       |
+| Slice Registers            | 49046 |     0 |    437200 | 11.21 |
+|   Register as Flip Flop    | 49046 |     0 |    437200 | 11.21 |
 |   Register as Latch        |     0 |     0 |    437200 |  0.00 |
-| F7 Muxes                   |  2642 |     0 |    109300 |  2.41 |
+| F7 Muxes                   |  2648 |     0 |    109300 |  2.42 |
 | F8 Muxes                   |     0 |     0 |     54650 |  0.00 |
 +----------------------------+-------+-------+-----------+-------+
 * Warning! The Final LUT count, after physical optimizations and full implementation, is typically lower. Run opt_design after synthesis for a more realistic count.
@@ -61,11 +61,12 @@ Table of Contents
 3. DSP
 ------
 
-+-----------+------+-------+-----------+-------+
-| Site Type | Used | Loced | Available | Util% |
-+-----------+------+-------+-----------+-------+
-| DSPs      |    0 |     0 |       900 |  0.00 |
-+-----------+------+-------+-----------+-------+
++----------------+------+-------+-----------+-------+
+|    Site Type   | Used | Loced | Available | Util% |
++----------------+------+-------+-----------+-------+
+| DSPs           |   12 |     0 |       900 |  1.33 |
+|   DSP48E1 only |   12 |       |           |       |
++----------------+------+-------+-----------+-------+
 
 
 4. IO and GTX Specific
@@ -136,25 +137,26 @@ Table of Contents
 +----------+-------+
 | Ref Name |  Used |
 +----------+-------+
-| FDRE     | 49213 |
-| LUT3     | 17431 |
-| LUT6     | 17216 |
-| LUT5     | 14274 |
-| LUT4     |  7087 |
+| FDRE     | 48427 |
+| LUT3     | 17792 |
+| LUT6     | 15869 |
+| LUT5     | 15147 |
+| LUT4     |  6480 |
+| LUT2     |  5895 |
 | SRLC32E  |  4775 |
-| LUT2     |  4338 |
-| MUXF7    |  2642 |
-| LUT1     |  2022 |
-| CARRY4   |  1185 |
+| MUXF7    |  2648 |
+| LUT1     |  1536 |
+| CARRY4   |   985 |
 | RAMB36E1 |   517 |
 | FDSE     |   349 |
-| SRL16E   |   280 |
+| SRL16E   |   336 |
 | RAMD32   |   214 |
 | FDCE     |   172 |
 | BIBUF    |   130 |
 | FDPE     |    98 |
 | RAMS32   |    70 |
 | RAMD64E  |    32 |
+| DSP48E1  |    12 |
 | RAMB18E1 |     8 |
 | PS7      |     1 |
 | BUFG     |     1 |

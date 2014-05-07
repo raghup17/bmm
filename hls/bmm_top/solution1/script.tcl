@@ -13,4 +13,4 @@ source "./bmm_top/solution1/directives.tcl"
 #csim_design
 csynth_design
 #cosim_design -trace_level none
-export_design -format ip_catalog -version "17.0"
+export_design -format ip_catalog -version "18.0"

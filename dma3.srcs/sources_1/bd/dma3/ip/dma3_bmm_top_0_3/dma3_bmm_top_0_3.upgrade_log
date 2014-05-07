@@ -1,7 +1,7 @@
 Copyright 1986-1999, 2001-2013 Xilinx, Inc. All Rights Reserved.
 -----------------------------------------------------------------------------------
 | Tool Version : Vivado v.2013.3 (lin64) Build 329390 Wed Oct 16 18:26:55 MDT 2013
-| Date         : Mon May  5 18:54:42 2014
+| Date         : Tue May  6 19:49:22 2014
 | Host         : raghu-office running 64-bit Ubuntu 12.04.4 LTS
 | Command      : upgrade_ip
 | Device       : xc7z045ffg900-2
@@ -12,22 +12,5 @@ Upgrade Log for IP 'dma3_bmm_top_0_3'
 1. Summary
 ----------
 
-CAUTION (success, with warnings) in the upgrade of dma3_bmm_top_0_3 from xilinx.com:hls:bmm_top:17.0 to xilinx.com:hls:bmm_top:18.0
-
-After upgrade, an IP may have parameter and port differences compared to the original customization. Please review the parameters within the IP customization GUI to ensure proper functionality. Also, please review the updated IP instantiation template to ensure proper connectivity, and update your design if required.
-
-2. Connection Warnings
-----------------------
-
-WARNING: Detected external port differences while upgrading IP 'dma3_bmm_top_0_3'. These changes may impact your design.
-
--upgraded port 'm_axi_b1_WDATA' width 32 differs from original width 256
--upgraded port 'm_axi_b1_WSTRB' width 4 differs from original width 32
--upgraded port 'm_axi_b1_RDATA' width 32 differs from original width 256
--upgraded port 'm_axi_b2_WDATA' width 32 differs from original width 256
--upgraded port 'm_axi_b2_WSTRB' width 4 differs from original width 32
--upgraded port 'm_axi_b2_RDATA' width 32 differs from original width 256
--upgraded port 'm_axi_b3_WDATA' width 32 differs from original width 256
--upgraded port 'm_axi_b3_WSTRB' width 4 differs from original width 32
--upgraded port 'm_axi_b3_RDATA' width 32 differs from original width 256
+SUCCESS in the upgrade of dma3_bmm_top_0_3 from xilinx.com:hls:bmm_top:19.0 to xilinx.com:hls:bmm_top:20.0
 

@@ -3,7 +3,7 @@
 ================================================================
 == Vivado HLS Report for 'bmm_top'
 ================================================================
-* Date:           Mon May  5 18:45:19 2014
+* Date:           Tue May  6 19:33:16 2014
 
 * Version:        2013.3 (build date: Wed Oct 16 18:12:55 PM 2013)
 * Project:        bmm_top
@@ -25,28 +25,25 @@
 
 + Latency (clock cycles): 
     * Summary: 
-    +-----+-----+-----+-----+---------+
-    |  Latency  |  Interval | Pipeline|
-    | min | max | min | max |   Type  |
-    +-----+-----+-----+-----+---------+
-    |    ?|    ?|    ?|    ?|   none  |
-    +-----+-----+-----+-----+---------+
+    +-----+------------+-----+------------+---------+
+    |      Latency     |     Interval     | Pipeline|
+    | min |     max    | min |     max    |   Type  |
+    +-----+------------+-----+------------+---------+
+    |    7|  3758096384|    8|  3758096385|   none  |
+    +-----+------------+-----+------------+---------+
 
     + Detail: 
         * Instance: 
         N/A
 
         * Loop: 
-        +-----------------+-----+-----------+---------------+-----------+-----------+--------------+----------+
-        |                 |     Latency     |   Iteration   |  Initiation Interval  |     Trip     |          |
-        |    Loop Name    | min |    max    |    Latency    |  achieved |   target  |     Count    | Pipelined|
-        +-----------------+-----+-----------+---------------+-----------+-----------+--------------+----------+
-        |- Loop 1         |    ?|          ?|              ?|          -|          -|             ?|    no    |
-        | + Loop 1.1      |    0|  234881017|              7|          -|          -| 0 ~ 33554431 |    no    |
-        | + Loop 1.2      |    ?|          ?| 2 ~ 234881019 |          -|          -|             ?|    no    |
-        |  ++ Loop 1.2.1  |    0|  234881017|              7|          -|          -| 0 ~ 33554431 |    no    |
-        | + Loop 1.3      |    0|   67108862|              2|          -|          -| 0 ~ 33554431 |    no    |
-        +-----------------+-----+-----------+---------------+-----------+-----------+--------------+----------+
+        +----------+-----+------------+----------+-----------+-----------+---------------+----------+
+        |          |      Latency     | Iteration|  Initiation Interval  |      Trip     |          |
+        | Loop Name| min |     max    |  Latency |  achieved |   target  |     Count     | Pipelined|
+        +----------+-----+------------+----------+-----------+-----------+---------------+----------+
+        |- Loop 1  |    0|  3221225466|         6|          -|          -| 0 ~ 536870911 |    no    |
+        |- Loop 2  |    0|   536870911|         1|          -|          -| 0 ~ 536870911 |    no    |
+        +----------+-----+------------+----------+-----------+-----------+---------------+----------+
 
 
 
@@ -128,7 +125,7 @@ IsGatedGlobalClock: 0
 ============================================================
 + Verbose Summary: Schedule
 ============================================================
-* Number of FSM states: 19
+* Number of FSM states: 13
 * Pipeline: 0
 * Dataflow Pipeline: 0
 
@@ -136,10 +133,9 @@ IsGatedGlobalClock: 0
 1 --> 
 	2  / true
 2 --> 
-	3  / (tmp_3)
+	3  / true
 3 --> 
-	4  / (tmp_4)
-	10  / (!tmp_4)
+	4  / true
 4 --> 
 	5  / true
 5 --> 
@@ -147,327 +143,301 @@ IsGatedGlobalClock: 0
 6 --> 
 	7  / true
 7 --> 
-	8  / true
+	8  / (!exitcond1)
+	13  / (exitcond1)
 8 --> 
 	9  / true
 9 --> 
-	3  / true
+	10  / true
 10 --> 
-	11  / (tmp_s)
-	18  / (!tmp_s)
-11 --> 
-	10  / (!tmp_2)
-	12  / (tmp_2)
-12 --> 
-	13  / true
-13 --> 
-	14  / true
-14 --> 
-	15  / true
-15 --> 
-	16  / true
-16 --> 
-	17  / true
-17 --> 
 	11  / true
-18 --> 
-	19  / (tmp_7)
-	2  / (!tmp_7)
-19 --> 
-	18  / true
+11 --> 
+	12  / true
+12 --> 
+	7  / true
+13 --> 
+	13  / (!exitcond)
 * FSM state operations: 
 
- <State 1>: 6.01ns
-ST_1: stg_20 [1/1] 0.00ns
-:0  call void (...)* @_ssdm_op_SpecBitsMap(i256* %b1), !map !7
-
-ST_1: stg_21 [1/1] 0.00ns
-:1  call void (...)* @_ssdm_op_SpecBitsMap(i256* %b2), !map !13
-
-ST_1: stg_22 [1/1] 0.00ns
-:2  call void (...)* @_ssdm_op_SpecBitsMap(i256* %b3), !map !17
-
-ST_1: stg_23 [1/1] 0.00ns
-:3  call void (...)* @_ssdm_op_SpecBitsMap(i32 %blockSize) nounwind, !map !21
-
-ST_1: stg_24 [1/1] 0.00ns
-:4  call void (...)* @_ssdm_op_SpecTopModule([8 x i8]* @str) nounwind
-
+ <State 1>: 6.08ns
 ST_1: blockSize_read [1/1] 0.00ns
 :5  %blockSize_read = call i32 @_ssdm_op_Read.ap_hs.i32(i32 %blockSize)
 
-ST_1: stg_26 [1/1] 0.00ns
-:6  call void (...)* @_ssdm_op_SpecBus(i256* %b1, [7 x i8]* @p_str, i32 0, i32 0, i32 0, [1 x i8]* @p_str1)
+ST_1: tmp_7 [1/1] 0.00ns
+:15  %tmp_7 = shl i32 %blockSize_read, 3
 
-ST_1: stg_27 [1/1] 0.00ns
-:7  call void (...)* @_ssdm_op_SpecIFCore(i256* %b1, [1 x i8]* @p_str1, [6 x i8]* @p_str2, [1 x i8]* @p_str1, [1 x i8]* @p_str1, [1 x i8]* @p_str1, [1 x i8]* @p_str1)
+ST_1: tmp_10 [1/1] 0.00ns
+:16  %tmp_10 = shl i32 %blockSize_read, 1
 
-ST_1: stg_28 [1/1] 0.00ns
-:8  call void (...)* @_ssdm_op_SpecBus(i256* %b2, [7 x i8]* @p_str, i32 0, i32 0, i32 0, [1 x i8]* @p_str1)
+ST_1: tmp [1/1] 2.44ns
+:17  %tmp = add i32 %tmp_7, %tmp_10
 
-ST_1: stg_29 [1/1] 0.00ns
-:9  call void (...)* @_ssdm_op_SpecIFCore(i256* %b2, [1 x i8]* @p_str1, [6 x i8]* @p_str2, [1 x i8]* @p_str1, [1 x i8]* @p_str1, [1 x i8]* @p_str1, [1 x i8]* @p_str1)
-
-ST_1: stg_30 [1/1] 0.00ns
-:10  call void (...)* @_ssdm_op_SpecBus(i256* %b3, [7 x i8]* @p_str, i32 0, i32 0, i32 0, [1 x i8]* @p_str1)
-
-ST_1: stg_31 [1/1] 0.00ns
-:11  call void (...)* @_ssdm_op_SpecIFCore(i256* %b3, [1 x i8]* @p_str1, [6 x i8]* @p_str2, [1 x i8]* @p_str1, [1 x i8]* @p_str1, [1 x i8]* @p_str1, [1 x i8]* @p_str1)
-
-ST_1: stg_32 [1/1] 0.00ns
-:12  call void (...)* @_ssdm_op_SpecIFCore(i32 0, [1 x i8]* @p_str1, [10 x i8]* @p_str3, [1 x i8]* @p_str1, [1 x i8]* @p_str1, [1 x i8]* @p_str1, [20 x i8]* @p_str4) nounwind
-
-ST_1: stg_33 [1/1] 0.00ns
-:13  call void (...)* @_ssdm_op_SpecWire(i32 %blockSize, [6 x i8]* @p_str5, i32 0, i32 0, i32 0, [1 x i8]* @p_str1) nounwind
-
-ST_1: stg_34 [1/1] 0.00ns
-:14  call void (...)* @_ssdm_op_SpecIFCore(i32 %blockSize, [1 x i8]* @p_str1, [10 x i8]* @p_str3, [1 x i8]* @p_str1, [1 x i8]* @p_str1, [1 x i8]* @p_str1, [20 x i8]* @p_str4) nounwind
-
-ST_1: tmp_14 [1/1] 0.00ns
-:15  %tmp_14 = call i1 @_ssdm_op_BitSelect.i1.i32.i32(i32 %blockSize_read, i32 31)
-
-ST_1: p_neg [1/1] 2.44ns
-:16  %p_neg = sub i32 0, %blockSize_read
-
-ST_1: tmp_1 [1/1] 0.00ns
-:17  %tmp_1 = call i24 @_ssdm_op_PartSelect.i24.i32.i32.i32(i32 %p_neg, i32 8, i32 31)
-
-ST_1: p_lshr_cast [1/1] 0.00ns
-:18  %p_lshr_cast = zext i24 %tmp_1 to i25
-
-ST_1: p_neg_t [1/1] 2.20ns
-:19  %p_neg_t = sub i25 0, %p_lshr_cast
+ST_1: tmp_11 [1/1] 0.00ns
+:21  %tmp_11 = shl i32 %blockSize_read, 4
 
 ST_1: tmp_12 [1/1] 0.00ns
-:20  %tmp_12 = call i24 @_ssdm_op_PartSelect.i24.i32.i32.i32(i32 %blockSize_read, i32 8, i32 31)
+:22  %tmp_12 = shl i32 %blockSize_read, 2
 
-ST_1: p_lshr_f_cast [1/1] 0.00ns
-:21  %p_lshr_f_cast = zext i24 %tmp_12 to i25
-
-ST_1: tmp [1/1] 1.37ns
-:22  %tmp = select i1 %tmp_14, i25 %p_neg_t, i25 %p_lshr_f_cast
+ST_1: tmp_2 [1/1] 2.44ns
+:23  %tmp_2 = add i32 %tmp_11, %tmp_12
 
 ST_1: tmp_13 [1/1] 0.00ns
-:23  %tmp_13 = call i23 @_ssdm_op_PartSelect.i23.i25.i32.i32(i25 %tmp, i32 2, i32 24)
+:27  %tmp_13 = shl i32 %blockSize_read, 5
 
-ST_1: dim [1/1] 0.00ns
-:24  %dim = call i26 @_ssdm_op_BitConcatenate.i26.i23.i3(i23 %tmp_13, i3 0)
+ST_1: tmp_4 [1/1] 2.44ns
+:28  %tmp_4 = sub i32 %tmp_13, %tmp_10
 
-ST_1: dim_cast [1/1] 0.00ns
-:25  %dim_cast = sext i26 %dim to i32
-
-ST_1: stg_46 [1/1] 1.57ns
-:26  br label %1
+ST_1: tmp_6 [6/6] 6.08ns
+:32  %tmp_6 = mul nsw i32 %blockSize_read, %blockSize_read
 
 
- <State 2>: 4.09ns
-ST_2: i [1/1] 0.00ns
-:0  %i = phi i32 [ 0, %0 ], [ %i_1, %2 ]
+ <State 2>: 8.75ns
+ST_2: tmp_1 [1/1] 0.00ns
+:18  %tmp_1 = sext i32 %tmp to i256
 
-ST_2: tmp_3 [1/1] 2.52ns
-:1  %tmp_3 = icmp slt i32 %i, %blockSize_read
+ST_2: b1_req [1/1] 8.75ns
+:19  %b1_req = call i1 @_ssdm_op_WriteReq.ap_bus.i256P(i256* %b1, i32 1)
 
-ST_2: stg_49 [1/1] 1.57ns
-:2  br i1 %tmp_3, label %.preheader5, label %3
+ST_2: stg_26 [1/1] 8.75ns
+:20  call void @_ssdm_op_Write.ap_bus.volatile.i256P(i256* %b1, i256 %tmp_1)
 
-ST_2: stg_50 [1/1] 0.00ns
-:0  ret void
+ST_2: tmp_3 [1/1] 0.00ns
+:24  %tmp_3 = sext i32 %tmp_2 to i256
 
+ST_2: b2_req [1/1] 8.75ns
+:25  %b2_req = call i1 @_ssdm_op_WriteReq.ap_bus.i256P(i256* %b2, i32 1)
 
- <State 3>: 4.09ns
-ST_3: t1 [1/1] 0.00ns
-.preheader5:0  %t1 = phi i32 [ %t1_1, %branch65920 ], [ 0, %1 ]
+ST_2: stg_29 [1/1] 8.75ns
+:26  call void @_ssdm_op_Write.ap_bus.volatile.i256P(i256* %b2, i256 %tmp_3)
 
-ST_3: tmp_4 [1/1] 2.52ns
-.preheader5:1  %tmp_4 = icmp slt i32 %t1, %dim_cast
+ST_2: tmp_5 [1/1] 0.00ns
+:29  %tmp_5 = sext i32 %tmp_4 to i256
 
-ST_3: empty [1/1] 0.00ns
-.preheader5:2  %empty = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 0, i64 33554431, i64 0)
+ST_2: b3_req [1/1] 8.75ns
+:30  %b3_req = call i1 @_ssdm_op_WriteReq.ap_bus.i256P(i256* %b3, i32 1)
 
-ST_3: t1_1 [1/1] 2.44ns
-.preheader5:3  %t1_1 = add nsw i32 %t1, 1
+ST_2: stg_32 [1/1] 8.75ns
+:31  call void @_ssdm_op_Write.ap_bus.volatile.i256P(i256* %b3, i256 %tmp_5)
 
-ST_3: stg_55 [1/1] 1.57ns
-.preheader5:4  br i1 %tmp_4, label %branch65920, label %.preheader4
-
-ST_3: tmp_5 [1/1] 2.44ns
-branch65920:0  %tmp_5 = add nsw i32 %t1, %i
+ST_2: tmp_6 [5/6] 6.08ns
+:32  %tmp_6 = mul nsw i32 %blockSize_read, %blockSize_read
 
 
- <State 4>: 8.75ns
-ST_4: tmp_6 [1/1] 0.00ns
-branch65920:1  %tmp_6 = sext i32 %tmp_5 to i64
-
-ST_4: b1_addr [1/1] 0.00ns
-branch65920:2  %b1_addr = getelementptr i256* %b1, i64 %tmp_6
-
-ST_4: curElemA_req [5/5] 8.75ns
-branch65920:3  %curElemA_req = call i1 @_ssdm_op_ReadReq.ap_bus.i256P(i256* %b1_addr, i32 1)
-
-ST_4: b3_addr [1/1] 0.00ns
-branch65920:5  %b3_addr = getelementptr i256* %b3, i64 %tmp_6
-
-ST_4: curElemC_req [5/5] 8.75ns
-branch65920:6  %curElemC_req = call i1 @_ssdm_op_ReadReq.ap_bus.i256P(i256* %b3_addr, i32 1)
+ <State 3>: 6.08ns
+ST_3: tmp_6 [4/6] 6.08ns
+:32  %tmp_6 = mul nsw i32 %blockSize_read, %blockSize_read
 
 
- <State 5>: 8.75ns
-ST_5: curElemA_req [4/5] 8.75ns
-branch65920:3  %curElemA_req = call i1 @_ssdm_op_ReadReq.ap_bus.i256P(i256* %b1_addr, i32 1)
-
-ST_5: curElemC_req [4/5] 8.75ns
-branch65920:6  %curElemC_req = call i1 @_ssdm_op_ReadReq.ap_bus.i256P(i256* %b3_addr, i32 1)
+ <State 4>: 6.08ns
+ST_4: tmp_6 [3/6] 6.08ns
+:32  %tmp_6 = mul nsw i32 %blockSize_read, %blockSize_read
 
 
- <State 6>: 8.75ns
-ST_6: curElemA_req [3/5] 8.75ns
-branch65920:3  %curElemA_req = call i1 @_ssdm_op_ReadReq.ap_bus.i256P(i256* %b1_addr, i32 1)
+ <State 5>: 6.08ns
+ST_5: tmp_6 [2/6] 6.08ns
+:32  %tmp_6 = mul nsw i32 %blockSize_read, %blockSize_read
 
-ST_6: curElemC_req [3/5] 8.75ns
-branch65920:6  %curElemC_req = call i1 @_ssdm_op_ReadReq.ap_bus.i256P(i256* %b3_addr, i32 1)
+
+ <State 6>: 6.08ns
+ST_6: stg_37 [1/1] 0.00ns
+:0  call void (...)* @_ssdm_op_SpecBitsMap(i256* %b1), !map !7
+
+ST_6: stg_38 [1/1] 0.00ns
+:1  call void (...)* @_ssdm_op_SpecBitsMap(i256* %b2), !map !13
+
+ST_6: stg_39 [1/1] 0.00ns
+:2  call void (...)* @_ssdm_op_SpecBitsMap(i256* %b3), !map !17
+
+ST_6: stg_40 [1/1] 0.00ns
+:3  call void (...)* @_ssdm_op_SpecBitsMap(i32 %blockSize) nounwind, !map !21
+
+ST_6: stg_41 [1/1] 0.00ns
+:4  call void (...)* @_ssdm_op_SpecTopModule([8 x i8]* @str) nounwind
+
+ST_6: stg_42 [1/1] 0.00ns
+:6  call void (...)* @_ssdm_op_SpecBus(i256* %b1, [7 x i8]* @p_str, i32 0, i32 0, i32 0, [1 x i8]* @p_str1)
+
+ST_6: stg_43 [1/1] 0.00ns
+:7  call void (...)* @_ssdm_op_SpecIFCore(i256* %b1, [1 x i8]* @p_str1, [6 x i8]* @p_str2, [1 x i8]* @p_str1, [1 x i8]* @p_str1, [1 x i8]* @p_str1, [1 x i8]* @p_str1)
+
+ST_6: stg_44 [1/1] 0.00ns
+:8  call void (...)* @_ssdm_op_SpecBus(i256* %b2, [7 x i8]* @p_str, i32 0, i32 0, i32 0, [1 x i8]* @p_str1)
+
+ST_6: stg_45 [1/1] 0.00ns
+:9  call void (...)* @_ssdm_op_SpecIFCore(i256* %b2, [1 x i8]* @p_str1, [6 x i8]* @p_str2, [1 x i8]* @p_str1, [1 x i8]* @p_str1, [1 x i8]* @p_str1, [1 x i8]* @p_str1)
+
+ST_6: stg_46 [1/1] 0.00ns
+:10  call void (...)* @_ssdm_op_SpecBus(i256* %b3, [7 x i8]* @p_str, i32 0, i32 0, i32 0, [1 x i8]* @p_str1)
+
+ST_6: stg_47 [1/1] 0.00ns
+:11  call void (...)* @_ssdm_op_SpecIFCore(i256* %b3, [1 x i8]* @p_str1, [6 x i8]* @p_str2, [1 x i8]* @p_str1, [1 x i8]* @p_str1, [1 x i8]* @p_str1, [1 x i8]* @p_str1)
+
+ST_6: stg_48 [1/1] 0.00ns
+:12  call void (...)* @_ssdm_op_SpecIFCore(i32 0, [1 x i8]* @p_str1, [10 x i8]* @p_str3, [1 x i8]* @p_str1, [1 x i8]* @p_str1, [1 x i8]* @p_str1, [20 x i8]* @p_str4) nounwind
+
+ST_6: stg_49 [1/1] 0.00ns
+:13  call void (...)* @_ssdm_op_SpecWire(i32 %blockSize, [6 x i8]* @p_str5, i32 0, i32 0, i32 0, [1 x i8]* @p_str1) nounwind
+
+ST_6: stg_50 [1/1] 0.00ns
+:14  call void (...)* @_ssdm_op_SpecIFCore(i32 %blockSize, [1 x i8]* @p_str1, [10 x i8]* @p_str3, [1 x i8]* @p_str1, [1 x i8]* @p_str1, [1 x i8]* @p_str1, [20 x i8]* @p_str4) nounwind
+
+ST_6: tmp_6 [1/6] 6.08ns
+:32  %tmp_6 = mul nsw i32 %blockSize_read, %blockSize_read
+
+ST_6: tmp_s [1/1] 0.00ns
+:33  %tmp_s = call i29 @_ssdm_op_PartSelect.i29.i32.i32.i32(i32 %tmp_6, i32 3, i32 31)
+
+ST_6: stg_53 [1/1] 1.54ns
+:34  br label %1
 
 
  <State 7>: 8.75ns
-ST_7: curElemA_req [2/5] 8.75ns
-branch65920:3  %curElemA_req = call i1 @_ssdm_op_ReadReq.ap_bus.i256P(i256* %b1_addr, i32 1)
+ST_7: i [1/1] 0.00ns
+:0  %i = phi i29 [ 0, %0 ], [ %i_1, %branch896 ]
 
-ST_7: curElemC_req [2/5] 8.75ns
-branch65920:6  %curElemC_req = call i1 @_ssdm_op_ReadReq.ap_bus.i256P(i256* %b3_addr, i32 1)
+ST_7: empty [1/1] 0.00ns
+:1  %empty = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 0, i64 536870911, i64 0)
+
+ST_7: exitcond1 [1/1] 2.47ns
+:2  %exitcond1 = icmp eq i29 %i, %tmp_s
+
+ST_7: i_1 [1/1] 2.44ns
+:3  %i_1 = add i29 %i, 1
+
+ST_7: stg_58 [1/1] 1.54ns
+:4  br i1 %exitcond1, label %.preheader1, label %branch896
+
+ST_7: tmp_8 [1/1] 0.00ns
+branch896:0  %tmp_8 = zext i29 %i to i64
+
+ST_7: b1_addr [1/1] 0.00ns
+branch896:1  %b1_addr = getelementptr i256* %b1, i64 %tmp_8
+
+ST_7: curElemA_req [5/5] 8.75ns
+branch896:2  %curElemA_req = call i1 @_ssdm_op_ReadReq.ap_bus.i256P(i256* %b1_addr, i32 1)
+
+ST_7: b2_addr [1/1] 0.00ns
+branch896:4  %b2_addr = getelementptr i256* %b2, i64 %tmp_8
+
+ST_7: curElemB_req [5/5] 8.75ns
+branch896:5  %curElemB_req = call i1 @_ssdm_op_ReadReq.ap_bus.i256P(i256* %b2_addr, i32 1)
+
+ST_7: b3_addr [1/1] 0.00ns
+branch896:7  %b3_addr = getelementptr i256* %b3, i64 %tmp_8
+
+ST_7: curElemC_req [5/5] 8.75ns
+branch896:8  %curElemC_req = call i1 @_ssdm_op_ReadReq.ap_bus.i256P(i256* %b3_addr, i32 1)
 
 
  <State 8>: 8.75ns
-ST_8: curElemA_req [1/5] 8.75ns
-branch65920:3  %curElemA_req = call i1 @_ssdm_op_ReadReq.ap_bus.i256P(i256* %b1_addr, i32 1)
+ST_8: curElemA_req [4/5] 8.75ns
+branch896:2  %curElemA_req = call i1 @_ssdm_op_ReadReq.ap_bus.i256P(i256* %b1_addr, i32 1)
 
-ST_8: curElemC_req [1/5] 8.75ns
-branch65920:6  %curElemC_req = call i1 @_ssdm_op_ReadReq.ap_bus.i256P(i256* %b3_addr, i32 1)
+ST_8: curElemB_req [4/5] 8.75ns
+branch896:5  %curElemB_req = call i1 @_ssdm_op_ReadReq.ap_bus.i256P(i256* %b2_addr, i32 1)
+
+ST_8: curElemC_req [4/5] 8.75ns
+branch896:8  %curElemC_req = call i1 @_ssdm_op_ReadReq.ap_bus.i256P(i256* %b3_addr, i32 1)
 
 
  <State 9>: 8.75ns
-ST_9: curElemA [1/1] 8.75ns
-branch65920:4  %curElemA = call i256 @_ssdm_op_Read.ap_bus.volatile.i256P(i256* %b1_addr)
+ST_9: curElemA_req [3/5] 8.75ns
+branch896:2  %curElemA_req = call i1 @_ssdm_op_ReadReq.ap_bus.i256P(i256* %b1_addr, i32 1)
 
-ST_9: curElemC [1/1] 8.75ns
-branch65920:7  %curElemC = call i256 @_ssdm_op_Read.ap_bus.volatile.i256P(i256* %b3_addr)
+ST_9: curElemB_req [3/5] 8.75ns
+branch896:5  %curElemB_req = call i1 @_ssdm_op_ReadReq.ap_bus.i256P(i256* %b2_addr, i32 1)
 
-ST_9: stg_72 [1/1] 0.00ns
-branch65920:8  br label %.preheader5
-
-
- <State 10>: 4.09ns
-ST_10: j [1/1] 0.00ns
-.preheader4:0  %j = phi i32 [ 0, %.preheader5 ], [ %j_1, %.preheader3 ]
-
-ST_10: tmp_s [1/1] 2.52ns
-.preheader4:1  %tmp_s = icmp slt i32 %j, %blockSize_read
-
-ST_10: j_1 [1/1] 2.44ns
-.preheader4:2  %j_1 = add nsw i32 %j, 1
-
-ST_10: stg_76 [1/1] 1.57ns
-.preheader4:3  br i1 %tmp_s, label %.preheader3, label %.preheader1
+ST_9: curElemC_req [3/5] 8.75ns
+branch896:8  %curElemC_req = call i1 @_ssdm_op_ReadReq.ap_bus.i256P(i256* %b3_addr, i32 1)
 
 
- <State 11>: 2.52ns
-ST_11: t [1/1] 0.00ns
-.preheader3:0  %t = phi i32 [ %t1_2, %branch131968 ], [ 0, %.preheader4 ]
+ <State 10>: 8.75ns
+ST_10: curElemA_req [2/5] 8.75ns
+branch896:2  %curElemA_req = call i1 @_ssdm_op_ReadReq.ap_bus.i256P(i256* %b1_addr, i32 1)
 
-ST_11: tmp_2 [1/1] 2.52ns
-.preheader3:1  %tmp_2 = icmp slt i32 %t, %dim_cast
+ST_10: curElemB_req [2/5] 8.75ns
+branch896:5  %curElemB_req = call i1 @_ssdm_op_ReadReq.ap_bus.i256P(i256* %b2_addr, i32 1)
 
-ST_11: empty_11 [1/1] 0.00ns
-.preheader3:2  %empty_11 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 0, i64 33554431, i64 0)
+ST_10: curElemC_req [2/5] 8.75ns
+branch896:8  %curElemC_req = call i1 @_ssdm_op_ReadReq.ap_bus.i256P(i256* %b3_addr, i32 1)
 
-ST_11: t1_2 [1/1] 2.44ns
-.preheader3:3  %t1_2 = add nsw i32 %t, 1
 
-ST_11: stg_81 [1/1] 0.00ns
-.preheader3:4  br i1 %tmp_2, label %branch131968, label %.preheader4
+ <State 11>: 8.75ns
+ST_11: curElemA_req [1/5] 8.75ns
+branch896:2  %curElemA_req = call i1 @_ssdm_op_ReadReq.ap_bus.i256P(i256* %b1_addr, i32 1)
 
-ST_11: tmp_8 [1/1] 2.44ns
-branch131968:0  %tmp_8 = add nsw i32 %t, %j
+ST_11: curElemB_req [1/5] 8.75ns
+branch896:5  %curElemB_req = call i1 @_ssdm_op_ReadReq.ap_bus.i256P(i256* %b2_addr, i32 1)
+
+ST_11: curElemC_req [1/5] 8.75ns
+branch896:8  %curElemC_req = call i1 @_ssdm_op_ReadReq.ap_bus.i256P(i256* %b3_addr, i32 1)
 
 
  <State 12>: 8.75ns
-ST_12: tmp_9 [1/1] 0.00ns
-branch131968:1  %tmp_9 = sext i32 %tmp_8 to i64
+ST_12: curElemA [1/1] 8.75ns
+branch896:3  %curElemA = call i256 @_ssdm_op_Read.ap_bus.volatile.i256P(i256* %b1_addr)
 
-ST_12: b2_addr [1/1] 0.00ns
-branch131968:2  %b2_addr = getelementptr i256* %b2, i64 %tmp_9
+ST_12: curElemB [1/1] 8.75ns
+branch896:6  %curElemB = call i256 @_ssdm_op_Read.ap_bus.volatile.i256P(i256* %b2_addr)
 
-ST_12: curElemB_req [5/5] 8.75ns
-branch131968:3  %curElemB_req = call i1 @_ssdm_op_ReadReq.ap_bus.i256P(i256* %b2_addr, i32 1)
+ST_12: curElemC [1/1] 8.75ns
+branch896:9  %curElemC = call i256 @_ssdm_op_Read.ap_bus.volatile.i256P(i256* %b3_addr)
+
+ST_12: stg_81 [1/1] 0.00ns
+branch896:10  br label %1
 
 
  <State 13>: 8.75ns
-ST_13: curElemB_req [4/5] 8.75ns
-branch131968:3  %curElemB_req = call i1 @_ssdm_op_ReadReq.ap_bus.i256P(i256* %b2_addr, i32 1)
+ST_13: i5 [1/1] 0.00ns
+.preheader1:0  %i5 = phi i29 [ %i_2, %.preheader ], [ 0, %1 ]
 
+ST_13: empty_4 [1/1] 0.00ns
+.preheader1:1  %empty_4 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 0, i64 536870911, i64 0)
 
- <State 14>: 8.75ns
-ST_14: curElemB_req [3/5] 8.75ns
-branch131968:3  %curElemB_req = call i1 @_ssdm_op_ReadReq.ap_bus.i256P(i256* %b2_addr, i32 1)
+ST_13: exitcond [1/1] 2.47ns
+.preheader1:2  %exitcond = icmp eq i29 %i5, %tmp_s
 
+ST_13: i_2 [1/1] 2.44ns
+.preheader1:3  %i_2 = add i29 %i5, 1
 
- <State 15>: 8.75ns
-ST_15: curElemB_req [2/5] 8.75ns
-branch131968:3  %curElemB_req = call i1 @_ssdm_op_ReadReq.ap_bus.i256P(i256* %b2_addr, i32 1)
+ST_13: stg_86 [1/1] 0.00ns
+.preheader1:4  br i1 %exitcond, label %2, label %.preheader
 
+ST_13: tmp_9 [1/1] 0.00ns
+.preheader:0  %tmp_9 = zext i29 %i5 to i64
 
- <State 16>: 8.75ns
-ST_16: curElemB_req [1/5] 8.75ns
-branch131968:3  %curElemB_req = call i1 @_ssdm_op_ReadReq.ap_bus.i256P(i256* %b2_addr, i32 1)
+ST_13: b1_addr_1 [1/1] 0.00ns
+.preheader:1  %b1_addr_1 = getelementptr i256* %b1, i64 %tmp_9
 
+ST_13: b1_addr_1_req [1/1] 8.75ns
+.preheader:2  %b1_addr_1_req = call i1 @_ssdm_op_WriteReq.ap_bus.i256P(i256* %b1_addr_1, i32 1)
 
- <State 17>: 8.75ns
-ST_17: curElemB [1/1] 8.75ns
-branch131968:4  %curElemB = call i256 @_ssdm_op_Read.ap_bus.volatile.i256P(i256* %b2_addr)
+ST_13: stg_90 [1/1] 8.75ns
+.preheader:3  call void @_ssdm_op_Write.ap_bus.volatile.i256P(i256* %b1_addr_1, i256 0)
 
-ST_17: stg_91 [1/1] 0.00ns
-branch131968:5  br label %.preheader3
+ST_13: b2_addr_1 [1/1] 0.00ns
+.preheader:4  %b2_addr_1 = getelementptr i256* %b2, i64 %tmp_9
 
+ST_13: b2_addr_1_req [1/1] 8.75ns
+.preheader:5  %b2_addr_1_req = call i1 @_ssdm_op_WriteReq.ap_bus.i256P(i256* %b2_addr_1, i32 1)
 
- <State 18>: 2.52ns
-ST_18: t3 [1/1] 0.00ns
-.preheader1:0  %t3 = phi i32 [ %t1_3, %.preheader.preheader_ifconv ], [ 0, %.preheader4 ]
+ST_13: stg_93 [1/1] 8.75ns
+.preheader:6  call void @_ssdm_op_Write.ap_bus.volatile.i256P(i256* %b2_addr_1, i256 0)
 
-ST_18: tmp_7 [1/1] 2.52ns
-.preheader1:1  %tmp_7 = icmp slt i32 %t3, %dim_cast
+ST_13: b3_addr_1 [1/1] 0.00ns
+.preheader:7  %b3_addr_1 = getelementptr i256* %b3, i64 %tmp_9
 
-ST_18: empty_12 [1/1] 0.00ns
-.preheader1:2  %empty_12 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 0, i64 33554431, i64 0)
+ST_13: b3_addr_1_req [1/1] 8.75ns
+.preheader:8  %b3_addr_1_req = call i1 @_ssdm_op_WriteReq.ap_bus.i256P(i256* %b3_addr_1, i32 1)
 
-ST_18: t1_3 [1/1] 2.44ns
-.preheader1:3  %t1_3 = add nsw i32 %t3, 1
+ST_13: stg_96 [1/1] 8.75ns
+.preheader:9  call void @_ssdm_op_Write.ap_bus.volatile.i256P(i256* %b3_addr_1, i256 0)
 
-ST_18: stg_96 [1/1] 0.00ns
-.preheader1:4  br i1 %tmp_7, label %.preheader.preheader_ifconv, label %2
+ST_13: stg_97 [1/1] 0.00ns
+.preheader:10  br label %.preheader1
 
-ST_18: tmp_10 [1/1] 2.44ns
-.preheader.preheader_ifconv:0  %tmp_10 = add nsw i32 %t3, %i
-
-ST_18: i_1 [1/1] 2.44ns
-:0  %i_1 = add nsw i32 %i, %dim_cast
-
-ST_18: stg_99 [1/1] 0.00ns
-:1  br label %1
-
-
- <State 19>: 8.75ns
-ST_19: tmp_11 [1/1] 0.00ns
-.preheader.preheader_ifconv:1  %tmp_11 = sext i32 %tmp_10 to i64
-
-ST_19: b3_addr_1 [1/1] 0.00ns
-.preheader.preheader_ifconv:2  %b3_addr_1 = getelementptr i256* %b3, i64 %tmp_11
-
-ST_19: b3_addr_1_req [1/1] 8.75ns
-.preheader.preheader_ifconv:3  %b3_addr_1_req = call i1 @_ssdm_op_WriteReq.ap_bus.i256P(i256* %b3_addr_1, i32 1)
-
-ST_19: stg_103 [1/1] 8.75ns
-.preheader.preheader_ifconv:4  call void @_ssdm_op_Write.ap_bus.volatile.i256P(i256* %b3_addr_1, i256 0)
-
-ST_19: stg_104 [1/1] 0.00ns
-.preheader.preheader_ifconv:5  br label %.preheader1
+ST_13: stg_98 [1/1] 0.00ns
+:0  ret void
 
 
 
@@ -491,12 +461,6 @@ N/A
 	State 11
 	State 12
 	State 13
-	State 14
-	State 15
-	State 16
-	State 17
-	State 18
-	State 19
 
 
 ============================================================

@@ -30,13 +30,14 @@ solName=solution1
 
 echo "HLS top is $hlsTop"
 version=`grep "MODULE.*${hlsTop}_0.*HWVERSION" ${vivadoProjName}.sdk/SDK/SDK_Export/hw/${vivadoProjName}.xml | grep -o "HWVERSION=\"[0123456789.]*\"" | grep -o "[0-9]*\.[0-9]*"`
-#newVersion=$(float_eval "$version + 1.0")
-newVersion="18.0"
+newVersion=$(float_eval "$version + 1.0")
+#newVersion="18.0"
 echo "IP will be upgraded to version ${newVersion} from ${version}"
 
 hlsScriptName=hls.tcl
-# Create a script
+# Create a script AND remove existing impl directory
 rm -f $hlsScriptName
+rm -rf $hlsProjLoc/$solName/impl
 
 echo "cd ${projectsHome}/${vivadoProjName}/hls" >> $hlsScriptName
 echo "open_project $hlsProjName" >> $hlsScriptName
@@ -74,6 +75,8 @@ echo 'open_project ${projName}.xpr' >> ${vivadoScriptName}
 echo 'open_bd_design ${projName}.srcs/sources_1/bd/${projName}/${projName}.bd' >> ${vivadoScriptName}
 echo 'report_ip_status -name ipstatus' >> ${vivadoScriptName}
 echo 'update_ip_catalog -rebuild'  >> ${vivadoScriptName}
+echo 'open_bd_design ${projName}.srcs/sources_1/bd/${projName}/${projName}.bd' >> ${vivadoScriptName}
+echo 'report_ip_status -name ipstatus' >> ${vivadoScriptName}
 echo 'upgrade_bd_cells [get_bd_cells [list /${hlsName}]]' >> ${vivadoScriptName}
 echo 'reset_run synth_1' >> ${vivadoScriptName}
 echo 'launch_runs synth_1 -jobs 2' >> ${vivadoScriptName}

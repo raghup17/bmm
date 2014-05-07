@@ -172,58 +172,6 @@
         </spirit:configurableElementValues>
       </spirit:componentInstance>
       <spirit:componentInstance>
-        <spirit:instanceName>bmm_top_0</spirit:instanceName>
-        <spirit:componentRef spirit:library="hls" spirit:name="bmm_top" spirit:vendor="xilinx.com" spirit:version="18.0"/>
-        <spirit:configurableElementValues>
-          <spirit:configurableElementValue spirit:referenceId="bd:xciName">dma3_bmm_top_0_1</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="C_M_AXI_B1_DATA_WIDTH">256</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="C_M_AXI_B1_TARGET_ADDR">0xC0000000</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="C_M_AXI_B2_DATA_WIDTH">256</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="C_M_AXI_B2_TARGET_ADDR">0xC1000000</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="C_M_AXI_B3_DATA_WIDTH">256</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="C_M_AXI_B3_TARGET_ADDR">0xC2000000</spirit:configurableElementValue>
-        </spirit:configurableElementValues>
-      </spirit:componentInstance>
-      <spirit:componentInstance>
-        <spirit:instanceName>bmm_top_1</spirit:instanceName>
-        <spirit:componentRef spirit:library="hls" spirit:name="bmm_top" spirit:vendor="xilinx.com" spirit:version="18.0"/>
-        <spirit:configurableElementValues>
-          <spirit:configurableElementValue spirit:referenceId="bd:xciName">dma3_bmm_top_0_2</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="C_M_AXI_B1_DATA_WIDTH">256</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="C_M_AXI_B1_TARGET_ADDR">0xC0000000</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="C_M_AXI_B2_DATA_WIDTH">256</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="C_M_AXI_B2_TARGET_ADDR">0xC3000000</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="C_M_AXI_B3_DATA_WIDTH">256</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="C_M_AXI_B3_TARGET_ADDR">0xC4000000</spirit:configurableElementValue>
-        </spirit:configurableElementValues>
-      </spirit:componentInstance>
-      <spirit:componentInstance>
-        <spirit:instanceName>bmm_top_2</spirit:instanceName>
-        <spirit:componentRef spirit:library="hls" spirit:name="bmm_top" spirit:vendor="xilinx.com" spirit:version="18.0"/>
-        <spirit:configurableElementValues>
-          <spirit:configurableElementValue spirit:referenceId="bd:xciName">dma3_bmm_top_0_3</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="C_M_AXI_B1_DATA_WIDTH">256</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="C_M_AXI_B1_TARGET_ADDR">0xC0000000</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="C_M_AXI_B2_DATA_WIDTH">256</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="C_M_AXI_B2_TARGET_ADDR">0xC5000000</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="C_M_AXI_B3_DATA_WIDTH">256</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="C_M_AXI_B3_TARGET_ADDR">0xC6000000</spirit:configurableElementValue>
-        </spirit:configurableElementValues>
-      </spirit:componentInstance>
-      <spirit:componentInstance>
-        <spirit:instanceName>bmm_top_3</spirit:instanceName>
-        <spirit:componentRef spirit:library="hls" spirit:name="bmm_top" spirit:vendor="xilinx.com" spirit:version="18.0"/>
-        <spirit:configurableElementValues>
-          <spirit:configurableElementValue spirit:referenceId="bd:xciName">dma3_bmm_top_0_4</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="C_M_AXI_B1_DATA_WIDTH">256</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="C_M_AXI_B1_TARGET_ADDR">0xC0000000</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="C_M_AXI_B2_DATA_WIDTH">256</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="C_M_AXI_B2_TARGET_ADDR">0xC7000000</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="C_M_AXI_B3_DATA_WIDTH">256</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="C_M_AXI_B3_TARGET_ADDR">0xC8000000</spirit:configurableElementValue>
-        </spirit:configurableElementValues>
-      </spirit:componentInstance>
-      <spirit:componentInstance>
         <spirit:instanceName>axi_dwidth_converter_0</spirit:instanceName>
         <spirit:componentRef spirit:library="ip" spirit:name="axi_dwidth_converter" spirit:vendor="xilinx.com" spirit:version="2.1"/>
         <spirit:configurableElementValues>
@@ -241,6 +189,58 @@
           <spirit:configurableElementValue spirit:referenceId="NUM_SI">1</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="NUM_MI">3</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="appcore">xilinx.com:ip:axi_interconnect:2.1</spirit:configurableElementValue>
+        </spirit:configurableElementValues>
+      </spirit:componentInstance>
+      <spirit:componentInstance>
+        <spirit:instanceName>bmm_top_0</spirit:instanceName>
+        <spirit:componentRef spirit:library="hls" spirit:name="bmm_top" spirit:vendor="xilinx.com" spirit:version="20.0"/>
+        <spirit:configurableElementValues>
+          <spirit:configurableElementValue spirit:referenceId="bd:xciName">dma3_bmm_top_0_1</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="C_M_AXI_B1_DATA_WIDTH">256</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="C_M_AXI_B1_TARGET_ADDR">0xC0000000</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="C_M_AXI_B2_DATA_WIDTH">256</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="C_M_AXI_B2_TARGET_ADDR">0xC1000000</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="C_M_AXI_B3_DATA_WIDTH">256</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="C_M_AXI_B3_TARGET_ADDR">0xC2000000</spirit:configurableElementValue>
+        </spirit:configurableElementValues>
+      </spirit:componentInstance>
+      <spirit:componentInstance>
+        <spirit:instanceName>bmm_top_1</spirit:instanceName>
+        <spirit:componentRef spirit:library="hls" spirit:name="bmm_top" spirit:vendor="xilinx.com" spirit:version="20.0"/>
+        <spirit:configurableElementValues>
+          <spirit:configurableElementValue spirit:referenceId="bd:xciName">dma3_bmm_top_0_2</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="C_M_AXI_B1_DATA_WIDTH">256</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="C_M_AXI_B1_TARGET_ADDR">0xC0000000</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="C_M_AXI_B2_DATA_WIDTH">256</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="C_M_AXI_B2_TARGET_ADDR">0xC3000000</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="C_M_AXI_B3_DATA_WIDTH">256</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="C_M_AXI_B3_TARGET_ADDR">0xC4000000</spirit:configurableElementValue>
+        </spirit:configurableElementValues>
+      </spirit:componentInstance>
+      <spirit:componentInstance>
+        <spirit:instanceName>bmm_top_2</spirit:instanceName>
+        <spirit:componentRef spirit:library="hls" spirit:name="bmm_top" spirit:vendor="xilinx.com" spirit:version="20.0"/>
+        <spirit:configurableElementValues>
+          <spirit:configurableElementValue spirit:referenceId="bd:xciName">dma3_bmm_top_0_3</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="C_M_AXI_B1_DATA_WIDTH">256</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="C_M_AXI_B1_TARGET_ADDR">0xC0000000</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="C_M_AXI_B2_DATA_WIDTH">256</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="C_M_AXI_B2_TARGET_ADDR">0xC5000000</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="C_M_AXI_B3_DATA_WIDTH">256</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="C_M_AXI_B3_TARGET_ADDR">0xC6000000</spirit:configurableElementValue>
+        </spirit:configurableElementValues>
+      </spirit:componentInstance>
+      <spirit:componentInstance>
+        <spirit:instanceName>bmm_top_3</spirit:instanceName>
+        <spirit:componentRef spirit:library="hls" spirit:name="bmm_top" spirit:vendor="xilinx.com" spirit:version="20.0"/>
+        <spirit:configurableElementValues>
+          <spirit:configurableElementValue spirit:referenceId="bd:xciName">dma3_bmm_top_0_4</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="C_M_AXI_B1_DATA_WIDTH">256</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="C_M_AXI_B1_TARGET_ADDR">0xC0000000</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="C_M_AXI_B2_DATA_WIDTH">256</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="C_M_AXI_B2_TARGET_ADDR">0xC7000000</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="C_M_AXI_B3_DATA_WIDTH">256</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="C_M_AXI_B3_TARGET_ADDR">0xC8000000</spirit:configurableElementValue>
         </spirit:configurableElementValues>
       </spirit:componentInstance>
     </spirit:componentInstances>
@@ -574,16 +574,16 @@
         <spirit:internalPortReference spirit:componentRef="blkA" spirit:portRef="s_axi_aclk"/>
         <spirit:internalPortReference spirit:componentRef="axi_interconnect_0" spirit:portRef="S04_ACLK"/>
         <spirit:internalPortReference spirit:componentRef="bmm_bram_ic0" spirit:portRef="S04_ACLK"/>
-        <spirit:internalPortReference spirit:componentRef="bmm_top_0" spirit:portRef="aclk"/>
-        <spirit:internalPortReference spirit:componentRef="bmm_top_1" spirit:portRef="aclk"/>
-        <spirit:internalPortReference spirit:componentRef="bmm_top_2" spirit:portRef="aclk"/>
-        <spirit:internalPortReference spirit:componentRef="bmm_top_3" spirit:portRef="aclk"/>
         <spirit:internalPortReference spirit:componentRef="axi_interconnect_1" spirit:portRef="ACLK"/>
         <spirit:internalPortReference spirit:componentRef="axi_interconnect_1" spirit:portRef="S00_ACLK"/>
         <spirit:internalPortReference spirit:componentRef="axi_interconnect_1" spirit:portRef="M00_ACLK"/>
         <spirit:internalPortReference spirit:componentRef="axi_interconnect_1" spirit:portRef="M01_ACLK"/>
         <spirit:internalPortReference spirit:componentRef="axi_interconnect_1" spirit:portRef="M02_ACLK"/>
         <spirit:internalPortReference spirit:componentRef="axi_dwidth_converter_0" spirit:portRef="s_axi_aclk"/>
+        <spirit:internalPortReference spirit:componentRef="bmm_top_0" spirit:portRef="aclk"/>
+        <spirit:internalPortReference spirit:componentRef="bmm_top_1" spirit:portRef="aclk"/>
+        <spirit:internalPortReference spirit:componentRef="bmm_top_2" spirit:portRef="aclk"/>
+        <spirit:internalPortReference spirit:componentRef="bmm_top_3" spirit:portRef="aclk"/>
       </spirit:adHocConnection>
     </spirit:adHocConnections>
     <spirit:hierConnections>
@@ -3594,7 +3594,7 @@
         <spirit:instanceName>auto_us</spirit:instanceName>
         <spirit:componentRef spirit:library="ip" spirit:name="axi_dwidth_converter" spirit:vendor="xilinx.com" spirit:version="2.1"/>
         <spirit:configurableElementValues>
-          <spirit:configurableElementValue spirit:referenceId="bd:xciName">dma3_auto_us_25</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="bd:xciName">dma3_auto_us_49</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="SI_DATA_WIDTH">32</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="MI_DATA_WIDTH">256</spirit:configurableElementValue>
         </spirit:configurableElementValues>
@@ -3789,7 +3789,7 @@
         <spirit:instanceName>auto_us</spirit:instanceName>
         <spirit:componentRef spirit:library="ip" spirit:name="axi_dwidth_converter" spirit:vendor="xilinx.com" spirit:version="2.1"/>
         <spirit:configurableElementValues>
-          <spirit:configurableElementValue spirit:referenceId="bd:xciName">dma3_auto_us_24</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="bd:xciName">dma3_auto_us_48</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="SI_DATA_WIDTH">32</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="MI_DATA_WIDTH">256</spirit:configurableElementValue>
         </spirit:configurableElementValues>
@@ -3984,7 +3984,7 @@
         <spirit:instanceName>auto_us</spirit:instanceName>
         <spirit:componentRef spirit:library="ip" spirit:name="axi_dwidth_converter" spirit:vendor="xilinx.com" spirit:version="2.1"/>
         <spirit:configurableElementValues>
-          <spirit:configurableElementValue spirit:referenceId="bd:xciName">dma3_auto_us_23</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="bd:xciName">dma3_auto_us_47</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="SI_DATA_WIDTH">32</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="MI_DATA_WIDTH">256</spirit:configurableElementValue>
         </spirit:configurableElementValues>
@@ -4179,7 +4179,7 @@
         <spirit:instanceName>auto_us</spirit:instanceName>
         <spirit:componentRef spirit:library="ip" spirit:name="axi_dwidth_converter" spirit:vendor="xilinx.com" spirit:version="2.1"/>
         <spirit:configurableElementValues>
-          <spirit:configurableElementValue spirit:referenceId="bd:xciName">dma3_auto_us_22</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="bd:xciName">dma3_auto_us_46</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="SI_DATA_WIDTH">32</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="MI_DATA_WIDTH">256</spirit:configurableElementValue>
         </spirit:configurableElementValues>
@@ -6085,7 +6085,7 @@
         <spirit:instanceName>auto_us</spirit:instanceName>
         <spirit:componentRef spirit:library="ip" spirit:name="axi_dwidth_converter" spirit:vendor="xilinx.com" spirit:version="2.1"/>
         <spirit:configurableElementValues>
-          <spirit:configurableElementValue spirit:referenceId="bd:xciName">dma3_auto_us_21</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="bd:xciName">dma3_auto_us_45</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="SI_DATA_WIDTH">32</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="MI_DATA_WIDTH">256</spirit:configurableElementValue>
         </spirit:configurableElementValues>
@@ -6280,7 +6280,7 @@
         <spirit:instanceName>auto_us</spirit:instanceName>
         <spirit:componentRef spirit:library="ip" spirit:name="axi_dwidth_converter" spirit:vendor="xilinx.com" spirit:version="2.1"/>
         <spirit:configurableElementValues>
-          <spirit:configurableElementValue spirit:referenceId="bd:xciName">dma3_auto_us_20</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="bd:xciName">dma3_auto_us_44</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="SI_DATA_WIDTH">32</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="MI_DATA_WIDTH">256</spirit:configurableElementValue>
         </spirit:configurableElementValues>
@@ -6475,7 +6475,7 @@
         <spirit:instanceName>auto_us</spirit:instanceName>
         <spirit:componentRef spirit:library="ip" spirit:name="axi_dwidth_converter" spirit:vendor="xilinx.com" spirit:version="2.1"/>
         <spirit:configurableElementValues>
-          <spirit:configurableElementValue spirit:referenceId="bd:xciName">dma3_auto_us_19</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="bd:xciName">dma3_auto_us_43</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="SI_DATA_WIDTH">32</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="MI_DATA_WIDTH">256</spirit:configurableElementValue>
         </spirit:configurableElementValues>
@@ -6670,7 +6670,7 @@
         <spirit:instanceName>auto_us</spirit:instanceName>
         <spirit:componentRef spirit:library="ip" spirit:name="axi_dwidth_converter" spirit:vendor="xilinx.com" spirit:version="2.1"/>
         <spirit:configurableElementValues>
-          <spirit:configurableElementValue spirit:referenceId="bd:xciName">dma3_auto_us_18</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="bd:xciName">dma3_auto_us_42</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="SI_DATA_WIDTH">32</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="MI_DATA_WIDTH">256</spirit:configurableElementValue>
         </spirit:configurableElementValues>
@@ -7814,7 +7814,7 @@
         <spirit:instanceName>auto_us</spirit:instanceName>
         <spirit:componentRef spirit:library="ip" spirit:name="axi_dwidth_converter" spirit:vendor="xilinx.com" spirit:version="2.1"/>
         <spirit:configurableElementValues>
-          <spirit:configurableElementValue spirit:referenceId="bd:xciName">dma3_auto_us_17</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="bd:xciName">dma3_auto_us_41</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="SI_DATA_WIDTH">32</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="MI_DATA_WIDTH">256</spirit:configurableElementValue>
         </spirit:configurableElementValues>
@@ -8009,7 +8009,7 @@
         <spirit:instanceName>auto_us</spirit:instanceName>
         <spirit:componentRef spirit:library="ip" spirit:name="axi_dwidth_converter" spirit:vendor="xilinx.com" spirit:version="2.1"/>
         <spirit:configurableElementValues>
-          <spirit:configurableElementValue spirit:referenceId="bd:xciName">dma3_auto_us_16</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="bd:xciName">dma3_auto_us_40</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="SI_DATA_WIDTH">32</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="MI_DATA_WIDTH">256</spirit:configurableElementValue>
         </spirit:configurableElementValues>
@@ -8204,7 +8204,7 @@
         <spirit:instanceName>auto_us</spirit:instanceName>
         <spirit:componentRef spirit:library="ip" spirit:name="axi_dwidth_converter" spirit:vendor="xilinx.com" spirit:version="2.1"/>
         <spirit:configurableElementValues>
-          <spirit:configurableElementValue spirit:referenceId="bd:xciName">dma3_auto_us_15</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="bd:xciName">dma3_auto_us_39</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="SI_DATA_WIDTH">32</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="MI_DATA_WIDTH">256</spirit:configurableElementValue>
         </spirit:configurableElementValues>
@@ -8399,7 +8399,7 @@
         <spirit:instanceName>auto_us</spirit:instanceName>
         <spirit:componentRef spirit:library="ip" spirit:name="axi_dwidth_converter" spirit:vendor="xilinx.com" spirit:version="2.1"/>
         <spirit:configurableElementValues>
-          <spirit:configurableElementValue spirit:referenceId="bd:xciName">dma3_auto_us_14</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="bd:xciName">dma3_auto_us_38</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="SI_DATA_WIDTH">32</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="MI_DATA_WIDTH">256</spirit:configurableElementValue>
         </spirit:configurableElementValues>
@@ -10060,7 +10060,7 @@
         <spirit:instanceName>auto_pc</spirit:instanceName>
         <spirit:componentRef spirit:library="ip" spirit:name="axi_protocol_converter" spirit:vendor="xilinx.com" spirit:version="2.1"/>
         <spirit:configurableElementValues>
-          <spirit:configurableElementValue spirit:referenceId="bd:xciName">dma3_auto_pc_185</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="bd:xciName">dma3_auto_pc_191</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="SI_PROTOCOL">AXI4</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="MI_PROTOCOL">AXI3</spirit:configurableElementValue>
         </spirit:configurableElementValues>
@@ -10806,7 +10806,7 @@
         <spirit:instanceName>auto_pc</spirit:instanceName>
         <spirit:componentRef spirit:library="ip" spirit:name="axi_protocol_converter" spirit:vendor="xilinx.com" spirit:version="2.1"/>
         <spirit:configurableElementValues>
-          <spirit:configurableElementValue spirit:referenceId="bd:xciName">dma3_auto_pc_184</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="bd:xciName">dma3_auto_pc_190</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="SI_PROTOCOL">AXI4</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="MI_PROTOCOL">AXI3</spirit:configurableElementValue>
         </spirit:configurableElementValues>
@@ -12678,7 +12678,7 @@
         <spirit:instanceName>auto_pc</spirit:instanceName>
         <spirit:componentRef spirit:library="ip" spirit:name="axi_protocol_converter" spirit:vendor="xilinx.com" spirit:version="2.1"/>
         <spirit:configurableElementValues>
-          <spirit:configurableElementValue spirit:referenceId="bd:xciName">dma3_auto_pc_183</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="bd:xciName">dma3_auto_pc_189</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="SI_PROTOCOL">AXI3</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="MI_PROTOCOL">AXI4LITE</spirit:configurableElementValue>
         </spirit:configurableElementValues>
@@ -12846,7 +12846,7 @@
     <spirit:vendor>xilinx.com</spirit:vendor>
     <spirit:library>Addressing/bmm_top_0</spirit:library>
     <spirit:name>bmm_top</spirit:name>
-    <spirit:version>18.0</spirit:version>
+    <spirit:version>20.0</spirit:version>
     <spirit:addressSpaces>
       <spirit:addressSpace>
         <spirit:name>Data</spirit:name>
@@ -12880,7 +12880,7 @@
     <spirit:vendor>xilinx.com</spirit:vendor>
     <spirit:library>Addressing/bmm_top_1</spirit:library>
     <spirit:name>bmm_top</spirit:name>
-    <spirit:version>18.0</spirit:version>
+    <spirit:version>20.0</spirit:version>
     <spirit:addressSpaces>
       <spirit:addressSpace>
         <spirit:name>Data</spirit:name>
@@ -12914,7 +12914,7 @@
     <spirit:vendor>xilinx.com</spirit:vendor>
     <spirit:library>Addressing/bmm_top_2</spirit:library>
     <spirit:name>bmm_top</spirit:name>
-    <spirit:version>18.0</spirit:version>
+    <spirit:version>20.0</spirit:version>
     <spirit:addressSpaces>
       <spirit:addressSpace>
         <spirit:name>Data</spirit:name>
@@ -12948,7 +12948,7 @@
     <spirit:vendor>xilinx.com</spirit:vendor>
     <spirit:library>Addressing/bmm_top_3</spirit:library>
     <spirit:name>bmm_top</spirit:name>
-    <spirit:version>18.0</spirit:version>
+    <spirit:version>20.0</spirit:version>
     <spirit:addressSpaces>
       <spirit:addressSpace>
         <spirit:name>Data</spirit:name>

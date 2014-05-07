@@ -16,76 +16,45 @@
 <EstimatedClockPeriod>8.75</EstimatedClockPeriod>
 </SummaryOfTimingAnalysis>
 <SummaryOfOverallLatency>
-<Best-caseLatency>undef</Best-caseLatency>
+<Best-caseLatency>7</Best-caseLatency>
 <Average-caseLatency>undef</Average-caseLatency>
-<Worst-caseLatency>undef</Worst-caseLatency>
-<PipelineInitiationInterval>undef</PipelineInitiationInterval>
+<Worst-caseLatency>3758096384</Worst-caseLatency>
+<PipelineInitiationInterval>8 ~ 3758096385</PipelineInitiationInterval>
 <PipelineType>none</PipelineType>
 </SummaryOfOverallLatency>
 <SummaryOfLoopLatency>
 <Loop1>
 <Name>Loop 1</Name>
-<TripCount>undef</TripCount>
-<Latency>undef</Latency>
-<IterationLatency>undef</IterationLatency>
-<PipelineDepth>undef</PipelineDepth>
-<Loop1.1>
-<Name>Loop 1.1</Name>
 <TripCount>
 <range>
 <min>0</min>
-<max>33554431</max>
+<max>536870911</max>
 </range>
 </TripCount>
-<Latency>0 ~ 234881017</Latency>
-<IterationLatency>7</IterationLatency>
-<PipelineDepth>7</PipelineDepth>
-</Loop1.1>
-<Loop1.2>
-<Name>Loop 1.2</Name>
-<TripCount>undef</TripCount>
-<Latency>undef</Latency>
-<IterationLatency>
-<range>
-<min>2</min>
-<max>234881019</max>
-</range>
-</IterationLatency>
-<PipelineDepth>2 ~ 234881019</PipelineDepth>
-<Loop1.2.1>
-<Name>Loop 1.2.1</Name>
-<TripCount>
-<range>
-<min>0</min>
-<max>33554431</max>
-</range>
-</TripCount>
-<Latency>0 ~ 234881017</Latency>
-<IterationLatency>7</IterationLatency>
-<PipelineDepth>7</PipelineDepth>
-</Loop1.2.1>
-</Loop1.2>
-<Loop1.3>
-<Name>Loop 1.3</Name>
-<TripCount>
-<range>
-<min>0</min>
-<max>33554431</max>
-</range>
-</TripCount>
-<Latency>0 ~ 67108862</Latency>
-<IterationLatency>2</IterationLatency>
-<PipelineDepth>2</PipelineDepth>
-</Loop1.3>
+<Latency>0 ~ 3221225466</Latency>
+<IterationLatency>6</IterationLatency>
+<PipelineDepth>6</PipelineDepth>
 </Loop1>
+<Loop2>
+<Name>Loop 2</Name>
+<TripCount>
+<range>
+<min>0</min>
+<max>536870911</max>
+</range>
+</TripCount>
+<Latency>0 ~ 536870911</Latency>
+<IterationLatency>1</IterationLatency>
+<PipelineDepth>1</PipelineDepth>
+</Loop2>
 </SummaryOfLoopLatency>
 </PerformanceEstimates>
 <AreaEstimates>
 <Resources>
-<FF>450</FF>
-<LUT>734</LUT>
+<DSP48E>4</DSP48E>
+<FF>257</FF>
+<LUT>1177</LUT>
 <BRAM_18K>0</BRAM_18K>
-<DSP48E>0</DSP48E>
 <SLICE>0</SLICE>
 </Resources>
 </AreaEstimates>

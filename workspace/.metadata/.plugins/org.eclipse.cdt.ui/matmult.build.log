@@ -1,6 +1,6 @@
-11:53:19 **** Incremental Build of configuration Debug for project matmult ****
+19:09:33 **** Incremental Build of configuration Debug for project matmult ****
 make all 
 make: Nothing to be done for `all'.
 
-11:53:19 Build Finished (took 69ms)
+19:09:33 Build Finished (took 85ms)
 

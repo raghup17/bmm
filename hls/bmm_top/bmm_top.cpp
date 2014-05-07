@@ -3,15 +3,15 @@
 
 #define BRAM_DT int256
 #define BUS_WIDTH 256
-#define ELEM_WIDTH_BYTES sizeof(int)
-#define ELEM_WIDTH_BITS ELEM_WIDTH_BYTES*8
-#define ELEMS_PER_BUS BUS_WIDTH/ELEM_WIDTH_BITS
-#define ELEM_WIDTH_MASK ELEM_WIDTH_BITS-1
+#define ELEM_WIDTH_BYTES 4
+#define ELEM_WIDTH_BITS (ELEM_WIDTH_BYTES*8)
+#define ELEMS_PER_BUS (BUS_WIDTH/ELEM_WIDTH_BITS)
+#define ELEM_WIDTH_MASK (ELEM_WIDTH_BITS-1)
 
 // In ELEM_WIDTH_BYTES
 #define BDIM 128
-#define BSIZE BDIM*BDIM
-#define RAM_SIZE (BSIZE*ELEM_WIDTH_BITS)/(BUS_WIDTH)
+#define BSIZE (BDIM*BDIM)
+#define RAM_SIZE ((BSIZE*ELEM_WIDTH_BITS)/(BUS_WIDTH))
 
 //void bmm_top(volatile ap_uint<BUS_WIDTH> b1[RAM_SIZE], volatile ap_uint<BUS_WIDTH> b2[RAM_SIZE],  volatile ap_uint<BUS_WIDTH> b3[RAM_SIZE], int blockSize)
 void bmm_top(volatile BRAM_DT b1[RAM_SIZE], volatile BRAM_DT b2[RAM_SIZE],  volatile BRAM_DT b3[RAM_SIZE], int blockSize)
@@ -27,28 +27,73 @@ void bmm_top(volatile BRAM_DT b1[RAM_SIZE], volatile BRAM_DT b2[RAM_SIZE],  vola
 #pragma HLS RESOURCE core=AXI4LiteS variable=blockSize metadata="-bus_bundle CONTROL"
 
 
-	int i, j,k;
+	int i,j,k;
 	int arow[BDIM], brow[BDIM], crow[BDIM];
 #pragma HLS ARRAY_PARTITION variable=arow complete dim=1
 #pragma HLS ARRAY_PARTITION variable=brow complete dim=1
 #pragma HLS ARRAY_PARTITION variable=crow complete dim=1
 
+	b1[0] = 10*blockSize;
+	b2[0] = 20*blockSize;
+	b3[0] = 30*blockSize;
+
 	int bsize = blockSize;
 	int dim = bsize / ELEMS_PER_BUS;
+
+	int total = bsize*bsize/ELEMS_PER_BUS;
+	for (i = 0; i<total; i++) {
+		BRAM_DT curElemA = b1[i];
+		BRAM_DT curElemB = b2[i];
+		BRAM_DT curElemC = b3[i];
+		for (int t2=0; t2<ELEMS_PER_BUS; t2++) {
+#pragma HLS UNROLL
+				arow[i*ELEMS_PER_BUS+t2] =  apint_get_range(curElemA, t2*ELEM_WIDTH_BITS + ELEM_WIDTH_BITS-1, t2*ELEM_WIDTH_BITS); // curElemA & mask; 
+				brow[i*ELEMS_PER_BUS+t2] =  apint_get_range(curElemB, t2*ELEM_WIDTH_BITS + ELEM_WIDTH_BITS-1, t2*ELEM_WIDTH_BITS); // curElemA & mask; 
+				crow[i*ELEMS_PER_BUS+t2] =  apint_get_range(curElemC, t2*ELEM_WIDTH_BITS + ELEM_WIDTH_BITS-1, t2*ELEM_WIDTH_BITS); // curElemC & mask; 
+		}
+	}	
+
+	for (int t1=0; t1<bsize; t1++) {
+		arow[t1] *= 2;
+		brow[t1] *= 5;
+		crow[t1] *= 10;
+	}
+
+	for (int i=0; i<total; i++) {
+		BRAM_DT curElemA = 0;   // b3[i+t1]
+		BRAM_DT curElemB = 0;   // b3[i+t1]
+		BRAM_DT curElemC = 0;   // b3[i+t1]
+		for (int t2=0; t2<ELEMS_PER_BUS; t2++) {
+#pragma HLS UNROLL
+			apint_set_range(curElemA, t2*ELEM_WIDTH_BITS + ELEM_WIDTH_BITS-1, t2*ELEM_WIDTH_BITS, crow[i*ELEMS_PER_BUS+t2]);
+			apint_set_range(curElemB, t2*ELEM_WIDTH_BITS + ELEM_WIDTH_BITS-1, t2*ELEM_WIDTH_BITS, crow[i*ELEMS_PER_BUS+t2]);
+			apint_set_range(curElemC, t2*ELEM_WIDTH_BITS + ELEM_WIDTH_BITS-1, t2*ELEM_WIDTH_BITS, crow[i*ELEMS_PER_BUS+t2]);
+		}
+		b1[i] = curElemA;
+		b2[i] = curElemB;
+		b3[i] = curElemC;
+	}
+
+/*
 	for (i=0; i<bsize; i+=dim) {
 
 		// Read row i from b1 into arow
 		// Read row i from b3 into crow
 		for (int t1=0; t1<dim; t1++) {
 			BRAM_DT curElemA = b1[i+t1];
+			BRAM_DT curElemB = b2[i+t1];
 			BRAM_DT curElemC = b3[i+t1];
 			for (int t2=0; t2<ELEMS_PER_BUS; t2++) {
 #pragma HLS UNROLL
 				arow[t1*ELEMS_PER_BUS+t2] =  apint_get_range(curElemA, t2*ELEM_WIDTH_BITS + ELEM_WIDTH_BITS-1, t2*ELEM_WIDTH_BITS); // curElemA & mask; 
+				brow[t1*ELEMS_PER_BUS+t2] =  apint_get_range(curElemB, t2*ELEM_WIDTH_BITS + ELEM_WIDTH_BITS-1, t2*ELEM_WIDTH_BITS); // curElemA & mask; 
 				crow[t1*ELEMS_PER_BUS+t2] =  apint_get_range(curElemC, t2*ELEM_WIDTH_BITS + ELEM_WIDTH_BITS-1, t2*ELEM_WIDTH_BITS); // curElemC & mask; 
 			}
 		}
+
+
 		
+
 		for (j=0; j<bsize; j++) {
 			// Read row j from b2 into brow		
 			for (int t1=0; t1<dim; t1++) {
@@ -79,7 +124,7 @@ void bmm_top(volatile BRAM_DT b1[RAM_SIZE], volatile BRAM_DT b2[RAM_SIZE],  vola
 		}
 	}
 
-	
+*/	
 
 /*
 	// SIMD-style matrix multiply
