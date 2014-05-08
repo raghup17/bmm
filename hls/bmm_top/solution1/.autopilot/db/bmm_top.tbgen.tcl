@@ -8,9 +8,9 @@ set isOneStateSeq 0
 set C_modelName bmm_top
 set C_modelType { void 0 }
 set C_modelArgList { 
-	{ b1 int 256 regular {bus 2 volatile }  }
-	{ b2 int 256 regular {bus 2 volatile }  }
-	{ b3 int 256 regular {bus 2 volatile }  }
+	{ b1 int 256 regular {bus 2}  }
+	{ b2 int 256 regular {bus 2}  }
+	{ b3 int 256 regular {bus 2}  }
 	{ blockSize int 32 regular  }
 }
 set C_modelArgMapList {[ 

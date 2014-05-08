@@ -33,10 +33,6 @@ void bmm_top(volatile BRAM_DT b1[RAM_SIZE], volatile BRAM_DT b2[RAM_SIZE],  vola
 #pragma HLS ARRAY_PARTITION variable=brow complete dim=1
 #pragma HLS ARRAY_PARTITION variable=crow complete dim=1
 
-	b1[0] = 10*blockSize;
-	b2[0] = 20*blockSize;
-	b3[0] = 30*blockSize;
-
 	int bsize = blockSize;
 	int dim = bsize / ELEMS_PER_BUS;
 
@@ -53,10 +49,10 @@ void bmm_top(volatile BRAM_DT b1[RAM_SIZE], volatile BRAM_DT b2[RAM_SIZE],  vola
 		}
 	}	
 
-	for (int t1=0; t1<bsize; t1++) {
-		arow[t1] *= 2;
-		brow[t1] *= 5;
-		crow[t1] *= 10;
+	for (int t1=0; t1<bsize*bsize; t1++) {
+		arow[t1] = t1;
+		brow[t1] = t1*2;
+		crow[t1] = t1*5;
 	}
 
 	for (int i=0; i<total; i++) {

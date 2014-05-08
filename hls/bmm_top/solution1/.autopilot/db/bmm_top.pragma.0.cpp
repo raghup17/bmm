@@ -45318,10 +45318,6 @@ void bmm_top(volatile int256 b1[(((128*128)*(4*8))/(256))], volatile int256 b2[(
 #pragma HLS ARRAY_PARTITION variable=brow complete dim=1
 #pragma HLS ARRAY_PARTITION variable=crow complete dim=1
 
- b1[0] = 10*blockSize;
- b2[0] = 20*blockSize;
- b3[0] = 30*blockSize;
-
  int bsize = blockSize;
  int dim = bsize / (256/(4*8));
 
@@ -45338,10 +45334,10 @@ void bmm_top(volatile int256 b1[(((128*128)*(4*8))/(256))], volatile int256 b2[(
   _ssdm_RegionEnd("hls_label_0");}
  }
 
- for (int t1=0; t1<bsize; t1++) {
-  arow[t1] *= 2;
-  brow[t1] *= 5;
-  crow[t1] *= 10;
+ for (int t1=0; t1<bsize*bsize; t1++) {
+  arow[t1] = t1;
+  brow[t1] = t1*2;
+  crow[t1] = t1*5;
  }
 
  for (int i=0; i<total; i++) {

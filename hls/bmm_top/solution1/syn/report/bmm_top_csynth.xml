@@ -43,7 +43,7 @@
 <Loop2>
 <TripCount>undef</TripCount>
 <Latency>undef</Latency>
-<IterationLatency>5</IterationLatency>
+<IterationLatency>1</IterationLatency>
 </Loop2>
 <Loop3>
 <TripCount>
@@ -66,8 +66,8 @@
 <AreaEstimates>
 <Resources>
 <DSP48E>4</DSP48E>
-<FF>38194</FF>
-<LUT>25603</LUT>
+<FF>37967</FF>
+<LUT>16577</LUT>
 <BRAM_18K>0</BRAM_18K>
 <SLICE>0</SLICE>
 </Resources>

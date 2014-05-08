@@ -10,18 +10,18 @@ Copyright (C) 2013 Xilinx Inc. All rights reserved.
 @I [HLS-10] Analyzing design file 'bmm_top/bmm_top.cpp' ... 
 @I [HLS-10] Validating synthesis directives ...
 @I [HLS-10] Checking synthesizability ...
-@W [SYNCHK-23] bmm_top/bmm_top.cpp:50: variable-indexed range selection may cause suboptimal QoR.
+@W [SYNCHK-23] bmm_top/bmm_top.cpp:46: variable-indexed range selection may cause suboptimal QoR.
 @I [SYNCHK-10] 0 error(s), 1 warning(s).
 @I [HLS-10] Starting code transformations ...
-@I [XFORM-501] Unrolling loop 'Loop-1.1' (bmm_top/bmm_top.cpp:48) in function 'bmm_top' completely.
-@I [XFORM-501] Unrolling loop 'Loop-3.1' (bmm_top/bmm_top.cpp:66) in function 'bmm_top' completely.
-@W [XFORM-104] Completely partitioning array 'arow' (bmm_top/bmm_top.cpp:31) accessed through non-constant indices on dimension 1 (bmm_top/bmm_top.cpp:68:154), which may result in long runtime and suboptimal QoR due to large multiplexers. Please consider wrapping the array access into a function or using a register file core instead.
+@I [XFORM-501] Unrolling loop 'Loop-1.1' (bmm_top/bmm_top.cpp:44) in function 'bmm_top' completely.
+@I [XFORM-501] Unrolling loop 'Loop-3.1' (bmm_top/bmm_top.cpp:62) in function 'bmm_top' completely.
+@W [XFORM-104] Completely partitioning array 'arow' (bmm_top/bmm_top.cpp:31) accessed through non-constant indices on dimension 1 (bmm_top/bmm_top.cpp:64:154), which may result in long runtime and suboptimal QoR due to large multiplexers. Please consider wrapping the array access into a function or using a register file core instead.
 @I [XFORM-101] Partitioning array 'arow' (bmm_top/bmm_top.cpp:31) in dimension 1 completely.
-@W [XFORM-104] Completely partitioning array 'brow' (bmm_top/bmm_top.cpp:31) accessed through non-constant indices on dimension 1 (bmm_top/bmm_top.cpp:69:156), which may result in long runtime and suboptimal QoR due to large multiplexers. Please consider wrapping the array access into a function or using a register file core instead.
+@W [XFORM-104] Completely partitioning array 'brow' (bmm_top/bmm_top.cpp:31) accessed through non-constant indices on dimension 1 (bmm_top/bmm_top.cpp:65:156), which may result in long runtime and suboptimal QoR due to large multiplexers. Please consider wrapping the array access into a function or using a register file core instead.
 @I [XFORM-101] Partitioning array 'brow' (bmm_top/bmm_top.cpp:31) in dimension 1 completely.
-@W [XFORM-104] Completely partitioning array 'crow' (bmm_top/bmm_top.cpp:31) accessed through non-constant indices on dimension 1 (bmm_top/bmm_top.cpp:70:156), which may result in long runtime and suboptimal QoR due to large multiplexers. Please consider wrapping the array access into a function or using a register file core instead.
+@W [XFORM-104] Completely partitioning array 'crow' (bmm_top/bmm_top.cpp:31) accessed through non-constant indices on dimension 1 (bmm_top/bmm_top.cpp:66:156), which may result in long runtime and suboptimal QoR due to large multiplexers. Please consider wrapping the array access into a function or using a register file core instead.
 @I [XFORM-101] Partitioning array 'crow' (bmm_top/bmm_top.cpp:31) in dimension 1 completely.
-@I [HLS-111] Elapsed time: 107.48 seconds; current memory usage: 511 MB.
+@I [HLS-111] Elapsed time: 86.86 seconds; current memory usage: 626 MB.
 @I [HLS-10] Starting hardware synthesis ...
 @I [HLS-10] Synthesizing 'bmm_top' ...
 @I [HLS-10] ----------------------------------------------------------------
@@ -29,7 +29,7 @@ Copyright (C) 2013 Xilinx Inc. All rights reserved.
 @I [HLS-10] ----------------------------------------------------------------
 @I [SCHED-11] Starting scheduling ...
 @I [SCHED-11] Finished scheduling.
-@I [HLS-111] Elapsed time: 107.26 seconds; current memory usage: 557 MB.
+@I [HLS-111] Elapsed time: 114.14 seconds; current memory usage: 650 MB.
 @I [HLS-10] ----------------------------------------------------------------
 @I [HLS-10] -- Exploring micro-architecture for module 'bmm_top' 
 @I [HLS-10] ----------------------------------------------------------------
@@ -38,7 +38,7 @@ Copyright (C) 2013 Xilinx Inc. All rights reserved.
 @I [BIND-101] Exploring resource sharing.
 @I [BIND-101] Binding ...
 @I [BIND-100] Finished micro-architecture generation.
-@I [HLS-111] Elapsed time: 6.82 seconds; current memory usage: 620 MB.
+@I [HLS-111] Elapsed time: 3.36 seconds; current memory usage: 660 MB.
 @I [HLS-10] ----------------------------------------------------------------
 @I [HLS-10] -- Generating RTL for module 'bmm_top' 
 @I [HLS-10] ----------------------------------------------------------------
@@ -49,12 +49,12 @@ Copyright (C) 2013 Xilinx Inc. All rights reserved.
 @I [RTGEN-500] Setting interface mode on function 'bmm_top' to 'ap_ctrl_hs'.
 @I [RTGEN-100] Generating core module 'bmm_top_mul_32s_32s_32_6': 1 instance(s).
 @I [RTGEN-100] Finished creating RTL model for 'bmm_top'.
-@I [HLS-111] Elapsed time: 27.77 seconds; current memory usage: 665 MB.
+@I [HLS-111] Elapsed time: 2.73 seconds; current memory usage: 667 MB.
 @I [RTMG-282] Generating pipelined core: 'bmm_top_mul_32s_32s_32_6_MulnS_0'
 @I [HLS-10] Finished generating all RTL models.
 @I [WSYSC-301] Generating RTL SystemC for 'bmm_top'.
 @I [WVHDL-304] Generating RTL VHDL for 'bmm_top'.
 @I [WVLOG-307] Generating RTL Verilog for 'bmm_top'.
 @I [IMPL-8] Exporting RTL as an IP in IP-XACT.
-@I [HLS-112] Total elapsed time: 290.46 seconds; peak memory usage: 665 MB.
+@I [HLS-112] Total elapsed time: 247.661 seconds; peak memory usage: 667 MB.
 @I [LIC-101] Checked in feature [HLS]

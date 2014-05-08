@@ -45318,10 +45318,6 @@ _ssdm_SpecArrayPartition( arow, 1, "COMPLETE", 0, "");
 _ssdm_SpecArrayPartition( brow, 1, "COMPLETE", 0, "");
 _ssdm_SpecArrayPartition( crow, 1, "COMPLETE", 0, "");
 
- b1[0] = 10*blockSize;
- b2[0] = 20*blockSize;
- b3[0] = 30*blockSize;
-
  int bsize = blockSize;
  int dim = bsize / (256/(4*8));
 
@@ -45338,10 +45334,10 @@ _ssdm_Unroll(0,0,0, "");
   _ssdm_RegionEnd("hls_label_0");}
  }
 
- for (int t1=0; t1<bsize; t1++) {
-  arow[t1] *= 2;
-  brow[t1] *= 5;
-  crow[t1] *= 10;
+ for (int t1=0; t1<bsize*bsize; t1++) {
+  arow[t1] = t1;
+  brow[t1] = t1*2;
+  crow[t1] = t1*5;
  }
 
  for (int i=0; i<total; i++) {
