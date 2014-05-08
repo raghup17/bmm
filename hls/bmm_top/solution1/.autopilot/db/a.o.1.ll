@@ -1,4 +1,4 @@
-; ModuleID = '/home/raghu/work/projects/dma3/hls/bmm_top/solution1/.autopilot/db/a.g.1.bc'
+; ModuleID = '/home/raghu/w/vivadoProjects/bmm/hls/bmm_top/solution1/.autopilot/db/a.g.1.bc'
 target datalayout = "e-p:64:64:64-i1:8:8-i8:8:8-i16:16:16-i32:32:32-i64:64:64-f32:32:32-f64:64:64-v64:64:64-v128:128:128-a0:0:64-s0:64:64-f80:128:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
@@ -29,8 +29,8 @@ declare i32 @atexit(void ()*) nounwind
 define void @bmm_top(i256* %b1, i256* %b2, i256* %b3, i32 %blockSize) nounwind uwtable {
   call void (...)* @_ssdm_op_SpecTopModule([8 x i8]* @str) nounwind
   %blockSize.assign = alloca i32, align 4         ; [#uses=3 type=i32*]
-  %arow = alloca [128 x i32], align 16            ; [#uses=3 type=[128 x i32]*]
-  %brow = alloca [128 x i32], align 16            ; [#uses=3 type=[128 x i32]*]
+  %arow = alloca [128 x i32], align 16            ; [#uses=4 type=[128 x i32]*]
+  %brow = alloca [128 x i32], align 16            ; [#uses=4 type=[128 x i32]*]
   %crow = alloca [128 x i32], align 16            ; [#uses=4 type=[128 x i32]*]
   call void @llvm.dbg.value(metadata !{i256* %b1}, i64 0, metadata !901), !dbg !902 ; [debug line = 17:30] [debug variable = b1]
   call void @llvm.dbg.value(metadata !{i256* %b2}, i64 0, metadata !903), !dbg !904 ; [debug line = 17:77] [debug variable = b2]
@@ -114,14 +114,14 @@ define void @bmm_top(i256* %b1, i256* %b2, i256* %b3, i32 %blockSize) nounwind u
 ; <label>:2                                       ; preds = %1
   %tmp.8 = sext i32 %i to i64, !dbg !945          ; [#uses=3 type=i64] [debug line = 45:26]
   %b1.addr = getelementptr inbounds i256* %b1, i64 %tmp.8, !dbg !945 ; [#uses=1 type=i256*] [debug line = 45:26]
-  %curElemA = load volatile i256* %b1.addr, align 32, !dbg !945 ; [#uses=1 type=i256] [debug line = 45:26]
-  call void @llvm.dbg.value(metadata !{i256 %curElemA}, i64 0, metadata !947), !dbg !945 ; [debug line = 45:26] [debug variable = curElemA]
+  %curElemA.1 = load volatile i256* %b1.addr, align 32, !dbg !945 ; [#uses=1 type=i256] [debug line = 45:26]
+  call void @llvm.dbg.value(metadata !{i256 %curElemA.1}, i64 0, metadata !947), !dbg !945 ; [debug line = 45:26] [debug variable = curElemA]
   %b2.addr = getelementptr inbounds i256* %b2, i64 %tmp.8, !dbg !948 ; [#uses=1 type=i256*] [debug line = 46:26]
-  %curElemB = load volatile i256* %b2.addr, align 32, !dbg !948 ; [#uses=1 type=i256] [debug line = 46:26]
-  call void @llvm.dbg.value(metadata !{i256 %curElemB}, i64 0, metadata !949), !dbg !948 ; [debug line = 46:26] [debug variable = curElemB]
+  %curElemB.1 = load volatile i256* %b2.addr, align 32, !dbg !948 ; [#uses=1 type=i256] [debug line = 46:26]
+  call void @llvm.dbg.value(metadata !{i256 %curElemB.1}, i64 0, metadata !949), !dbg !948 ; [debug line = 46:26] [debug variable = curElemB]
   %b3.addr = getelementptr inbounds i256* %b3, i64 %tmp.8, !dbg !950 ; [#uses=1 type=i256*] [debug line = 47:26]
-  %curElemC = load volatile i256* %b3.addr, align 32, !dbg !950 ; [#uses=1 type=i256] [debug line = 47:26]
-  call void @llvm.dbg.value(metadata !{i256 %curElemC}, i64 0, metadata !951), !dbg !950 ; [debug line = 47:26] [debug variable = curElemC]
+  %curElemC.1 = load volatile i256* %b3.addr, align 32, !dbg !950 ; [#uses=1 type=i256] [debug line = 47:26]
+  call void @llvm.dbg.value(metadata !{i256 %curElemC.1}, i64 0, metadata !951), !dbg !950 ; [debug line = 47:26] [debug variable = curElemC]
   %tmp.9 = shl i32 %i, 3, !dbg !952               ; [#uses=1 type=i32] [debug line = 50:0]
   br label %3, !dbg !956                          ; [debug line = 48:16]
 
@@ -133,24 +133,24 @@ define void @bmm_top(i256* %b1, i256* %b2, i256* %b3, i32 %blockSize) nounwind u
 ; <label>:4                                       ; preds = %3
   %rbegin = call i32 (...)* @_ssdm_op_SpecRegionBegin(i8* getelementptr inbounds ([12 x i8]* @.str7, i64 0, i64 0)) nounwind, !dbg !957 ; [#uses=1 type=i32] [debug line = 48:41]
   call void (...)* @_ssdm_Unroll(i32 0, i32 0, i32 0, i8* getelementptr inbounds ([1 x i8]* @.str1, i64 0, i64 0)) nounwind, !dbg !958 ; [debug line = 49:1]
-  call void @llvm.dbg.value(metadata !{i256 %curElemA}, i64 0, metadata !959), !dbg !961 ; [debug line = 50:197] [debug variable = __Val2__]
+  call void @llvm.dbg.value(metadata !{i256 %curElemA.1}, i64 0, metadata !959), !dbg !961 ; [debug line = 50:197] [debug variable = __Val2__]
   %tmp.12 = shl nsw i32 %t2, 5, !dbg !962         ; [#uses=4 type=i32] [debug line = 50:199]
   %tmp.13 = or i32 %tmp.12, 31, !dbg !962         ; [#uses=3 type=i32] [debug line = 50:199]
-  %__Result__ = call i256 @llvm.part.select.i256(i256 %curElemA, i32 %tmp.12, i32 %tmp.13), !dbg !962 ; [#uses=1 type=i256] [debug line = 50:199]
+  %__Result__ = call i256 @llvm.part.select.i256(i256 %curElemA.1, i32 %tmp.12, i32 %tmp.13), !dbg !962 ; [#uses=1 type=i256] [debug line = 50:199]
   call void @llvm.dbg.value(metadata !{i256 %__Result__}, i64 0, metadata !963), !dbg !962 ; [debug line = 50:199] [debug variable = __Result__]
   %tmp.14 = trunc i256 %__Result__ to i32, !dbg !952 ; [#uses=1 type=i32] [debug line = 50:0]
   %tmp.15 = add nsw i32 %t2, %tmp.9, !dbg !952    ; [#uses=1 type=i32] [debug line = 50:0]
   %tmp.16 = sext i32 %tmp.15 to i64, !dbg !952    ; [#uses=3 type=i64] [debug line = 50:0]
   %arow.addr.1 = getelementptr inbounds [128 x i32]* %arow, i64 0, i64 %tmp.16, !dbg !952 ; [#uses=1 type=i32*] [debug line = 50:0]
   store i32 %tmp.14, i32* %arow.addr.1, align 4, !dbg !952 ; [debug line = 50:0]
-  call void @llvm.dbg.value(metadata !{i256 %curElemB}, i64 0, metadata !964), !dbg !966 ; [debug line = 51:200] [debug variable = __Val2__]
-  %__Result__.1 = call i256 @llvm.part.select.i256(i256 %curElemB, i32 %tmp.12, i32 %tmp.13), !dbg !967 ; [#uses=1 type=i256] [debug line = 51:202]
+  call void @llvm.dbg.value(metadata !{i256 %curElemB.1}, i64 0, metadata !964), !dbg !966 ; [debug line = 51:200] [debug variable = __Val2__]
+  %__Result__.1 = call i256 @llvm.part.select.i256(i256 %curElemB.1, i32 %tmp.12, i32 %tmp.13), !dbg !967 ; [#uses=1 type=i256] [debug line = 51:202]
   call void @llvm.dbg.value(metadata !{i256 %__Result__.1}, i64 0, metadata !968), !dbg !967 ; [debug line = 51:202] [debug variable = __Result__]
   %tmp.17 = trunc i256 %__Result__.1 to i32, !dbg !969 ; [#uses=1 type=i32] [debug line = 51:0]
   %brow.addr.1 = getelementptr inbounds [128 x i32]* %brow, i64 0, i64 %tmp.16, !dbg !969 ; [#uses=1 type=i32*] [debug line = 51:0]
   store i32 %tmp.17, i32* %brow.addr.1, align 4, !dbg !969 ; [debug line = 51:0]
-  call void @llvm.dbg.value(metadata !{i256 %curElemC}, i64 0, metadata !970), !dbg !972 ; [debug line = 52:200] [debug variable = __Val2__]
-  %__Result__.2 = call i256 @llvm.part.select.i256(i256 %curElemC, i32 %tmp.12, i32 %tmp.13), !dbg !973 ; [#uses=1 type=i256] [debug line = 52:202]
+  call void @llvm.dbg.value(metadata !{i256 %curElemC.1}, i64 0, metadata !970), !dbg !972 ; [debug line = 52:200] [debug variable = __Val2__]
+  %__Result__.2 = call i256 @llvm.part.select.i256(i256 %curElemC.1, i32 %tmp.12, i32 %tmp.13), !dbg !973 ; [#uses=1 type=i256] [debug line = 52:202]
   call void @llvm.dbg.value(metadata !{i256 %__Result__.2}, i64 0, metadata !974), !dbg !973 ; [debug line = 52:202] [debug variable = __Result__]
   %tmp.18 = trunc i256 %__Result__.2 to i32, !dbg !975 ; [#uses=1 type=i32] [debug line = 52:0]
   %crow.addr.1 = getelementptr inbounds [128 x i32]* %crow, i64 0, i64 %tmp.16, !dbg !975 ; [#uses=1 type=i32*] [debug line = 52:0]
@@ -200,46 +200,70 @@ define void @bmm_top(i256* %b1, i256* %b2, i256* %b3, i32 %blockSize) nounwind u
   br i1 %tmp.25, label %.preheader, label %10, !dbg !981 ; [debug line = 62:14]
 
 .preheader:                                       ; preds = %.preheader1
-  %tmp.26 = shl i32 %i5, 3, !dbg !989             ; [#uses=1 type=i32] [debug line = 68:143]
+  %tmp.26 = shl i32 %i5, 3, !dbg !989             ; [#uses=1 type=i32] [debug line = 68:154]
   br label %7, !dbg !994                          ; [debug line = 66:16]
 
 ; <label>:7                                       ; preds = %8, %.preheader
-  %t29 = phi i32 [ %t2.2, %8 ], [ 0, %.preheader ] ; [#uses=3 type=i32]
+  %__Val2__.3 = phi i256 [ %__Result__.5, %8 ], [ 0, %.preheader ] ; [#uses=2 type=i256]
+  %__Val2__.4 = phi i256 [ %__Result__.6, %8 ], [ 0, %.preheader ] ; [#uses=2 type=i256]
+  %__Val2__.5 = phi i256 [ %__Result__.7, %8 ], [ 0, %.preheader ] ; [#uses=2 type=i256]
+  %t29 = phi i32 [ %t2.2, %8 ], [ 0, %.preheader ] ; [#uses=4 type=i32]
   %exitcond = icmp eq i32 %t29, 8, !dbg !994      ; [#uses=1 type=i1] [debug line = 66:16]
   br i1 %exitcond, label %9, label %8, !dbg !994  ; [debug line = 66:16]
 
 ; <label>:8                                       ; preds = %7
   %rbegin4 = call i32 (...)* @_ssdm_op_SpecRegionBegin(i8* getelementptr inbounds ([12 x i8]* @.str8, i64 0, i64 0)) nounwind, !dbg !995 ; [#uses=1 type=i32] [debug line = 66:41]
   call void (...)* @_ssdm_Unroll(i32 0, i32 0, i32 0, i8* getelementptr inbounds ([1 x i8]* @.str1, i64 0, i64 0)) nounwind, !dbg !996 ; [debug line = 67:1]
-  %tmp.29 = add nsw i32 %t29, %tmp.26, !dbg !989  ; [#uses=1 type=i32] [debug line = 68:143]
-  %tmp.30 = sext i32 %tmp.29 to i64, !dbg !989    ; [#uses=1 type=i64] [debug line = 68:143]
-  %crow.addr.3 = getelementptr inbounds [128 x i32]* %crow, i64 0, i64 %tmp.30, !dbg !989 ; [#uses=1 type=i32*] [debug line = 68:143]
-  %__Repl2__ = load i32* %crow.addr.3, align 4, !dbg !989 ; [#uses=3 type=i32] [debug line = 68:143]
+  call void @llvm.dbg.value(metadata !{i256 %__Val2__.3}, i64 0, metadata !997), !dbg !998 ; [debug line = 68:87] [debug variable = __Val2__]
+  %tmp.29 = add nsw i32 %t29, %tmp.26, !dbg !989  ; [#uses=1 type=i32] [debug line = 68:154]
+  %tmp.30 = sext i32 %tmp.29 to i64, !dbg !989    ; [#uses=3 type=i64] [debug line = 68:154]
+  %arow.addr.3 = getelementptr inbounds [128 x i32]* %arow, i64 0, i64 %tmp.30, !dbg !989 ; [#uses=1 type=i32*] [debug line = 68:154]
+  %__Repl2__ = load i32* %arow.addr.3, align 4, !dbg !989 ; [#uses=2 type=i32] [debug line = 68:154]
   call void (...)* @_ssdm_SpecKeepArrayLoad(i32 %__Repl2__) nounwind
-  call void @llvm.dbg.value(metadata !{i32 %__Repl2__}, i64 0, metadata !997), !dbg !989 ; [debug line = 68:143] [debug variable = __Repl2__]
-  call void (...)* @_ssdm_SpecKeepArrayLoad(i32 %__Repl2__) nounwind
-  call void @llvm.dbg.value(metadata !{i32 %__Repl2__}, i64 0, metadata !998), !dbg !1000 ; [debug line = 69:145] [debug variable = __Repl2__]
-  call void (...)* @_ssdm_SpecKeepArrayLoad(i32 %__Repl2__) nounwind
-  call void @llvm.dbg.value(metadata !{i32 %__Repl2__}, i64 0, metadata !1001), !dbg !1003 ; [debug line = 70:145] [debug variable = __Repl2__]
-  %rend5 = call i32 (...)* @_ssdm_op_SpecRegionEnd(i8* getelementptr inbounds ([12 x i8]* @.str8, i64 0, i64 0), i32 %rbegin4) nounwind, !dbg !1004 ; [#uses=0 type=i32] [debug line = 71:3]
-  %t2.2 = add nsw i32 %t29, 1, !dbg !1005         ; [#uses=1 type=i32] [debug line = 66:34]
-  call void @llvm.dbg.value(metadata !{i32 %t2.2}, i64 0, metadata !1006), !dbg !1005 ; [debug line = 66:34] [debug variable = t2]
-  br label %7, !dbg !1005                         ; [debug line = 66:34]
+  call void @llvm.dbg.value(metadata !{i32 %__Repl2__}, i64 0, metadata !999), !dbg !989 ; [debug line = 68:154] [debug variable = __Repl2__]
+  %tmp.31 = shl nsw i32 %t29, 5, !dbg !1000       ; [#uses=4 type=i32] [debug line = 68:156]
+  %tmp.32 = or i32 %tmp.31, 31, !dbg !1000        ; [#uses=3 type=i32] [debug line = 68:156]
+  %__Result__.5 = call i256 @llvm.part.set.i256.i32(i256 %__Val2__.3, i32 %__Repl2__, i32 %tmp.31, i32 %tmp.32), !dbg !1000 ; [#uses=1 type=i256] [debug line = 68:156]
+  call void @llvm.dbg.value(metadata !{i256 %__Result__.5}, i64 0, metadata !1001), !dbg !1000 ; [debug line = 68:156] [debug variable = __Result__]
+  call void @llvm.dbg.value(metadata !{i256 %__Result__.5}, i64 0, metadata !1002), !dbg !1003 ; [debug line = 68:0] [debug variable = curElemA]
+  call void @llvm.dbg.value(metadata !{i256 %__Val2__.4}, i64 0, metadata !1004), !dbg !1006 ; [debug line = 69:89] [debug variable = __Val2__]
+  %brow.addr.3 = getelementptr inbounds [128 x i32]* %brow, i64 0, i64 %tmp.30, !dbg !1007 ; [#uses=1 type=i32*] [debug line = 69:156]
+  %__Repl2__.1 = load i32* %brow.addr.3, align 4, !dbg !1007 ; [#uses=2 type=i32] [debug line = 69:156]
+  call void (...)* @_ssdm_SpecKeepArrayLoad(i32 %__Repl2__.1) nounwind
+  call void @llvm.dbg.value(metadata !{i32 %__Repl2__.1}, i64 0, metadata !1008), !dbg !1007 ; [debug line = 69:156] [debug variable = __Repl2__]
+  %__Result__.6 = call i256 @llvm.part.set.i256.i32(i256 %__Val2__.4, i32 %__Repl2__.1, i32 %tmp.31, i32 %tmp.32), !dbg !1009 ; [#uses=1 type=i256] [debug line = 69:158]
+  call void @llvm.dbg.value(metadata !{i256 %__Result__.6}, i64 0, metadata !1010), !dbg !1009 ; [debug line = 69:158] [debug variable = __Result__]
+  call void @llvm.dbg.value(metadata !{i256 %__Result__.6}, i64 0, metadata !1011), !dbg !1012 ; [debug line = 69:0] [debug variable = curElemB]
+  call void @llvm.dbg.value(metadata !{i256 %__Val2__.5}, i64 0, metadata !1013), !dbg !1015 ; [debug line = 70:89] [debug variable = __Val2__]
+  %crow.addr.3 = getelementptr inbounds [128 x i32]* %crow, i64 0, i64 %tmp.30, !dbg !1016 ; [#uses=1 type=i32*] [debug line = 70:156]
+  %__Repl2__.2 = load i32* %crow.addr.3, align 4, !dbg !1016 ; [#uses=2 type=i32] [debug line = 70:156]
+  call void (...)* @_ssdm_SpecKeepArrayLoad(i32 %__Repl2__.2) nounwind
+  call void @llvm.dbg.value(metadata !{i32 %__Repl2__.2}, i64 0, metadata !1017), !dbg !1016 ; [debug line = 70:156] [debug variable = __Repl2__]
+  %__Result__.7 = call i256 @llvm.part.set.i256.i32(i256 %__Val2__.5, i32 %__Repl2__.2, i32 %tmp.31, i32 %tmp.32), !dbg !1018 ; [#uses=1 type=i256] [debug line = 70:158]
+  call void @llvm.dbg.value(metadata !{i256 %__Result__.7}, i64 0, metadata !1019), !dbg !1018 ; [debug line = 70:158] [debug variable = __Result__]
+  call void @llvm.dbg.value(metadata !{i256 %__Result__.7}, i64 0, metadata !1020), !dbg !1021 ; [debug line = 70:0] [debug variable = curElemC]
+  %rend5 = call i32 (...)* @_ssdm_op_SpecRegionEnd(i8* getelementptr inbounds ([12 x i8]* @.str8, i64 0, i64 0), i32 %rbegin4) nounwind, !dbg !1022 ; [#uses=0 type=i32] [debug line = 71:3]
+  %t2.2 = add nsw i32 %t29, 1, !dbg !1023         ; [#uses=1 type=i32] [debug line = 66:34]
+  call void @llvm.dbg.value(metadata !{i32 %t2.2}, i64 0, metadata !1024), !dbg !1023 ; [debug line = 66:34] [debug variable = t2]
+  br label %7, !dbg !1023                         ; [debug line = 66:34]
 
 ; <label>:9                                       ; preds = %7
-  %tmp.27 = sext i32 %i5 to i64, !dbg !1007       ; [#uses=3 type=i64] [debug line = 72:3]
-  %b1.addr.1 = getelementptr inbounds i256* %b1, i64 %tmp.27, !dbg !1007 ; [#uses=1 type=i256*] [debug line = 72:3]
-  store volatile i256 0, i256* %b1.addr.1, align 32, !dbg !1007 ; [debug line = 72:3]
-  %b2.addr.1 = getelementptr inbounds i256* %b2, i64 %tmp.27, !dbg !1008 ; [#uses=1 type=i256*] [debug line = 73:3]
-  store volatile i256 0, i256* %b2.addr.1, align 32, !dbg !1008 ; [debug line = 73:3]
-  %b3.addr.1 = getelementptr inbounds i256* %b3, i64 %tmp.27, !dbg !1009 ; [#uses=1 type=i256*] [debug line = 74:3]
-  store volatile i256 0, i256* %b3.addr.1, align 32, !dbg !1009 ; [debug line = 74:3]
-  %i.2 = add nsw i32 %i5, 1, !dbg !1010           ; [#uses=1 type=i32] [debug line = 62:25]
-  call void @llvm.dbg.value(metadata !{i32 %i.2}, i64 0, metadata !1011), !dbg !1010 ; [debug line = 62:25] [debug variable = i]
-  br label %.preheader1, !dbg !1010               ; [debug line = 62:25]
+  %curElemC8.0.lcssa = phi i256 [ %__Val2__.5, %7 ] ; [#uses=1 type=i256]
+  %curElemB7.0.lcssa = phi i256 [ %__Val2__.4, %7 ] ; [#uses=1 type=i256]
+  %curElemA6.0.lcssa = phi i256 [ %__Val2__.3, %7 ] ; [#uses=1 type=i256]
+  %tmp.27 = sext i32 %i5 to i64, !dbg !1025       ; [#uses=3 type=i64] [debug line = 72:3]
+  %b1.addr.1 = getelementptr inbounds i256* %b1, i64 %tmp.27, !dbg !1025 ; [#uses=1 type=i256*] [debug line = 72:3]
+  store volatile i256 %curElemA6.0.lcssa, i256* %b1.addr.1, align 32, !dbg !1025 ; [debug line = 72:3]
+  %b2.addr.1 = getelementptr inbounds i256* %b2, i64 %tmp.27, !dbg !1026 ; [#uses=1 type=i256*] [debug line = 73:3]
+  store volatile i256 %curElemB7.0.lcssa, i256* %b2.addr.1, align 32, !dbg !1026 ; [debug line = 73:3]
+  %b3.addr.1 = getelementptr inbounds i256* %b3, i64 %tmp.27, !dbg !1027 ; [#uses=1 type=i256*] [debug line = 74:3]
+  store volatile i256 %curElemC8.0.lcssa, i256* %b3.addr.1, align 32, !dbg !1027 ; [debug line = 74:3]
+  %i.2 = add nsw i32 %i5, 1, !dbg !1028           ; [#uses=1 type=i32] [debug line = 62:25]
+  call void @llvm.dbg.value(metadata !{i32 %i.2}, i64 0, metadata !1029), !dbg !1028 ; [debug line = 62:25] [debug variable = i]
+  br label %.preheader1, !dbg !1028               ; [debug line = 62:25]
 
 ; <label>:10                                      ; preds = %.preheader1
-  ret void, !dbg !1012                            ; [debug line = 158:1]
+  ret void, !dbg !1030                            ; [debug line = 158:1]
 }
 
 ; [#uses=4]
@@ -272,10 +296,10 @@ declare i256 @llvm.part.select.i256(i256, i32, i32) nounwind readnone
 ; [#uses=0]
 declare void @_ssdm_RegionEnd(...) nounwind
 
-; [#uses=0]
+; [#uses=3]
 declare i256 @llvm.part.set.i256.i32(i256, i32, i32, i32) nounwind readnone
 
-; [#uses=52]
+; [#uses=61]
 declare void @llvm.dbg.value(metadata, i64, metadata) nounwind readnone
 
 ; [#uses=6]
@@ -304,12 +328,12 @@ declare i32 @_ssdm_op_SpecRegionEnd.restore(...)
 
 !llvm.dbg.cu = !{!0}
 
-!0 = metadata !{i32 786449, i32 0, i32 4, metadata !"/home/raghu/work/projects/dma3/hls/bmm_top/solution1/.autopilot/db/bmm_top.pragma.2.cpp", metadata !"/home/raghu/work/projects/dma3", metadata !"clang version 3.1 ", i1 true, i1 false, metadata !"", i32 0, metadata !1, metadata !828, metadata !830, metadata !840} ; [ DW_TAG_compile_unit ]
+!0 = metadata !{i32 786449, i32 0, i32 4, metadata !"/home/raghu/w/vivadoProjects/bmm/hls/bmm_top/solution1/.autopilot/db/bmm_top.pragma.2.cpp", metadata !"/home/raghu/w/vivadoProjects/bmm", metadata !"clang version 3.1 ", i1 true, i1 false, metadata !"", i32 0, metadata !1, metadata !828, metadata !830, metadata !840} ; [ DW_TAG_compile_unit ]
 !1 = metadata !{metadata !2}
 !2 = metadata !{metadata !3, metadata !26, metadata !33, metadata !42, metadata !48}
 !3 = metadata !{i32 786436, metadata !4, metadata !"_Ios_Fmtflags", metadata !5, i32 52, i64 17, i64 32, i32 0, i32 0, null, metadata !6, i32 0, i32 0} ; [ DW_TAG_enumeration_type ]
 !4 = metadata !{i32 786489, null, metadata !"std", metadata !5, i32 44} ; [ DW_TAG_namespace ]
-!5 = metadata !{i32 786473, metadata !"/home/raghu/work/tools/xilinx/Vivado_HLS/2013.3/lnx64/tools/gcc/lib/gcc/x86_64-unknown-linux-gnu/4.6.3/../../../../include/c++/4.6.3/bits/ios_base.h", metadata !"/home/raghu/work/projects/dma3", null} ; [ DW_TAG_file_type ]
+!5 = metadata !{i32 786473, metadata !"/home/raghu/tools/xilinx/Vivado_HLS/2013.3/lnx64/tools/gcc/lib/gcc/x86_64-unknown-linux-gnu/4.6.3/../../../../include/c++/4.6.3/bits/ios_base.h", metadata !"/home/raghu/w/vivadoProjects/bmm", null} ; [ DW_TAG_file_type ]
 !6 = metadata !{metadata !7, metadata !8, metadata !9, metadata !10, metadata !11, metadata !12, metadata !13, metadata !14, metadata !15, metadata !16, metadata !17, metadata !18, metadata !19, metadata !20, metadata !21, metadata !22, metadata !23, metadata !24, metadata !25}
 !7 = metadata !{i32 786472, metadata !"_S_boolalpha", i64 1} ; [ DW_TAG_enumerator ]
 !8 = metadata !{i32 786472, metadata !"_S_dec", i64 2} ; [ DW_TAG_enumerator ]
@@ -364,10 +388,10 @@ declare i32 @_ssdm_op_SpecRegionEnd.restore(...)
 !57 = metadata !{i32 786445, metadata !49, metadata !"_M_precision", metadata !5, i32 453, i64 64, i64 64, i64 64, i32 2, metadata !58} ; [ DW_TAG_member ]
 !58 = metadata !{i32 786454, metadata !59, metadata !"streamsize", metadata !5, i32 99, i64 0, i64 0, i64 0, i32 0, metadata !61} ; [ DW_TAG_typedef ]
 !59 = metadata !{i32 786489, null, metadata !"std", metadata !60, i32 69} ; [ DW_TAG_namespace ]
-!60 = metadata !{i32 786473, metadata !"/home/raghu/work/tools/xilinx/Vivado_HLS/2013.3/lnx64/tools/gcc/lib/gcc/x86_64-unknown-linux-gnu/4.6.3/../../../../include/c++/4.6.3/bits/postypes.h", metadata !"/home/raghu/work/projects/dma3", null} ; [ DW_TAG_file_type ]
+!60 = metadata !{i32 786473, metadata !"/home/raghu/tools/xilinx/Vivado_HLS/2013.3/lnx64/tools/gcc/lib/gcc/x86_64-unknown-linux-gnu/4.6.3/../../../../include/c++/4.6.3/bits/postypes.h", metadata !"/home/raghu/w/vivadoProjects/bmm", null} ; [ DW_TAG_file_type ]
 !61 = metadata !{i32 786454, metadata !62, metadata !"ptrdiff_t", metadata !5, i32 156, i64 0, i64 0, i64 0, i32 0, metadata !64} ; [ DW_TAG_typedef ]
 !62 = metadata !{i32 786489, null, metadata !"std", metadata !63, i32 153} ; [ DW_TAG_namespace ]
-!63 = metadata !{i32 786473, metadata !"/home/raghu/work/tools/xilinx/Vivado_HLS/2013.3/lnx64/tools/gcc/lib/gcc/x86_64-unknown-linux-gnu/4.6.3/../../../../include/c++/4.6.3/x86_64-unknown-linux-gnu/bits/c++config.h", metadata !"/home/raghu/work/projects/dma3", null} ; [ DW_TAG_file_type ]
+!63 = metadata !{i32 786473, metadata !"/home/raghu/tools/xilinx/Vivado_HLS/2013.3/lnx64/tools/gcc/lib/gcc/x86_64-unknown-linux-gnu/4.6.3/../../../../include/c++/4.6.3/x86_64-unknown-linux-gnu/bits/c++config.h", metadata !"/home/raghu/w/vivadoProjects/bmm", null} ; [ DW_TAG_file_type ]
 !64 = metadata !{i32 786468, null, metadata !"long int", null, i32 0, i64 64, i64 64, i64 0, i32 0, i32 5} ; [ DW_TAG_base_type ]
 !65 = metadata !{i32 786445, metadata !49, metadata !"_M_width", metadata !5, i32 454, i64 64, i64 64, i64 128, i32 2, metadata !58} ; [ DW_TAG_member ]
 !66 = metadata !{i32 786445, metadata !49, metadata !"_M_flags", metadata !5, i32 455, i64 17, i64 32, i64 192, i32 2, metadata !67} ; [ DW_TAG_member ]
@@ -400,7 +424,7 @@ declare i32 @_ssdm_op_SpecRegionEnd.restore(...)
 !93 = metadata !{i32 786445, metadata !49, metadata !"_M_ios_locale", metadata !5, i32 523, i64 64, i64 64, i64 1664, i32 2, metadata !94} ; [ DW_TAG_member ]
 !94 = metadata !{i32 786434, metadata !95, metadata !"locale", metadata !96, i32 63, i64 64, i64 64, i32 0, i32 0, null, metadata !97, i32 0, null, null} ; [ DW_TAG_class_type ]
 !95 = metadata !{i32 786489, null, metadata !"std", metadata !96, i32 44} ; [ DW_TAG_namespace ]
-!96 = metadata !{i32 786473, metadata !"/home/raghu/work/tools/xilinx/Vivado_HLS/2013.3/lnx64/tools/gcc/lib/gcc/x86_64-unknown-linux-gnu/4.6.3/../../../../include/c++/4.6.3/bits/locale_classes.h", metadata !"/home/raghu/work/projects/dma3", null} ; [ DW_TAG_file_type ]
+!96 = metadata !{i32 786473, metadata !"/home/raghu/tools/xilinx/Vivado_HLS/2013.3/lnx64/tools/gcc/lib/gcc/x86_64-unknown-linux-gnu/4.6.3/../../../../include/c++/4.6.3/bits/locale_classes.h", metadata !"/home/raghu/w/vivadoProjects/bmm", null} ; [ DW_TAG_file_type ]
 !97 = metadata !{metadata !98, metadata !261, metadata !265, metadata !270, metadata !273, metadata !276, metadata !279, metadata !280, metadata !283, metadata !730, metadata !733, metadata !734, metadata !737, metadata !740, metadata !743, metadata !744, metadata !745, metadata !748, metadata !749, metadata !750}
 !98 = metadata !{i32 786445, metadata !94, metadata !"_M_impl", metadata !96, i32 280, i64 64, i64 64, i64 0, i32 1, metadata !99} ; [ DW_TAG_member ]
 !99 = metadata !{i32 786447, null, metadata !"", null, i32 0, i64 64, i64 64, i64 0, i32 0, metadata !100} ; [ DW_TAG_pointer_type ]
@@ -424,7 +448,7 @@ declare i32 @_ssdm_op_SpecRegionEnd.restore(...)
 !117 = metadata !{null, metadata !118, metadata !119}
 !118 = metadata !{i32 786447, i32 0, metadata !"", i32 0, i32 0, i64 64, i64 64, i64 0, i32 64, metadata !108} ; [ DW_TAG_pointer_type ]
 !119 = metadata !{i32 786454, metadata !62, metadata !"size_t", metadata !120, i32 155, i64 0, i64 0, i64 0, i32 0, metadata !121} ; [ DW_TAG_typedef ]
-!120 = metadata !{i32 786473, metadata !"/home/raghu/work/tools/xilinx/Vivado_HLS/2013.3/lnx64/tools/gcc/lib/gcc/x86_64-unknown-linux-gnu/4.6.3/../../../../include/c++/4.6.3/bits/basic_string.h", metadata !"/home/raghu/work/projects/dma3", null} ; [ DW_TAG_file_type ]
+!120 = metadata !{i32 786473, metadata !"/home/raghu/tools/xilinx/Vivado_HLS/2013.3/lnx64/tools/gcc/lib/gcc/x86_64-unknown-linux-gnu/4.6.3/../../../../include/c++/4.6.3/bits/basic_string.h", metadata !"/home/raghu/w/vivadoProjects/bmm", null} ; [ DW_TAG_file_type ]
 !121 = metadata !{i32 786468, null, metadata !"long unsigned int", null, i32 0, i64 64, i64 64, i64 0, i32 0, i32 7} ; [ DW_TAG_base_type ]
 !122 = metadata !{i32 786478, i32 0, metadata !108, metadata !"~facet", metadata !"~facet", metadata !"", metadata !96, i32 375, metadata !123, i1 false, i1 false, i32 1, i32 0, metadata !108, i32 258, i1 false, null, null, i32 0, metadata !84, i32 375} ; [ DW_TAG_subprogram ]
 !123 = metadata !{i32 786453, i32 0, metadata !"", i32 0, i32 0, i64 0, i64 0, i64 0, i32 0, null, metadata !124, i32 0, i32 0} ; [ DW_TAG_subroutine_type ]
@@ -435,11 +459,11 @@ declare i32 @_ssdm_op_SpecRegionEnd.restore(...)
 !128 = metadata !{i32 786448, null, null, null, i32 0, i64 0, i64 0, i64 0, i32 0, metadata !129} ; [ DW_TAG_reference_type ]
 !129 = metadata !{i32 786454, metadata !130, metadata !"__c_locale", metadata !96, i32 62, i64 0, i64 0, i64 0, i32 0, metadata !132} ; [ DW_TAG_typedef ]
 !130 = metadata !{i32 786489, null, metadata !"std", metadata !131, i32 58} ; [ DW_TAG_namespace ]
-!131 = metadata !{i32 786473, metadata !"/home/raghu/work/tools/xilinx/Vivado_HLS/2013.3/lnx64/tools/gcc/lib/gcc/x86_64-unknown-linux-gnu/4.6.3/../../../../include/c++/4.6.3/x86_64-unknown-linux-gnu/bits/c++locale.h", metadata !"/home/raghu/work/projects/dma3", null} ; [ DW_TAG_file_type ]
+!131 = metadata !{i32 786473, metadata !"/home/raghu/tools/xilinx/Vivado_HLS/2013.3/lnx64/tools/gcc/lib/gcc/x86_64-unknown-linux-gnu/4.6.3/../../../../include/c++/4.6.3/x86_64-unknown-linux-gnu/bits/c++locale.h", metadata !"/home/raghu/w/vivadoProjects/bmm", null} ; [ DW_TAG_file_type ]
 !132 = metadata !{i32 786454, null, metadata !"__locale_t", metadata !96, i32 40, i64 0, i64 0, i64 0, i32 0, metadata !133} ; [ DW_TAG_typedef ]
 !133 = metadata !{i32 786447, null, metadata !"", null, i32 0, i64 64, i64 64, i64 0, i32 0, metadata !134} ; [ DW_TAG_pointer_type ]
 !134 = metadata !{i32 786434, null, metadata !"__locale_struct", metadata !135, i32 28, i64 1856, i64 64, i32 0, i32 0, null, metadata !136, i32 0, null, null} ; [ DW_TAG_class_type ]
-!135 = metadata !{i32 786473, metadata !"/usr/include/xlocale.h", metadata !"/home/raghu/work/projects/dma3", null} ; [ DW_TAG_file_type ]
+!135 = metadata !{i32 786473, metadata !"/usr/include/xlocale.h", metadata !"/home/raghu/w/vivadoProjects/bmm", null} ; [ DW_TAG_file_type ]
 !136 = metadata !{metadata !137, metadata !143, metadata !147, metadata !150, metadata !151, metadata !156}
 !137 = metadata !{i32 786445, metadata !134, metadata !"__locales", metadata !135, i32 31, i64 832, i64 64, i64 0, i32 0, metadata !138} ; [ DW_TAG_member ]
 !138 = metadata !{i32 786433, null, metadata !"", null, i32 0, i64 832, i64 64, i32 0, i32 0, metadata !139, metadata !141, i32 0, i32 0} ; [ DW_TAG_array_type ]
@@ -592,21 +616,21 @@ declare i32 @_ssdm_op_SpecRegionEnd.restore(...)
 !285 = metadata !{metadata !286, metadata !729}
 !286 = metadata !{i32 786454, metadata !287, metadata !"string", metadata !96, i32 64, i64 0, i64 0, i64 0, i32 0, metadata !289} ; [ DW_TAG_typedef ]
 !287 = metadata !{i32 786489, null, metadata !"std", metadata !288, i32 42} ; [ DW_TAG_namespace ]
-!288 = metadata !{i32 786473, metadata !"/home/raghu/work/tools/xilinx/Vivado_HLS/2013.3/lnx64/tools/gcc/lib/gcc/x86_64-unknown-linux-gnu/4.6.3/../../../../include/c++/4.6.3/bits/stringfwd.h", metadata !"/home/raghu/work/projects/dma3", null} ; [ DW_TAG_file_type ]
+!288 = metadata !{i32 786473, metadata !"/home/raghu/tools/xilinx/Vivado_HLS/2013.3/lnx64/tools/gcc/lib/gcc/x86_64-unknown-linux-gnu/4.6.3/../../../../include/c++/4.6.3/bits/stringfwd.h", metadata !"/home/raghu/w/vivadoProjects/bmm", null} ; [ DW_TAG_file_type ]
 !289 = metadata !{i32 786434, metadata !287, metadata !"basic_string<char>", metadata !290, i32 1133, i64 64, i64 64, i32 0, i32 0, null, metadata !291, i32 0, null, metadata !673} ; [ DW_TAG_class_type ]
-!290 = metadata !{i32 786473, metadata !"/home/raghu/work/tools/xilinx/Vivado_HLS/2013.3/lnx64/tools/gcc/lib/gcc/x86_64-unknown-linux-gnu/4.6.3/../../../../include/c++/4.6.3/bits/basic_string.tcc", metadata !"/home/raghu/work/projects/dma3", null} ; [ DW_TAG_file_type ]
+!290 = metadata !{i32 786473, metadata !"/home/raghu/tools/xilinx/Vivado_HLS/2013.3/lnx64/tools/gcc/lib/gcc/x86_64-unknown-linux-gnu/4.6.3/../../../../include/c++/4.6.3/bits/basic_string.tcc", metadata !"/home/raghu/w/vivadoProjects/bmm", null} ; [ DW_TAG_file_type ]
 !291 = metadata !{metadata !292, metadata !364, metadata !369, metadata !373, metadata !378, metadata !384, metadata !385, metadata !388, metadata !393, metadata !396, metadata !399, metadata !402, metadata !405, metadata !406, metadata !409, metadata !412, metadata !417, metadata !420, metadata !421, metadata !424, metadata !427, metadata !428, metadata !432, metadata !433, metadata !436, metadata !440, metadata !443, metadata !446, metadata !449, metadata !452, metadata !455, metadata !456, metadata !460, metadata !463, metadata !466, metadata !469, metadata !472, metadata !473, metadata !474, metadata !479, metadata !484, metadata !485, metadata !486, metadata !489, metadata !490, metadata !491, metadata !494, metadata !497, metadata !498, metadata !499, metadata !500, metadata !503, metadata !508, metadata !513, metadata !514, metadata !515, metadata !516, metadata !517, metadata !518, metadata !519, metadata !522, metadata !525, metadata !526, metadata !529, metadata !532, metadata !533, metadata !534, metadata !535, metadata !536, metadata !537, metadata !540, metadata !543, metadata !546, metadata !549, metadata !552, metadata !555, metadata !558, metadata !561, metadata !564, metadata !567, metadata !570, metadata !573, metadata !576, metadata !579, metadata !582, metadata !585, metadata !588, metadata !591, metadata !594, metadata !597, metadata !598, metadata !601, metadata !604, metadata !605, metadata !606, metadata !609, metadata !610, metadata !613, metadata !616, metadata !617, metadata !618, metadata !622, metadata !623, metadata !626, metadata !629, metadata !632, metadata !633, metadata !634, metadata !635, metadata !636, metadata !637, metadata !638, metadata !639, metadata !640, metadata !641, metadata !642, metadata !643, metadata !644, metadata !645, metadata !646, metadata !647, metadata !648, metadata !649, metadata !650, metadata !651, metadata !652, metadata !655, metadata !658, metadata !661, metadata !664, metadata !667, metadata !670}
 !292 = metadata !{i32 786445, metadata !289, metadata !"_M_dataplus", metadata !120, i32 283, i64 64, i64 64, i64 0, i32 1, metadata !293} ; [ DW_TAG_member ]
 !293 = metadata !{i32 786434, metadata !289, metadata !"_Alloc_hider", metadata !120, i32 266, i64 64, i64 64, i32 0, i32 0, null, metadata !294, i32 0, null, null} ; [ DW_TAG_class_type ]
 !294 = metadata !{metadata !295, metadata !358, metadata !359}
 !295 = metadata !{i32 786460, metadata !293, null, metadata !120, i32 0, i64 0, i64 0, i64 0, i32 0, metadata !296} ; [ DW_TAG_inheritance ]
 !296 = metadata !{i32 786434, metadata !287, metadata !"allocator<char>", metadata !297, i32 143, i64 8, i64 8, i32 0, i32 0, null, metadata !298, i32 0, null, metadata !356} ; [ DW_TAG_class_type ]
-!297 = metadata !{i32 786473, metadata !"/home/raghu/work/tools/xilinx/Vivado_HLS/2013.3/lnx64/tools/gcc/lib/gcc/x86_64-unknown-linux-gnu/4.6.3/../../../../include/c++/4.6.3/bits/allocator.h", metadata !"/home/raghu/work/projects/dma3", null} ; [ DW_TAG_file_type ]
+!297 = metadata !{i32 786473, metadata !"/home/raghu/tools/xilinx/Vivado_HLS/2013.3/lnx64/tools/gcc/lib/gcc/x86_64-unknown-linux-gnu/4.6.3/../../../../include/c++/4.6.3/bits/allocator.h", metadata !"/home/raghu/w/vivadoProjects/bmm", null} ; [ DW_TAG_file_type ]
 !298 = metadata !{metadata !299, metadata !346, metadata !350, metadata !355}
 !299 = metadata !{i32 786460, metadata !296, null, metadata !297, i32 0, i64 0, i64 0, i64 0, i32 0, metadata !300} ; [ DW_TAG_inheritance ]
 !300 = metadata !{i32 786434, metadata !301, metadata !"new_allocator<char>", metadata !302, i32 54, i64 8, i64 8, i32 0, i32 0, null, metadata !303, i32 0, null, metadata !344} ; [ DW_TAG_class_type ]
 !301 = metadata !{i32 786489, null, metadata !"__gnu_cxx", metadata !302, i32 38} ; [ DW_TAG_namespace ]
-!302 = metadata !{i32 786473, metadata !"/home/raghu/work/tools/xilinx/Vivado_HLS/2013.3/lnx64/tools/gcc/lib/gcc/x86_64-unknown-linux-gnu/4.6.3/../../../../include/c++/4.6.3/ext/new_allocator.h", metadata !"/home/raghu/work/projects/dma3", null} ; [ DW_TAG_file_type ]
+!302 = metadata !{i32 786473, metadata !"/home/raghu/tools/xilinx/Vivado_HLS/2013.3/lnx64/tools/gcc/lib/gcc/x86_64-unknown-linux-gnu/4.6.3/../../../../include/c++/4.6.3/ext/new_allocator.h", metadata !"/home/raghu/w/vivadoProjects/bmm", null} ; [ DW_TAG_file_type ]
 !303 = metadata !{metadata !304, metadata !308, metadata !313, metadata !314, metadata !321, metadata !326, metadata !332, metadata !335, metadata !338, metadata !341}
 !304 = metadata !{i32 786478, i32 0, metadata !300, metadata !"new_allocator", metadata !"new_allocator", metadata !"", metadata !302, i32 69, metadata !305, i1 false, i1 false, i32 0, i32 0, null, i32 256, i1 false, null, null, i32 0, metadata !84, i32 69} ; [ DW_TAG_subprogram ]
 !305 = metadata !{i32 786453, i32 0, metadata !"", i32 0, i32 0, i64 0, i64 0, i64 0, i32 0, null, metadata !306, i32 0, i32 0} ; [ DW_TAG_subroutine_type ]
@@ -687,7 +711,7 @@ declare i32 @_ssdm_op_SpecRegionEnd.restore(...)
 !380 = metadata !{metadata !381, metadata !367}
 !381 = metadata !{i32 786454, metadata !289, metadata !"iterator", metadata !290, i32 121, i64 0, i64 0, i64 0, i32 0, metadata !382} ; [ DW_TAG_typedef ]
 !382 = metadata !{i32 786434, null, metadata !"__normal_iterator<char *, std::basic_string<char> >", metadata !383, i32 702, i32 0, i32 0, i32 0, i32 4, null, null, i32 0} ; [ DW_TAG_class_type ]
-!383 = metadata !{i32 786473, metadata !"/home/raghu/work/tools/xilinx/Vivado_HLS/2013.3/lnx64/tools/gcc/lib/gcc/x86_64-unknown-linux-gnu/4.6.3/../../../../include/c++/4.6.3/bits/stl_iterator.h", metadata !"/home/raghu/work/projects/dma3", null} ; [ DW_TAG_file_type ]
+!383 = metadata !{i32 786473, metadata !"/home/raghu/tools/xilinx/Vivado_HLS/2013.3/lnx64/tools/gcc/lib/gcc/x86_64-unknown-linux-gnu/4.6.3/../../../../include/c++/4.6.3/bits/stl_iterator.h", metadata !"/home/raghu/w/vivadoProjects/bmm", null} ; [ DW_TAG_file_type ]
 !384 = metadata !{i32 786478, i32 0, metadata !289, metadata !"_M_iend", metadata !"_M_iend", metadata !"_ZNKSs7_M_iendEv", metadata !120, i32 304, metadata !379, i1 false, i1 false, i32 0, i32 0, null, i32 257, i1 false, null, null, i32 0, metadata !84, i32 304} ; [ DW_TAG_subprogram ]
 !385 = metadata !{i32 786478, i32 0, metadata !289, metadata !"_M_leak", metadata !"_M_leak", metadata !"_ZNSs7_M_leakEv", metadata !120, i32 308, metadata !386, i1 false, i1 false, i32 0, i32 0, null, i32 257, i1 false, null, null, i32 0, metadata !84, i32 308} ; [ DW_TAG_subprogram ]
 !386 = metadata !{i32 786453, i32 0, metadata !"", i32 0, i32 0, i64 0, i64 0, i64 0, i32 0, null, metadata !387, i32 0, i32 0} ; [ DW_TAG_subroutine_type ]
@@ -982,7 +1006,7 @@ declare i32 @_ssdm_op_SpecRegionEnd.restore(...)
 !675 = metadata !{i32 786479, null, metadata !"_Traits", metadata !676, null, i32 0, i32 0} ; [ DW_TAG_template_type_parameter ]
 !676 = metadata !{i32 786434, metadata !677, metadata !"char_traits<char>", metadata !678, i32 234, i64 8, i64 8, i32 0, i32 0, null, metadata !679, i32 0, null, metadata !727} ; [ DW_TAG_class_type ]
 !677 = metadata !{i32 786489, null, metadata !"std", metadata !678, i32 210} ; [ DW_TAG_namespace ]
-!678 = metadata !{i32 786473, metadata !"/home/raghu/work/tools/xilinx/Vivado_HLS/2013.3/lnx64/tools/gcc/lib/gcc/x86_64-unknown-linux-gnu/4.6.3/../../../../include/c++/4.6.3/bits/char_traits.h", metadata !"/home/raghu/work/projects/dma3", null} ; [ DW_TAG_file_type ]
+!678 = metadata !{i32 786473, metadata !"/home/raghu/tools/xilinx/Vivado_HLS/2013.3/lnx64/tools/gcc/lib/gcc/x86_64-unknown-linux-gnu/4.6.3/../../../../include/c++/4.6.3/bits/char_traits.h", metadata !"/home/raghu/w/vivadoProjects/bmm", null} ; [ DW_TAG_file_type ]
 !679 = metadata !{metadata !680, metadata !687, metadata !690, metadata !691, metadata !695, metadata !698, metadata !701, metadata !705, metadata !706, metadata !709, metadata !715, metadata !718, metadata !721, metadata !724}
 !680 = metadata !{i32 786478, i32 0, metadata !676, metadata !"assign", metadata !"assign", metadata !"_ZNSt11char_traitsIcE6assignERcRKc", metadata !678, i32 243, metadata !681, i1 false, i1 false, i32 0, i32 0, null, i32 256, i1 false, null, null, i32 0, metadata !84, i32 243} ; [ DW_TAG_subprogram ]
 !681 = metadata !{i32 786453, i32 0, metadata !"", i32 0, i32 0, i64 0, i64 0, i64 0, i32 0, null, metadata !682, i32 0, i32 0} ; [ DW_TAG_subroutine_type ]
@@ -1137,7 +1161,7 @@ declare i32 @_ssdm_op_SpecRegionEnd.restore(...)
 !830 = metadata !{metadata !831}
 !831 = metadata !{metadata !832}
 !832 = metadata !{i32 786478, i32 0, metadata !833, metadata !"bmm_top", metadata !"bmm_top", metadata !"_Z7bmm_topPVDq256_iS1_S1_i", metadata !833, i32 17, metadata !834, i1 false, i1 true, i32 0, i32 0, null, i32 256, i1 false, void (i256*, i256*, i256*, i32)* @bmm_top, null, null, metadata !84, i32 18} ; [ DW_TAG_subprogram ]
-!833 = metadata !{i32 786473, metadata !"bmm_top/bmm_top.cpp", metadata !"/home/raghu/work/projects/dma3", null} ; [ DW_TAG_file_type ]
+!833 = metadata !{i32 786473, metadata !"bmm_top/bmm_top.cpp", metadata !"/home/raghu/w/vivadoProjects/bmm", null} ; [ DW_TAG_file_type ]
 !834 = metadata !{i32 786453, i32 0, metadata !"", i32 0, i32 0, i64 0, i64 0, i64 0, i32 0, null, metadata !835, i32 0, i32 0} ; [ DW_TAG_subroutine_type ]
 !835 = metadata !{null, metadata !836, metadata !836, metadata !836, metadata !56}
 !836 = metadata !{i32 786447, null, metadata !"", null, i32 0, i64 64, i64 64, i64 0, i32 0, metadata !837} ; [ DW_TAG_pointer_type ]
@@ -1196,7 +1220,7 @@ declare i32 @_ssdm_op_SpecRegionEnd.restore(...)
 !889 = metadata !{i32 786470, null, metadata !"", null, i32 0, i64 0, i64 0, i64 0, i32 0, metadata !391} ; [ DW_TAG_const_type ]
 !890 = metadata !{i32 786484, i32 0, metadata !891, metadata !"__ioinit", metadata !"__ioinit", metadata !"_ZStL8__ioinit", metadata !892, i32 74, metadata !893, i32 1, i32 1, null} ; [ DW_TAG_variable ]
 !891 = metadata !{i32 786489, null, metadata !"std", metadata !892, i32 42} ; [ DW_TAG_namespace ]
-!892 = metadata !{i32 786473, metadata !"/home/raghu/work/tools/xilinx/Vivado_HLS/2013.3/lnx64/tools/gcc/lib/gcc/x86_64-unknown-linux-gnu/4.6.3/../../../../include/c++/4.6.3/iostream", metadata !"/home/raghu/work/projects/dma3", null} ; [ DW_TAG_file_type ]
+!892 = metadata !{i32 786473, metadata !"/home/raghu/tools/xilinx/Vivado_HLS/2013.3/lnx64/tools/gcc/lib/gcc/x86_64-unknown-linux-gnu/4.6.3/../../../../include/c++/4.6.3/iostream", metadata !"/home/raghu/w/vivadoProjects/bmm", null} ; [ DW_TAG_file_type ]
 !893 = metadata !{i32 786434, metadata !49, metadata !"Init", metadata !5, i32 534, i64 8, i64 8, i32 0, i32 0, null, metadata !894, i32 0, null, null} ; [ DW_TAG_class_type ]
 !894 = metadata !{metadata !895, metadata !899, metadata !900}
 !895 = metadata !{i32 786478, i32 0, metadata !893, metadata !"Init", metadata !"Init", metadata !"", metadata !5, i32 538, metadata !896, i1 false, i1 false, i32 0, i32 0, null, i32 256, i1 false, null, null, i32 0, metadata !84, i32 538} ; [ DW_TAG_subprogram ]
@@ -1293,27 +1317,45 @@ declare i32 @_ssdm_op_SpecRegionEnd.restore(...)
 !986 = metadata !{i32 59, i32 3, metadata !984, null}
 !987 = metadata !{i32 56, i32 27, metadata !944, null}
 !988 = metadata !{i32 786688, metadata !944, metadata !"t1", metadata !833, i32 56, metadata !56, i32 0, i32 0} ; [ DW_TAG_auto_variable ]
-!989 = metadata !{i32 68, i32 143, metadata !990, null}
-!990 = metadata !{i32 786443, metadata !991, i32 68, i32 3, metadata !833, i32 14} ; [ DW_TAG_lexical_block ]
+!989 = metadata !{i32 68, i32 154, metadata !990, null}
+!990 = metadata !{i32 786443, metadata !991, i32 68, i32 14, metadata !833, i32 14} ; [ DW_TAG_lexical_block ]
 !991 = metadata !{i32 786443, metadata !992, i32 66, i32 40, metadata !833, i32 13} ; [ DW_TAG_lexical_block ]
 !992 = metadata !{i32 786443, metadata !993, i32 66, i32 3, metadata !833, i32 12} ; [ DW_TAG_lexical_block ]
 !993 = metadata !{i32 786443, metadata !982, i32 62, i32 30, metadata !833, i32 11} ; [ DW_TAG_lexical_block ]
 !994 = metadata !{i32 66, i32 16, metadata !992, null}
 !995 = metadata !{i32 66, i32 41, metadata !991, null}
 !996 = metadata !{i32 67, i32 1, metadata !991, null}
-!997 = metadata !{i32 786688, metadata !990, metadata !"__Repl2__", metadata !833, i32 68, metadata !56, i32 0, i32 0} ; [ DW_TAG_auto_variable ]
-!998 = metadata !{i32 786688, metadata !999, metadata !"__Repl2__", metadata !833, i32 69, metadata !56, i32 0, i32 0} ; [ DW_TAG_auto_variable ]
-!999 = metadata !{i32 786443, metadata !991, i32 69, i32 5, metadata !833, i32 15} ; [ DW_TAG_lexical_block ]
-!1000 = metadata !{i32 69, i32 145, metadata !999, null}
-!1001 = metadata !{i32 786688, metadata !1002, metadata !"__Repl2__", metadata !833, i32 70, metadata !56, i32 0, i32 0} ; [ DW_TAG_auto_variable ]
-!1002 = metadata !{i32 786443, metadata !991, i32 70, i32 5, metadata !833, i32 16} ; [ DW_TAG_lexical_block ]
-!1003 = metadata !{i32 70, i32 145, metadata !1002, null}
-!1004 = metadata !{i32 71, i32 3, metadata !991, null}
-!1005 = metadata !{i32 66, i32 34, metadata !992, null}
-!1006 = metadata !{i32 786688, metadata !992, metadata !"t2", metadata !833, i32 66, metadata !56, i32 0, i32 0} ; [ DW_TAG_auto_variable ]
-!1007 = metadata !{i32 72, i32 3, metadata !993, null}
-!1008 = metadata !{i32 73, i32 3, metadata !993, null}
-!1009 = metadata !{i32 74, i32 3, metadata !993, null}
-!1010 = metadata !{i32 62, i32 25, metadata !982, null}
-!1011 = metadata !{i32 786688, metadata !982, metadata !"i", metadata !833, i32 62, metadata !56, i32 0, i32 0} ; [ DW_TAG_auto_variable ]
-!1012 = metadata !{i32 158, i32 1, metadata !910, null}
+!997 = metadata !{i32 786688, metadata !990, metadata !"__Val2__", metadata !833, i32 68, metadata !838, i32 0, i32 0} ; [ DW_TAG_auto_variable ]
+!998 = metadata !{i32 68, i32 87, metadata !990, null}
+!999 = metadata !{i32 786688, metadata !990, metadata !"__Repl2__", metadata !833, i32 68, metadata !56, i32 0, i32 0} ; [ DW_TAG_auto_variable ]
+!1000 = metadata !{i32 68, i32 156, metadata !990, null}
+!1001 = metadata !{i32 786688, metadata !990, metadata !"__Result__", metadata !833, i32 68, metadata !838, i32 0, i32 0} ; [ DW_TAG_auto_variable ]
+!1002 = metadata !{i32 786688, metadata !993, metadata !"curElemA", metadata !833, i32 63, metadata !838, i32 0, i32 0} ; [ DW_TAG_auto_variable ]
+!1003 = metadata !{i32 68, i32 0, metadata !990, null}
+!1004 = metadata !{i32 786688, metadata !1005, metadata !"__Val2__", metadata !833, i32 69, metadata !838, i32 0, i32 0} ; [ DW_TAG_auto_variable ]
+!1005 = metadata !{i32 786443, metadata !991, i32 69, i32 16, metadata !833, i32 15} ; [ DW_TAG_lexical_block ]
+!1006 = metadata !{i32 69, i32 89, metadata !1005, null}
+!1007 = metadata !{i32 69, i32 156, metadata !1005, null}
+!1008 = metadata !{i32 786688, metadata !1005, metadata !"__Repl2__", metadata !833, i32 69, metadata !56, i32 0, i32 0} ; [ DW_TAG_auto_variable ]
+!1009 = metadata !{i32 69, i32 158, metadata !1005, null}
+!1010 = metadata !{i32 786688, metadata !1005, metadata !"__Result__", metadata !833, i32 69, metadata !838, i32 0, i32 0} ; [ DW_TAG_auto_variable ]
+!1011 = metadata !{i32 786688, metadata !993, metadata !"curElemB", metadata !833, i32 64, metadata !838, i32 0, i32 0} ; [ DW_TAG_auto_variable ]
+!1012 = metadata !{i32 69, i32 0, metadata !1005, null}
+!1013 = metadata !{i32 786688, metadata !1014, metadata !"__Val2__", metadata !833, i32 70, metadata !838, i32 0, i32 0} ; [ DW_TAG_auto_variable ]
+!1014 = metadata !{i32 786443, metadata !991, i32 70, i32 16, metadata !833, i32 16} ; [ DW_TAG_lexical_block ]
+!1015 = metadata !{i32 70, i32 89, metadata !1014, null}
+!1016 = metadata !{i32 70, i32 156, metadata !1014, null}
+!1017 = metadata !{i32 786688, metadata !1014, metadata !"__Repl2__", metadata !833, i32 70, metadata !56, i32 0, i32 0} ; [ DW_TAG_auto_variable ]
+!1018 = metadata !{i32 70, i32 158, metadata !1014, null}
+!1019 = metadata !{i32 786688, metadata !1014, metadata !"__Result__", metadata !833, i32 70, metadata !838, i32 0, i32 0} ; [ DW_TAG_auto_variable ]
+!1020 = metadata !{i32 786688, metadata !993, metadata !"curElemC", metadata !833, i32 65, metadata !838, i32 0, i32 0} ; [ DW_TAG_auto_variable ]
+!1021 = metadata !{i32 70, i32 0, metadata !1014, null}
+!1022 = metadata !{i32 71, i32 3, metadata !991, null}
+!1023 = metadata !{i32 66, i32 34, metadata !992, null}
+!1024 = metadata !{i32 786688, metadata !992, metadata !"t2", metadata !833, i32 66, metadata !56, i32 0, i32 0} ; [ DW_TAG_auto_variable ]
+!1025 = metadata !{i32 72, i32 3, metadata !993, null}
+!1026 = metadata !{i32 73, i32 3, metadata !993, null}
+!1027 = metadata !{i32 74, i32 3, metadata !993, null}
+!1028 = metadata !{i32 62, i32 25, metadata !982, null}
+!1029 = metadata !{i32 786688, metadata !982, metadata !"i", metadata !833, i32 62, metadata !56, i32 0, i32 0} ; [ DW_TAG_auto_variable ]
+!1030 = metadata !{i32 158, i32 1, metadata !910, null}

@@ -36,7 +36,7 @@ set SCTraceOption "all"
 set TargetInfo "xc7z045:ffg900:-1"
 set SourceFiles {sc {} c ../bmm_top.cpp}
 set SourceFlags {sc {} c {{}}}
-set DirectiveFile {/home/raghu/work/projects/dma3/hls/bmm_top/solution1/solution1.directive}
+set DirectiveFile {/home/raghu/w/vivadoProjects/bmm/hls/bmm_top/solution1/solution1.directive}
 set TBFiles {bc {} c {} sc {} cas {} vhdl {} verilog {}}
 set TVInFiles {bc {} c {} sc {} cas {} vhdl {} verilog {}}
 set TVOutFiles {bc {} c {} sc {} cas {} vhdl {} verilog {}}

@@ -65,9 +65,9 @@ void bmm_top(volatile BRAM_DT b1[RAM_SIZE], volatile BRAM_DT b2[RAM_SIZE],  vola
 		BRAM_DT curElemC = 0;   // b3[i+t1]
 		for (int t2=0; t2<ELEMS_PER_BUS; t2++) {
 #pragma HLS UNROLL
-			apint_set_range(curElemA, t2*ELEM_WIDTH_BITS + ELEM_WIDTH_BITS-1, t2*ELEM_WIDTH_BITS, crow[i*ELEMS_PER_BUS+t2]);
-			apint_set_range(curElemB, t2*ELEM_WIDTH_BITS + ELEM_WIDTH_BITS-1, t2*ELEM_WIDTH_BITS, crow[i*ELEMS_PER_BUS+t2]);
-			apint_set_range(curElemC, t2*ELEM_WIDTH_BITS + ELEM_WIDTH_BITS-1, t2*ELEM_WIDTH_BITS, crow[i*ELEMS_PER_BUS+t2]);
+			curElemA = apint_set_range(curElemA, t2*ELEM_WIDTH_BITS + ELEM_WIDTH_BITS-1, t2*ELEM_WIDTH_BITS, arow[i*ELEMS_PER_BUS+t2]);
+			curElemB = apint_set_range(curElemB, t2*ELEM_WIDTH_BITS + ELEM_WIDTH_BITS-1, t2*ELEM_WIDTH_BITS, brow[i*ELEMS_PER_BUS+t2]);
+			curElemC = apint_set_range(curElemC, t2*ELEM_WIDTH_BITS + ELEM_WIDTH_BITS-1, t2*ELEM_WIDTH_BITS, crow[i*ELEMS_PER_BUS+t2]);
 		}
 		b1[i] = curElemA;
 		b2[i] = curElemB;

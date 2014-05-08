@@ -8,34 +8,6 @@ Copyright (C) 2013 Xilinx Inc. All rights reserved.
 @I [SYN-201] Setting up clock 'default' with a period of 10ns.
 @I [HLS-10] Setting target device to 'xc7z045ffg900-1'
 @I [HLS-10] Analyzing design file 'bmm_top/bmm_top.cpp' ... 
-bmm_top/bmm_top.cpp:68:4: warning: expression result unused [-Wunused-value]
-                        apint_set_range(curElemA, t2*ELEM_WIDTH_BITS + ELEM_WIDTH_BITS-1, t2*ELEM_WIDTH_BITS, crow[i*ELEMS_PER_BUS+t2]);
-                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-/home/raghu/work/tools/xilinx/Vivado_HLS/2013.3/include/etc/autopilot_apint.h:47:44: note: expanded from macro 'apint_set_range'
-#define apint_set_range(Val, Hi, Lo, Repl) _ssdm_op_SetRange(Val, Hi, Lo, Repl)
-                                           ^
-/home/raghu/work/tools/xilinx/Vivado_HLS/2013.3/include/etc/autopilot_ssdm_bits.h:105:3: note: expanded from macro '_ssdm_op_SetRange'
-  __Result__; \
-  ^~~~~~~~~~
-bmm_top/bmm_top.cpp:69:4: warning: expression result unused [-Wunused-value]
-                        apint_set_range(curElemB, t2*ELEM_WIDTH_BITS + ELEM_WIDTH_BITS-1, t2*ELEM_WIDTH_BITS, crow[i*ELEMS_PER_BUS+t2]);
-                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-/home/raghu/work/tools/xilinx/Vivado_HLS/2013.3/include/etc/autopilot_apint.h:47:44: note: expanded from macro 'apint_set_range'
-#define apint_set_range(Val, Hi, Lo, Repl) _ssdm_op_SetRange(Val, Hi, Lo, Repl)
-                                           ^
-/home/raghu/work/tools/xilinx/Vivado_HLS/2013.3/include/etc/autopilot_ssdm_bits.h:105:3: note: expanded from macro '_ssdm_op_SetRange'
-  __Result__; \
-  ^~~~~~~~~~
-bmm_top/bmm_top.cpp:70:4: warning: expression result unused [-Wunused-value]
-                        apint_set_range(curElemC, t2*ELEM_WIDTH_BITS + ELEM_WIDTH_BITS-1, t2*ELEM_WIDTH_BITS, crow[i*ELEMS_PER_BUS+t2]);
-                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-/home/raghu/work/tools/xilinx/Vivado_HLS/2013.3/include/etc/autopilot_apint.h:47:44: note: expanded from macro 'apint_set_range'
-#define apint_set_range(Val, Hi, Lo, Repl) _ssdm_op_SetRange(Val, Hi, Lo, Repl)
-                                           ^
-/home/raghu/work/tools/xilinx/Vivado_HLS/2013.3/include/etc/autopilot_ssdm_bits.h:105:3: note: expanded from macro '_ssdm_op_SetRange'
-  __Result__; \
-  ^~~~~~~~~~
-3 warnings generated.
 @I [HLS-10] Validating synthesis directives ...
 @I [HLS-10] Checking synthesizability ...
 @W [SYNCHK-23] bmm_top/bmm_top.cpp:50: variable-indexed range selection may cause suboptimal QoR.
@@ -43,14 +15,13 @@ bmm_top/bmm_top.cpp:70:4: warning: expression result unused [-Wunused-value]
 @I [HLS-10] Starting code transformations ...
 @I [XFORM-501] Unrolling loop 'Loop-1.1' (bmm_top/bmm_top.cpp:48) in function 'bmm_top' completely.
 @I [XFORM-501] Unrolling loop 'Loop-3.1' (bmm_top/bmm_top.cpp:66) in function 'bmm_top' completely.
-@W [XFORM-104] Completely partitioning array 'arow' (bmm_top/bmm_top.cpp:31) accessed through non-constant indices on dimension 1 (bmm_top/bmm_top.cpp:50), which may result in long runtime and suboptimal QoR due to large multiplexers. Please consider wrapping the array access into a function or using a register file core instead.
+@W [XFORM-104] Completely partitioning array 'arow' (bmm_top/bmm_top.cpp:31) accessed through non-constant indices on dimension 1 (bmm_top/bmm_top.cpp:68:154), which may result in long runtime and suboptimal QoR due to large multiplexers. Please consider wrapping the array access into a function or using a register file core instead.
 @I [XFORM-101] Partitioning array 'arow' (bmm_top/bmm_top.cpp:31) in dimension 1 completely.
-@W [XFORM-104] Completely partitioning array 'brow' (bmm_top/bmm_top.cpp:31) accessed through non-constant indices on dimension 1 (bmm_top/bmm_top.cpp:51), which may result in long runtime and suboptimal QoR due to large multiplexers. Please consider wrapping the array access into a function or using a register file core instead.
+@W [XFORM-104] Completely partitioning array 'brow' (bmm_top/bmm_top.cpp:31) accessed through non-constant indices on dimension 1 (bmm_top/bmm_top.cpp:69:156), which may result in long runtime and suboptimal QoR due to large multiplexers. Please consider wrapping the array access into a function or using a register file core instead.
 @I [XFORM-101] Partitioning array 'brow' (bmm_top/bmm_top.cpp:31) in dimension 1 completely.
-@W [XFORM-104] Completely partitioning array 'crow' (bmm_top/bmm_top.cpp:31) accessed through non-constant indices on dimension 1 (bmm_top/bmm_top.cpp:68:143), which may result in long runtime and suboptimal QoR due to large multiplexers. Please consider wrapping the array access into a function or using a register file core instead.
+@W [XFORM-104] Completely partitioning array 'crow' (bmm_top/bmm_top.cpp:31) accessed through non-constant indices on dimension 1 (bmm_top/bmm_top.cpp:70:156), which may result in long runtime and suboptimal QoR due to large multiplexers. Please consider wrapping the array access into a function or using a register file core instead.
 @I [XFORM-101] Partitioning array 'crow' (bmm_top/bmm_top.cpp:31) in dimension 1 completely.
-@I [XFORM-401] Performing if-conversion on hyperblock from (bmm_top/bmm_top.cpp:56:15) to (bmm_top/bmm_top.cpp:62:14) in function 'bmm_top'... converting 2 basic blocks.
-@I [HLS-111] Elapsed time: 3.75 seconds; current memory usage: 50.6 MB.
+@I [HLS-111] Elapsed time: 107.48 seconds; current memory usage: 511 MB.
 @I [HLS-10] Starting hardware synthesis ...
 @I [HLS-10] Synthesizing 'bmm_top' ...
 @I [HLS-10] ----------------------------------------------------------------
@@ -58,7 +29,7 @@ bmm_top/bmm_top.cpp:70:4: warning: expression result unused [-Wunused-value]
 @I [HLS-10] ----------------------------------------------------------------
 @I [SCHED-11] Starting scheduling ...
 @I [SCHED-11] Finished scheduling.
-@I [HLS-111] Elapsed time: 0.1 seconds; current memory usage: 51.1 MB.
+@I [HLS-111] Elapsed time: 107.26 seconds; current memory usage: 557 MB.
 @I [HLS-10] ----------------------------------------------------------------
 @I [HLS-10] -- Exploring micro-architecture for module 'bmm_top' 
 @I [HLS-10] ----------------------------------------------------------------
@@ -67,7 +38,7 @@ bmm_top/bmm_top.cpp:70:4: warning: expression result unused [-Wunused-value]
 @I [BIND-101] Exploring resource sharing.
 @I [BIND-101] Binding ...
 @I [BIND-100] Finished micro-architecture generation.
-@I [HLS-111] Elapsed time: 0.03 seconds; current memory usage: 51.4 MB.
+@I [HLS-111] Elapsed time: 6.82 seconds; current memory usage: 620 MB.
 @I [HLS-10] ----------------------------------------------------------------
 @I [HLS-10] -- Generating RTL for module 'bmm_top' 
 @I [HLS-10] ----------------------------------------------------------------
@@ -78,12 +49,12 @@ bmm_top/bmm_top.cpp:70:4: warning: expression result unused [-Wunused-value]
 @I [RTGEN-500] Setting interface mode on function 'bmm_top' to 'ap_ctrl_hs'.
 @I [RTGEN-100] Generating core module 'bmm_top_mul_32s_32s_32_6': 1 instance(s).
 @I [RTGEN-100] Finished creating RTL model for 'bmm_top'.
-@I [HLS-111] Elapsed time: 0.06 seconds; current memory usage: 51.8 MB.
+@I [HLS-111] Elapsed time: 27.77 seconds; current memory usage: 665 MB.
 @I [RTMG-282] Generating pipelined core: 'bmm_top_mul_32s_32s_32_6_MulnS_0'
 @I [HLS-10] Finished generating all RTL models.
 @I [WSYSC-301] Generating RTL SystemC for 'bmm_top'.
 @I [WVHDL-304] Generating RTL VHDL for 'bmm_top'.
 @I [WVLOG-307] Generating RTL Verilog for 'bmm_top'.
 @I [IMPL-8] Exporting RTL as an IP in IP-XACT.
-@I [HLS-112] Total elapsed time: 118.955 seconds; peak memory usage: 51.8 MB.
+@I [HLS-112] Total elapsed time: 290.46 seconds; peak memory usage: 665 MB.
 @I [LIC-101] Checked in feature [HLS]

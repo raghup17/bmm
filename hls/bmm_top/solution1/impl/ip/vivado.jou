@@ -2,9 +2,9 @@
 # Vivado v2013.3 (64-bit)
 # SW Build 329390 on Wed Oct 16 18:26:55 MDT 2013
 # IP Build 192953 on Wed Oct 16 08:44:02 MDT 2013
-# Start of session at: Tue May  6 19:33:33 2014
-# Process ID: 31134
-# Log file: /home/raghu/work/projects/dma3/hls/bmm_top/solution1/impl/ip/vivado.log
-# Journal file: /home/raghu/work/projects/dma3/hls/bmm_top/solution1/impl/ip/vivado.jou
+# Start of session at: Thu May  8 00:50:28 2014
+# Process ID: 2907
+# Log file: /home/raghu/w/vivadoProjects/bmm/hls/bmm_top/solution1/impl/ip/vivado.log
+# Journal file: /home/raghu/w/vivadoProjects/bmm/hls/bmm_top/solution1/impl/ip/vivado.jou
 #-----------------------------------------------------------
 source run_ippack.tcl -notrace
