@@ -12,9 +12,9 @@ var WshShell = new ActiveXObject( "WScript.Shell" );
 var ProcEnv = WshShell.Environment( "Process" );
 var PathVal = ProcEnv("PATH");
 if ( PathVal.length == 0 ) {
-  PathVal = "/home/raghu/work/tools/xilinx/SDK/2013.3/bin/lin64:/home/raghu/work/tools/xilinx/Vivado/2013.3/ids_lite/EDK/bin/lin64:/home/raghu/work/tools/xilinx/Vivado/2013.3/ids_lite/ISE/bin/lin64;/home/raghu/work/tools/xilinx/Vivado/2013.3/ids_lite/EDK/lib/lin64:/home/raghu/work/tools/xilinx/Vivado/2013.3/ids_lite/ISE/lib/lin64;/home/raghu/work/tools/xilinx/Vivado/2013.3/bin;";
+  PathVal = "/home/raghu/tools/xilinx/SDK/2013.3/bin/lin64:/home/raghu/tools/xilinx/Vivado/2013.3/ids_lite/EDK/bin/lin64:/home/raghu/tools/xilinx/Vivado/2013.3/ids_lite/ISE/bin/lin64;/home/raghu/tools/xilinx/Vivado/2013.3/ids_lite/EDK/lib/lin64:/home/raghu/tools/xilinx/Vivado/2013.3/ids_lite/ISE/lib/lin64;/home/raghu/tools/xilinx/Vivado/2013.3/bin;";
 } else {
-  PathVal = "/home/raghu/work/tools/xilinx/SDK/2013.3/bin/lin64:/home/raghu/work/tools/xilinx/Vivado/2013.3/ids_lite/EDK/bin/lin64:/home/raghu/work/tools/xilinx/Vivado/2013.3/ids_lite/ISE/bin/lin64;/home/raghu/work/tools/xilinx/Vivado/2013.3/ids_lite/EDK/lib/lin64:/home/raghu/work/tools/xilinx/Vivado/2013.3/ids_lite/ISE/lib/lin64;/home/raghu/work/tools/xilinx/Vivado/2013.3/bin;" + PathVal;
+  PathVal = "/home/raghu/tools/xilinx/SDK/2013.3/bin/lin64:/home/raghu/tools/xilinx/Vivado/2013.3/ids_lite/EDK/bin/lin64:/home/raghu/tools/xilinx/Vivado/2013.3/ids_lite/ISE/bin/lin64;/home/raghu/tools/xilinx/Vivado/2013.3/ids_lite/EDK/lib/lin64:/home/raghu/tools/xilinx/Vivado/2013.3/ids_lite/ISE/lib/lin64;/home/raghu/tools/xilinx/Vivado/2013.3/bin;" + PathVal;
 }
 
 ProcEnv("PATH") = PathVal;

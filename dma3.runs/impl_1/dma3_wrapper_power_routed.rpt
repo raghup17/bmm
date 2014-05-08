@@ -1,11 +1,11 @@
 Copyright 1986-1999, 2001-2013 Xilinx, Inc. All Rights Reserved.
 -----------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2013.3 (lin64) Build 329390 Wed Oct 16 18:26:55 MDT 2013
-| Date             : Tue May  6 20:36:32 2014
-| Host             : raghu-office running 64-bit Ubuntu 12.04.4 LTS
+| Date             : Tue May  6 22:43:14 2014
+| Host             : wallace running 64-bit Ubuntu 14.04 LTS
 | Command          : report_power -file dma3_wrapper_power_routed.rpt -pb dma3_wrapper_power_summary_routed.pb
 | Design           : dma3_wrapper
-| Device           : xc7z045ffg900-2
+| Device           : xc7z020clg484-1
 | Design State     : Routed
 | Grade            : commercial
 | Process          : typical
@@ -30,13 +30,13 @@ Table of Contents
 ----------
 
 +--------------------------+-------+
-| Total On-Chip Power (W)  | 1.725 |
-| Dynamic (W)              | 1.474 |
-| Device Static (W)        | 0.250 |
+| Total On-Chip Power (W)  | 1.592 |
+| Dynamic (W)              | 1.440 |
+| Device Static (W)        | 0.152 |
 | Total Off-Chip Power (W) | 0.121 |
-| Effective TJA (C/W)      | 1.8   |
-| Max Ambient (C)          | 81.9  |
-| Junction Temperature (C) | 28.1  |
+| Effective TJA (C/W)      | 11.5  |
+| Max Ambient (C)          | 66.6  |
+| Junction Temperature (C) | 43.4  |
 | Confidence Level         | Low   |
 | Setting File             | ---   |
 | Simulation Activity File | ---   |
@@ -50,21 +50,21 @@ Table of Contents
 +--------------------------+-----------+----------+-----------+-----------------+
 | On-Chip                  | Power (W) | Used     | Available | Utilization (%) |
 +--------------------------+-----------+----------+-----------+-----------------+
-| Clocks                   |     0.079 |        1 |       --- |             --- |
-| Slice Logic              |     0.014 |    90798 |       --- |             --- |
-|   LUT as Logic           |     0.013 |    36666 |    218600 |           16.77 |
-|   Register               |    <0.001 |    37375 |    437200 |            8.55 |
-|   CARRY4                 |    <0.001 |      915 |     54650 |            1.67 |
-|   LUT as Shift Register  |    <0.001 |     4956 |     70400 |            7.04 |
-|   LUT as Distributed RAM |    <0.001 |      156 |     70400 |            0.22 |
-|   F7/F8 Muxes            |    <0.001 |      550 |    218600 |            0.25 |
+| Clocks                   |     0.048 |        1 |       --- |             --- |
+| Slice Logic              |     0.013 |    88258 |       --- |             --- |
+|   LUT as Logic           |     0.012 |    34784 |     53200 |           65.38 |
+|   Register               |    <0.001 |    37294 |    106400 |           35.05 |
+|   CARRY4                 |    <0.001 |      915 |     13300 |            6.88 |
+|   LUT as Shift Register  |    <0.001 |     4956 |     17400 |           28.48 |
+|   LUT as Distributed RAM |    <0.001 |      156 |     17400 |            0.90 |
+|   F7/F8 Muxes            |    <0.001 |      548 |     53200 |            1.03 |
 |   Others                 |     0.000 |      279 |       --- |             --- |
-| Signals                  |     0.024 |    69789 |       --- |             --- |
-| Block RAM                |     0.012 |      521 |       545 |           95.60 |
-| DSPs                     |    <0.001 |       12 |       900 |            1.33 |
+| Signals                  |     0.022 |    65092 |       --- |             --- |
+| Block RAM                |     0.011 |      138 |       140 |           98.57 |
+| DSPs                     |    <0.001 |       12 |       220 |            5.45 |
 | PS7                      |     1.346 |        1 |       --- |             --- |
-| Static Power             |     0.250 |          |           |                 |
-| Total                    |     1.725 |          |           |                 |
+| Static Power             |     0.152 |          |           |                 |
+| Total                    |     1.592 |          |           |                 |
 +--------------------------+-----------+----------+-----------+-----------------+
 
 
@@ -74,8 +74,8 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) |
 +-----------+-------------+-----------+-------------+------------+
-| Vccint    |       1.000 |     0.189 |       0.128 |      0.061 |
-| Vccaux    |       1.800 |     0.054 |       0.000 |      0.054 |
+| Vccint    |       1.000 |     0.109 |       0.094 |      0.016 |
+| Vccaux    |       1.800 |     0.020 |       0.000 |      0.020 |
 | Vcco33    |       3.300 |     0.000 |       0.000 |      0.000 |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |
 | Vcco18    |       1.800 |     0.000 |       0.000 |      0.000 |
@@ -83,11 +83,11 @@ Table of Contents
 | Vcco135   |       1.350 |     0.000 |       0.000 |      0.000 |
 | Vcco12    |       1.200 |     0.000 |       0.000 |      0.000 |
 | Vccaux_io |       1.800 |     0.000 |       0.000 |      0.000 |
-| Vccbram   |       1.000 |     0.009 |       0.000 |      0.009 |
+| Vccbram   |       1.000 |     0.004 |       0.000 |      0.004 |
 | MGTAVcc   |       1.000 |     0.000 |       0.000 |      0.000 |
 | MGTAVtt   |       1.200 |     0.000 |       0.000 |      0.000 |
 | MGTVccaux |       1.800 |     0.000 |       0.000 |      0.000 |
-| Vccpint   |       1.000 |     0.409 |       0.391 |      0.018 |
+| Vccpint   |       1.000 |     0.420 |       0.391 |      0.029 |
 | Vccpaux   |       1.800 |     0.067 |       0.057 |      0.010 |
 | Vccpll    |       1.800 |     0.116 |       0.113 |      0.003 |
 | Vcco_ddr  |       1.500 |     0.511 |       0.509 |      0.002 |
@@ -119,16 +119,16 @@ Table of Contents
 2.1 Environment
 ---------------
 
-+-----------------------+--------------------------+
-| Ambient Temp (C)      | 25.0                     |
-| ThetaJA (C/W)         | 1.8                      |
-| Airflow (LFM)         | 250                      |
-| Heat Sink             | medium (Medium Profile)  |
-| ThetaSA (C/W)         | 3.3                      |
-| Board Selection       | medium (10"x10")         |
-| # of Board Layers     | 12to15 (12 to 15 Layers) |
-| Board Temperature (C) | 25.0                     |
-+-----------------------+--------------------------+
++-----------------------+------------------------+
+| Ambient Temp (C)      | 25.0                   |
+| ThetaJA (C/W)         | 11.5                   |
+| Airflow (LFM)         | 250                    |
+| Heat Sink             | none                   |
+| ThetaSA (C/W)         | 0.0                    |
+| Board Selection       | medium (10"x10")       |
+| # of Board Layers     | 8to11 (8 to 11 Layers) |
+| Board Temperature (C) | 25.0                   |
++-----------------------+------------------------+
 
 
 2.2 Clock Constraints
@@ -150,12 +150,12 @@ Table of Contents
 +----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------+
 | Name                                                                                                                                                                                                                                   | Power (W) |
 +----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------+
-| dma3_wrapper                                                                                                                                                                                                                           |     1.474 |
-|   dma3_i                                                                                                                                                                                                                               |     1.474 |
-|     axi_cdma_0                                                                                                                                                                                                                         |     0.005 |
-|       U0                                                                                                                                                                                                                               |     0.005 |
-|     axi_dwidth_converter_0                                                                                                                                                                                                             |     0.016 |
-|       inst                                                                                                                                                                                                                             |     0.016 |
+| dma3_wrapper                                                                                                                                                                                                                           |     1.440 |
+|   dma3_i                                                                                                                                                                                                                               |     1.440 |
+|     axi_cdma_0                                                                                                                                                                                                                         |     0.004 |
+|       U0                                                                                                                                                                                                                               |     0.004 |
+|     axi_dwidth_converter_0                                                                                                                                                                                                             |     0.015 |
+|       inst                                                                                                                                                                                                                             |     0.015 |
 |         dw_fifogen_aw/inst_fifo_gen/gaxi_full_lite.gwrite_ch.gwach2.axi_wach/grf.rf/gntv_or_sync_fifo.mem/gdm.dm/RAM_reg_0_31_18_23                                                                                                    |    <0.001 |
 |         dw_fifogen_aw/inst_fifo_gen/gaxi_full_lite.gwrite_ch.gwach2.axi_wach/grf.rf/gntv_or_sync_fifo.mem/gdm.dm/RAM_reg_0_31_24_29                                                                                                    |    <0.001 |
 |         dw_fifogen_aw/inst_fifo_gen/gaxi_full_lite.gwrite_ch.gwach2.axi_wach/grf.rf/gntv_or_sync_fifo.mem/gdm.dm/RAM_reg_0_31_30_35                                                                                                    |    <0.001 |
@@ -190,71 +190,71 @@ Table of Contents
 |         gen_upsizer.gen_full_upsizer.axi_upsizer_inst/USE_READ.gen_pktfifo_r_upsizer.pktfifo_read_data_inst/s_cmd_fifo/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gdm.dm/RAM_reg_0_31_18_23                               |    <0.001 |
 |         gen_upsizer.gen_full_upsizer.axi_upsizer_inst/USE_READ.gen_pktfifo_r_upsizer.pktfifo_read_data_inst/s_cmd_fifo/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gdm.dm/RAM_reg_0_31_24_29                               |    <0.001 |
 |         gen_upsizer.gen_full_upsizer.axi_upsizer_inst/USE_READ.gen_pktfifo_r_upsizer.pktfifo_read_data_inst/s_cmd_fifo/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gdm.dm/RAM_reg_0_31_6_11                                |    <0.001 |
-|     axi_interconnect_0                                                                                                                                                                                                                 |     0.016 |
-|       s00_couplers/auto_us                                                                                                                                                                                                             |     0.002 |
-|         inst                                                                                                                                                                                                                           |     0.002 |
-|       s01_couplers/auto_us                                                                                                                                                                                                             |     0.002 |
-|         inst                                                                                                                                                                                                                           |     0.002 |
-|       s02_couplers/auto_us                                                                                                                                                                                                             |     0.002 |
-|         inst                                                                                                                                                                                                                           |     0.002 |
-|       s03_couplers/auto_us                                                                                                                                                                                                             |     0.002 |
-|         inst                                                                                                                                                                                                                           |     0.002 |
-|       xbar                                                                                                                                                                                                                             |     0.008 |
-|     axi_interconnect_1                                                                                                                                                                                                                 |     0.003 |
-|       xbar                                                                                                                                                                                                                             |     0.003 |
-|     blkA                                                                                                                                                                                                                               |     0.004 |
-|       blk_mem_gen_inblk                                                                                                                                                                                                                |     0.001 |
-|       bram_ctrl_in_blk                                                                                                                                                                                                                 |     0.002 |
-|     block0_ab                                                                                                                                                                                                                          |     0.002 |
-|       blk_mem_gen_outblk                                                                                                                                                                                                               |    <0.001 |
-|       bram_ctrl_outblk                                                                                                                                                                                                                 |     0.002 |
-|     block0_b                                                                                                                                                                                                                           |     0.002 |
-|       blk_mem_gen_inblk                                                                                                                                                                                                                |    <0.001 |
-|       bram_ctrl_in_blk                                                                                                                                                                                                                 |     0.002 |
-|     block1_ab                                                                                                                                                                                                                          |     0.002 |
-|       blk_mem_gen_outblk                                                                                                                                                                                                               |    <0.001 |
-|       bram_ctrl_outblk                                                                                                                                                                                                                 |     0.002 |
-|     block1_b                                                                                                                                                                                                                           |     0.002 |
-|       blk_mem_gen_inblk                                                                                                                                                                                                                |    <0.001 |
-|       bram_ctrl_in_blk                                                                                                                                                                                                                 |     0.002 |
-|     block2_ab                                                                                                                                                                                                                          |     0.002 |
-|       blk_mem_gen_outblk                                                                                                                                                                                                               |    <0.001 |
-|       bram_ctrl_outblk                                                                                                                                                                                                                 |     0.002 |
-|     block2_b                                                                                                                                                                                                                           |     0.002 |
-|       blk_mem_gen_inblk                                                                                                                                                                                                                |    <0.001 |
-|       bram_ctrl_in_blk                                                                                                                                                                                                                 |     0.002 |
-|     block3_ab                                                                                                                                                                                                                          |     0.002 |
-|       blk_mem_gen_outblk                                                                                                                                                                                                               |    <0.001 |
-|       bram_ctrl_outblk                                                                                                                                                                                                                 |     0.002 |
-|     block3_b                                                                                                                                                                                                                           |     0.002 |
-|       blk_mem_gen_inblk                                                                                                                                                                                                                |    <0.001 |
-|       bram_ctrl_in_blk                                                                                                                                                                                                                 |     0.002 |
-|     blocka_ic                                                                                                                                                                                                                          |     0.010 |
-|       s00_couplers/auto_us                                                                                                                                                                                                             |     0.002 |
-|         inst                                                                                                                                                                                                                           |     0.002 |
-|       s01_couplers/auto_us                                                                                                                                                                                                             |     0.002 |
-|         inst                                                                                                                                                                                                                           |     0.002 |
-|       s02_couplers/auto_us                                                                                                                                                                                                             |     0.002 |
-|         inst                                                                                                                                                                                                                           |     0.002 |
-|       s03_couplers/auto_us                                                                                                                                                                                                             |     0.002 |
-|         inst                                                                                                                                                                                                                           |     0.002 |
+|     axi_interconnect_0                                                                                                                                                                                                                 |     0.012 |
+|       s00_couplers/auto_us                                                                                                                                                                                                             |     0.001 |
+|         inst                                                                                                                                                                                                                           |     0.001 |
+|       s01_couplers/auto_us                                                                                                                                                                                                             |     0.001 |
+|         inst                                                                                                                                                                                                                           |     0.001 |
+|       s02_couplers/auto_us                                                                                                                                                                                                             |     0.001 |
+|         inst                                                                                                                                                                                                                           |     0.001 |
+|       s03_couplers/auto_us                                                                                                                                                                                                             |     0.001 |
+|         inst                                                                                                                                                                                                                           |     0.001 |
+|       xbar                                                                                                                                                                                                                             |     0.006 |
+|     axi_interconnect_1                                                                                                                                                                                                                 |     0.002 |
 |       xbar                                                                                                                                                                                                                             |     0.002 |
-|     bmm_bram_ic0                                                                                                                                                                                                                       |     0.016 |
+|     blkA                                                                                                                                                                                                                               |     0.002 |
+|       blk_mem_gen_inblk                                                                                                                                                                                                                |    <0.001 |
+|       bram_ctrl_in_blk                                                                                                                                                                                                                 |     0.001 |
+|     block0_ab                                                                                                                                                                                                                          |     0.001 |
+|       blk_mem_gen_outblk                                                                                                                                                                                                               |    <0.001 |
+|       bram_ctrl_outblk                                                                                                                                                                                                                 |     0.001 |
+|     block0_b                                                                                                                                                                                                                           |     0.001 |
+|       blk_mem_gen_inblk                                                                                                                                                                                                                |    <0.001 |
+|       bram_ctrl_in_blk                                                                                                                                                                                                                 |     0.001 |
+|     block1_ab                                                                                                                                                                                                                          |     0.001 |
+|       blk_mem_gen_outblk                                                                                                                                                                                                               |    <0.001 |
+|       bram_ctrl_outblk                                                                                                                                                                                                                 |     0.001 |
+|     block1_b                                                                                                                                                                                                                           |     0.001 |
+|       blk_mem_gen_inblk                                                                                                                                                                                                                |    <0.001 |
+|       bram_ctrl_in_blk                                                                                                                                                                                                                 |     0.001 |
+|     block2_ab                                                                                                                                                                                                                          |     0.001 |
+|       blk_mem_gen_outblk                                                                                                                                                                                                               |    <0.001 |
+|       bram_ctrl_outblk                                                                                                                                                                                                                 |     0.001 |
+|     block2_b                                                                                                                                                                                                                           |     0.001 |
+|       blk_mem_gen_inblk                                                                                                                                                                                                                |    <0.001 |
+|       bram_ctrl_in_blk                                                                                                                                                                                                                 |     0.001 |
+|     block3_ab                                                                                                                                                                                                                          |     0.001 |
+|       blk_mem_gen_outblk                                                                                                                                                                                                               |    <0.001 |
+|       bram_ctrl_outblk                                                                                                                                                                                                                 |     0.001 |
+|     block3_b                                                                                                                                                                                                                           |     0.001 |
+|       blk_mem_gen_inblk                                                                                                                                                                                                                |    <0.001 |
+|       bram_ctrl_in_blk                                                                                                                                                                                                                 |     0.001 |
+|     blocka_ic                                                                                                                                                                                                                          |     0.008 |
 |       s00_couplers/auto_us                                                                                                                                                                                                             |     0.002 |
 |         inst                                                                                                                                                                                                                           |     0.002 |
-|       s01_couplers/auto_us                                                                                                                                                                                                             |     0.002 |
-|         inst                                                                                                                                                                                                                           |     0.002 |
+|       s01_couplers/auto_us                                                                                                                                                                                                             |     0.001 |
+|         inst                                                                                                                                                                                                                           |     0.001 |
 |       s02_couplers/auto_us                                                                                                                                                                                                             |     0.002 |
 |         inst                                                                                                                                                                                                                           |     0.002 |
-|       s03_couplers/auto_us                                                                                                                                                                                                             |     0.002 |
+|       s03_couplers/auto_us                                                                                                                                                                                                             |     0.001 |
+|         inst                                                                                                                                                                                                                           |     0.001 |
+|       xbar                                                                                                                                                                                                                             |     0.002 |
+|     bmm_bram_ic0                                                                                                                                                                                                                       |     0.012 |
+|       s00_couplers/auto_us                                                                                                                                                                                                             |     0.001 |
+|         inst                                                                                                                                                                                                                           |     0.001 |
+|       s01_couplers/auto_us                                                                                                                                                                                                             |     0.001 |
+|         inst                                                                                                                                                                                                                           |     0.001 |
+|       s02_couplers/auto_us                                                                                                                                                                                                             |     0.002 |
 |         inst                                                                                                                                                                                                                           |     0.002 |
-|       xbar                                                                                                                                                                                                                             |     0.008 |
-|     bmm_top_0                                                                                                                                                                                                                          |     0.008 |
-|     bmm_top_1                                                                                                                                                                                                                          |     0.009 |
-|     bmm_top_2                                                                                                                                                                                                                          |     0.008 |
-|     bmm_top_3                                                                                                                                                                                                                          |     0.009 |
-|     cdma_bram_intercon                                                                                                                                                                                                                 |     0.002 |
-|       m00_couplers/auto_pc                                                                                                                                                                                                             |     0.001 |
+|       s03_couplers/auto_us                                                                                                                                                                                                             |     0.001 |
+|         inst                                                                                                                                                                                                                           |     0.001 |
+|       xbar                                                                                                                                                                                                                             |     0.006 |
+|     bmm_top_0                                                                                                                                                                                                                          |     0.006 |
+|     bmm_top_1                                                                                                                                                                                                                          |     0.007 |
+|     bmm_top_2                                                                                                                                                                                                                          |     0.006 |
+|     bmm_top_3                                                                                                                                                                                                                          |     0.007 |
+|     cdma_bram_intercon                                                                                                                                                                                                                 |     0.001 |
+|       m00_couplers/auto_pc                                                                                                                                                                                                             |    <0.001 |
 |         inst/gen_axi4_axi3.axi3_conv_inst/USE_READ.USE_SPLIT_R.read_addr_inst/USE_R_CHANNEL.cmd_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gdm.dm/RAM_reg_0_31_0_0                               |    <0.001 |
 |         inst/gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/USE_BURSTS.cmd_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gdm.dm/RAM_reg_0_31_0_4                                            |    <0.001 |
 |         inst/gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/USE_B_CHANNEL.cmd_b_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gdm.dm/RAM_reg_0_31_0_4                                       |    <0.001 |
@@ -265,7 +265,7 @@ Table of Contents
 |         inst/gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/USE_BURSTS.cmd_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gdm.dm/RAM_reg_0_31_0_4                                            |    <0.001 |
 |         inst/gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/USE_B_CHANNEL.cmd_b_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gdm.dm/RAM_reg_0_31_0_4                                       |    <0.001 |
 |     ctrl_axilite_intercon                                                                                                                                                                                                              |     0.002 |
-|       s00_couplers/auto_pc                                                                                                                                                                                                             |     0.002 |
+|       s00_couplers/auto_pc                                                                                                                                                                                                             |     0.001 |
 |       xbar                                                                                                                                                                                                                             |    <0.001 |
 |     proc_sys_reset                                                                                                                                                                                                                     |    <0.001 |
 |       U0                                                                                                                                                                                                                               |    <0.001 |

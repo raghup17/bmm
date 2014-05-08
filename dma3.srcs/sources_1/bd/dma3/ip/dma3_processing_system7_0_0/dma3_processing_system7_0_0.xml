@@ -7646,7 +7646,7 @@
         <spirit:name>GP0_QSPI_LINEAR</spirit:name>
         <spirit:displayName>GP0 QSPI LINEAR</spirit:displayName>
         <spirit:baseAddress spirit:format="bitString" spirit:resolve="immediate" spirit:bitStringLength="32">0xfc000000</spirit:baseAddress>
-        <spirit:range spirit:format="bitString" spirit:resolve="dependent" spirit:dependency="((spirit:decode(id(PARAM_VALUE.PCW_QSPI_INTERNAL_HIGHADDRESS))) - 0xfbffffff )" spirit:bitStringLength="32">0x01000000</spirit:range>
+        <spirit:range spirit:format="bitString" spirit:resolve="dependent" spirit:dependency="((spirit:decode(id(PARAM_VALUE.PCW_QSPI_INTERNAL_HIGHADDRESS))) - 0xfbffffff )" spirit:bitStringLength="32">16777216</spirit:range>
         <spirit:width spirit:format="long" spirit:resolve="immediate">32</spirit:width>
         <spirit:usage>memory</spirit:usage>
         <spirit:vendorExtensions>
@@ -8297,7 +8297,7 @@
         <spirit:name>GP1_QSPI_LINEAR</spirit:name>
         <spirit:displayName>GP1 QSPI LINEAR</spirit:displayName>
         <spirit:baseAddress spirit:format="bitString" spirit:resolve="immediate" spirit:bitStringLength="32">0xfc000000</spirit:baseAddress>
-        <spirit:range spirit:format="bitString" spirit:resolve="dependent" spirit:dependency="((spirit:decode(id(PARAM_VALUE.PCW_QSPI_INTERNAL_HIGHADDRESS))) - 0xfbffffff )" spirit:bitStringLength="32">0x01000000</spirit:range>
+        <spirit:range spirit:format="bitString" spirit:resolve="dependent" spirit:dependency="((spirit:decode(id(PARAM_VALUE.PCW_QSPI_INTERNAL_HIGHADDRESS))) - 0xfbffffff )" spirit:bitStringLength="32">16777216</spirit:range>
         <spirit:width spirit:format="long" spirit:resolve="immediate">32</spirit:width>
         <spirit:usage>memory</spirit:usage>
         <spirit:vendorExtensions>
@@ -8948,7 +8948,7 @@
         <spirit:name>ACP_QSPI_LINEAR</spirit:name>
         <spirit:displayName>ACP QSPI LINEAR</spirit:displayName>
         <spirit:baseAddress spirit:format="bitString" spirit:resolve="immediate" spirit:bitStringLength="32">0xfc000000</spirit:baseAddress>
-        <spirit:range spirit:format="bitString" spirit:resolve="dependent" spirit:dependency="((spirit:decode(id(PARAM_VALUE.PCW_QSPI_INTERNAL_HIGHADDRESS))) - 0xfbffffff )" spirit:bitStringLength="32">0x01000000</spirit:range>
+        <spirit:range spirit:format="bitString" spirit:resolve="dependent" spirit:dependency="((spirit:decode(id(PARAM_VALUE.PCW_QSPI_INTERNAL_HIGHADDRESS))) - 0xfbffffff )" spirit:bitStringLength="32">16777216</spirit:range>
         <spirit:width spirit:format="long" spirit:resolve="immediate">32</spirit:width>
         <spirit:usage>memory</spirit:usage>
         <spirit:vendorExtensions>
@@ -9558,7 +9558,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>customizationCRC</spirit:name>
-            <spirit:value>3965998981</spirit:value>
+            <spirit:value>1656956740</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>customizationCRCversion</spirit:name>
@@ -9566,7 +9566,7 @@
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Wed May 07 02:50:08 UTC 2014</spirit:value>
+            <spirit:value>Wed May 07 04:43:50 UTC 2014</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>StaleAtRelink</spirit:name>
@@ -30360,7 +30360,7 @@
     <spirit:parameter>
       <spirit:name>PCW_CPU_CPU_6X4X_MAX_RANGE</spirit:name>
       <spirit:displayName>PCW CPU CPU 6X4X MAX RANGE</spirit:displayName>
-      <spirit:value spirit:format="float" spirit:resolve="user" spirit:id="PARAM_VALUE.PCW_CPU_CPU_6X4X_MAX_RANGE" spirit:order="234000" spirit:minimum="-9999.990000" spirit:maximum="9999.990000" spirit:rangeType="float">800</spirit:value>
+      <spirit:value spirit:format="float" spirit:resolve="user" spirit:id="PARAM_VALUE.PCW_CPU_CPU_6X4X_MAX_RANGE" spirit:order="234000" spirit:minimum="-9999.990000" spirit:maximum="9999.990000" spirit:rangeType="float">667</spirit:value>
       <spirit:vendorExtensions>
         <xilinx:parameterInfo>
           <xilinx:enablement>
@@ -30384,7 +30384,7 @@
     <spirit:parameter>
       <spirit:name>PCW_APU_PERIPHERAL_FREQMHZ</spirit:name>
       <spirit:displayName>PCW APU PERIPHERAL FREQMHZ</spirit:displayName>
-      <spirit:value spirit:format="float" spirit:resolve="user" spirit:id="PARAM_VALUE.PCW_APU_PERIPHERAL_FREQMHZ" spirit:order="23300" spirit:minimum="50.000000" spirit:maximum="800.000000" spirit:rangeType="float">667.000000</spirit:value>
+      <spirit:value spirit:format="float" spirit:resolve="user" spirit:id="PARAM_VALUE.PCW_APU_PERIPHERAL_FREQMHZ" spirit:order="23300" spirit:minimum="50.000000" spirit:maximum="667.000000" spirit:rangeType="float">667.000000</spirit:value>
       <spirit:vendorExtensions>
         <xilinx:parameterInfo>
           <xilinx:enablement>
@@ -32034,7 +32034,7 @@
         <xilinx:parameterInfo>
           <xilinx:enablement>
             <xilinx:presence>optional</xilinx:presence>
-            <xilinx:isEnabled xilinx:resolve="dependent" xilinx:dependency="(spirit:decode(id(PARAM_VALUE.PCW_USE_S_AXI_HP1)) = 1) ">true</xilinx:isEnabled>
+            <xilinx:isEnabled xilinx:resolve="dependent" xilinx:dependency="(spirit:decode(id(PARAM_VALUE.PCW_USE_S_AXI_HP1)) = 1) ">false</xilinx:isEnabled>
           </xilinx:enablement>
         </xilinx:parameterInfo>
       </spirit:vendorExtensions>
@@ -32086,7 +32086,7 @@
         <xilinx:parameterInfo>
           <xilinx:enablement>
             <xilinx:presence>optional</xilinx:presence>
-            <xilinx:isEnabled xilinx:resolve="dependent" xilinx:dependency="(spirit:decode(id(PARAM_VALUE.PCW_USE_S_AXI_HP3)) = 1) ">true</xilinx:isEnabled>
+            <xilinx:isEnabled xilinx:resolve="dependent" xilinx:dependency="(spirit:decode(id(PARAM_VALUE.PCW_USE_S_AXI_HP3)) = 1) ">false</xilinx:isEnabled>
           </xilinx:enablement>
         </xilinx:parameterInfo>
       </spirit:vendorExtensions>

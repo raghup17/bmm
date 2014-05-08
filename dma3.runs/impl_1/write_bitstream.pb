@@ -3,12 +3,12 @@
 @Attempting to get a license for feature '%s' and/or device '%s'
 308*common2"
 Implementation2default:default2
-xc7z0452default:defaultZ17-347
+xc7z0202default:defaultZ17-347
 ä
 0Got license for feature '%s' and/or device '%s'
 310*common2"
 Implementation2default:default2
-xc7z0452default:defaultZ17-349
+xc7z0202default:defaultZ17-349
 o
 ,Running DRC as a precondition to command %s
 1349*	planAhead2#
@@ -52,9 +52,12 @@ Z
 j
 QWebTalk data collection is enabled (User setting is ON. Install Setting is ON.).
 118*projectZ1-118
-s
-ZWebTalk report has not been sent to Xilinx. Please check your network and proxy settings.
-185*commonZ17-185
+è
+Ü'%s' has been successfully sent to Xilinx on %s. For additional details about this file, please refer to the Webtalk help file at %s.
+186*common2e
+Q/home/raghu/work/vivadoProjects/bmm/dma3.runs/impl_1/usage_statistics_webtalk.xml2default:default2,
+Tue May  6 22:46:01 20142default:default2X
+D/home/raghu/tools/xilinx/Vivado/2013.3/doc/webtalk_introduction.html2default:defaultZ17-186
 Q
 Releasing license: %s
 83*common2"
@@ -63,10 +66,10 @@ Q
 I%sTime (s): cpu = %s ; elapsed = %s . Memory (MB): peak = %s ; gain = %s
 268*common2%
 write_bitstream: 2default:default2
-00:03:112default:default2
-00:03:062default:default2
-3000.9182default:default2
-432.0942default:defaultZ17-268
+00:01:582default:default2
+00:02:002default:default2
+2645.0202default:default2
+353.2272default:defaultZ17-268
 
 
 End Record

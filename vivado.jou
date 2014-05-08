@@ -2,9 +2,10 @@
 # Vivado v2013.3 (64-bit)
 # SW Build 329390 on Wed Oct 16 18:26:55 MDT 2013
 # IP Build 192953 on Wed Oct 16 08:44:02 MDT 2013
-# Start of session at: Tue May  6 19:48:42 2014
-# Process ID: 31416
-# Log file: /home/raghu/work/projects/dma3/vivado.log
-# Journal file: /home/raghu/work/projects/dma3/vivado.jou
+# Start of session at: Wed May  7 19:56:52 2014
+# Process ID: 4492
+# Log file: /home/raghu/work/vivadoProjects/bmm/vivado.log
+# Journal file: /home/raghu/work/vivadoProjects/bmm/vivado.jou
 #-----------------------------------------------------------
-source updateVivado.tcl
+start_gui
+open_project /home/raghu/work/vivadoProjects/bmm/dma3.xpr

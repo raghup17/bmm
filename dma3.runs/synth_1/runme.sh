@@ -7,16 +7,16 @@
 # 
 
 if [ -z "$PATH" ]; then
-  PATH=/home/raghu/work/tools/xilinx/SDK/2013.3/bin/lin64:/home/raghu/work/tools/xilinx/Vivado/2013.3/ids_lite/EDK/bin/lin64:/home/raghu/work/tools/xilinx/Vivado/2013.3/ids_lite/ISE/bin/lin64:/home/raghu/work/tools/xilinx/Vivado/2013.3/bin
+  PATH=/home/raghu/tools/xilinx/SDK/2013.3/bin/lin64:/home/raghu/tools/xilinx/Vivado/2013.3/ids_lite/EDK/bin/lin64:/home/raghu/tools/xilinx/Vivado/2013.3/ids_lite/ISE/bin/lin64:/home/raghu/tools/xilinx/Vivado/2013.3/bin
 else
-  PATH=/home/raghu/work/tools/xilinx/SDK/2013.3/bin/lin64:/home/raghu/work/tools/xilinx/Vivado/2013.3/ids_lite/EDK/bin/lin64:/home/raghu/work/tools/xilinx/Vivado/2013.3/ids_lite/ISE/bin/lin64:/home/raghu/work/tools/xilinx/Vivado/2013.3/bin:$PATH
+  PATH=/home/raghu/tools/xilinx/SDK/2013.3/bin/lin64:/home/raghu/tools/xilinx/Vivado/2013.3/ids_lite/EDK/bin/lin64:/home/raghu/tools/xilinx/Vivado/2013.3/ids_lite/ISE/bin/lin64:/home/raghu/tools/xilinx/Vivado/2013.3/bin:$PATH
 fi
 export PATH
 
 if [ -z "$LD_LIBRARY_PATH" ]; then
-  LD_LIBRARY_PATH=/home/raghu/work/tools/xilinx/Vivado/2013.3/ids_lite/EDK/lib/lin64:/home/raghu/work/tools/xilinx/Vivado/2013.3/ids_lite/ISE/lib/lin64
+  LD_LIBRARY_PATH=/home/raghu/tools/xilinx/Vivado/2013.3/ids_lite/EDK/lib/lin64:/home/raghu/tools/xilinx/Vivado/2013.3/ids_lite/ISE/lib/lin64
 else
-  LD_LIBRARY_PATH=/home/raghu/work/tools/xilinx/Vivado/2013.3/ids_lite/EDK/lib/lin64:/home/raghu/work/tools/xilinx/Vivado/2013.3/ids_lite/ISE/lib/lin64:$LD_LIBRARY_PATH
+  LD_LIBRARY_PATH=/home/raghu/tools/xilinx/Vivado/2013.3/ids_lite/EDK/lib/lin64:/home/raghu/tools/xilinx/Vivado/2013.3/ids_lite/ISE/lib/lin64:$LD_LIBRARY_PATH
 fi
 export LD_LIBRARY_PATH
 

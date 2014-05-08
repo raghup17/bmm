@@ -1,8 +1,8 @@
 Copyright 1986-1999, 2001-2013 Xilinx, Inc. All Rights Reserved.
 -----------------------------------------------------------------------------------
 | Tool Version : Vivado v.2013.3 (lin64) Build 329390 Wed Oct 16 18:26:55 MDT 2013
-| Date         : Tue May  6 20:34:42 2014
-| Host         : raghu-office running 64-bit Ubuntu 12.04.4 LTS
+| Date         : Tue May  6 22:40:38 2014
+| Host         : wallace running 64-bit Ubuntu 14.04 LTS
 | Command      : report_drc
 -----------------------------------------------------------------------------------
 
