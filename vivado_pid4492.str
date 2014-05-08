@@ -1,0 +1,112 @@
+/*
+
+Vivado v2013.3 (64-bit)
+SW Build 329390 on Wed Oct 16 18:26:55 MDT 2013
+Process ID: 4492
+
+Current time: 	5/7/14 7:57:44 PM
+Time zone: 	Pacific Standard Time (America/Los_Angeles)
+
+OS: NAME="Ubuntu"
+Version: 3.13.0-24-generic
+Architecture: amd64
+Available processors (cores): 2
+
+DISPLAY: :0
+Screen size: 3286x1080
+Screen resolution (DPI): 96
+Available screens: 2
+
+Java version: 	1.7.0_17 64-bit
+Java home: 	/home/raghu/tools/xilinx/Vivado/2013.3/tps/lnx64/jre
+
+User name: 	raghu
+User directory: /home/raghu/work/vivadoProjects/bmm
+User country: 	US
+User language: 	en
+User locale: 	en_US
+
+GUI Allocated memory:	122 mb
+GUI Max memory:		3,066 mb
+Engine Allocated memory: 3682 mb
+
+*/
+
+// TclEventType: START_GUI
+minimizeFrame (PAResourceItoP.PAViews_TCL_CONSOLE, "Tcl Console"); // af:DockableFrame (FrameContainer:JideTabbedPane, bR:JFrame)
+// o:I (bR:JFrame): XilinxNotify - Available Updates: addNotify
+// HMemoryUtils.trashcanNow. Current time: 5/7/14 7:57:45 PM
+// [GUI Memory]: 42 mb (+41059kb) [00:00:25]
+// [Engine Memory]: 3,682 mb (+3709512kb) [00:00:25]
+// Elapsed time: 20 seconds
+selectButton (RDIResource.UpdateDialog_CLOSE, "Close"); // a:JButton (JPanel:JComponent, o:I)
+dismissDialog ("XilinxNotify - Available Updates"); // o:I (bR:JFrame)
+// [GUI Memory]: 54 mb (+13293kb) [00:00:50]
+// [GUI Memory]: 54 mb (+251kb) [00:01:15]
+// Elapsed time: 62 seconds
+selectButton (PAResourceAtoH.GettingStartedView_OPEN_PROJECT, "Open Project"); // h:i (JPanel:JComponent, bR:JFrame)
+// [GUI Memory]: 56 mb (+1441kb) [00:01:40]
+selectMenuItem ((HResource) null, "/home/raghu/work/vivadoProjects/bmm/dma3.xpr"); // ai:JMenuItem (am:JPopupMenu, bR:JFrame)
+// ca:I (bR:JFrame):  Open Project : addNotify
+// Tcl Message: open_project /home/raghu/work/vivadoProjects/bmm/dma3.xpr 
+// TclEventType: DEBUG_PROBE_SET_CHANGE
+// TclEventType: MSGMGR_MOVEMSG
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: FILESET_TARGET_UCF_CHANGE
+// TclEventType: FILE_SET_NEW
+// TclEventType: RUN_COMPLETED
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: FILESET_TARGET_UCF_CHANGE
+// TclEventType: RUN_COMPLETED
+// TclEventType: FILESET_TARGET_UCF_CHANGE
+// TclEventType: RUN_CURRENT
+// HMemoryUtils.trashcanNow. Current time: 5/7/14 7:59:10 PM
+// [Engine Memory]: 3,780 mb (+102465kb) [00:02:05]
+// TclEventType: PROJECT_NEW
+// [Engine Memory]: 3,815 mb (+36712kb) [00:02:09]
+// [GUI Memory]: 83 mb (+28140kb) [00:02:11]
+// [Engine Memory]: 3,823 mb (+8118kb) [00:02:11]
+// [GUI Memory]: 96 mb (+14139kb) [00:02:12]
+// [Engine Memory]: 3,840 mb (+17838kb) [00:02:12]
+// [GUI Memory]: 121 mb (+26331kb) [00:02:14]
+// [Engine Memory]: 3,888 mb (+51183kb) [00:02:14]
+// [Engine Memory]: 3,890 mb (+2097kb) [00:02:14]
+// [GUI Memory]: 128 mb (+7383kb) [00:02:14]
+// [Engine Memory]: 3,894 mb (+4194kb) [00:02:14]
+// [Engine Memory]: 3,895 mb (+1048kb) [00:02:14]
+// [Engine Memory]: 3,899 mb (+3555kb) [00:02:14]
+// [Engine Memory]: 3,938 mb (+41590kb) [00:02:19]
+// [Engine Memory]: 3,941 mb (+3149kb) [00:02:22]
+// Tcl Message: open_project /home/raghu/work/vivadoProjects/bmm/dma3.xpr 
+// Tcl Message: Scanning sources... Finished scanning sources 
+// HMemoryUtils.trashcanNow. Current time: 5/7/14 7:59:52 PM
+// [Engine Memory]: 3,947 mb (+6299kb) [00:02:26]
+// Tcl Message: open_project: Time (s): cpu = 00:00:43 ; elapsed = 00:00:43 . Memory (MB): peak = 4622.020 ; gain = 217.445 
+// a:a (bR:JFrame): Critical Messages: addNotify
+// Elapsed time: 53 seconds
+dismissDialog ("Open Project"); // ca:I (bR:JFrame)
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// [Engine Memory]: 3,949 mb (+2097kb) [00:02:37]
+// [Engine Memory]: 3,959 mb (+9986kb) [00:02:41]
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// [GUI Memory]: 130 mb (+1600kb) [00:02:44]
+// [Engine Memory]: 3,960 mb (+1048kb) [00:02:44]
+// [Engine Memory]: 3,966 mb (+6529kb) [00:02:44]
+// [Engine Memory]: 3,974 mb (+8323kb) [00:02:45]
+// [Engine Memory]: 3,975 mb (+1048kb) [00:02:45]
+// [Engine Memory]: 3,978 mb (+2719kb) [00:02:45]
+// [Engine Memory]: 3,986 mb (+8224kb) [00:02:47]
+// HMemoryUtils.trashcanNow. Current time: 5/7/14 8:00:16 PM
+// TclEventType: DG_UPDATE_GRAPH
+// [Engine Memory]: 3,997 mb (+11493kb) [00:02:51]
+// TclEventType: FILE_SET_CHANGE
+// [GUI Memory]: 132 mb (+2601kb) [00:02:57]
+// [GUI Memory]: 133 mb (+1009kb) [00:02:57]
+// [GUI Memory]: 134 mb (+1015kb) [00:02:58]
+// [GUI Memory]: 136 mb (+2189kb) [00:03:10]
+// Elapsed time: 79 seconds
+selectButton (PAResourceAtoH.CmdMsgDialog_OK, "OK"); // g:a (JPanel:JComponent, a:a)
+// [GUI Memory]: 137 mb (+1184kb) [00:06:43]
+// [GUI Memory]: 139 mb (+2043kb) [00:10:15]
