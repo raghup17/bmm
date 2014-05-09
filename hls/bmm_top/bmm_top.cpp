@@ -40,7 +40,7 @@ void bmm_top(volatile BRAM_DT b1[RAM_SIZE], volatile BRAM_DT b2[RAM_SIZE],  vola
     int rowIdx = 0;
 	for (rowIdx = 0; rowIdx < numRows; rowIdx++) {   // rowIdx refers to the current bram row in the logical view
         int rowBaseIdx = rowIdx*rowSize;             // rowBaseIdx is the actual index that points to the first element of the row number rowIdx in bram
-
+        k = 0;
         for (j = 0; j < rowSize; j++) {  // j iterates through all the elements in that row, starting from rowIdx
             int curIdx = rowBaseIdx+j;
     		BRAM_DT curElemA = b1[curIdx];
@@ -52,27 +52,41 @@ void bmm_top(volatile BRAM_DT b1[RAM_SIZE], volatile BRAM_DT b2[RAM_SIZE],  vola
 		    }
 	    }
 
+        // Now, iterate through all rows in b2, store them in brow, 
+        // to a SIMD multiply-accumulate of arow and brow into crow
+        //
+        // 1. Iterate through all rows in B
+        for (int rowIdxB = 0; rowIdxB < numRows; rowIdxB++) {
+            int rowBaseIdxB = rowIdxB * rowSize;
+            k = 0;
+            // Fetch one row of b2 into brow
+            for (j=0; j<rowSize; j++) {
+                int curIdx = rowBaseIdxB+j;
+                BRAM_DT curElemB = b2[curIdx];
+                for (int t2=0; t2<ELEMS_PER_BUS; t2++, k++) {
+    				brow[k] =  apint_get_range(curElemB, t2*ELEM_WIDTH_BITS + ELEM_WIDTH_BITS-1, t2*ELEM_WIDTH_BITS);
+                }
+            }
 
-        // Now, both arow and crow should contain exactly bsize number of elements
-        // Do some random thing to crow[t1]
-	    for (int t1=0; t1<bsize; t1++) {
-            int tmp = arow[t1];
-    		crow[t1] = tmp * rowIdx;   // So that i can verify if rowIdx is correct
-	    }
+            // Multiply-accumulate arow and brow into crow
+	        for (int t1=0; t1<bsize; t1++) {
+    		    crow[t1] += arow[t1] * brow[t1];   // So that i can verify if rowIdx is correct
+    	    }
 
-        // Store crow back into b3[rowBaseIdx] .. b3[rowBaseIdx+rowSize]
+        }
+        
+
+        // Store crow back
         k=0;
         for (j=0; j<rowSize; j++) {
             int curIdx = rowBaseIdx+j;
-    		BRAM_DT curElemC = 0;   // b3[i+t1]
+    		BRAM_DT curElemC = 0;
     		for (int t2=0; t2<ELEMS_PER_BUS; t2++, k++) {
 // #pragma HLS UNROLL
 			    curElemC = apint_set_range(curElemC, t2*ELEM_WIDTH_BITS + ELEM_WIDTH_BITS-1, t2*ELEM_WIDTH_BITS, crow[k]);
     		}
     		b3[curIdx] = curElemC;
         }
-
-
     }
 
 /*

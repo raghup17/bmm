@@ -64,7 +64,7 @@ puts "@W \[IMPL-101\] Cannot find ::AESL_LIB_VIRTEX::xil_gen_multicycle_mul, che
 }
 
 
-set id 2
+set id 3
 set name bmm_top_mul_32s_32s_32_6
 set corename simcore_mul
 set op mul
@@ -141,7 +141,7 @@ set DataWd 256
 if {${::AESL::PGuard_autoexp_gen}} {
 if {[info proc ::AESL_LIB_XILADAPTER::axi_master_gen] == "::AESL_LIB_XILADAPTER::axi_master_gen"} {
 eval "::AESL_LIB_XILADAPTER::axi_master_gen { \
-    id 3 \
+    id 4 \
     name ${PortName} \
     reset_level 1 \
     sync_rst true \
@@ -164,7 +164,7 @@ set DataWd 256
 if {${::AESL::PGuard_autoexp_gen}} {
 if {[info proc ::AESL_LIB_XILADAPTER::axi_master_gen] == "::AESL_LIB_XILADAPTER::axi_master_gen"} {
 eval "::AESL_LIB_XILADAPTER::axi_master_gen { \
-    id 4 \
+    id 5 \
     name ${PortName} \
     reset_level 1 \
     sync_rst true \
@@ -172,7 +172,7 @@ eval "::AESL_LIB_XILADAPTER::axi_master_gen { \
     corename AXI4M \
     op interface \
     metadata {} \
-    latency 1 \
+    latency 4 \
     data_wd ${DataWd} \
 }"
 } else {
@@ -187,7 +187,7 @@ set DataWd 256
 if {${::AESL::PGuard_autoexp_gen}} {
 if {[info proc ::AESL_LIB_XILADAPTER::axi_master_gen] == "::AESL_LIB_XILADAPTER::axi_master_gen"} {
 eval "::AESL_LIB_XILADAPTER::axi_master_gen { \
-    id 5 \
+    id 6 \
     name ${PortName} \
     reset_level 1 \
     sync_rst true \
@@ -208,7 +208,7 @@ puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored ge
 set corename CONTROL
 set opts {
     {
-        id 6
+        id 7
         name blockSize
         reset_level 1
         sync_rst true

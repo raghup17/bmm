@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Fri May  9 02:00:54 2014" VIVADOVERSION="2013.3">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Fri May  9 13:11:04 2014" VIVADOVERSION="2013.3">
 
   <SYSTEMINFO ARCH="zynq" DEVICE="7z045" PACKAGE="ffg900" SPEEDGRADE="-2"/>
 
@@ -973,7 +973,7 @@
         <PARAMETER CHANGEDBY="default" NAME="ACLK_ASYNC" VALUE="0"/>
         <PARAMETER CHANGEDBY="default" NAME="SYNCHRONIZATION_STAGES" VALUE="3"/>
         <PARAMETER CHANGEDBY="default" NAME="ACLK_RATIO" VALUE="1:2"/>
-        <PARAMETER CHANGEDBY="default" NAME="Component_Name" VALUE="dma3_auto_us_82"/>
+        <PARAMETER CHANGEDBY="default" NAME="Component_Name" VALUE="dma3_auto_us_94"/>
         <PARAMETER NAME="EDK_IPTYPE" VALUE="BUS"/>
       </PARAMETERS>
       <PORTS>
@@ -1373,7 +1373,7 @@
         <PARAMETER CHANGEDBY="default" NAME="ACLK_ASYNC" VALUE="0"/>
         <PARAMETER CHANGEDBY="default" NAME="SYNCHRONIZATION_STAGES" VALUE="3"/>
         <PARAMETER CHANGEDBY="default" NAME="ACLK_RATIO" VALUE="1:2"/>
-        <PARAMETER CHANGEDBY="default" NAME="Component_Name" VALUE="dma3_auto_us_83"/>
+        <PARAMETER CHANGEDBY="default" NAME="Component_Name" VALUE="dma3_auto_us_95"/>
         <PARAMETER NAME="EDK_IPTYPE" VALUE="BUS"/>
       </PARAMETERS>
       <PORTS>
@@ -1773,7 +1773,7 @@
         <PARAMETER CHANGEDBY="default" NAME="ACLK_ASYNC" VALUE="0"/>
         <PARAMETER CHANGEDBY="default" NAME="SYNCHRONIZATION_STAGES" VALUE="3"/>
         <PARAMETER CHANGEDBY="default" NAME="ACLK_RATIO" VALUE="1:2"/>
-        <PARAMETER CHANGEDBY="default" NAME="Component_Name" VALUE="dma3_auto_us_84"/>
+        <PARAMETER CHANGEDBY="default" NAME="Component_Name" VALUE="dma3_auto_us_96"/>
         <PARAMETER NAME="EDK_IPTYPE" VALUE="BUS"/>
       </PARAMETERS>
       <PORTS>
@@ -2173,7 +2173,7 @@
         <PARAMETER CHANGEDBY="default" NAME="ACLK_ASYNC" VALUE="0"/>
         <PARAMETER CHANGEDBY="default" NAME="SYNCHRONIZATION_STAGES" VALUE="3"/>
         <PARAMETER CHANGEDBY="default" NAME="ACLK_RATIO" VALUE="1:2"/>
-        <PARAMETER CHANGEDBY="default" NAME="Component_Name" VALUE="dma3_auto_us_85"/>
+        <PARAMETER CHANGEDBY="default" NAME="Component_Name" VALUE="dma3_auto_us_97"/>
         <PARAMETER NAME="EDK_IPTYPE" VALUE="BUS"/>
       </PARAMETERS>
       <PORTS>
@@ -11038,7 +11038,7 @@
         <PARAMETER CHANGEDBY="default" NAME="ACLK_ASYNC" VALUE="0"/>
         <PARAMETER CHANGEDBY="default" NAME="SYNCHRONIZATION_STAGES" VALUE="3"/>
         <PARAMETER CHANGEDBY="default" NAME="ACLK_RATIO" VALUE="1:2"/>
-        <PARAMETER CHANGEDBY="default" NAME="Component_Name" VALUE="dma3_auto_us_74"/>
+        <PARAMETER CHANGEDBY="default" NAME="Component_Name" VALUE="dma3_auto_us_86"/>
         <PARAMETER NAME="EDK_IPTYPE" VALUE="BUS"/>
       </PARAMETERS>
       <PORTS>
@@ -11438,7 +11438,7 @@
         <PARAMETER CHANGEDBY="default" NAME="ACLK_ASYNC" VALUE="0"/>
         <PARAMETER CHANGEDBY="default" NAME="SYNCHRONIZATION_STAGES" VALUE="3"/>
         <PARAMETER CHANGEDBY="default" NAME="ACLK_RATIO" VALUE="1:2"/>
-        <PARAMETER CHANGEDBY="default" NAME="Component_Name" VALUE="dma3_auto_us_75"/>
+        <PARAMETER CHANGEDBY="default" NAME="Component_Name" VALUE="dma3_auto_us_87"/>
         <PARAMETER NAME="EDK_IPTYPE" VALUE="BUS"/>
       </PARAMETERS>
       <PORTS>
@@ -11838,7 +11838,7 @@
         <PARAMETER CHANGEDBY="default" NAME="ACLK_ASYNC" VALUE="0"/>
         <PARAMETER CHANGEDBY="default" NAME="SYNCHRONIZATION_STAGES" VALUE="3"/>
         <PARAMETER CHANGEDBY="default" NAME="ACLK_RATIO" VALUE="1:2"/>
-        <PARAMETER CHANGEDBY="default" NAME="Component_Name" VALUE="dma3_auto_us_76"/>
+        <PARAMETER CHANGEDBY="default" NAME="Component_Name" VALUE="dma3_auto_us_88"/>
         <PARAMETER NAME="EDK_IPTYPE" VALUE="BUS"/>
       </PARAMETERS>
       <PORTS>
@@ -12238,7 +12238,7 @@
         <PARAMETER CHANGEDBY="default" NAME="ACLK_ASYNC" VALUE="0"/>
         <PARAMETER CHANGEDBY="default" NAME="SYNCHRONIZATION_STAGES" VALUE="3"/>
         <PARAMETER CHANGEDBY="default" NAME="ACLK_RATIO" VALUE="1:2"/>
-        <PARAMETER CHANGEDBY="default" NAME="Component_Name" VALUE="dma3_auto_us_77"/>
+        <PARAMETER CHANGEDBY="default" NAME="Component_Name" VALUE="dma3_auto_us_89"/>
         <PARAMETER NAME="EDK_IPTYPE" VALUE="BUS"/>
       </PARAMETERS>
       <PORTS>
@@ -14628,7 +14628,7 @@
         <PARAMETER CHANGEDBY="default" NAME="ACLK_ASYNC" VALUE="0"/>
         <PARAMETER CHANGEDBY="default" NAME="SYNCHRONIZATION_STAGES" VALUE="3"/>
         <PARAMETER CHANGEDBY="default" NAME="ACLK_RATIO" VALUE="1:2"/>
-        <PARAMETER CHANGEDBY="default" NAME="Component_Name" VALUE="dma3_auto_us_78"/>
+        <PARAMETER CHANGEDBY="default" NAME="Component_Name" VALUE="dma3_auto_us_90"/>
         <PARAMETER NAME="EDK_IPTYPE" VALUE="BUS"/>
       </PARAMETERS>
       <PORTS>
@@ -15028,7 +15028,7 @@
         <PARAMETER CHANGEDBY="default" NAME="ACLK_ASYNC" VALUE="0"/>
         <PARAMETER CHANGEDBY="default" NAME="SYNCHRONIZATION_STAGES" VALUE="3"/>
         <PARAMETER CHANGEDBY="default" NAME="ACLK_RATIO" VALUE="1:2"/>
-        <PARAMETER CHANGEDBY="default" NAME="Component_Name" VALUE="dma3_auto_us_79"/>
+        <PARAMETER CHANGEDBY="default" NAME="Component_Name" VALUE="dma3_auto_us_91"/>
         <PARAMETER NAME="EDK_IPTYPE" VALUE="BUS"/>
       </PARAMETERS>
       <PORTS>
@@ -15428,7 +15428,7 @@
         <PARAMETER CHANGEDBY="default" NAME="ACLK_ASYNC" VALUE="0"/>
         <PARAMETER CHANGEDBY="default" NAME="SYNCHRONIZATION_STAGES" VALUE="3"/>
         <PARAMETER CHANGEDBY="default" NAME="ACLK_RATIO" VALUE="1:2"/>
-        <PARAMETER CHANGEDBY="default" NAME="Component_Name" VALUE="dma3_auto_us_80"/>
+        <PARAMETER CHANGEDBY="default" NAME="Component_Name" VALUE="dma3_auto_us_92"/>
         <PARAMETER NAME="EDK_IPTYPE" VALUE="BUS"/>
       </PARAMETERS>
       <PORTS>
@@ -15828,7 +15828,7 @@
         <PARAMETER CHANGEDBY="default" NAME="ACLK_ASYNC" VALUE="0"/>
         <PARAMETER CHANGEDBY="default" NAME="SYNCHRONIZATION_STAGES" VALUE="3"/>
         <PARAMETER CHANGEDBY="default" NAME="ACLK_RATIO" VALUE="1:2"/>
-        <PARAMETER CHANGEDBY="default" NAME="Component_Name" VALUE="dma3_auto_us_81"/>
+        <PARAMETER CHANGEDBY="default" NAME="Component_Name" VALUE="dma3_auto_us_93"/>
         <PARAMETER NAME="EDK_IPTYPE" VALUE="BUS"/>
       </PARAMETERS>
       <PORTS>
@@ -18503,7 +18503,7 @@
         </PORT>
       </PORTS>
     </MODULE>
-    <MODULE FULLNAME="/bmm_top_0" HWVERSION="23.0" INSTANCE="bmm_top_0" IPTYPE="PERIPHERAL" MODCLASS="PERIPHERAL" MODTYPE="bmm_top">
+    <MODULE FULLNAME="/bmm_top_0" HWVERSION="24.0" INSTANCE="bmm_top_0" IPTYPE="PERIPHERAL" MODCLASS="PERIPHERAL" MODTYPE="bmm_top">
       <PARAMETERS>
         <PARAMETER NAME="C_M_AXI_B1_ID_WIDTH" VALUE="1"/>
         <PARAMETER NAME="C_M_AXI_B1_ADDR_WIDTH" VALUE="32"/>
@@ -19388,7 +19388,7 @@
         <PERIPHERAL INSTANCE="blkA_bram_ctrl_in_blk"/>
       </PERIPHERALS>
     </MODULE>
-    <MODULE FULLNAME="/bmm_top_1" HWVERSION="23.0" INSTANCE="bmm_top_1" IPTYPE="PERIPHERAL" MODCLASS="PERIPHERAL" MODTYPE="bmm_top">
+    <MODULE FULLNAME="/bmm_top_1" HWVERSION="24.0" INSTANCE="bmm_top_1" IPTYPE="PERIPHERAL" MODCLASS="PERIPHERAL" MODTYPE="bmm_top">
       <PARAMETERS>
         <PARAMETER NAME="C_M_AXI_B1_ID_WIDTH" VALUE="1"/>
         <PARAMETER NAME="C_M_AXI_B1_ADDR_WIDTH" VALUE="32"/>
@@ -20273,7 +20273,7 @@
         <PERIPHERAL INSTANCE="blkA_bram_ctrl_in_blk"/>
       </PERIPHERALS>
     </MODULE>
-    <MODULE FULLNAME="/bmm_top_2" HWVERSION="23.0" INSTANCE="bmm_top_2" IPTYPE="PERIPHERAL" MODCLASS="PERIPHERAL" MODTYPE="bmm_top">
+    <MODULE FULLNAME="/bmm_top_2" HWVERSION="24.0" INSTANCE="bmm_top_2" IPTYPE="PERIPHERAL" MODCLASS="PERIPHERAL" MODTYPE="bmm_top">
       <PARAMETERS>
         <PARAMETER NAME="C_M_AXI_B1_ID_WIDTH" VALUE="1"/>
         <PARAMETER NAME="C_M_AXI_B1_ADDR_WIDTH" VALUE="32"/>
@@ -21158,7 +21158,7 @@
         <PERIPHERAL INSTANCE="blkA_bram_ctrl_in_blk"/>
       </PERIPHERALS>
     </MODULE>
-    <MODULE FULLNAME="/bmm_top_3" HWVERSION="23.0" INSTANCE="bmm_top_3" IPTYPE="PERIPHERAL" MODCLASS="PERIPHERAL" MODTYPE="bmm_top">
+    <MODULE FULLNAME="/bmm_top_3" HWVERSION="24.0" INSTANCE="bmm_top_3" IPTYPE="PERIPHERAL" MODCLASS="PERIPHERAL" MODTYPE="bmm_top">
       <PARAMETERS>
         <PARAMETER NAME="C_M_AXI_B1_ID_WIDTH" VALUE="1"/>
         <PARAMETER NAME="C_M_AXI_B1_ADDR_WIDTH" VALUE="32"/>
@@ -22073,7 +22073,7 @@
         <PARAMETER CHANGEDBY="undefined" NAME="RUSER_WIDTH" VALUE="0"/>
         <PARAMETER CHANGEDBY="undefined" NAME="WUSER_WIDTH" VALUE="0"/>
         <PARAMETER CHANGEDBY="undefined" NAME="BUSER_WIDTH" VALUE="0"/>
-        <PARAMETER CHANGEDBY="default" NAME="Component_Name" VALUE="dma3_auto_pc_199"/>
+        <PARAMETER CHANGEDBY="default" NAME="Component_Name" VALUE="dma3_auto_pc_202"/>
         <PARAMETER NAME="EDK_IPTYPE" VALUE="BUS"/>
       </PARAMETERS>
       <PORTS>
@@ -24134,7 +24134,7 @@
         <PARAMETER CHANGEDBY="propagated" NAME="RUSER_WIDTH" VALUE="0"/>
         <PARAMETER CHANGEDBY="propagated" NAME="WUSER_WIDTH" VALUE="0"/>
         <PARAMETER CHANGEDBY="propagated" NAME="BUSER_WIDTH" VALUE="0"/>
-        <PARAMETER CHANGEDBY="default" NAME="Component_Name" VALUE="dma3_auto_pc_200"/>
+        <PARAMETER CHANGEDBY="default" NAME="Component_Name" VALUE="dma3_auto_pc_203"/>
         <PARAMETER NAME="EDK_IPTYPE" VALUE="BUS"/>
       </PARAMETERS>
       <PORTS>
@@ -24496,7 +24496,7 @@
         <PARAMETER CHANGEDBY="constant" NAME="RUSER_WIDTH" VALUE="0"/>
         <PARAMETER CHANGEDBY="constant" NAME="WUSER_WIDTH" VALUE="0"/>
         <PARAMETER CHANGEDBY="constant" NAME="BUSER_WIDTH" VALUE="0"/>
-        <PARAMETER CHANGEDBY="default" NAME="Component_Name" VALUE="dma3_auto_pc_198"/>
+        <PARAMETER CHANGEDBY="default" NAME="Component_Name" VALUE="dma3_auto_pc_201"/>
         <PARAMETER NAME="EDK_IPTYPE" VALUE="BUS"/>
       </PARAMETERS>
       <PORTS>
