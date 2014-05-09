@@ -51,27 +51,27 @@ set rc [catch {
   create_project -in_memory -part xc7z045ffg900-2
   set_property board xilinx.com:zynq:zc706:1.1 [current_project]
   set_property design_mode GateLvl [current_fileset]
-  set_property webtalk.parent_dir /home/raghu/work/projects/dma3/dma3.data/wt [current_project]
-  set_property parent.project_dir /home/raghu/work/projects/dma3 [current_project]
-  add_files /home/raghu/work/projects/dma3/dma3.runs/synth_1/dma3_wrapper.dcp
-  read_xdc -ref dma3_processing_system7_0_0 -cells inst /home/raghu/work/projects/dma3/dma3.srcs/sources_1/bd/dma3/ip/dma3_processing_system7_0_0/dma3_processing_system7_0_0.xdc
-  read_xdc -prop_thru_buffers -ref dma3_proc_sys_reset_1 -cells U0 /home/raghu/work/projects/dma3/dma3.srcs/sources_1/bd/dma3/ip/dma3_proc_sys_reset_1/dma3_proc_sys_reset_1_board.xdc
-  read_xdc -ref dma3_proc_sys_reset_1 -cells U0 /home/raghu/work/projects/dma3/dma3.srcs/sources_1/bd/dma3/ip/dma3_proc_sys_reset_1/dma3_proc_sys_reset_1.xdc
-  read_xdc -ref dma3_axi_cdma_0_0 -cells U0 /home/raghu/work/projects/dma3/dma3.srcs/sources_1/bd/dma3/ip/dma3_axi_cdma_0_0/dma3_axi_cdma_0_0.xdc
-  read_xdc /home/raghu/work/projects/dma3/dma3.srcs/constrs_1/new/dma3_wrapper.xdc
-  read_xdc -ref dma3_axi_dwidth_converter_0_1 -cells inst /home/raghu/work/projects/dma3/dma3.srcs/sources_1/bd/dma3/ip/dma3_axi_dwidth_converter_0_1/dma3_axi_dwidth_converter_0_1_clocks.xdc
-  read_xdc -ref dma3_auto_us_38 -cells inst /home/raghu/work/projects/dma3/dma3.srcs/sources_1/bd/dma3/ip/dma3_auto_us_38/dma3_auto_us_38_clocks.xdc
-  read_xdc -ref dma3_auto_us_39 -cells inst /home/raghu/work/projects/dma3/dma3.srcs/sources_1/bd/dma3/ip/dma3_auto_us_39/dma3_auto_us_39_clocks.xdc
-  read_xdc -ref dma3_auto_us_40 -cells inst /home/raghu/work/projects/dma3/dma3.srcs/sources_1/bd/dma3/ip/dma3_auto_us_40/dma3_auto_us_40_clocks.xdc
-  read_xdc -ref dma3_auto_us_41 -cells inst /home/raghu/work/projects/dma3/dma3.srcs/sources_1/bd/dma3/ip/dma3_auto_us_41/dma3_auto_us_41_clocks.xdc
-  read_xdc -ref dma3_auto_us_42 -cells inst /home/raghu/work/projects/dma3/dma3.srcs/sources_1/bd/dma3/ip/dma3_auto_us_42/dma3_auto_us_42_clocks.xdc
-  read_xdc -ref dma3_auto_us_43 -cells inst /home/raghu/work/projects/dma3/dma3.srcs/sources_1/bd/dma3/ip/dma3_auto_us_43/dma3_auto_us_43_clocks.xdc
-  read_xdc -ref dma3_auto_us_44 -cells inst /home/raghu/work/projects/dma3/dma3.srcs/sources_1/bd/dma3/ip/dma3_auto_us_44/dma3_auto_us_44_clocks.xdc
-  read_xdc -ref dma3_auto_us_45 -cells inst /home/raghu/work/projects/dma3/dma3.srcs/sources_1/bd/dma3/ip/dma3_auto_us_45/dma3_auto_us_45_clocks.xdc
-  read_xdc -ref dma3_auto_us_46 -cells inst /home/raghu/work/projects/dma3/dma3.srcs/sources_1/bd/dma3/ip/dma3_auto_us_46/dma3_auto_us_46_clocks.xdc
-  read_xdc -ref dma3_auto_us_47 -cells inst /home/raghu/work/projects/dma3/dma3.srcs/sources_1/bd/dma3/ip/dma3_auto_us_47/dma3_auto_us_47_clocks.xdc
-  read_xdc -ref dma3_auto_us_48 -cells inst /home/raghu/work/projects/dma3/dma3.srcs/sources_1/bd/dma3/ip/dma3_auto_us_48/dma3_auto_us_48_clocks.xdc
-  read_xdc -ref dma3_auto_us_49 -cells inst /home/raghu/work/projects/dma3/dma3.srcs/sources_1/bd/dma3/ip/dma3_auto_us_49/dma3_auto_us_49_clocks.xdc
+  set_property webtalk.parent_dir /home/raghu/w/vivadoProjects/bmm/dma3.data/wt [current_project]
+  set_property parent.project_dir /home/raghu/w/vivadoProjects/bmm [current_project]
+  add_files /home/raghu/w/vivadoProjects/bmm/dma3.runs/synth_1/dma3_wrapper.dcp
+  read_xdc -ref dma3_processing_system7_0_0 -cells inst /home/raghu/w/vivadoProjects/bmm/dma3.srcs/sources_1/bd/dma3/ip/dma3_processing_system7_0_0/dma3_processing_system7_0_0.xdc
+  read_xdc -prop_thru_buffers -ref dma3_proc_sys_reset_1 -cells U0 /home/raghu/w/vivadoProjects/bmm/dma3.srcs/sources_1/bd/dma3/ip/dma3_proc_sys_reset_1/dma3_proc_sys_reset_1_board.xdc
+  read_xdc -ref dma3_proc_sys_reset_1 -cells U0 /home/raghu/w/vivadoProjects/bmm/dma3.srcs/sources_1/bd/dma3/ip/dma3_proc_sys_reset_1/dma3_proc_sys_reset_1.xdc
+  read_xdc -ref dma3_axi_cdma_0_0 -cells U0 /home/raghu/w/vivadoProjects/bmm/dma3.srcs/sources_1/bd/dma3/ip/dma3_axi_cdma_0_0/dma3_axi_cdma_0_0.xdc
+  read_xdc /home/raghu/w/vivadoProjects/bmm/dma3.srcs/constrs_1/new/dma3_wrapper.xdc
+  read_xdc -ref dma3_axi_dwidth_converter_0_1 -cells inst /home/raghu/w/vivadoProjects/bmm/dma3.srcs/sources_1/bd/dma3/ip/dma3_axi_dwidth_converter_0_1/dma3_axi_dwidth_converter_0_1_clocks.xdc
+  read_xdc -ref dma3_auto_us_86 -cells inst /home/raghu/w/vivadoProjects/bmm/dma3.srcs/sources_1/bd/dma3/ip/dma3_auto_us_86/dma3_auto_us_86_clocks.xdc
+  read_xdc -ref dma3_auto_us_87 -cells inst /home/raghu/w/vivadoProjects/bmm/dma3.srcs/sources_1/bd/dma3/ip/dma3_auto_us_87/dma3_auto_us_87_clocks.xdc
+  read_xdc -ref dma3_auto_us_88 -cells inst /home/raghu/w/vivadoProjects/bmm/dma3.srcs/sources_1/bd/dma3/ip/dma3_auto_us_88/dma3_auto_us_88_clocks.xdc
+  read_xdc -ref dma3_auto_us_89 -cells inst /home/raghu/w/vivadoProjects/bmm/dma3.srcs/sources_1/bd/dma3/ip/dma3_auto_us_89/dma3_auto_us_89_clocks.xdc
+  read_xdc -ref dma3_auto_us_90 -cells inst /home/raghu/w/vivadoProjects/bmm/dma3.srcs/sources_1/bd/dma3/ip/dma3_auto_us_90/dma3_auto_us_90_clocks.xdc
+  read_xdc -ref dma3_auto_us_91 -cells inst /home/raghu/w/vivadoProjects/bmm/dma3.srcs/sources_1/bd/dma3/ip/dma3_auto_us_91/dma3_auto_us_91_clocks.xdc
+  read_xdc -ref dma3_auto_us_92 -cells inst /home/raghu/w/vivadoProjects/bmm/dma3.srcs/sources_1/bd/dma3/ip/dma3_auto_us_92/dma3_auto_us_92_clocks.xdc
+  read_xdc -ref dma3_auto_us_93 -cells inst /home/raghu/w/vivadoProjects/bmm/dma3.srcs/sources_1/bd/dma3/ip/dma3_auto_us_93/dma3_auto_us_93_clocks.xdc
+  read_xdc -ref dma3_auto_us_94 -cells inst /home/raghu/w/vivadoProjects/bmm/dma3.srcs/sources_1/bd/dma3/ip/dma3_auto_us_94/dma3_auto_us_94_clocks.xdc
+  read_xdc -ref dma3_auto_us_95 -cells inst /home/raghu/w/vivadoProjects/bmm/dma3.srcs/sources_1/bd/dma3/ip/dma3_auto_us_95/dma3_auto_us_95_clocks.xdc
+  read_xdc -ref dma3_auto_us_96 -cells inst /home/raghu/w/vivadoProjects/bmm/dma3.srcs/sources_1/bd/dma3/ip/dma3_auto_us_96/dma3_auto_us_96_clocks.xdc
+  read_xdc -ref dma3_auto_us_97 -cells inst /home/raghu/w/vivadoProjects/bmm/dma3.srcs/sources_1/bd/dma3/ip/dma3_auto_us_97/dma3_auto_us_97_clocks.xdc
   link_design -top dma3_wrapper -part xc7z045ffg900-2
   close_msg_db -file init_design.pb
 } RESULT]

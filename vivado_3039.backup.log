@@ -1,0 +1,36 @@
+#-----------------------------------------------------------
+# Vivado v2013.3 (64-bit)
+# SW Build 329390 on Wed Oct 16 18:26:55 MDT 2013
+# IP Build 192953 on Wed Oct 16 08:44:02 MDT 2013
+# Start of session at: Thu May  8 00:42:41 2014
+# Process ID: 2482
+# Log file: /home/raghu/w/vivadoProjects/bmm/vivado.log
+# Journal file: /home/raghu/w/vivadoProjects/bmm/vivado.jou
+#-----------------------------------------------------------
+INFO: [Common 17-78] Attempting to get a license: Implementation
+INFO: [Common 17-81] Feature available: Implementation
+INFO: [Device 21-36] Loading parts and site information from /home/raghu/tools/xilinx/Vivado/2013.3/data/parts/arch.xml
+Parsing RTL primitives file [/home/raghu/tools/xilinx/Vivado/2013.3/data/parts/xilinx/rtl/prims/rtl_prims.xml]
+Finished parsing RTL primitives file [/home/raghu/tools/xilinx/Vivado/2013.3/data/parts/xilinx/rtl/prims/rtl_prims.xml]
+source updateVivado.tcl
+# set projPrefix /home/raghu/w/vivadoProjects 
+# set projName bmm
+# set hlsName bmm_top
+# set projPath "${projPrefix}/${projName}"
+# set topLevelDesign "${projName}.bd"
+# puts "Vivado update script: Running with the following args"
+Vivado update script: Running with the following args
+# puts "projPath : $projPath"
+projPath : /home/raghu/w/vivadoProjects/bmm
+# puts "topLevelDesign: $topLevelDesign"
+topLevelDesign: bmm.bd
+# puts "HLS module name: $hlsName, solution1"
+HLS module name: bmm_top, solution1
+# cd $projPath
+# open_project ${projName}.xpr
+ERROR: [Coretcl 2-27] Can't find specified project.
+
+    while executing
+"open_project ${projName}.xpr"
+    (file "updateVivado.tcl" line 11)
+INFO: [Common 17-206] Exiting Vivado at Thu May  8 00:42:46 2014...

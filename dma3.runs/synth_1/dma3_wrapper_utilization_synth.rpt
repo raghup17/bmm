@@ -1,8 +1,8 @@
 Copyright 1986-1999, 2001-2013 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2013.3 (lin64) Build 329390 Wed Oct 16 18:26:55 MDT 2013
-| Date         : Tue May  6 20:17:26 2014
-| Host         : raghu-office running 64-bit unknown
+| Date         : Fri May  9 12:02:09 2014
+| Host         : tflop2 running 64-bit Ubuntu 12.04.2 LTS
 | Command      : report_utilization -file dma3_wrapper_utilization_synth.rpt -pb dma3_wrapper_utilization_synth.pb
 | Design       : dma3_wrapper
 | Device       : xc7z045
@@ -26,20 +26,20 @@ Table of Contents
 1. Slice Logic
 --------------
 
-+----------------------------+-------+-------+-----------+-------+
-|          Site Type         |  Used | Loced | Available | Util% |
-+----------------------------+-------+-------+-----------+-------+
-| Slice LUTs*                | 55286 |     0 |    218600 | 25.29 |
-|   LUT as Logic             | 49999 |     0 |    218600 | 22.87 |
-|   LUT as Memory            |  5287 |     0 |     70400 |  7.50 |
-|     LUT as Distributed RAM |   176 |     0 |           |       |
-|     LUT as Shift Register  |  5111 |     0 |           |       |
-| Slice Registers            | 49046 |     0 |    437200 | 11.21 |
-|   Register as Flip Flop    | 49046 |     0 |    437200 | 11.21 |
-|   Register as Latch        |     0 |     0 |    437200 |  0.00 |
-| F7 Muxes                   |  2648 |     0 |    109300 |  2.42 |
-| F8 Muxes                   |     0 |     0 |     54650 |  0.00 |
-+----------------------------+-------+-------+-----------+-------+
++----------------------------+--------+-------+-----------+-------+
+|          Site Type         |  Used  | Loced | Available | Util% |
++----------------------------+--------+-------+-----------+-------+
+| Slice LUTs*                | 127017 |     0 |    218600 | 58.10 |
+|   LUT as Logic             | 118510 |     0 |    218600 | 54.21 |
+|   LUT as Memory            |   8507 |     0 |     70400 | 12.08 |
+|     LUT as Distributed RAM |    176 |     0 |           |       |
+|     LUT as Shift Register  |   8331 |     0 |           |       |
+| Slice Registers            | 230648 |     0 |    437200 | 52.75 |
+|   Register as Flip Flop    | 230648 |     0 |    437200 | 52.75 |
+|   Register as Latch        |      0 |     0 |    437200 |  0.00 |
+| F7 Muxes                   |  11218 |     0 |    109300 | 10.26 |
+| F8 Muxes                   |      0 |     0 |     54650 |  0.00 |
++----------------------------+--------+-------+-----------+-------+
 * Warning! The Final LUT count, after physical optimizations and full implementation, is typically lower. Run opt_design after synthesis for a more realistic count.
 
 
@@ -64,8 +64,8 @@ Table of Contents
 +----------------+------+-------+-----------+-------+
 |    Site Type   | Used | Loced | Available | Util% |
 +----------------+------+-------+-----------+-------+
-| DSPs           |   12 |     0 |       900 |  1.33 |
-|   DSP48E1 only |   12 |       |           |       |
+| DSPs           |   36 |     0 |       900 |  4.00 |
+|   DSP48E1 only |   36 |       |           |       |
 +----------------+------+-------+-----------+-------+
 
 
@@ -134,33 +134,33 @@ Table of Contents
 7. Primitives
 -------------
 
-+----------+-------+
-| Ref Name |  Used |
-+----------+-------+
-| FDRE     | 48427 |
-| LUT3     | 17792 |
-| LUT6     | 15869 |
-| LUT5     | 15147 |
-| LUT4     |  6480 |
-| LUT2     |  5895 |
-| SRLC32E  |  4775 |
-| MUXF7    |  2648 |
-| LUT1     |  1536 |
-| CARRY4   |   985 |
-| RAMB36E1 |   517 |
-| FDSE     |   349 |
-| SRL16E   |   336 |
-| RAMD32   |   214 |
-| FDCE     |   172 |
-| BIBUF    |   130 |
-| FDPE     |    98 |
-| RAMS32   |    70 |
-| RAMD64E  |    32 |
-| DSP48E1  |    12 |
-| RAMB18E1 |     8 |
-| PS7      |     1 |
-| BUFG     |     1 |
-+----------+-------+
++----------+--------+
+| Ref Name |  Used  |
++----------+--------+
+| FDRE     | 230025 |
+| LUT3     | 100851 |
+| LUT6     |  36965 |
+| LUT5     |  16045 |
+| MUXF7    |  11218 |
+| LUT4     |  11034 |
+| SRLC32E  |   7847 |
+| LUT2     |   4658 |
+| LUT1     |   2966 |
+| CARRY4   |   1493 |
+| RAMB36E1 |    517 |
+| SRL16E   |    484 |
+| FDSE     |    353 |
+| RAMD32   |    214 |
+| FDCE     |    172 |
+| BIBUF    |    130 |
+| FDPE     |     98 |
+| RAMS32   |     70 |
+| DSP48E1  |     36 |
+| RAMD64E  |     32 |
+| RAMB18E1 |      8 |
+| PS7      |      1 |
+| BUFG     |      1 |
++----------+--------+
 
 
 8. Black Boxes

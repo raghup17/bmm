@@ -1,8 +1,8 @@
 Copyright 1986-1999, 2001-2013 Xilinx, Inc. All Rights Reserved.
 -----------------------------------------------------------------------------------
 | Tool Version : Vivado v.2013.3 (lin64) Build 329390 Wed Oct 16 18:26:55 MDT 2013
-| Date         : Tue May  6 19:49:21 2014
-| Host         : raghu-office running 64-bit Ubuntu 12.04.4 LTS
+| Date         : Fri May  9 11:22:40 2014
+| Host         : tflop2 running 64-bit Ubuntu 12.04.2 LTS
 | Command      : upgrade_ip
 | Device       : xc7z045ffg900-2
 -----------------------------------------------------------------------------------
@@ -12,5 +12,5 @@ Upgrade Log for IP 'dma3_bmm_top_0_2'
 1. Summary
 ----------
 
-SUCCESS in the upgrade of dma3_bmm_top_0_2 from xilinx.com:hls:bmm_top:19.0 to xilinx.com:hls:bmm_top:20.0
+SUCCESS in the upgrade of dma3_bmm_top_0_2 from xilinx.com:hls:bmm_top:23.0 to xilinx.com:hls:bmm_top:24.0
 

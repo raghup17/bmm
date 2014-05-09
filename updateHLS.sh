@@ -19,13 +19,13 @@ function float_eval()
     return $stat
 }
 
-projectsHome=/home/raghu/work/projects
-vivadoTop=dma3
-vivadoProjName=${vivadoTop}
+projectsHome=/home/raghu/w/vivadoProjects
+vivadoFolderName=bmm
+vivadoProjName=dma3
 
 hlsTop=$1
 hlsProjName=${hlsTop}
-hlsProjLoc=${projectsHome}/${vivadoProjName}/hls/$hlsTop
+hlsProjLoc=${projectsHome}/${vivadoFolderName}/hls/$hlsTop
 solName=solution1
 
 echo "HLS top is $hlsTop"
@@ -39,7 +39,7 @@ hlsScriptName=hls.tcl
 rm -f $hlsScriptName
 rm -rf $hlsProjLoc/$solName/impl
 
-echo "cd ${projectsHome}/${vivadoProjName}/hls" >> $hlsScriptName
+echo "cd ${projectsHome}/${vivadoFolderName}/hls" >> $hlsScriptName
 echo "open_project $hlsProjName" >> $hlsScriptName
 echo "open_solution $solName" >> $hlsScriptName
 echo "csynth_design" >> $hlsScriptName
@@ -61,8 +61,9 @@ rm -f ${vivadoScriptName}
 
 echo "set projPrefix ${projectsHome} " >> ${vivadoScriptName}
 echo "set projName ${vivadoProjName}" >> ${vivadoScriptName}
-echo "set hlsName ${hlsTop}_0" >> ${vivadoScriptName}
-echo 'set projPath "${projPrefix}/${projName}"' >> ${vivadoScriptName}
+echo "set folderName ${vivadoFolderName}" >> ${vivadoScriptName}
+echo "set hlsName ${hlsTop}" >> ${vivadoScriptName}
+echo 'set projPath "${projPrefix}/${folderName}"' >> ${vivadoScriptName}
 echo 'set topLevelDesign "${projName}.bd"' >> ${vivadoScriptName}
 
 echo 'puts "Vivado update script: Running with the following args"' >> ${vivadoScriptName}
@@ -77,11 +78,11 @@ echo 'report_ip_status -name ipstatus' >> ${vivadoScriptName}
 echo 'update_ip_catalog -rebuild'  >> ${vivadoScriptName}
 echo 'open_bd_design ${projName}.srcs/sources_1/bd/${projName}/${projName}.bd' >> ${vivadoScriptName}
 echo 'report_ip_status -name ipstatus' >> ${vivadoScriptName}
-echo 'upgrade_bd_cells [get_bd_cells [list /${hlsName}]]' >> ${vivadoScriptName}
+echo 'upgrade_bd_cells [get_bd_cells [list /${hlsName}_0 /${hlsName}_1 /${hlsName}_2 /${hlsName}_3]]' >> ${vivadoScriptName}
 echo 'reset_run synth_1' >> ${vivadoScriptName}
-echo 'launch_runs synth_1 -jobs 2' >> ${vivadoScriptName}
+echo 'launch_runs synth_1 -jobs 16' >> ${vivadoScriptName}
 echo 'wait_on_run synth_1' >> ${vivadoScriptName}
-echo 'launch_runs impl_1 -to_step write_bitstream -jobs 2' >> ${vivadoScriptName}
+echo 'launch_runs impl_1 -to_step write_bitstream -jobs 16' >> ${vivadoScriptName}
 echo 'wait_on_run impl_1' >> ${vivadoScriptName}
 echo 'open_run impl_1' >> ${vivadoScriptName}
 echo 'open_bd_design ${projName}.srcs/sources_1/bd/${projName}/${projName}.bd' >> ${vivadoScriptName}

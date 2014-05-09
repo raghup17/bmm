@@ -1,8 +1,8 @@
 Copyright 1986-1999, 2001-2013 Xilinx, Inc. All Rights Reserved.
 -----------------------------------------------------------------------------------
 | Tool Version : Vivado v.2013.3 (lin64) Build 329390 Wed Oct 16 18:26:55 MDT 2013
-| Date         : Tue May  6 20:29:40 2014
-| Host         : raghu-office running 64-bit Ubuntu 12.04.4 LTS
+| Date         : Fri May  9 12:40:01 2014
+| Host         : tflop2 running 64-bit Ubuntu 12.04.2 LTS
 | Command      : report_io -file dma3_wrapper_io_placed.rpt
 | Design       : dma3_wrapper
 | Device       : xc7z045
