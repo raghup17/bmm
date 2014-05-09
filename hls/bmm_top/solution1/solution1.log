@@ -10,18 +10,15 @@ Copyright (C) 2013 Xilinx Inc. All rights reserved.
 @I [HLS-10] Analyzing design file 'bmm_top/bmm_top.cpp' ... 
 @I [HLS-10] Validating synthesis directives ...
 @I [HLS-10] Checking synthesizability ...
-@W [SYNCHK-23] bmm_top/bmm_top.cpp:46: variable-indexed range selection may cause suboptimal QoR.
+@W [SYNCHK-23] bmm_top/bmm_top.cpp:50: variable-indexed range selection may cause suboptimal QoR.
 @I [SYNCHK-10] 0 error(s), 1 warning(s).
 @I [HLS-10] Starting code transformations ...
-@I [XFORM-501] Unrolling loop 'Loop-1.1' (bmm_top/bmm_top.cpp:44) in function 'bmm_top' completely.
-@I [XFORM-501] Unrolling loop 'Loop-3.1' (bmm_top/bmm_top.cpp:62) in function 'bmm_top' completely.
-@W [XFORM-104] Completely partitioning array 'arow' (bmm_top/bmm_top.cpp:31) accessed through non-constant indices on dimension 1 (bmm_top/bmm_top.cpp:64:154), which may result in long runtime and suboptimal QoR due to large multiplexers. Please consider wrapping the array access into a function or using a register file core instead.
+@W [XFORM-104] Completely partitioning array 'arow' (bmm_top/bmm_top.cpp:31) accessed through non-constant indices on dimension 1 (bmm_top/bmm_top.cpp:59:31), which may result in long runtime and suboptimal QoR due to large multiplexers. Please consider wrapping the array access into a function or using a register file core instead.
 @I [XFORM-101] Partitioning array 'arow' (bmm_top/bmm_top.cpp:31) in dimension 1 completely.
-@W [XFORM-104] Completely partitioning array 'brow' (bmm_top/bmm_top.cpp:31) accessed through non-constant indices on dimension 1 (bmm_top/bmm_top.cpp:65:156), which may result in long runtime and suboptimal QoR due to large multiplexers. Please consider wrapping the array access into a function or using a register file core instead.
 @I [XFORM-101] Partitioning array 'brow' (bmm_top/bmm_top.cpp:31) in dimension 1 completely.
-@W [XFORM-104] Completely partitioning array 'crow' (bmm_top/bmm_top.cpp:31) accessed through non-constant indices on dimension 1 (bmm_top/bmm_top.cpp:66:156), which may result in long runtime and suboptimal QoR due to large multiplexers. Please consider wrapping the array access into a function or using a register file core instead.
+@W [XFORM-104] Completely partitioning array 'crow' (bmm_top/bmm_top.cpp:31) accessed through non-constant indices on dimension 1 (bmm_top/bmm_top.cpp:70:130), which may result in long runtime and suboptimal QoR due to large multiplexers. Please consider wrapping the array access into a function or using a register file core instead.
 @I [XFORM-101] Partitioning array 'crow' (bmm_top/bmm_top.cpp:31) in dimension 1 completely.
-@I [HLS-111] Elapsed time: 86.86 seconds; current memory usage: 626 MB.
+@I [HLS-111] Elapsed time: 12.41 seconds; current memory usage: 165 MB.
 @I [HLS-10] Starting hardware synthesis ...
 @I [HLS-10] Synthesizing 'bmm_top' ...
 @I [HLS-10] ----------------------------------------------------------------
@@ -29,7 +26,7 @@ Copyright (C) 2013 Xilinx Inc. All rights reserved.
 @I [HLS-10] ----------------------------------------------------------------
 @I [SCHED-11] Starting scheduling ...
 @I [SCHED-11] Finished scheduling.
-@I [HLS-111] Elapsed time: 114.14 seconds; current memory usage: 650 MB.
+@I [HLS-111] Elapsed time: 117.52 seconds; current memory usage: 190 MB.
 @I [HLS-10] ----------------------------------------------------------------
 @I [HLS-10] -- Exploring micro-architecture for module 'bmm_top' 
 @I [HLS-10] ----------------------------------------------------------------
@@ -38,7 +35,7 @@ Copyright (C) 2013 Xilinx Inc. All rights reserved.
 @I [BIND-101] Exploring resource sharing.
 @I [BIND-101] Binding ...
 @I [BIND-100] Finished micro-architecture generation.
-@I [HLS-111] Elapsed time: 3.36 seconds; current memory usage: 660 MB.
+@I [HLS-111] Elapsed time: 3.05 seconds; current memory usage: 248 MB.
 @I [HLS-10] ----------------------------------------------------------------
 @I [HLS-10] -- Generating RTL for module 'bmm_top' 
 @I [HLS-10] ----------------------------------------------------------------
@@ -47,14 +44,41 @@ Copyright (C) 2013 Xilinx Inc. All rights reserved.
 @I [RTGEN-500] Setting interface mode on port 'bmm_top/b3' to 'ap_bus'.
 @I [RTGEN-500] Setting interface mode on port 'bmm_top/blockSize' to 'ap_hs'.
 @I [RTGEN-500] Setting interface mode on function 'bmm_top' to 'ap_ctrl_hs'.
+@W [RTGEN-101] Setting dangling out port 'bmm_top/b1_dataout' to 0.
+@W [RTGEN-101] Port 'bmm_top/b2_req_din' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+@W [RTGEN-101] Setting dangling out port 'bmm_top/b2_req_din' to 0.
+@W [RTGEN-101] Port 'bmm_top/b2_req_full_n' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+@W [RTGEN-101] Port 'bmm_top/b2_req_write' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+@W [RTGEN-101] Setting dangling out port 'bmm_top/b2_req_write' to 0.
+@W [RTGEN-101] Port 'bmm_top/b2_rsp_empty_n' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+@W [RTGEN-101] Port 'bmm_top/b2_rsp_read' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+@W [RTGEN-101] Setting dangling out port 'bmm_top/b2_rsp_read' to 0.
+@W [RTGEN-101] Port 'bmm_top/b2_address' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+@W [RTGEN-101] Setting dangling out port 'bmm_top/b2_address' to 0.
+@W [RTGEN-101] Port 'bmm_top/b2_datain' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+@W [RTGEN-101] Port 'bmm_top/b2_dataout' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+@W [RTGEN-101] Setting dangling out port 'bmm_top/b2_dataout' to 0.
+@W [RTGEN-101] Port 'bmm_top/b2_size' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+@W [RTGEN-101] Setting dangling out port 'bmm_top/b2_size' to 0.
+@I [RTGEN-100] Generating core module 'bmm_top_mul_32s_30s_32_6': 1 instance(s).
 @I [RTGEN-100] Generating core module 'bmm_top_mul_32s_32s_32_6': 1 instance(s).
 @I [RTGEN-100] Finished creating RTL model for 'bmm_top'.
-@I [HLS-111] Elapsed time: 2.73 seconds; current memory usage: 667 MB.
-@I [RTMG-282] Generating pipelined core: 'bmm_top_mul_32s_32s_32_6_MulnS_0'
+@I [HLS-111] Elapsed time: 25.46 seconds; current memory usage: 328 MB.
+@I [RTMG-282] Generating pipelined core: 'bmm_top_mul_32s_30s_32_6_MulnS_0'
+@I [RTMG-282] Generating pipelined core: 'bmm_top_mul_32s_32s_32_6_MulnS_1'
 @I [HLS-10] Finished generating all RTL models.
 @I [WSYSC-301] Generating RTL SystemC for 'bmm_top'.
 @I [WVHDL-304] Generating RTL VHDL for 'bmm_top'.
 @I [WVLOG-307] Generating RTL Verilog for 'bmm_top'.
 @I [IMPL-8] Exporting RTL as an IP in IP-XACT.
-@I [HLS-112] Total elapsed time: 247.661 seconds; peak memory usage: 667 MB.
+@I [HLS-112] Total elapsed time: 201.570 seconds; peak memory usage: 328 MB.
 @I [LIC-101] Checked in feature [HLS]

@@ -45292,48 +45292,53 @@ void bmm_top(volatile int256 b1[(((128*128)*(4*8))/(256))], volatile int256 b2[(
 #pragma HLS RESOURCE core=AXI4LiteS variable=blockSize metadata="-bus_bundle CONTROL"
 #pragma empty_line
 #pragma empty_line
- int i,j,k;
+ int i = 0,j = 0,k = 0;
  int arow[128], brow[128], crow[128];
 #pragma HLS ARRAY_PARTITION variable=arow complete dim=1
 #pragma HLS ARRAY_PARTITION variable=brow complete dim=1
 #pragma HLS ARRAY_PARTITION variable=crow complete dim=1
 #pragma empty_line
  int bsize = blockSize;
- int dim = bsize / (256/(4*8));
 #pragma empty_line
- int total = bsize*bsize/(256/(4*8));
- for (i = 0; i<total; i++) {
-  int256 curElemA = b1[i];
-  int256 curElemB = b2[i];
-  int256 curElemC = b3[i];
-  for (int t2=0; t2<(256/(4*8)); t2++) {
-#pragma HLS UNROLL
- arow[i*(256/(4*8))+t2] = ({ ; unsigned int __attribute__((bitwidth(__bitwidthof__(curElemA)))) __Result__ = 0; unsigned int __attribute__((bitwidth(__bitwidthof__(curElemA)))) __Val2__ = curElemA; __builtin_bit_part_select((void*)(&__Result__), (void*)(&__Val2__), t2*(4*8), t2*(4*8) + (4*8)-1); __Result__; }); // curElemA & mask; 
-    brow[i*(256/(4*8))+t2] = ({ ; unsigned int __attribute__((bitwidth(__bitwidthof__(curElemB)))) __Result__ = 0; unsigned int __attribute__((bitwidth(__bitwidthof__(curElemB)))) __Val2__ = curElemB; __builtin_bit_part_select((void*)(&__Result__), (void*)(&__Val2__), t2*(4*8), t2*(4*8) + (4*8)-1); __Result__; }); // curElemA & mask; 
-    crow[i*(256/(4*8))+t2] = ({ ; unsigned int __attribute__((bitwidth(__bitwidthof__(curElemC)))) __Result__ = 0; unsigned int __attribute__((bitwidth(__bitwidthof__(curElemC)))) __Val2__ = curElemC; __builtin_bit_part_select((void*)(&__Result__), (void*)(&__Val2__), t2*(4*8), t2*(4*8) + (4*8)-1); __Result__; }); // curElemC & mask; 
-  }
- }
+    int rowSize = bsize/(256/(4*8)); // number of entries per bus
+    int numRows = bsize;
+    int rowIdx = 0;
+ for (rowIdx = 0; rowIdx < numRows; rowIdx++) { // rowIdx refers to the current bram row in the logical view
+        int rowBaseIdx = rowIdx*rowSize; // rowBaseIdx is the actual index that points to the first element of the row number rowIdx in bram
 #pragma empty_line
- for (int t1=0; t1<bsize*bsize; t1++) {
-  arow[t1] = t1;
-  brow[t1] = t1*2;
-  crow[t1] = t1*5;
- }
+        for (j = 0; j < rowSize; j++) { // j iterates through all the elements in that row, starting from rowIdx
+            int curIdx = rowBaseIdx+j;
+      int256 curElemA = b1[curIdx];
+      int256 curElemC = b3[curIdx];
+      for (int t2=0; t2<(256/(4*8)); t2++, k++) { // Each entry has ELEMS_PER_BUS number of entries, split them and add them to arow and crow
+// #pragma HLS UNROLL
+        arow[k] = ({ ; unsigned int __attribute__((bitwidth(__bitwidthof__(curElemA)))) __Result__ = 0; unsigned int __attribute__((bitwidth(__bitwidthof__(curElemA)))) __Val2__ = curElemA; __builtin_bit_part_select((void*)(&__Result__), (void*)(&__Val2__), t2*(4*8), t2*(4*8) + (4*8)-1); __Result__; }); // curElemA & mask; 
+        crow[k] = ({ ; unsigned int __attribute__((bitwidth(__bitwidthof__(curElemC)))) __Result__ = 0; unsigned int __attribute__((bitwidth(__bitwidthof__(curElemC)))) __Val2__ = curElemC; __builtin_bit_part_select((void*)(&__Result__), (void*)(&__Val2__), t2*(4*8), t2*(4*8) + (4*8)-1); __Result__; }); // curElemC & mask; 
+      }
+     }
 #pragma empty_line
- for (int i=0; i<total; i++) {
-  int256 curElemA = 0; // b3[i+t1]
-  int256 curElemB = 0; // b3[i+t1]
-  int256 curElemC = 0; // b3[i+t1]
-  for (int t2=0; t2<(256/(4*8)); t2++) {
-#pragma HLS UNROLL
- curElemA = ({ ; typeof(curElemA) __Result__ = 0; typeof(curElemA) __Val2__ = curElemA; typeof(arow[i*(256/(4*8))+t2]) __Repl2__ = arow[i*(256/(4*8))+t2]; __builtin_bit_part_set((void*)(&__Result__), (void*)(&__Val2__), (void*)(&__Repl2__), t2*(4*8), t2*(4*8) + (4*8)-1); __Result__; });
-   curElemB = ({ ; typeof(curElemB) __Result__ = 0; typeof(curElemB) __Val2__ = curElemB; typeof(brow[i*(256/(4*8))+t2]) __Repl2__ = brow[i*(256/(4*8))+t2]; __builtin_bit_part_set((void*)(&__Result__), (void*)(&__Val2__), (void*)(&__Repl2__), t2*(4*8), t2*(4*8) + (4*8)-1); __Result__; });
-   curElemC = ({ ; typeof(curElemC) __Result__ = 0; typeof(curElemC) __Val2__ = curElemC; typeof(crow[i*(256/(4*8))+t2]) __Repl2__ = crow[i*(256/(4*8))+t2]; __builtin_bit_part_set((void*)(&__Result__), (void*)(&__Val2__), (void*)(&__Repl2__), t2*(4*8), t2*(4*8) + (4*8)-1); __Result__; });
-  }
-  b1[i] = curElemA;
-  b2[i] = curElemB;
-  b3[i] = curElemC;
- }
+#pragma empty_line
+        // Now, both arow and crow should contain exactly bsize number of elements
+        // Do some random thing to crow[t1]
+     for (int t1=0; t1<bsize; t1++) {
+            int tmp = arow[t1];
+      crow[t1] = tmp * rowIdx; // So that i can verify if rowIdx is correct
+     }
+#pragma empty_line
+        // Store crow back into b3[rowBaseIdx] .. b3[rowBaseIdx+rowSize]
+        k=0;
+        for (j=0; j<rowSize; j++) {
+            int curIdx = rowBaseIdx+j;
+      int256 curElemC = 0; // b3[i+t1]
+      for (int t2=0; t2<(256/(4*8)); t2++, k++) {
+// #pragma HLS UNROLL
+       curElemC = ({ ; typeof(curElemC) __Result__ = 0; typeof(curElemC) __Val2__ = curElemC; typeof(crow[k]) __Repl2__ = crow[k]; __builtin_bit_part_set((void*)(&__Result__), (void*)(&__Val2__), (void*)(&__Repl2__), t2*(4*8), t2*(4*8) + (4*8)-1); __Result__; });
+      }
+      b3[curIdx] = curElemC;
+        }
+#pragma empty_line
+#pragma empty_line
+    }
 #pragma empty_line
 /*
 	for (i=0; i<bsize; i+=dim) {

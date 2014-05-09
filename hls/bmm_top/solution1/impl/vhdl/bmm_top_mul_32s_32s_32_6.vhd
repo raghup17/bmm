@@ -9,7 +9,7 @@ library IEEE;
 use IEEE.std_logic_1164.all;
 use IEEE.numeric_std.all;
 
-entity bmm_top_mul_32s_32s_32_6_MulnS_0 is
+entity bmm_top_mul_32s_32s_32_6_MulnS_1 is
 port (
     clk: in std_logic;
     ce: in std_logic;
@@ -18,7 +18,7 @@ port (
     p: out std_logic_vector(32 - 1 downto 0));
 end entity;
 
-architecture behav of bmm_top_mul_32s_32s_32_6_MulnS_0 is
+architecture behav of bmm_top_mul_32s_32s_32_6_MulnS_1 is
     signal tmp_product : std_logic_vector(32 - 1 downto 0);
     signal a_i : std_logic_vector(32 - 1 downto 0);
     signal b_i : std_logic_vector(32 - 1 downto 0);
@@ -77,7 +77,7 @@ entity bmm_top_mul_32s_32s_32_6 is
 end entity;
 
 architecture arch of bmm_top_mul_32s_32s_32_6 is
-    component bmm_top_mul_32s_32s_32_6_MulnS_0 is
+    component bmm_top_mul_32s_32s_32_6_MulnS_1 is
         port (
             clk : IN STD_LOGIC;
             ce : IN STD_LOGIC;
@@ -90,7 +90,7 @@ architecture arch of bmm_top_mul_32s_32s_32_6 is
 
 
 begin
-    bmm_top_mul_32s_32s_32_6_MulnS_0_U :  component bmm_top_mul_32s_32s_32_6_MulnS_0
+    bmm_top_mul_32s_32s_32_6_MulnS_1_U :  component bmm_top_mul_32s_32s_32_6_MulnS_1
     port map (
         clk => clk,
         ce => ce,

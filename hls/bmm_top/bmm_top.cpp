@@ -27,48 +27,53 @@ void bmm_top(volatile BRAM_DT b1[RAM_SIZE], volatile BRAM_DT b2[RAM_SIZE],  vola
 #pragma HLS RESOURCE core=AXI4LiteS variable=blockSize metadata="-bus_bundle CONTROL"
 
 
-	int i,j,k;
+	int i = 0,j = 0,k = 0;
 	int arow[BDIM], brow[BDIM], crow[BDIM];
 #pragma HLS ARRAY_PARTITION variable=arow complete dim=1
 #pragma HLS ARRAY_PARTITION variable=brow complete dim=1
 #pragma HLS ARRAY_PARTITION variable=crow complete dim=1
 
 	int bsize = blockSize;
-	int dim = bsize / ELEMS_PER_BUS;
 
-	int total = bsize*bsize/ELEMS_PER_BUS;
-	for (i = 0; i<total; i++) {
-		BRAM_DT curElemA = b1[i];
-		BRAM_DT curElemB = b2[i];
-		BRAM_DT curElemC = b3[i];
-		for (int t2=0; t2<ELEMS_PER_BUS; t2++) {
-#pragma HLS UNROLL
-				arow[i*ELEMS_PER_BUS+t2] =  apint_get_range(curElemA, t2*ELEM_WIDTH_BITS + ELEM_WIDTH_BITS-1, t2*ELEM_WIDTH_BITS); // curElemA & mask; 
-				brow[i*ELEMS_PER_BUS+t2] =  apint_get_range(curElemB, t2*ELEM_WIDTH_BITS + ELEM_WIDTH_BITS-1, t2*ELEM_WIDTH_BITS); // curElemA & mask; 
-				crow[i*ELEMS_PER_BUS+t2] =  apint_get_range(curElemC, t2*ELEM_WIDTH_BITS + ELEM_WIDTH_BITS-1, t2*ELEM_WIDTH_BITS); // curElemC & mask; 
-		}
-	}	
+    int rowSize = bsize/ELEMS_PER_BUS;              // number of entries per bus
+    int numRows = bsize;
+    int rowIdx = 0;
+	for (rowIdx = 0; rowIdx < numRows; rowIdx++) {   // rowIdx refers to the current bram row in the logical view
+        int rowBaseIdx = rowIdx*rowSize;             // rowBaseIdx is the actual index that points to the first element of the row number rowIdx in bram
 
-	for (int t1=0; t1<bsize*bsize; t1++) {
-		arow[t1] = t1;
-		brow[t1] = t1*2;
-		crow[t1] = t1*5;
-	}
+        for (j = 0; j < rowSize; j++) {  // j iterates through all the elements in that row, starting from rowIdx
+            int curIdx = rowBaseIdx+j;
+    		BRAM_DT curElemA = b1[curIdx];
+		    BRAM_DT curElemC = b3[curIdx];
+    		for (int t2=0; t2<ELEMS_PER_BUS; t2++, k++) {  // Each entry has ELEMS_PER_BUS number of entries, split them and add them to arow and crow
+// #pragma HLS UNROLL
+    				arow[k] =  apint_get_range(curElemA, t2*ELEM_WIDTH_BITS + ELEM_WIDTH_BITS-1, t2*ELEM_WIDTH_BITS); // curElemA & mask; 
+		    		crow[k] =  apint_get_range(curElemC, t2*ELEM_WIDTH_BITS + ELEM_WIDTH_BITS-1, t2*ELEM_WIDTH_BITS); // curElemC & mask; 
+		    }
+	    }
 
-	for (int i=0; i<total; i++) {
-		BRAM_DT curElemA = 0;   // b3[i+t1]
-		BRAM_DT curElemB = 0;   // b3[i+t1]
-		BRAM_DT curElemC = 0;   // b3[i+t1]
-		for (int t2=0; t2<ELEMS_PER_BUS; t2++) {
-#pragma HLS UNROLL
-			curElemA = apint_set_range(curElemA, t2*ELEM_WIDTH_BITS + ELEM_WIDTH_BITS-1, t2*ELEM_WIDTH_BITS, arow[i*ELEMS_PER_BUS+t2]);
-			curElemB = apint_set_range(curElemB, t2*ELEM_WIDTH_BITS + ELEM_WIDTH_BITS-1, t2*ELEM_WIDTH_BITS, brow[i*ELEMS_PER_BUS+t2]);
-			curElemC = apint_set_range(curElemC, t2*ELEM_WIDTH_BITS + ELEM_WIDTH_BITS-1, t2*ELEM_WIDTH_BITS, crow[i*ELEMS_PER_BUS+t2]);
-		}
-		b1[i] = curElemA;
-		b2[i] = curElemB;
-		b3[i] = curElemC;
-	}
+
+        // Now, both arow and crow should contain exactly bsize number of elements
+        // Do some random thing to crow[t1]
+	    for (int t1=0; t1<bsize; t1++) {
+            int tmp = arow[t1];
+    		crow[t1] = tmp * rowIdx;   // So that i can verify if rowIdx is correct
+	    }
+
+        // Store crow back into b3[rowBaseIdx] .. b3[rowBaseIdx+rowSize]
+        k=0;
+        for (j=0; j<rowSize; j++) {
+            int curIdx = rowBaseIdx+j;
+    		BRAM_DT curElemC = 0;   // b3[i+t1]
+    		for (int t2=0; t2<ELEMS_PER_BUS; t2++, k++) {
+// #pragma HLS UNROLL
+			    curElemC = apint_set_range(curElemC, t2*ELEM_WIDTH_BITS + ELEM_WIDTH_BITS-1, t2*ELEM_WIDTH_BITS, crow[k]);
+    		}
+    		b3[curIdx] = curElemC;
+        }
+
+
+    }
 
 /*
 	for (i=0; i<bsize; i+=dim) {

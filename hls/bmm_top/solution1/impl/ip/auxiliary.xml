@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xd:acceleratorMap xmlns:xd="http://www.xilinx.com/xd" xd:functionName="bmm_top" xd:componentRef="bmm_top" xd:clockPeriod="10.000000">
   <xd:controlReg xd:name="control" xd:interfaceRef="S_AXI_CONTROL" xd:busTypeRef="axilite" xd:type="generic_axi_lite" xd:offset="0x0"/>
-  <xd:arg xd:name="b1[]" xd:originalName="b1" xd:direction="inout" xd:interfaceRef="M_AXI_B1" xd:busTypeRef="aximm"/>
-  <xd:arg xd:name="b2[]" xd:originalName="b2" xd:direction="inout" xd:interfaceRef="M_AXI_B2" xd:busTypeRef="aximm"/>
+  <xd:arg xd:name="b1[]" xd:originalName="b1" xd:direction="in" xd:interfaceRef="M_AXI_B1" xd:busTypeRef="aximm"/>
+  <xd:arg xd:name="b2[]" xd:originalName="b2" xd:direction="in" xd:interfaceRef="M_AXI_B2" xd:busTypeRef="aximm"/>
   <xd:arg xd:name="b3[]" xd:originalName="b3" xd:direction="inout" xd:interfaceRef="M_AXI_B3" xd:busTypeRef="aximm"/>
   <xd:arg xd:name="blockSize" xd:originalName="blockSize" xd:direction="in" xd:interfaceRef="S_AXI_CONTROL" xd:busTypeRef="axilite" xd:offset="0x14" xd:handshakeRef="ap_hs"/>
   <xd:latencyEstimates xd:best-case="undef" xd:worst-case="undef" xd:average-case="undef"/>
-  <xd:resourceEstimates xd:LUT="16577" xd:FF="37967" xd:BRAM="0" xd:DSP="4"/>
+  <xd:resourceEstimates xd:LUT="20444" xd:FF="26274" xd:BRAM="0" xd:DSP="8"/>
 </xd:acceleratorMap>

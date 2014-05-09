@@ -8,8 +8,8 @@ set isOneStateSeq 0
 set C_modelName bmm_top
 set C_modelType { void 0 }
 set C_modelArgList { 
-	{ b1 int 256 regular {bus 2}  }
-	{ b2 int 256 regular {bus 2}  }
+	{ b1 int 256 regular {bus 0}  }
+	{ b2 int 256 unused {bus 0}  }
 	{ b3 int 256 regular {bus 2}  }
 	{ blockSize int 32 regular  }
 }
@@ -72,6 +72,8 @@ set fifoSchedulingInfoList {
 
 # RTL bus port read request latency information:
 set busReadReqLatencyList { 
+	{ b1 4 }
+	{ b2 1 }
 }
 
 # RTL array port load latency information:
