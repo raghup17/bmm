@@ -141,7 +141,7 @@ set DataWd 256
 if {${::AESL::PGuard_autoexp_gen}} {
 if {[info proc ::AESL_LIB_XILADAPTER::axi_master_gen] == "::AESL_LIB_XILADAPTER::axi_master_gen"} {
 eval "::AESL_LIB_XILADAPTER::axi_master_gen { \
-    id 4 \
+    id 5 \
     name ${PortName} \
     reset_level 1 \
     sync_rst true \
@@ -164,7 +164,7 @@ set DataWd 256
 if {${::AESL::PGuard_autoexp_gen}} {
 if {[info proc ::AESL_LIB_XILADAPTER::axi_master_gen] == "::AESL_LIB_XILADAPTER::axi_master_gen"} {
 eval "::AESL_LIB_XILADAPTER::axi_master_gen { \
-    id 5 \
+    id 6 \
     name ${PortName} \
     reset_level 1 \
     sync_rst true \
@@ -187,7 +187,7 @@ set DataWd 256
 if {${::AESL::PGuard_autoexp_gen}} {
 if {[info proc ::AESL_LIB_XILADAPTER::axi_master_gen] == "::AESL_LIB_XILADAPTER::axi_master_gen"} {
 eval "::AESL_LIB_XILADAPTER::axi_master_gen { \
-    id 6 \
+    id 7 \
     name ${PortName} \
     reset_level 1 \
     sync_rst true \
@@ -208,7 +208,7 @@ puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored ge
 set corename CONTROL
 set opts {
     {
-        id 7
+        id 8
         name blockSize
         reset_level 1
         sync_rst true
