@@ -14,9 +14,9 @@ set C_modelArgList {
 	{ blockSize int 32 regular  }
 }
 set C_modelArgMapList {[ 
-	{ "rtlName" : "b1","bitSlice":[{"low":0,"up":255,"cElement": [{"cName": "b1","cData": "int256","cArray": [{"low" : 0,"up" : 511,"step" : 1}]}]}]} , 
- 	{ "rtlName" : "b2","bitSlice":[{"low":0,"up":255,"cElement": [{"cName": "b2","cData": "int256","cArray": [{"low" : 0,"up" : 511,"step" : 1}]}]}]} , 
- 	{ "rtlName" : "b3","bitSlice":[{"low":0,"up":255,"cElement": [{"cName": "b3","cData": "int256","cArray": [{"low" : 0,"up" : 511,"step" : 1}]}]}]} , 
+	{ "rtlName" : "b1","bitSlice":[{"low":0,"up":255,"cElement": [{"cName": "b1","cData": "int256","cArray": [{"low" : 0,"up" : 2047,"step" : 1}]}]}]} , 
+ 	{ "rtlName" : "b2","bitSlice":[{"low":0,"up":255,"cElement": [{"cName": "b2","cData": "int256","cArray": [{"low" : 0,"up" : 2047,"step" : 1}]}]}]} , 
+ 	{ "rtlName" : "b3","bitSlice":[{"low":0,"up":255,"cElement": [{"cName": "b3","cData": "int256","cArray": [{"low" : 0,"up" : 2047,"step" : 1}]}]}]} , 
  	{ "rtlName" : "blockSize","bitSlice":[{"low":0,"up":31,"cElement": [{"cName": "blockSize","cData": "int","cArray": [{"low" : 0,"up" : 0,"step" : 0}]}]}]} ]}
 # RTL Port declarations: 
 set portNum 36

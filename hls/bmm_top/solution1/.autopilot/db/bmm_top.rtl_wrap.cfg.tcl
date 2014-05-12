@@ -289,7 +289,7 @@ set gport25 [list $gportName25 $gportInterface25 $gportData25 $gportPointer25 $g
 lappend globalVariable $gport25
 set staticVariable ""
 set moduleName "bmm_top"
-set rawDecl [list "void" "bmm_top\(volatile int256 b1\[\(\(\(64*64\)*\(4*8\)\)/\(256\)\)\], volatile int256 b2\[\(\(\(64*64\)*\(4*8\)\)/\(256\)\)\], volatile int256 b3\[\(\(\(64*64\)*\(4*8\)\)/\(256\)\)\], int blockSize\)"]
+set rawDecl [list "void" "bmm_top\(volatile int256 b1\[\(\(\(128*128\)*\(4*8\)\)/\(256\)\)\], volatile int256 b2\[\(\(\(128*128\)*\(4*8\)\)/\(256\)\)\], volatile int256 b3\[\(\(\(128*128\)*\(4*8\)\)/\(256\)\)\], int blockSize\)"]
 set argAPint [list int256]
 set returnAPint ""
 set portList ""
@@ -297,7 +297,7 @@ set portName0 "b1"
 set portInterface0 "[list bus 0]"
 set portData0 "int256"
 set portPointer0 "0"
-set portArrayDim0 [list 512]
+set portArrayDim0 [list 2048]
 set portConst0 "0"
 set portVolatile0 "1"
 set portArrayOpt0 ""
@@ -307,7 +307,7 @@ set portName1 "b2"
 set portInterface1 "[list bus 0]"
 set portData1 "int256"
 set portPointer1 "0"
-set portArrayDim1 [list 512]
+set portArrayDim1 [list 2048]
 set portConst1 "0"
 set portVolatile1 "1"
 set portArrayOpt1 ""
@@ -317,7 +317,7 @@ set portName2 "b3"
 set portInterface2 "[list bus 0]"
 set portData2 "int256"
 set portPointer2 "0"
-set portArrayDim2 [list 512]
+set portArrayDim2 [list 2048]
 set portConst2 "0"
 set portVolatile2 "1"
 set portArrayOpt2 ""
