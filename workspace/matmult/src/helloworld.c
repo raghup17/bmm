@@ -60,7 +60,6 @@
 #define B3_B 		0xC7000000
 #define B3_AB 		0xC8000000
 
-#define BRAM_SIZE_BYTES 4096*32
 
 #define TMPBUF			0x3E000000
 // Matrix and block sizes
@@ -69,6 +68,9 @@
 #define BRAM_SIZE 128
 #define NUM_MULTIPLIERS 1
 
+#define BRAM_WIDTH_BITS 256
+#define BRAM_DEPTH 8192
+#define BRAM_SIZE_BYTES (BRAM_DEPTH*BRAM_WIDTH_BITS)/8
 // #define DCACHE_ENABLE
 
 XAxiCdma dmaInstance;
@@ -226,7 +228,7 @@ int init()
 	return status;
 }
 
-int copyBlockToBRAM(int m[][SIZE], int si, int sj, int bram[][BRAM_SIZE])
+int copyBlockToBRAM(int m[][SIZE], int si, int sj, int bram[][BSIZE])
 {
 	XAxiCdma_Bd *bdring = NULL, *bdringReturn = NULL;
 	int status = XST_SUCCESS;
@@ -288,7 +290,7 @@ int copyBlockToBRAM(int m[][SIZE], int si, int sj, int bram[][BRAM_SIZE])
 	return status;
 }
 
-int copyBlockFromBRAM(int m[][SIZE], int si, int sj, int bram[][BRAM_SIZE])
+int copyBlockFromBRAM(int m[][SIZE], int si, int sj, int bram[][BSIZE])
 {
 	XAxiCdma_Bd *bdring = NULL, *bdringReturn = NULL;
 	int status = XST_SUCCESS;
