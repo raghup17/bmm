@@ -86,6 +86,8 @@
         <spirit:componentRef spirit:library="ip" spirit:name="axi_cdma" spirit:vendor="xilinx.com" spirit:version="4.1"/>
         <spirit:configurableElementValues>
           <spirit:configurableElementValue spirit:referenceId="bd:xciName">dma3_axi_cdma_0_0</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="C_M_AXI_DATA_WIDTH">256</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="C_M_AXI_MAX_BURST_LEN">16</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="C_INCLUDE_SG">1</spirit:configurableElementValue>
         </spirit:configurableElementValues>
       </spirit:componentInstance>
@@ -193,7 +195,7 @@
       </spirit:componentInstance>
       <spirit:componentInstance>
         <spirit:instanceName>bmm_top_0</spirit:instanceName>
-        <spirit:componentRef spirit:library="hls" spirit:name="bmm_top" spirit:vendor="xilinx.com" spirit:version="24.0"/>
+        <spirit:componentRef spirit:library="hls" spirit:name="bmm_top" spirit:vendor="xilinx.com" spirit:version="30.0"/>
         <spirit:configurableElementValues>
           <spirit:configurableElementValue spirit:referenceId="bd:xciName">dma3_bmm_top_0_1</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="C_M_AXI_B1_DATA_WIDTH">256</spirit:configurableElementValue>
@@ -206,7 +208,7 @@
       </spirit:componentInstance>
       <spirit:componentInstance>
         <spirit:instanceName>bmm_top_1</spirit:instanceName>
-        <spirit:componentRef spirit:library="hls" spirit:name="bmm_top" spirit:vendor="xilinx.com" spirit:version="24.0"/>
+        <spirit:componentRef spirit:library="hls" spirit:name="bmm_top" spirit:vendor="xilinx.com" spirit:version="30.0"/>
         <spirit:configurableElementValues>
           <spirit:configurableElementValue spirit:referenceId="bd:xciName">dma3_bmm_top_0_2</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="C_M_AXI_B1_DATA_WIDTH">256</spirit:configurableElementValue>
@@ -219,7 +221,7 @@
       </spirit:componentInstance>
       <spirit:componentInstance>
         <spirit:instanceName>bmm_top_2</spirit:instanceName>
-        <spirit:componentRef spirit:library="hls" spirit:name="bmm_top" spirit:vendor="xilinx.com" spirit:version="24.0"/>
+        <spirit:componentRef spirit:library="hls" spirit:name="bmm_top" spirit:vendor="xilinx.com" spirit:version="30.0"/>
         <spirit:configurableElementValues>
           <spirit:configurableElementValue spirit:referenceId="bd:xciName">dma3_bmm_top_0_3</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="C_M_AXI_B1_DATA_WIDTH">256</spirit:configurableElementValue>
@@ -232,7 +234,7 @@
       </spirit:componentInstance>
       <spirit:componentInstance>
         <spirit:instanceName>bmm_top_3</spirit:instanceName>
-        <spirit:componentRef spirit:library="hls" spirit:name="bmm_top" spirit:vendor="xilinx.com" spirit:version="24.0"/>
+        <spirit:componentRef spirit:library="hls" spirit:name="bmm_top" spirit:vendor="xilinx.com" spirit:version="30.0"/>
         <spirit:configurableElementValues>
           <spirit:configurableElementValue spirit:referenceId="bd:xciName">dma3_bmm_top_0_4</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="C_M_AXI_B1_DATA_WIDTH">256</spirit:configurableElementValue>
@@ -401,16 +403,6 @@
         <spirit:activeInterface spirit:busRef="S00_AXI" spirit:componentRef="cdma_bram_intercon"/>
       </spirit:interconnection>
       <spirit:interconnection>
-        <spirit:name>cdma_bram_intercon_m01_axi</spirit:name>
-        <spirit:activeInterface spirit:busRef="M01_AXI" spirit:componentRef="cdma_bram_intercon"/>
-        <spirit:activeInterface spirit:busRef="S_AXI" spirit:componentRef="axi_dwidth_converter_0"/>
-      </spirit:interconnection>
-      <spirit:interconnection>
-        <spirit:name>axi_dwidth_converter_0_m_axi</spirit:name>
-        <spirit:activeInterface spirit:busRef="M_AXI" spirit:componentRef="axi_dwidth_converter_0"/>
-        <spirit:activeInterface spirit:busRef="S00_AXI" spirit:componentRef="axi_interconnect_1"/>
-      </spirit:interconnection>
-      <spirit:interconnection>
         <spirit:name>axi_interconnect_1_m00_axi</spirit:name>
         <spirit:activeInterface spirit:busRef="M00_AXI" spirit:componentRef="axi_interconnect_1"/>
         <spirit:activeInterface spirit:busRef="S04_AXI" spirit:componentRef="axi_interconnect_0"/>
@@ -424,6 +416,11 @@
         <spirit:name>axi_interconnect_1_m02_axi</spirit:name>
         <spirit:activeInterface spirit:busRef="M02_AXI" spirit:componentRef="axi_interconnect_1"/>
         <spirit:activeInterface spirit:busRef="S04_AXI" spirit:componentRef="blocka_ic"/>
+      </spirit:interconnection>
+      <spirit:interconnection>
+        <spirit:name>cdma_bram_intercon_m01_axi</spirit:name>
+        <spirit:activeInterface spirit:busRef="M01_AXI" spirit:componentRef="cdma_bram_intercon"/>
+        <spirit:activeInterface spirit:busRef="S00_AXI" spirit:componentRef="axi_interconnect_1"/>
       </spirit:interconnection>
     </spirit:interconnections>
     <spirit:adHocConnections>
@@ -12777,15 +12774,15 @@
             <spirit:range>128K</spirit:range>
           </spirit:segment>
           <spirit:segment>
-            <spirit:name>SEG_bram_ctrl_in_blk_Mem05</spirit:name>
-            <spirit:displayName>/block0_b/bram_ctrl_in_blk/S_AXI/Mem0</spirit:displayName>
-            <spirit:addressOffset>0xC1000000</spirit:addressOffset>
-            <spirit:range>128K</spirit:range>
-          </spirit:segment>
-          <spirit:segment>
             <spirit:name>SEG_bram_ctrl_outblk_Mem0</spirit:name>
             <spirit:displayName>/block0_ab/bram_ctrl_outblk/S_AXI/Mem0</spirit:displayName>
             <spirit:addressOffset>0xC2000000</spirit:addressOffset>
+            <spirit:range>128K</spirit:range>
+          </spirit:segment>
+          <spirit:segment>
+            <spirit:name>SEG_bram_ctrl_in_blk_Mem05</spirit:name>
+            <spirit:displayName>/block0_b/bram_ctrl_in_blk/S_AXI/Mem0</spirit:displayName>
+            <spirit:addressOffset>0xC1000000</spirit:addressOffset>
             <spirit:range>128K</spirit:range>
           </spirit:segment>
           <spirit:segment>
@@ -12795,31 +12792,31 @@
             <spirit:range>128K</spirit:range>
           </spirit:segment>
           <spirit:segment>
-            <spirit:name>SEG_bram_ctrl_outblk_Mem05</spirit:name>
+            <spirit:name>SEG_bram_ctrl_outblk_Mem04</spirit:name>
             <spirit:displayName>/block1_ab/bram_ctrl_outblk/S_AXI/Mem0</spirit:displayName>
             <spirit:addressOffset>0xC4000000</spirit:addressOffset>
             <spirit:range>128K</spirit:range>
           </spirit:segment>
           <spirit:segment>
-            <spirit:name>SEG_bram_ctrl_in_blk_Mem07</spirit:name>
+            <spirit:name>SEG_bram_ctrl_in_blk_Mem014</spirit:name>
             <spirit:displayName>/block2_b/bram_ctrl_in_blk/S_AXI/Mem0</spirit:displayName>
             <spirit:addressOffset>0xC5000000</spirit:addressOffset>
             <spirit:range>128K</spirit:range>
           </spirit:segment>
           <spirit:segment>
-            <spirit:name>SEG_bram_ctrl_outblk_Mem03</spirit:name>
+            <spirit:name>SEG_bram_ctrl_outblk_Mem010</spirit:name>
             <spirit:displayName>/block2_ab/bram_ctrl_outblk/S_AXI/Mem0</spirit:displayName>
             <spirit:addressOffset>0xC6000000</spirit:addressOffset>
             <spirit:range>128K</spirit:range>
           </spirit:segment>
           <spirit:segment>
-            <spirit:name>SEG_bram_ctrl_in_blk_Mem08</spirit:name>
+            <spirit:name>SEG_bram_ctrl_in_blk_Mem026</spirit:name>
             <spirit:displayName>/block3_b/bram_ctrl_in_blk/S_AXI/Mem0</spirit:displayName>
             <spirit:addressOffset>0xC7000000</spirit:addressOffset>
             <spirit:range>128K</spirit:range>
           </spirit:segment>
           <spirit:segment>
-            <spirit:name>SEG_bram_ctrl_outblk_Mem06</spirit:name>
+            <spirit:name>SEG_bram_ctrl_outblk_Mem020</spirit:name>
             <spirit:displayName>/block3_ab/bram_ctrl_outblk/S_AXI/Mem0</spirit:displayName>
             <spirit:addressOffset>0xC8000000</spirit:addressOffset>
             <spirit:range>128K</spirit:range>
@@ -12846,7 +12843,7 @@
     <spirit:vendor>xilinx.com</spirit:vendor>
     <spirit:library>Addressing/bmm_top_0</spirit:library>
     <spirit:name>bmm_top</spirit:name>
-    <spirit:version>24.0</spirit:version>
+    <spirit:version>30.0</spirit:version>
     <spirit:addressSpaces>
       <spirit:addressSpace>
         <spirit:name>Data</spirit:name>
@@ -12860,7 +12857,7 @@
             <spirit:range>128K</spirit:range>
           </spirit:segment>
           <spirit:segment>
-            <spirit:name>SEG_bram_ctrl_in_blk_Mem03</spirit:name>
+            <spirit:name>SEG_bram_ctrl_in_blk_Mem01</spirit:name>
             <spirit:displayName>/block0_b/bram_ctrl_in_blk/S_AXI/Mem0</spirit:displayName>
             <spirit:addressOffset>0xC1000000</spirit:addressOffset>
             <spirit:range>128K</spirit:range>
@@ -12880,7 +12877,7 @@
     <spirit:vendor>xilinx.com</spirit:vendor>
     <spirit:library>Addressing/bmm_top_1</spirit:library>
     <spirit:name>bmm_top</spirit:name>
-    <spirit:version>24.0</spirit:version>
+    <spirit:version>30.0</spirit:version>
     <spirit:addressSpaces>
       <spirit:addressSpace>
         <spirit:name>Data</spirit:name>
@@ -12894,13 +12891,13 @@
             <spirit:range>128K</spirit:range>
           </spirit:segment>
           <spirit:segment>
-            <spirit:name>SEG_bram_ctrl_in_blk_Mem02</spirit:name>
+            <spirit:name>SEG_bram_ctrl_in_blk_Mem04</spirit:name>
             <spirit:displayName>/block1_b/bram_ctrl_in_blk/S_AXI/Mem0</spirit:displayName>
             <spirit:addressOffset>0xC3000000</spirit:addressOffset>
             <spirit:range>128K</spirit:range>
           </spirit:segment>
           <spirit:segment>
-            <spirit:name>SEG_bram_ctrl_outblk_Mem01</spirit:name>
+            <spirit:name>SEG_bram_ctrl_outblk_Mem06</spirit:name>
             <spirit:displayName>/block1_ab/bram_ctrl_outblk/S_AXI/Mem0</spirit:displayName>
             <spirit:addressOffset>0xC4000000</spirit:addressOffset>
             <spirit:range>128K</spirit:range>
@@ -12914,7 +12911,7 @@
     <spirit:vendor>xilinx.com</spirit:vendor>
     <spirit:library>Addressing/bmm_top_2</spirit:library>
     <spirit:name>bmm_top</spirit:name>
-    <spirit:version>24.0</spirit:version>
+    <spirit:version>30.0</spirit:version>
     <spirit:addressSpaces>
       <spirit:addressSpace>
         <spirit:name>Data</spirit:name>
@@ -12928,7 +12925,7 @@
             <spirit:range>128K</spirit:range>
           </spirit:segment>
           <spirit:segment>
-            <spirit:name>SEG_bram_ctrl_in_blk_Mem01</spirit:name>
+            <spirit:name>SEG_bram_ctrl_in_blk_Mem016</spirit:name>
             <spirit:displayName>/block2_b/bram_ctrl_in_blk/S_AXI/Mem0</spirit:displayName>
             <spirit:addressOffset>0xC5000000</spirit:addressOffset>
             <spirit:range>128K</spirit:range>
@@ -12948,7 +12945,7 @@
     <spirit:vendor>xilinx.com</spirit:vendor>
     <spirit:library>Addressing/bmm_top_3</spirit:library>
     <spirit:name>bmm_top</spirit:name>
-    <spirit:version>24.0</spirit:version>
+    <spirit:version>30.0</spirit:version>
     <spirit:addressSpaces>
       <spirit:addressSpace>
         <spirit:name>Data</spirit:name>
@@ -12962,15 +12959,15 @@
             <spirit:range>128K</spirit:range>
           </spirit:segment>
           <spirit:segment>
-            <spirit:name>SEG_bram_ctrl_outblk_Mem03</spirit:name>
-            <spirit:displayName>/block3_ab/bram_ctrl_outblk/S_AXI/Mem0</spirit:displayName>
-            <spirit:addressOffset>0xC8000000</spirit:addressOffset>
+            <spirit:name>SEG_bram_ctrl_in_blk_Mem030</spirit:name>
+            <spirit:displayName>/block3_b/bram_ctrl_in_blk/S_AXI/Mem0</spirit:displayName>
+            <spirit:addressOffset>0xC7000000</spirit:addressOffset>
             <spirit:range>128K</spirit:range>
           </spirit:segment>
           <spirit:segment>
-            <spirit:name>SEG_bram_ctrl_in_blk_Mem04</spirit:name>
-            <spirit:displayName>/block3_b/bram_ctrl_in_blk/S_AXI/Mem0</spirit:displayName>
-            <spirit:addressOffset>0xC7000000</spirit:addressOffset>
+            <spirit:name>SEG_bram_ctrl_outblk_Mem024</spirit:name>
+            <spirit:displayName>/block3_ab/bram_ctrl_outblk/S_AXI/Mem0</spirit:displayName>
+            <spirit:addressOffset>0xC8000000</spirit:addressOffset>
             <spirit:range>128K</spirit:range>
           </spirit:segment>
         </spirit:segments>
