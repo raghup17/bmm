@@ -6,4 +6,4 @@
 # ==============================================================
 
 
-vivado  -notrace -mode batch -source ipi_example.tcl -tclargs xc7z045ffg900-1 ../xilinx_com_hls_bmm_top_28_0.zip
+vivado  -notrace -mode batch -source ipi_example.tcl -tclargs xc7z045ffg900-1 ../xilinx_com_hls_bmm_top_29_0.zip

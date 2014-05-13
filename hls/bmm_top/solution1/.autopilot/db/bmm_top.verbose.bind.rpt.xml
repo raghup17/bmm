@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vivado HLS Report for 'bmm_top'" level="0">
-<item name = "Date">Mon May 12 17:12:41 2014
+<item name = "Date">Mon May 12 21:14:25 2014
 </item>
 <item name = "Version">2013.3 (build date: Wed Oct 16 18:12:55 PM 2013)</item>
 <item name = "Project">bmm_top</item>
@@ -15,7 +15,7 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="4">Clock, Target, Estimated, Uncertainty</keys>
-<column name="default">10.00, 8.75, 1.25</column>
+<column name="default">10.00, 19.73, 1.25</column>
 </table>
 </item>
 </section>
@@ -36,14 +36,14 @@
 <item name = "Loop"><table name="" hasTotal="0">
 <keys size="8">Loop Name, min, max, Latency, achieved, target, Count, Pipelined</keys>
 <column name="- Loop 1">?, ?, ?, -, -, ?, no</column>
-<column name=" + Loop 1.1">0, 12884901864, 24, -, -, 0 ~ 536870911, no</column>
-<column name="  ++ Loop 1.1.1">16, 16, 2, -, -, 8, no</column>
+<column name=" + Loop 1.1">0, 15032385508, 28, -, -, 0 ~ 536870911, no</column>
+<column name="  ++ Loop 1.1.1">20, 20, 5, -, -, 4, no</column>
 <column name=" + Loop 1.2">?, ?, ?, -, -, ?, no</column>
-<column name="  ++ Loop 1.2.1">0, 8589934576, 16, -, -, 0 ~ 536870911, no</column>
-<column name="   +++ Loop 1.2.1.1">8, 8, 1, -, -, 8, no</column>
-<column name="  ++ Loop 1.2.2">?, ?, 15, -, -, ?, no</column>
-<column name=" + Loop 1.3">0, 9663676398, 18, -, -, 0 ~ 536870911, no</column>
-<column name="  ++ Loop 1.3.1">16, 16, 2, -, -, 8, no</column>
+<column name="  ++ Loop 1.2.1">0, 12348030953, 21 ~ 23, -, -, 0 ~ 536870911, no</column>
+<column name="   +++ Loop 1.2.1.1">12, 13, 3, -, -, 4, no</column>
+<column name="  ++ Loop 1.2.2">?, ?, 9, 1, 1, ?, yes</column>
+<column name=" + Loop 1.3">0, 9126805487, 15 ~ 17, -, -, 0 ~ 536870911, no</column>
+<column name="  ++ Loop 1.3.1">12, 13, 3, -, -, 4, no</column>
 </table>
 </item>
 </section>

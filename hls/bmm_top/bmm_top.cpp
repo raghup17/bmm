@@ -45,7 +45,7 @@ void bmm_top(volatile BRAM_DT b1[RAM_SIZE], volatile BRAM_DT b2[RAM_SIZE],  vola
 		    BRAM_DT curElemC = b3[curIdx];
 
     		for (int t2=0; t2<ELEMS_PER_BUS; t2++, k++) {  // Each entry has ELEMS_PER_BUS number of entries, split them and add them to arow and crow
-//#pragma HLS UNROLL factor=2
+#pragma HLS UNROLL factor=2
     				arow[k] =  apint_get_range(curElemA, t2*ELEM_WIDTH_BITS + ELEM_WIDTH_BITS-1, t2*ELEM_WIDTH_BITS); // curElemA & mask; 
 		    		crow[k] =  apint_get_range(curElemC, t2*ELEM_WIDTH_BITS + ELEM_WIDTH_BITS-1, t2*ELEM_WIDTH_BITS); // curElemC & mask; 
             }
@@ -91,7 +91,7 @@ void bmm_top(volatile BRAM_DT b1[RAM_SIZE], volatile BRAM_DT b2[RAM_SIZE],  vola
                 BRAM_DT curElemB = b2[curIdx];
 
                 for (int t2=0; t2<ELEMS_PER_BUS; t2++, k++) {
-// #pragma HLS UNROLL factor=2
+#pragma HLS UNROLL factor=2
     				brow[k] =  apint_get_range(curElemB, t2*ELEM_WIDTH_BITS + ELEM_WIDTH_BITS-1, t2*ELEM_WIDTH_BITS);
                 }
 
@@ -112,7 +112,7 @@ void bmm_top(volatile BRAM_DT b1[RAM_SIZE], volatile BRAM_DT b2[RAM_SIZE],  vola
             // Multiply-accumulate arow and brow into crow
 	        for (int t1=0; t1<bsize; t1++) {
 #pragma HLS UNROLL factor=2 skip_exit_check
-//#pragma HLS PIPELINE II=1
+#pragma HLS PIPELINE
     		    crow[t1] += arow[t1] * brow[t1];   // So that i can verify if rowIdx is correct
     	    }
 
@@ -125,7 +125,7 @@ void bmm_top(volatile BRAM_DT b1[RAM_SIZE], volatile BRAM_DT b2[RAM_SIZE],  vola
     		BRAM_DT curElemC = 0;
 
     		for (int t2=0; t2<ELEMS_PER_BUS; t2++, k++) {
-// #pragma HLS UNROLL factor=2
+#pragma HLS UNROLL factor=2
 			    curElemC = apint_set_range(curElemC, t2*ELEM_WIDTH_BITS + ELEM_WIDTH_BITS-1, t2*ELEM_WIDTH_BITS, crow[k]);
     		}
 

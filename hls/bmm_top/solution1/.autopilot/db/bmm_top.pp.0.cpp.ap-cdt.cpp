@@ -45329,11 +45329,11 @@ void bmm_top(volatile int256 b1[(((128*128)*(4*8))/(256))], volatile int256 b2[(
       int256 curElemA = b1[curIdx];
       int256 curElemC = b3[curIdx];
 #pragma empty_line
-      for (int t2=0; t2<(256/(4*8)); t2++, k++) { // Each entry has ELEMS_PER_BUS number of entries, split them and add them to arow and crow
-//#pragma HLS UNROLL factor=2
-        arow[k] = ({ ; unsigned int __attribute__((bitwidth(__bitwidthof__(curElemA)))) __Result__ = 0; unsigned int __attribute__((bitwidth(__bitwidthof__(curElemA)))) __Val2__ = curElemA; __builtin_bit_part_select((void*)(&__Result__), (void*)(&__Val2__), t2*(4*8), t2*(4*8) + (4*8)-1); __Result__; }); // curElemA & mask; 
+      for (int t2=0; t2<(256/(4*8)); t2++, k++) {_ssdm_RegionBegin("hls_label_0"); // Each entry has ELEMS_PER_BUS number of entries, split them and add them to arow and crow
+#pragma HLS UNROLL factor=2
+ arow[k] = ({ ; unsigned int __attribute__((bitwidth(__bitwidthof__(curElemA)))) __Result__ = 0; unsigned int __attribute__((bitwidth(__bitwidthof__(curElemA)))) __Val2__ = curElemA; __builtin_bit_part_select((void*)(&__Result__), (void*)(&__Val2__), t2*(4*8), t2*(4*8) + (4*8)-1); __Result__; }); // curElemA & mask; 
         crow[k] = ({ ; unsigned int __attribute__((bitwidth(__bitwidthof__(curElemC)))) __Result__ = 0; unsigned int __attribute__((bitwidth(__bitwidthof__(curElemC)))) __Val2__ = curElemC; __builtin_bit_part_select((void*)(&__Result__), (void*)(&__Val2__), t2*(4*8), t2*(4*8) + (4*8)-1); __Result__; }); // curElemC & mask; 
-            }
+            _ssdm_RegionEnd("hls_label_0");}
 /*
    				arow[k] =  apint_get_range(curElemA, 31, 0); // curElemA & mask; 
 	    		crow[k] =  apint_get_range(curElemC, 31, 0); // curElemC & mask; 
@@ -45375,10 +45375,10 @@ void bmm_top(volatile int256 b1[(((128*128)*(4*8))/(256))], volatile int256 b2[(
                 int curIdx = rowBaseIdxB+j;
                 int256 curElemB = b2[curIdx];
 #pragma empty_line
-                for (int t2=0; t2<(256/(4*8)); t2++, k++) {
-// #pragma HLS UNROLL factor=2
-        brow[k] = ({ ; unsigned int __attribute__((bitwidth(__bitwidthof__(curElemB)))) __Result__ = 0; unsigned int __attribute__((bitwidth(__bitwidthof__(curElemB)))) __Val2__ = curElemB; __builtin_bit_part_select((void*)(&__Result__), (void*)(&__Val2__), t2*(4*8), t2*(4*8) + (4*8)-1); __Result__; });
-                }
+                for (int t2=0; t2<(256/(4*8)); t2++, k++) {_ssdm_RegionBegin("hls_label_1");
+#pragma HLS UNROLL factor=2
+ brow[k] = ({ ; unsigned int __attribute__((bitwidth(__bitwidthof__(curElemB)))) __Result__ = 0; unsigned int __attribute__((bitwidth(__bitwidthof__(curElemB)))) __Val2__ = curElemB; __builtin_bit_part_select((void*)(&__Result__), (void*)(&__Val2__), t2*(4*8), t2*(4*8) + (4*8)-1); __Result__; });
+                _ssdm_RegionEnd("hls_label_1");}
 #pragma empty_line
 /*
     		    brow[k] =  apint_get_range(curElemB, 31, 0);
@@ -45395,11 +45395,11 @@ void bmm_top(volatile int256 b1[(((128*128)*(4*8))/(256))], volatile int256 b2[(
             }
 #pragma empty_line
             // Multiply-accumulate arow and brow into crow
-         for (int t1=0; t1<bsize; t1++) {_ssdm_RegionBegin("hls_label_0");
+         for (int t1=0; t1<bsize; t1++) {_ssdm_RegionBegin("hls_label_2");
 #pragma HLS UNROLL factor=2 skip_exit_check
-//#pragma HLS PIPELINE II=1
-          crow[t1] += arow[t1] * brow[t1]; // So that i can verify if rowIdx is correct
-         _ssdm_RegionEnd("hls_label_0");}
+#pragma HLS PIPELINE
+ crow[t1] += arow[t1] * brow[t1]; // So that i can verify if rowIdx is correct
+         _ssdm_RegionEnd("hls_label_2");}
 #pragma empty_line
         }
 #pragma empty_line
@@ -45409,10 +45409,10 @@ void bmm_top(volatile int256 b1[(((128*128)*(4*8))/(256))], volatile int256 b2[(
             int curIdx = rowBaseIdx+j;
       int256 curElemC = 0;
 #pragma empty_line
-      for (int t2=0; t2<(256/(4*8)); t2++, k++) {
-// #pragma HLS UNROLL factor=2
-       curElemC = ({ ; typeof(curElemC) __Result__ = 0; typeof(curElemC) __Val2__ = curElemC; typeof(crow[k]) __Repl2__ = crow[k]; __builtin_bit_part_set((void*)(&__Result__), (void*)(&__Val2__), (void*)(&__Repl2__), t2*(4*8), t2*(4*8) + (4*8)-1); __Result__; });
-      }
+      for (int t2=0; t2<(256/(4*8)); t2++, k++) {_ssdm_RegionBegin("hls_label_3");
+#pragma HLS UNROLL factor=2
+ curElemC = ({ ; typeof(curElemC) __Result__ = 0; typeof(curElemC) __Val2__ = curElemC; typeof(crow[k]) __Repl2__ = crow[k]; __builtin_bit_part_set((void*)(&__Result__), (void*)(&__Val2__), (void*)(&__Repl2__), t2*(4*8), t2*(4*8) + (4*8)-1); __Result__; });
+      _ssdm_RegionEnd("hls_label_3");}
 #pragma empty_line
 /*
 			curElemC = apint_set_range(curElemC, 31, 0, crow[k]);
