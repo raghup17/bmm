@@ -111,8 +111,8 @@ void bmm_top(volatile BRAM_DT b1[RAM_SIZE], volatile BRAM_DT b2[RAM_SIZE],  vola
 
             // Multiply-accumulate arow and brow into crow
 	        for (int t1=0; t1<bsize; t1++) {
-//#pragma HLS UNROLL factor=2
-#pragma HLS PIPELINE II=1
+#pragma HLS UNROLL factor=2 skip_exit_check
+//#pragma HLS PIPELINE II=1
     		    crow[t1] += arow[t1] * brow[t1];   // So that i can verify if rowIdx is correct
     	    }
 

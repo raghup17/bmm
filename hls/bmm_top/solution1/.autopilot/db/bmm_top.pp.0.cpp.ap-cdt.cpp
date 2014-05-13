@@ -45396,9 +45396,9 @@ void bmm_top(volatile int256 b1[(((128*128)*(4*8))/(256))], volatile int256 b2[(
 #pragma empty_line
             // Multiply-accumulate arow and brow into crow
          for (int t1=0; t1<bsize; t1++) {_ssdm_RegionBegin("hls_label_0");
-//#pragma HLS UNROLL factor=2
-#pragma HLS PIPELINE II=1
- crow[t1] += arow[t1] * brow[t1]; // So that i can verify if rowIdx is correct
+#pragma HLS UNROLL factor=2 skip_exit_check
+//#pragma HLS PIPELINE II=1
+          crow[t1] += arow[t1] * brow[t1]; // So that i can verify if rowIdx is correct
          _ssdm_RegionEnd("hls_label_0");}
 #pragma empty_line
         }

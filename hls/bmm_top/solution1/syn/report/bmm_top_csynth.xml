@@ -16,7 +16,7 @@
 <PerformanceEstimates>
 <SummaryOfTimingAnalysis>
 <unit>ns</unit>
-<EstimatedClockPeriod>10.88</EstimatedClockPeriod>
+<EstimatedClockPeriod>8.75</EstimatedClockPeriod>
 </SummaryOfTimingAnalysis>
 <SummaryOfOverallLatency>
 <unit>clock cycles</unit>
@@ -76,8 +76,7 @@
 <Loop1.2.2>
 <TripCount>undef</TripCount>
 <Latency>undef</Latency>
-<PipelineII>1</PipelineII>
-<PipelineDepth>8</PipelineDepth>
+<IterationLatency>15</IterationLatency>
 </Loop1.2.2>
 </Loop1.2>
 <Loop1.3>
@@ -106,9 +105,9 @@
 
 <AreaEstimates>
 <Resources>
-<DSP48E>8</DSP48E>
-<FF>30336</FF>
-<LUT>27691</LUT>
+<DSP48E>16</DSP48E>
+<FF>47582</FF>
+<LUT>39287</LUT>
 <BRAM_18K>0</BRAM_18K>
 <SLICE>0</SLICE>
 </Resources>

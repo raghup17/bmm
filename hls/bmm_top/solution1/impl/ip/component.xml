@@ -5,7 +5,7 @@
 	<spirit:vendor>xilinx.com</spirit:vendor>
 	<spirit:library>hls</spirit:library>
 	<spirit:name>bmm_top</spirit:name>
-	<spirit:version>27.0</spirit:version>
+	<spirit:version>28.0</spirit:version>
 	<spirit:busInterfaces>
 		<spirit:busInterface>
 			<spirit:name>M_AXI_B1</spirit:name>
@@ -4231,35 +4231,35 @@
 		<spirit:fileSet>
 			<spirit:name>xilinx_softwaredriver_view_fileset</spirit:name>
 			<spirit:file>
-				<spirit:name>drivers/bmm_top_top_v27_00_a/src/xbmm_top.h</spirit:name>
+				<spirit:name>drivers/bmm_top_top_v28_00_a/src/xbmm_top.h</spirit:name>
 				<spirit:fileType>cSource</spirit:fileType>
 			</spirit:file>
 			<spirit:file>
-				<spirit:name>drivers/bmm_top_top_v27_00_a/src/xbmm_top.c</spirit:name>
+				<spirit:name>drivers/bmm_top_top_v28_00_a/src/xbmm_top.c</spirit:name>
 				<spirit:fileType>cSource</spirit:fileType>
 			</spirit:file>
 			<spirit:file>
-				<spirit:name>drivers/bmm_top_top_v27_00_a/src/xbmm_top_sinit.c</spirit:name>
+				<spirit:name>drivers/bmm_top_top_v28_00_a/src/xbmm_top_sinit.c</spirit:name>
 				<spirit:fileType>cSource</spirit:fileType>
 			</spirit:file>
 			<spirit:file>
-				<spirit:name>drivers/bmm_top_top_v27_00_a/src/Makefile</spirit:name>
+				<spirit:name>drivers/bmm_top_top_v28_00_a/src/Makefile</spirit:name>
 				<spirit:fileType>unknown</spirit:fileType>
 			</spirit:file>
 			<spirit:file>
-				<spirit:name>drivers/bmm_top_top_v27_00_a/src/xbmm_top_hw.h</spirit:name>
+				<spirit:name>drivers/bmm_top_top_v28_00_a/src/xbmm_top_hw.h</spirit:name>
 				<spirit:fileType>cSource</spirit:fileType>
 			</spirit:file>
 			<spirit:file>
-				<spirit:name>drivers/bmm_top_top_v27_00_a/src/xbmm_top_linux.c</spirit:name>
+				<spirit:name>drivers/bmm_top_top_v28_00_a/src/xbmm_top_linux.c</spirit:name>
 				<spirit:fileType>cSource</spirit:fileType>
 			</spirit:file>
 			<spirit:file>
-				<spirit:name>drivers/bmm_top_top_v27_00_a/data/bmm_top_top_v2_1_0.mdd</spirit:name>
+				<spirit:name>drivers/bmm_top_top_v28_00_a/data/bmm_top_top_v2_1_0.mdd</spirit:name>
 				<spirit:userFileType>mdd</spirit:userFileType>
 			</spirit:file>
 			<spirit:file>
-				<spirit:name>drivers/bmm_top_top_v27_00_a/data/bmm_top_top_v2_1_0.tcl</spirit:name>
+				<spirit:name>drivers/bmm_top_top_v28_00_a/data/bmm_top_top_v2_1_0.tcl</spirit:name>
 				<spirit:fileType>tclSource</spirit:fileType>
 			</spirit:file>
 		</spirit:fileSet>
@@ -4280,7 +4280,7 @@
 		<spirit:fileSet>
 			<spirit:name>xilinx_xpgui_view_fileset</spirit:name>
 			<spirit:file>
-				<spirit:name>xgui/bmm_top_v27_0.tcl</spirit:name>
+				<spirit:name>xgui/bmm_top_v28_0.tcl</spirit:name>
 				<spirit:fileType>tclSource</spirit:fileType>
 				<spirit:userFileType>XGUI_VERSION_2</spirit:userFileType>
 			</spirit:file>
@@ -4659,7 +4659,7 @@
 			<spirit:name>Component_Name</spirit:name>
 			<spirit:value spirit:resolve="user"
 					spirit:id="PARAM_VALUE.Component_Name"
-					spirit:order="1">bmm_top_v27_0</spirit:value>
+					spirit:order="1">bmm_top_v28_0</spirit:value>
 		</spirit:parameter>
 	</spirit:parameters>
 	<spirit:vendorExtensions>
@@ -4671,7 +4671,7 @@
 				<xilinx:taxonomy>/VIVADO_HLS_IP</xilinx:taxonomy>
 			</xilinx:taxonomies>
 			<xilinx:displayName>Bmm_top</xilinx:displayName>
-			<xilinx:coreCreationDateTime>2014-05-12T20:33:41Z</xilinx:coreCreationDateTime>
+			<xilinx:coreCreationDateTime>2014-05-13T00:13:38Z</xilinx:coreCreationDateTime>
 		</xilinx:coreExtensions>
 		<xilinx:packagingInfo>
 			<xilinx:xilinxVersion>2013.3</xilinx:xilinxVersion>

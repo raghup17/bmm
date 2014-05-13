@@ -211,20 +211,20 @@ define void @bmm_top(i256* %b1, i256* %b2, i256* %b3, i32 %blockSize) nounwind u
 
 ; <label>:14                                      ; preds = %.preheader1
   %rbegin = call i32 (...)* @_ssdm_op_SpecRegionBegin(i8* getelementptr inbounds ([12 x i8]* @.str7, i64 0, i64 0)) nounwind, !dbg !1003 ; [#uses=1 type=i32] [debug line = 113:42]
-  call void (...)* @_ssdm_op_SpecPipeline(i32 1, i32 1, i32 1, i8* getelementptr inbounds ([1 x i8]* @.str1, i64 0, i64 0)) nounwind, !dbg !1005 ; [debug line = 115:1]
-  %tmp.33 = sext i32 %t1 to i64, !dbg !1006       ; [#uses=3 type=i64] [debug line = 116:2]
-  %arow.addr.2 = getelementptr inbounds [128 x i32]* %arow, i64 0, i64 %tmp.33, !dbg !1006 ; [#uses=1 type=i32*] [debug line = 116:2]
-  %arow.load = load i32* %arow.addr.2, align 4, !dbg !1006 ; [#uses=2 type=i32] [debug line = 116:2]
+  call void (...)* @_ssdm_Unroll(i32 1, i32 4, i32 2, i8* getelementptr inbounds ([1 x i8]* @.str1, i64 0, i64 0)) nounwind, !dbg !1005 ; [debug line = 114:1]
+  %tmp.33 = sext i32 %t1 to i64, !dbg !1006       ; [#uses=3 type=i64] [debug line = 116:11]
+  %arow.addr.2 = getelementptr inbounds [128 x i32]* %arow, i64 0, i64 %tmp.33, !dbg !1006 ; [#uses=1 type=i32*] [debug line = 116:11]
+  %arow.load = load i32* %arow.addr.2, align 4, !dbg !1006 ; [#uses=2 type=i32] [debug line = 116:11]
   call void (...)* @_ssdm_SpecKeepArrayLoad(i32 %arow.load) nounwind
-  %brow.addr.2 = getelementptr inbounds [128 x i32]* %brow, i64 0, i64 %tmp.33, !dbg !1006 ; [#uses=1 type=i32*] [debug line = 116:2]
-  %brow.load = load i32* %brow.addr.2, align 4, !dbg !1006 ; [#uses=2 type=i32] [debug line = 116:2]
+  %brow.addr.2 = getelementptr inbounds [128 x i32]* %brow, i64 0, i64 %tmp.33, !dbg !1006 ; [#uses=1 type=i32*] [debug line = 116:11]
+  %brow.load = load i32* %brow.addr.2, align 4, !dbg !1006 ; [#uses=2 type=i32] [debug line = 116:11]
   call void (...)* @_ssdm_SpecKeepArrayLoad(i32 %brow.load) nounwind
-  %tmp.34 = mul nsw i32 %brow.load, %arow.load, !dbg !1006 ; [#uses=1 type=i32] [debug line = 116:2]
-  %crow.addr.3 = getelementptr inbounds [128 x i32]* %crow, i64 0, i64 %tmp.33, !dbg !1006 ; [#uses=2 type=i32*] [debug line = 116:2]
-  %crow.load = load i32* %crow.addr.3, align 4, !dbg !1006 ; [#uses=2 type=i32] [debug line = 116:2]
+  %tmp.34 = mul nsw i32 %brow.load, %arow.load, !dbg !1006 ; [#uses=1 type=i32] [debug line = 116:11]
+  %crow.addr.3 = getelementptr inbounds [128 x i32]* %crow, i64 0, i64 %tmp.33, !dbg !1006 ; [#uses=2 type=i32*] [debug line = 116:11]
+  %crow.load = load i32* %crow.addr.3, align 4, !dbg !1006 ; [#uses=2 type=i32] [debug line = 116:11]
   call void (...)* @_ssdm_SpecKeepArrayLoad(i32 %crow.load) nounwind
-  %tmp.35 = add nsw i32 %crow.load, %tmp.34, !dbg !1006 ; [#uses=1 type=i32] [debug line = 116:2]
-  store i32 %tmp.35, i32* %crow.addr.3, align 4, !dbg !1006 ; [debug line = 116:2]
+  %tmp.35 = add nsw i32 %crow.load, %tmp.34, !dbg !1006 ; [#uses=1 type=i32] [debug line = 116:11]
+  store i32 %tmp.35, i32* %crow.addr.3, align 4, !dbg !1006 ; [debug line = 116:11]
   %rend = call i32 (...)* @_ssdm_op_SpecRegionEnd(i8* getelementptr inbounds ([12 x i8]* @.str7, i64 0, i64 0), i32 %rbegin) nounwind, !dbg !1007 ; [#uses=0 type=i32] [debug line = 117:10]
   %t1.1 = add nsw i32 %t1, 1, !dbg !1008          ; [#uses=1 type=i32] [debug line = 113:35]
   call void @llvm.dbg.value(metadata !{i32 %t1.1}, i64 0, metadata !1009), !dbg !1008 ; [debug line = 113:35] [debug variable = t1]
@@ -317,7 +317,7 @@ declare i256 @llvm.part.select.i256(i256, i32, i32) nounwind readnone
 declare void @_ssdm_RegionBegin(...) nounwind
 
 ; [#uses=1]
-declare void @_ssdm_op_SpecPipeline(...) nounwind
+declare void @_ssdm_Unroll(...) nounwind
 
 ; [#uses=0]
 declare void @_ssdm_RegionEnd(...) nounwind
@@ -1359,8 +1359,8 @@ declare i32 @_ssdm_op_SpecRegionEnd.restore(...)
 !1002 = metadata !{i32 89, i32 34, metadata !983, null}
 !1003 = metadata !{i32 113, i32 42, metadata !1004, null}
 !1004 = metadata !{i32 786443, metadata !985, i32 113, i32 41, metadata !833, i32 17} ; [ DW_TAG_lexical_block ]
-!1005 = metadata !{i32 115, i32 1, metadata !1004, null}
-!1006 = metadata !{i32 116, i32 2, metadata !1004, null}
+!1005 = metadata !{i32 114, i32 1, metadata !1004, null}
+!1006 = metadata !{i32 116, i32 11, metadata !1004, null}
 !1007 = metadata !{i32 117, i32 10, metadata !1004, null}
 !1008 = metadata !{i32 113, i32 35, metadata !985, null}
 !1009 = metadata !{i32 786688, metadata !985, metadata !"t1", metadata !833, i32 113, metadata !56, i32 0, i32 0} ; [ DW_TAG_auto_variable ]

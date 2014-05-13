@@ -45385,9 +45385,9 @@ _ssdm_SpecArrayPartition( crow, 1, "COMPLETE", 0, "");
 
             // Multiply-accumulate arow and brow into crow
          for (int t1=0; t1<bsize; t1++) {_ssdm_RegionBegin("hls_label_0");
-//#pragma HLS UNROLL factor=2
-_ssdm_op_SpecPipeline(1, 1, 1, "");
- crow[t1] += arow[t1] * brow[t1]; // So that i can verify if rowIdx is correct
+_ssdm_Unroll(1, 4, 2, "");
+//#pragma HLS PIPELINE II=1
+          crow[t1] += arow[t1] * brow[t1]; // So that i can verify if rowIdx is correct
          _ssdm_RegionEnd("hls_label_0");}
 
         }
