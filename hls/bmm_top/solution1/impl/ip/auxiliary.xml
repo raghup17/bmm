@@ -6,5 +6,5 @@
   <xd:arg xd:name="b3[]" xd:originalName="b3" xd:direction="inout" xd:interfaceRef="M_AXI_B3" xd:busTypeRef="aximm"/>
   <xd:arg xd:name="blockSize" xd:originalName="blockSize" xd:direction="in" xd:interfaceRef="S_AXI_CONTROL" xd:busTypeRef="axilite" xd:offset="0x14" xd:handshakeRef="ap_hs"/>
   <xd:latencyEstimates xd:best-case="undef" xd:worst-case="undef" xd:average-case="undef"/>
-  <xd:resourceEstimates xd:LUT="42555" xd:FF="52374" xd:BRAM="0" xd:DSP="8"/>
+  <xd:resourceEstimates xd:LUT="12289" xd:FF="13764" xd:BRAM="0" xd:DSP="16"/>
 </xd:acceleratorMap>

@@ -45278,7 +45278,8 @@ typedef unsigned int __attribute__ ((bitwidth(2048))) uint2048;
 
 
 
-void bmm_top(volatile int256 b1[(((128*128)*(4*8))/(256))], volatile int256 b2[(((128*128)*(4*8))/(256))], volatile int256 b3[(((128*128)*(4*8))/(256))], int blockSize)
+
+void bmm_top(volatile int256 b1[8192], volatile int256 b2[8192], volatile int256 b3[8192], int blockSize)
 {
 #pragma HLS INTERFACE ap_bus port=b1
 #pragma HLS RESOURCE core=AXI4M variable=b1
@@ -45291,7 +45292,7 @@ void bmm_top(volatile int256 b1[(((128*128)*(4*8))/(256))], volatile int256 b2[(
 #pragma HLS RESOURCE core=AXI4LiteS variable=blockSize metadata="-bus_bundle CONTROL"
 
  int i = 0,j = 0,k = 0;
- int arow[128], brow[128], crow[128];
+ int arow[32], brow[32], crow[32];
 #pragma HLS ARRAY_PARTITION variable=arow complete dim=1
 #pragma HLS ARRAY_PARTITION variable=brow complete dim=1
 #pragma HLS ARRAY_PARTITION variable=crow complete dim=1
@@ -45310,8 +45311,8 @@ void bmm_top(volatile int256 b1[(((128*128)*(4*8))/(256))], volatile int256 b2[(
       int256 curElemC = b3[curIdx];
 
       for (int t2=0; t2<(256/(4*8)); t2++, k++) { // Each entry has ELEMS_PER_BUS number of entries, split them and add them to arow and crow
-#pragma HLS UNROLL factor=2
- arow[k] = ({ ; unsigned int __attribute__((bitwidth(__bitwidthof__(curElemA)))) __Result__ = 0; unsigned int __attribute__((bitwidth(__bitwidthof__(curElemA)))) __Val2__ = curElemA; __builtin_bit_part_select((void*)(&__Result__), (void*)(&__Val2__), t2*(4*8), t2*(4*8) + (4*8)-1); __Result__; }); // curElemA & mask; 
+// #pragma HLS UNROLL factor=2
+        arow[k] = ({ ; unsigned int __attribute__((bitwidth(__bitwidthof__(curElemA)))) __Result__ = 0; unsigned int __attribute__((bitwidth(__bitwidthof__(curElemA)))) __Val2__ = curElemA; __builtin_bit_part_select((void*)(&__Result__), (void*)(&__Val2__), t2*(4*8), t2*(4*8) + (4*8)-1); __Result__; }); // curElemA & mask; 
         crow[k] = ({ ; unsigned int __attribute__((bitwidth(__bitwidthof__(curElemC)))) __Result__ = 0; unsigned int __attribute__((bitwidth(__bitwidthof__(curElemC)))) __Val2__ = curElemC; __builtin_bit_part_select((void*)(&__Result__), (void*)(&__Val2__), t2*(4*8), t2*(4*8) + (4*8)-1); __Result__; }); // curElemC & mask; 
             }
 /*
@@ -45356,8 +45357,8 @@ void bmm_top(volatile int256 b1[(((128*128)*(4*8))/(256))], volatile int256 b2[(
                 int256 curElemB = b2[curIdx];
 
                 for (int t2=0; t2<(256/(4*8)); t2++, k++) {
-#pragma HLS UNROLL factor=2
- brow[k] = ({ ; unsigned int __attribute__((bitwidth(__bitwidthof__(curElemB)))) __Result__ = 0; unsigned int __attribute__((bitwidth(__bitwidthof__(curElemB)))) __Val2__ = curElemB; __builtin_bit_part_select((void*)(&__Result__), (void*)(&__Val2__), t2*(4*8), t2*(4*8) + (4*8)-1); __Result__; });
+// #pragma HLS UNROLL factor=2
+        brow[k] = ({ ; unsigned int __attribute__((bitwidth(__bitwidthof__(curElemB)))) __Result__ = 0; unsigned int __attribute__((bitwidth(__bitwidthof__(curElemB)))) __Val2__ = curElemB; __builtin_bit_part_select((void*)(&__Result__), (void*)(&__Val2__), t2*(4*8), t2*(4*8) + (4*8)-1); __Result__; });
                 }
 
 /*
@@ -45390,8 +45391,8 @@ void bmm_top(volatile int256 b1[(((128*128)*(4*8))/(256))], volatile int256 b2[(
       int256 curElemC = 0;
 
       for (int t2=0; t2<(256/(4*8)); t2++, k++) {
-#pragma HLS UNROLL factor=2
- curElemC = ({ ; typeof(curElemC) __Result__ = 0; typeof(curElemC) __Val2__ = curElemC; typeof(crow[k]) __Repl2__ = crow[k]; __builtin_bit_part_set((void*)(&__Result__), (void*)(&__Val2__), (void*)(&__Repl2__), t2*(4*8), t2*(4*8) + (4*8)-1); __Result__; });
+// #pragma HLS UNROLL factor=2
+       curElemC = ({ ; typeof(curElemC) __Result__ = 0; typeof(curElemC) __Val2__ = curElemC; typeof(crow[k]) __Repl2__ = crow[k]; __builtin_bit_part_set((void*)(&__Result__), (void*)(&__Val2__), (void*)(&__Repl2__), t2*(4*8), t2*(4*8) + (4*8)-1); __Result__; });
       }
 
 /*

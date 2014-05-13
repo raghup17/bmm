@@ -9,11 +9,12 @@
 #define ELEM_WIDTH_MASK (ELEM_WIDTH_BITS-1)
 
 // In ELEM_WIDTH_BYTES
-#define BDIM 128
+#define BDIM 32
 #define BSIZE (BDIM*BDIM)
-#define RAM_SIZE ((BSIZE*ELEM_WIDTH_BITS)/(BUS_WIDTH))
+#define RAM_WIDTH_BITS 256
+#define RAM_DEPTH 8192
 
-void bmm_top(volatile BRAM_DT b1[RAM_SIZE], volatile BRAM_DT b2[RAM_SIZE],  volatile BRAM_DT b3[RAM_SIZE], int blockSize)
+void bmm_top(volatile BRAM_DT b1[RAM_DEPTH], volatile BRAM_DT b2[RAM_DEPTH],  volatile BRAM_DT b3[RAM_DEPTH], int blockSize)
 {
 #pragma HLS INTERFACE ap_bus port=b1
 #pragma HLS RESOURCE core=AXI4M variable=b1
@@ -45,7 +46,7 @@ void bmm_top(volatile BRAM_DT b1[RAM_SIZE], volatile BRAM_DT b2[RAM_SIZE],  vola
 		    BRAM_DT curElemC = b3[curIdx];
 
     		for (int t2=0; t2<ELEMS_PER_BUS; t2++, k++) {  // Each entry has ELEMS_PER_BUS number of entries, split them and add them to arow and crow
-#pragma HLS UNROLL factor=2
+// #pragma HLS UNROLL factor=2
     				arow[k] =  apint_get_range(curElemA, t2*ELEM_WIDTH_BITS + ELEM_WIDTH_BITS-1, t2*ELEM_WIDTH_BITS); // curElemA & mask; 
 		    		crow[k] =  apint_get_range(curElemC, t2*ELEM_WIDTH_BITS + ELEM_WIDTH_BITS-1, t2*ELEM_WIDTH_BITS); // curElemC & mask; 
             }
@@ -91,7 +92,7 @@ void bmm_top(volatile BRAM_DT b1[RAM_SIZE], volatile BRAM_DT b2[RAM_SIZE],  vola
                 BRAM_DT curElemB = b2[curIdx];
 
                 for (int t2=0; t2<ELEMS_PER_BUS; t2++, k++) {
-#pragma HLS UNROLL factor=2
+// #pragma HLS UNROLL factor=2
     				brow[k] =  apint_get_range(curElemB, t2*ELEM_WIDTH_BITS + ELEM_WIDTH_BITS-1, t2*ELEM_WIDTH_BITS);
                 }
 
@@ -125,7 +126,7 @@ void bmm_top(volatile BRAM_DT b1[RAM_SIZE], volatile BRAM_DT b2[RAM_SIZE],  vola
     		BRAM_DT curElemC = 0;
 
     		for (int t2=0; t2<ELEMS_PER_BUS; t2++, k++) {
-#pragma HLS UNROLL factor=2
+// #pragma HLS UNROLL factor=2
 			    curElemC = apint_set_range(curElemC, t2*ELEM_WIDTH_BITS + ELEM_WIDTH_BITS-1, t2*ELEM_WIDTH_BITS, crow[k]);
     		}
 
