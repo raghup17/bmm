@@ -88,7 +88,7 @@ ENTITY dma3_axi_cdma_0_0 IS
     m_axi_arcache : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
     m_axi_rready : OUT STD_LOGIC;
     m_axi_rvalid : IN STD_LOGIC;
-    m_axi_rdata : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
+    m_axi_rdata : IN STD_LOGIC_VECTOR(255 DOWNTO 0);
     m_axi_rresp : IN STD_LOGIC_VECTOR(1 DOWNTO 0);
     m_axi_rlast : IN STD_LOGIC;
     m_axi_awready : IN STD_LOGIC;
@@ -101,8 +101,8 @@ ENTITY dma3_axi_cdma_0_0 IS
     m_axi_awcache : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
     m_axi_wready : IN STD_LOGIC;
     m_axi_wvalid : OUT STD_LOGIC;
-    m_axi_wdata : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
-    m_axi_wstrb : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
+    m_axi_wdata : OUT STD_LOGIC_VECTOR(255 DOWNTO 0);
+    m_axi_wstrb : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
     m_axi_wlast : OUT STD_LOGIC;
     m_axi_bready : OUT STD_LOGIC;
     m_axi_bvalid : IN STD_LOGIC;
@@ -194,7 +194,7 @@ ARCHITECTURE dma3_axi_cdma_0_0_arch OF dma3_axi_cdma_0_0 IS
       m_axi_arcache : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
       m_axi_rready : OUT STD_LOGIC;
       m_axi_rvalid : IN STD_LOGIC;
-      m_axi_rdata : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
+      m_axi_rdata : IN STD_LOGIC_VECTOR(255 DOWNTO 0);
       m_axi_rresp : IN STD_LOGIC_VECTOR(1 DOWNTO 0);
       m_axi_rlast : IN STD_LOGIC;
       m_axi_awready : IN STD_LOGIC;
@@ -207,8 +207,8 @@ ARCHITECTURE dma3_axi_cdma_0_0_arch OF dma3_axi_cdma_0_0 IS
       m_axi_awcache : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
       m_axi_wready : IN STD_LOGIC;
       m_axi_wvalid : OUT STD_LOGIC;
-      m_axi_wdata : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
-      m_axi_wstrb : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
+      m_axi_wdata : OUT STD_LOGIC_VECTOR(255 DOWNTO 0);
+      m_axi_wstrb : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
       m_axi_wlast : OUT STD_LOGIC;
       m_axi_bready : OUT STD_LOGIC;
       m_axi_bvalid : IN STD_LOGIC;
@@ -250,7 +250,7 @@ ARCHITECTURE dma3_axi_cdma_0_0_arch OF dma3_axi_cdma_0_0 IS
   ATTRIBUTE CHECK_LICENSE_TYPE : STRING;
   ATTRIBUTE CHECK_LICENSE_TYPE OF dma3_axi_cdma_0_0_arch : ARCHITECTURE IS "dma3_axi_cdma_0_0,axi_cdma,{}";
   ATTRIBUTE CORE_GENERATION_INFO : STRING;
-  ATTRIBUTE CORE_GENERATION_INFO OF dma3_axi_cdma_0_0_arch: ARCHITECTURE IS "dma3_axi_cdma_0_0,axi_cdma,{x_ipProduct=Vivado 2013.3,x_ipVendor=xilinx.com,x_ipLibrary=ip,x_ipName=axi_cdma,x_ipVersion=4.1,x_ipCoreRevision=0,x_ipLanguage=VERILOG,C_S_AXI_LITE_ADDR_WIDTH=6,C_S_AXI_LITE_DATA_WIDTH=32,C_AXI_LITE_IS_ASYNC=0,C_M_AXI_ADDR_WIDTH=32,C_M_AXI_DATA_WIDTH=32,C_M_AXI_MAX_BURST_LEN=16,C_INCLUDE_DRE=0,C_USE_DATAMOVER_LITE=0,C_READ_ADDR_PIPE_DEPTH=4,C_WRITE_ADDR_PIPE_DEPTH=4,C_INCLUDE_SF=0,C_INCLUDE_SG=1,C_M_AXI_SG_ADDR_WIDTH=32,C_M_AXI_SG_DATA_WIDTH=32,C_DLYTMR_RESOLUTION=256,C_FAMILY=zynq}";
+  ATTRIBUTE CORE_GENERATION_INFO OF dma3_axi_cdma_0_0_arch: ARCHITECTURE IS "dma3_axi_cdma_0_0,axi_cdma,{x_ipProduct=Vivado 2013.3,x_ipVendor=xilinx.com,x_ipLibrary=ip,x_ipName=axi_cdma,x_ipVersion=4.1,x_ipCoreRevision=0,x_ipLanguage=VERILOG,C_S_AXI_LITE_ADDR_WIDTH=6,C_S_AXI_LITE_DATA_WIDTH=32,C_AXI_LITE_IS_ASYNC=0,C_M_AXI_ADDR_WIDTH=32,C_M_AXI_DATA_WIDTH=256,C_M_AXI_MAX_BURST_LEN=16,C_INCLUDE_DRE=0,C_USE_DATAMOVER_LITE=0,C_READ_ADDR_PIPE_DEPTH=4,C_WRITE_ADDR_PIPE_DEPTH=4,C_INCLUDE_SF=0,C_INCLUDE_SG=1,C_M_AXI_SG_ADDR_WIDTH=32,C_M_AXI_SG_DATA_WIDTH=32,C_DLYTMR_RESOLUTION=256,C_FAMILY=zynq}";
   ATTRIBUTE X_INTERFACE_INFO : STRING;
   ATTRIBUTE X_INTERFACE_INFO OF m_axi_aclk: SIGNAL IS "xilinx.com:signal:clock:1.0 M_AXI_ACLK CLK";
   ATTRIBUTE X_INTERFACE_INFO OF s_axi_lite_aclk: SIGNAL IS "xilinx.com:signal:clock:1.0 S_AXI_LITE_ACLK CLK";
@@ -337,7 +337,7 @@ BEGIN
       C_S_AXI_LITE_DATA_WIDTH => 32,
       C_AXI_LITE_IS_ASYNC => 0,
       C_M_AXI_ADDR_WIDTH => 32,
-      C_M_AXI_DATA_WIDTH => 32,
+      C_M_AXI_DATA_WIDTH => 256,
       C_M_AXI_MAX_BURST_LEN => 16,
       C_INCLUDE_DRE => 0,
       C_USE_DATAMOVER_LITE => 0,
