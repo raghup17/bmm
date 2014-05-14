@@ -9,7 +9,7 @@
 #define ELEM_WIDTH_MASK (ELEM_WIDTH_BITS-1)
 
 // In ELEM_WIDTH_BYTES
-#define BDIM 32
+#define BDIM 64
 #define BSIZE (BDIM*BDIM)
 #define RAM_WIDTH_BITS 256
 #define RAM_DEPTH 8192

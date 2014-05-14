@@ -45292,7 +45292,7 @@ void bmm_top(volatile int256 b1[8192], volatile int256 b2[8192], volatile int256
 #pragma HLS RESOURCE core=AXI4LiteS variable=blockSize metadata="-bus_bundle CONTROL"
 
  int i = 0,j = 0,k = 0;
- int arow[32], brow[32], crow[32];
+ int arow[64], brow[64], crow[64];
 #pragma HLS ARRAY_PARTITION variable=arow complete dim=1
 #pragma HLS ARRAY_PARTITION variable=brow complete dim=1
 #pragma HLS ARRAY_PARTITION variable=crow complete dim=1

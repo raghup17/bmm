@@ -45312,7 +45312,7 @@ _ssdm_op_SpecWire(&blockSize, "ap_hs", 0, 0, 0, "");
 _ssdm_op_SpecResource(&blockSize, "", "AXI4LiteS", "", "", "", "-bus_bundle CONTROL");
 
  int i = 0,j = 0,k = 0;
- int arow[32], brow[32], crow[32];
+ int arow[64], brow[64], crow[64];
 _ssdm_SpecArrayPartition( arow, 1, "COMPLETE", 0, "");
 _ssdm_SpecArrayPartition( brow, 1, "COMPLETE", 0, "");
 _ssdm_SpecArrayPartition( crow, 1, "COMPLETE", 0, "");
