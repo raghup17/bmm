@@ -3,7 +3,7 @@
 ================================================================
 == Vivado HLS Report for 'bmm_top'
 ================================================================
-* Date:           Tue May 13 16:02:39 2014
+* Date:           Tue May 13 19:44:18 2014
 
 * Version:        2013.3 (build date: Wed Oct 16 18:12:55 PM 2013)
 * Project:        bmm_top
@@ -6547,10 +6547,10 @@ STG Binding:
 - Is pipelined: 0
 - Is top level: 1
 Port [ Return ] is wired: 1; IO mode=ap_ctrl_hs:ce=0
-Port [ b1]:  wired=1; compound=1; hidden=0; nouse=0; global=0; static=0; extern=0; dir=0; type=4; mode=0x6afd480; pingpong=0; private_global=0; IO mode=ap_bus:ce=0
-Port [ b2]:  wired=1; compound=1; hidden=0; nouse=0; global=0; static=0; extern=0; dir=0; type=4; mode=0x5d39010; pingpong=0; private_global=0; IO mode=ap_bus:ce=0
-Port [ b3]:  wired=1; compound=1; hidden=0; nouse=0; global=0; static=0; extern=0; dir=2; type=4; mode=0x4e0a5e0; pingpong=0; private_global=0; IO mode=ap_bus:ce=0
-Port [ blockSize]:  wired=1; compound=0; hidden=0; nouse=0; global=0; static=0; extern=0; dir=0; type=0; mode=0x4d41230; pingpong=0; private_global=0; IO mode=ap_hs:ce=0
+Port [ b1]:  wired=1; compound=1; hidden=0; nouse=0; global=0; static=0; extern=0; dir=0; type=4; mode=0x576ca30; pingpong=0; private_global=0; IO mode=ap_bus:ce=0
+Port [ b2]:  wired=1; compound=1; hidden=0; nouse=0; global=0; static=0; extern=0; dir=0; type=4; mode=0x206eb20; pingpong=0; private_global=0; IO mode=ap_bus:ce=0
+Port [ b3]:  wired=1; compound=1; hidden=0; nouse=0; global=0; static=0; extern=0; dir=2; type=4; mode=0x206cba0; pingpong=0; private_global=0; IO mode=ap_bus:ce=0
+Port [ blockSize]:  wired=1; compound=0; hidden=0; nouse=0; global=0; static=0; extern=0; dir=0; type=0; mode=0x44454c0; pingpong=0; private_global=0; IO mode=ap_hs:ce=0
 ---------------- STG Properties END ------------------
 
 ---------------- Datapath Model BEGIN ----------------

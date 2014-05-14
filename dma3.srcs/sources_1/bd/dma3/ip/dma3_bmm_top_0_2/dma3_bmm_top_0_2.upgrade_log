@@ -1,7 +1,7 @@
 Copyright 1986-1999, 2001-2013 Xilinx, Inc. All Rights Reserved.
 -----------------------------------------------------------------------------------
 | Tool Version : Vivado v.2013.3 (lin64) Build 329390 Wed Oct 16 18:26:55 MDT 2013
-| Date         : Tue May 13 16:03:31 2014
+| Date         : Tue May 13 19:45:17 2014
 | Host         : tflop2 running 64-bit Ubuntu 12.04.2 LTS
 | Command      : upgrade_ip
 | Device       : xc7z045ffg900-2
@@ -12,5 +12,16 @@ Upgrade Log for IP 'dma3_bmm_top_0_2'
 1. Summary
 ----------
 
-SUCCESS in the upgrade of dma3_bmm_top_0_2 from xilinx.com:hls:bmm_top:30.0 to xilinx.com:hls:bmm_top:31.0
+CAUTION (success, with warnings) in the upgrade of dma3_bmm_top_0_2 from xilinx.com:hls:bmm_top:31.0 to xilinx.com:hls:bmm_top:32.0
+
+After upgrade, an IP may have parameter and port differences compared to the original customization. Please review the parameters within the IP customization GUI to ensure proper functionality. Also, please review the updated IP instantiation template to ensure proper connectivity, and update your design if required.
+
+2. Connection Warnings
+----------------------
+
+WARNING: Detected external port differences while upgrading IP 'dma3_bmm_top_0_2'. These changes may impact your design.
+
+-upgraded port 'm_axi_b1_WDATA' width 32 differs from original width 256
+-upgraded port 'm_axi_b1_WSTRB' width 4 differs from original width 32
+-upgraded port 'm_axi_b1_RDATA' width 32 differs from original width 256
 

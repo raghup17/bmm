@@ -20,7 +20,7 @@ Copyright (C) 2013 Xilinx Inc. All rights reserved.
 @I [XFORM-101] Partitioning array 'brow' (bmm_top/bmm_top.cpp:30) in dimension 1 completely.
 @W [XFORM-104] Completely partitioning array 'crow' (bmm_top/bmm_top.cpp:30) accessed through non-constant indices on dimension 1 (bmm_top/bmm_top.cpp:117:2), which may result in long runtime and suboptimal QoR due to large multiplexers. Please consider wrapping the array access into a function or using a register file core instead.
 @I [XFORM-101] Partitioning array 'crow' (bmm_top/bmm_top.cpp:30) in dimension 1 completely.
-@I [HLS-111] Elapsed time: 9.1 seconds; current memory usage: 111 MB.
+@I [HLS-111] Elapsed time: 9.03 seconds; current memory usage: 111 MB.
 @I [HLS-10] Starting hardware synthesis ...
 @I [HLS-10] Synthesizing 'bmm_top' ...
 @I [HLS-10] ----------------------------------------------------------------
@@ -37,7 +37,7 @@ Copyright (C) 2013 Xilinx Inc. All rights reserved.
 	multiplexor before 'phi' operation ('crow_load_1_phi', bmm_top/bmm_top.cpp:117) (4.02 ns)
 	'add' operation ('crow[0]', bmm_top/bmm_top.cpp:117) (2.44 ns)
 @I [SCHED-11] Finished scheduling.
-@I [HLS-111] Elapsed time: 202.45 seconds; current memory usage: 133 MB.
+@I [HLS-111] Elapsed time: 213.85 seconds; current memory usage: 133 MB.
 @I [HLS-10] ----------------------------------------------------------------
 @I [HLS-10] -- Exploring micro-architecture for module 'bmm_top' 
 @I [HLS-10] ----------------------------------------------------------------
@@ -46,7 +46,7 @@ Copyright (C) 2013 Xilinx Inc. All rights reserved.
 @I [BIND-101] Exploring resource sharing.
 @I [BIND-101] Binding ...
 @I [BIND-100] Finished micro-architecture generation.
-@I [HLS-111] Elapsed time: 1.32 seconds; current memory usage: 159 MB.
+@I [HLS-111] Elapsed time: 1.28 seconds; current memory usage: 159 MB.
 @I [HLS-10] ----------------------------------------------------------------
 @I [HLS-10] -- Generating RTL for module 'bmm_top' 
 @I [HLS-10] ----------------------------------------------------------------
@@ -60,7 +60,7 @@ Copyright (C) 2013 Xilinx Inc. All rights reserved.
 @I [RTGEN-100] Generating core module 'bmm_top_mul_32s_30s_32_6': 2 instance(s).
 @I [RTGEN-100] Generating core module 'bmm_top_mul_32s_32s_32_6': 2 instance(s).
 @I [RTGEN-100] Finished creating RTL model for 'bmm_top'.
-@I [HLS-111] Elapsed time: 6.09 seconds; current memory usage: 180 MB.
+@I [HLS-111] Elapsed time: 6.07 seconds; current memory usage: 180 MB.
 @I [RTMG-282] Generating pipelined core: 'bmm_top_mul_32s_30s_32_6_MulnS_0'
 @I [RTMG-282] Generating pipelined core: 'bmm_top_mul_32s_32s_32_6_MulnS_1'
 @I [HLS-10] Finished generating all RTL models.
@@ -68,5 +68,5 @@ Copyright (C) 2013 Xilinx Inc. All rights reserved.
 @I [WVHDL-304] Generating RTL VHDL for 'bmm_top'.
 @I [WVLOG-307] Generating RTL Verilog for 'bmm_top'.
 @I [IMPL-8] Exporting RTL as an IP in IP-XACT.
-@I [HLS-112] Total elapsed time: 258.398 seconds; peak memory usage: 180 MB.
+@I [HLS-112] Total elapsed time: 265.965 seconds; peak memory usage: 180 MB.
 @I [LIC-101] Checked in feature [HLS]
