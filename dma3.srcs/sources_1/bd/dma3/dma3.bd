@@ -178,9 +178,9 @@
         <spirit:componentRef spirit:library="ip" spirit:name="axi_dwidth_converter" spirit:vendor="xilinx.com" spirit:version="2.1"/>
         <spirit:configurableElementValues>
           <spirit:configurableElementValue spirit:referenceId="bd:xciName">dma3_axi_dwidth_converter_0_1</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="SI_DATA_WIDTH">32</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="MI_DATA_WIDTH">256</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="FIFO_MODE">1</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="SI_DATA_WIDTH">256</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="MI_DATA_WIDTH">32</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="FIFO_MODE">0</spirit:configurableElementValue>
         </spirit:configurableElementValues>
       </spirit:componentInstance>
       <spirit:componentInstance>
@@ -256,11 +256,6 @@
         <spirit:name>processing_system7_0_axi_periph_m00_axi</spirit:name>
         <spirit:activeInterface spirit:busRef="M00_AXI" spirit:componentRef="ctrl_axilite_intercon"/>
         <spirit:activeInterface spirit:busRef="S_AXI_LITE" spirit:componentRef="axi_cdma_0"/>
-      </spirit:interconnection>
-      <spirit:interconnection>
-        <spirit:name>axi_mem_intercon_m00_axi</spirit:name>
-        <spirit:activeInterface spirit:busRef="M00_AXI" spirit:componentRef="cdma_bram_intercon"/>
-        <spirit:activeInterface spirit:busRef="S_AXI_HP0" spirit:componentRef="processing_system7_0"/>
       </spirit:interconnection>
       <spirit:interconnection>
         <spirit:name>axi_cdma_0_m_axi_sg</spirit:name>
@@ -421,6 +416,16 @@
         <spirit:name>cdma_bram_intercon_m01_axi</spirit:name>
         <spirit:activeInterface spirit:busRef="M01_AXI" spirit:componentRef="cdma_bram_intercon"/>
         <spirit:activeInterface spirit:busRef="S00_AXI" spirit:componentRef="axi_interconnect_1"/>
+      </spirit:interconnection>
+      <spirit:interconnection>
+        <spirit:name>cdma_bram_intercon_m00_axi</spirit:name>
+        <spirit:activeInterface spirit:busRef="M00_AXI" spirit:componentRef="cdma_bram_intercon"/>
+        <spirit:activeInterface spirit:busRef="S_AXI" spirit:componentRef="axi_dwidth_converter_0"/>
+      </spirit:interconnection>
+      <spirit:interconnection>
+        <spirit:name>axi_dwidth_converter_0_m_axi</spirit:name>
+        <spirit:activeInterface spirit:busRef="M_AXI" spirit:componentRef="axi_dwidth_converter_0"/>
+        <spirit:activeInterface spirit:busRef="S_AXI_HP0" spirit:componentRef="processing_system7_0"/>
       </spirit:interconnection>
     </spirit:interconnections>
     <spirit:adHocConnections>
@@ -12781,12 +12786,6 @@
         <spirit:width>32</spirit:width>
         <spirit:segments>
           <spirit:segment>
-            <spirit:name>SEG_processing_system7_0_HP0_DDR_LOWOCM</spirit:name>
-            <spirit:displayName>/processing_system7_0/S_AXI_HP0/HP0_DDR_LOWOCM</spirit:displayName>
-            <spirit:addressOffset>0x20000000</spirit:addressOffset>
-            <spirit:range>512M</spirit:range>
-          </spirit:segment>
-          <spirit:segment>
             <spirit:name>SEG_bram_ctrl_in_blk_Mem0</spirit:name>
             <spirit:displayName>/blkA/bram_ctrl_in_blk/S_AXI/Mem0</spirit:displayName>
             <spirit:addressOffset>0xC0000000</spirit:addressOffset>
@@ -12839,6 +12838,12 @@
             <spirit:displayName>/block3_ab/bram_ctrl_outblk/S_AXI/Mem0</spirit:displayName>
             <spirit:addressOffset>0xC8000000</spirit:addressOffset>
             <spirit:range>128K</spirit:range>
+          </spirit:segment>
+          <spirit:segment>
+            <spirit:name>SEG_processing_system7_0_HP0_DDR_LOWOCM</spirit:name>
+            <spirit:displayName>/processing_system7_0/S_AXI_HP0/HP0_DDR_LOWOCM</spirit:displayName>
+            <spirit:addressOffset>0x20000000</spirit:addressOffset>
+            <spirit:range>512M</spirit:range>
           </spirit:segment>
         </spirit:segments>
       </spirit:addressSpace>
