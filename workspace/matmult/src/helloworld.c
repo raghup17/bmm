@@ -63,14 +63,16 @@
 
 #define TMPBUF			0x3E000000
 // Matrix and block sizes
-#define SIZE 32
-#define BSIZE 16
+#define SIZE 64
+#define BSIZE 64
 #define BRAM_SIZE 128
 #define NUM_MULTIPLIERS 1
 
 #define BRAM_WIDTH_BITS 256
 #define BRAM_DEPTH 8192
 #define BRAM_SIZE_BYTES (BRAM_DEPTH*BRAM_WIDTH_BITS)/8
+
+
 // #define DCACHE_ENABLE
 
 XAxiCdma dmaInstance;
@@ -228,12 +230,14 @@ int init()
 	return status;
 }
 
-int copyBlockToBRAM(int m[][SIZE], int si, int sj, int bram[][BSIZE])
+int copyBlockToBRAM(int m[][SIZE], int si, int sj, char bram[BRAM_DEPTH])
 {
 	XAxiCdma_Bd *bdring = NULL, *bdringReturn = NULL;
 	int status = XST_SUCCESS;
 	int i = 0;
-//	XAxiCdma_DumpRegisters(&dmaInstance);
+	int k = 0;
+	int rowSize = (BSIZE*sizeof(int)*8) / BRAM_WIDTH_BITS;
+
 	status = XAxiCdma_BdRingAlloc(&dmaInstance, BSIZE, &bdring);
 	if (status != XST_SUCCESS) {
 		printf("Error: Couldn't allocate bdring, status = %d\n\r", status);
@@ -245,9 +249,10 @@ int copyBlockToBRAM(int m[][SIZE], int si, int sj, int bram[][BSIZE])
 		XAxiCdma_Bd *bd = &bdring[i];
 		XAxiCdma_BdClear(bd);
 		XAxiCdma_BdClearSts(bd);
-		XAxiCdma_BdSetDstBufAddr(bd, &bram[i][0]);
+		XAxiCdma_BdSetDstBufAddr(bd, &bram[k]);
 		XAxiCdma_BdSetSrcBufAddr(bd, &m[si+i][sj]);
 		XAxiCdma_BdSetLength(bd, BSIZE*sizeof(int));
+		k += rowSize;
 	}
 
 
@@ -290,11 +295,13 @@ int copyBlockToBRAM(int m[][SIZE], int si, int sj, int bram[][BSIZE])
 	return status;
 }
 
-int copyBlockFromBRAM(int m[][SIZE], int si, int sj, int bram[][BSIZE])
+int copyBlockFromBRAM(int m[][SIZE], int si, int sj, char bram[BRAM_DEPTH])
 {
 	XAxiCdma_Bd *bdring = NULL, *bdringReturn = NULL;
 	int status = XST_SUCCESS;
 	int i = 0;
+	int k = 0;
+	int rowSize = (BSIZE*sizeof(int)*8) / BRAM_WIDTH_BITS;
 //	printf("Copy start\n\r");
 	status = XAxiCdma_BdRingAlloc(&dmaInstance, BSIZE, &bdring);
 	if (status != XST_SUCCESS) {
@@ -306,9 +313,10 @@ int copyBlockFromBRAM(int m[][SIZE], int si, int sj, int bram[][BSIZE])
 		XAxiCdma_Bd *bd = &bdring[i];
 		XAxiCdma_BdClear(bd);
 		XAxiCdma_BdClearSts(bd);
-		XAxiCdma_BdSetSrcBufAddr(bd, &bram[i][0]);
+		XAxiCdma_BdSetSrcBufAddr(bd, &bram[k]);
 		XAxiCdma_BdSetDstBufAddr(bd, &m[si+i][sj]);
 		XAxiCdma_BdSetLength(bd, BSIZE*sizeof(int));
+		k += BSIZE*sizeof(int);
 	}
 
 	// Write &bdring[0] into the CDESC register
@@ -364,9 +372,9 @@ void initMatrices(int m1[][SIZE], int m2[][SIZE], int m3[][SIZE], int val)
 	for (i=0; i<SIZE; i++) {
 		for (j=0; j<SIZE; j++) {
 			if (val == -1) {
-				m1[i][j] = 1; // *(i*SIZE+j);
-				m2[i][j] = 2; // *(i*SIZE+j);
-				m3[i][j] = 3; // (i*SIZE+j);
+				m1[i][j] = (i*SIZE+j);
+				m2[i][j] = 2; // (i*SIZE+j);
+				m3[i][j] = 0; // (i*SIZE+j);
 			}
 			else {
 				m1[i][j] = 0;
@@ -397,35 +405,44 @@ void printArray(int *a, int size)
 	}
 }
 
-void dumpBRAM(int *bramAddr)
+void dumpBRAM(int bramAddr[BRAM_DEPTH])
 {
 	int *tmp = (int*)TMPBUF;
 	int status = XST_SUCCESS;
 	int i = 0;
-	status = simpleCopy(tmp, bramAddr, BRAM_SIZE_BYTES);
+
+	for (i=0; i <= BRAM_SIZE_BYTES/sizeof(int); i++) {
+		tmp[i] =  -1;
+	}
+
+	status = simpleCopy(tmp, bramAddr, BRAM_SIZE_BYTES/sizeof(int));
 	if (status != XST_SUCCESS) {
 		return status;
 	}
 
-	for (i=0; i<BRAM_SIZE_BYTES/sizeof(int); i+=4) {
-		printf("(%x) %d ", &bramAddr[i], tmp[i]);
-		printf("(%x) %d ", &bramAddr[i+1], tmp[i+1]);
-		printf("(%x) %d ", &bramAddr[i+2], tmp[i+2]);
-		printf("(%x) %d ", &bramAddr[i+3], tmp[i+3]);
-		printf("\n\r");
+	for (i=0; i <= BRAM_SIZE_BYTES/sizeof(int); i++) {
+		if (i%20 == 0) {
+			printf("\n\r");
+		}
+		printf("%d ", tmp[i]);
 	}
 //	printArray(tmp, BRAM_SIZE_BYTES/sizeof(int));
 }
 
-void zeroBRAM(int *bramAddr)
+void zeroBRAM(char bramAddr[BRAM_DEPTH])
 {
 	int *tmp = (int*)TMPBUF;
 	int status = XST_SUCCESS;
 	int i = 0;
-	for (i=0; i<BRAM_SIZE_BYTES/sizeof(int); i++) {
-		tmp[i] = 0;
+	for (i=0; i <= BRAM_SIZE_BYTES/sizeof(int); i++) {
+		tmp[i] =  i;
 	}
-	status = simpleCopy(bramAddr, tmp, BRAM_SIZE_BYTES);
+	status = simpleCopy(bramAddr, tmp, BRAM_SIZE_BYTES/sizeof(int));
+
+	for (i=0; i <= BRAM_SIZE_BYTES/sizeof(int); i++) {
+		tmp[i] =  -1;
+	}
+
 	if (status != XST_SUCCESS) {
 		return status;
 	}
@@ -469,7 +486,6 @@ void matMult(
 
             	// Start the HLS block
             	for (iter = 0; iter < NUM_MULTIPLIERS; iter++) {
-            		printHlsStatus(hlsInstance[iter]);
             		XBmm_top_Start(&hlsInstance[iter]);
             	}
 
@@ -478,7 +494,7 @@ void matMult(
             		while (
             		         !(XBmm_top_IsDone(&hlsInstance[iter]) || XBmm_top_IsIdle(&hlsInstance[iter]))
             		      ) {
-            			printHlsStatus(hlsInstance[iter]);
+            			// Waiting for all block multipliers to finish..
             		}
             	}
                 elapsed = timerStop();
@@ -591,20 +607,26 @@ int main()
     flushMatrix(m2);
     flushMatrix(m3);
 #endif
-    printMatrix(m3);
+
+//    zeroBRAM(b1);
+//    dumpBRAM(b1);
+//    printMatrix(m3);
     copyBlockToBRAM(m1, 0, 0, b1);
-    copyBlockToBRAM(m2, 0, 0, b2);
-    copyBlockToBRAM(m3, 0, 0, b3);
+
+//    dumpBRAM(b1);
+//    copyBlockToBRAM(m2, 0, 0, b2);
+//    copyBlockToBRAM(m3, 0, 0, b3);
     initMatrices(m1, m2, m3, 0);
-    XBmm_top_SetBlocksize(&hlsInstance[0], BSIZE);
-    XBmm_top_SetBlocksizeVld(&hlsInstance[0]);
-    XBmm_top_Start(&hlsInstance[0]);
-    while (! (XBmm_top_IsIdle(&hlsInstance[0]) || XBmm_top_IsDone(&hlsInstance[0])));
+//    XBmm_top_SetBlocksize(&hlsInstance[0], BSIZE);
+//    XBmm_top_SetBlocksizeVld(&hlsInstance[0]);
+//    XBmm_top_Start(&hlsInstance[0]);
+//    while (! (XBmm_top_IsIdle(&hlsInstance[0]) || XBmm_top_IsDone(&hlsInstance[0])));
+
     copyBlockFromBRAM(m1, 0, 0, b1);
-    copyBlockFromBRAM(m2, 0, 0, b2);
-    copyBlockFromBRAM(m3, 0, 0, b3);
-    printMatrix(m3);
-    printMatrix(m2);
+//    copyBlockFromBRAM(m2, 0, 0, b2);
+//    copyBlockFromBRAM(m3, 0, 0, b3);
+//    printMatrix(m3);
+//    printMatrix(m2);
     printMatrix(m1);
 
 #ifdef DCACHE_ENABLE

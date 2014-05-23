@@ -1599,3 +1599,142 @@ If this project was a BSP referenced by other C/C++ applications, then those app
 19:09:35.340 INFO  - Processor reset is completed for ps7_cortexa9_0 
 20:43:12.880 INFO  - Project dma3's source hardware specification located at /home/raghu/work/projects/dma3/dma3.sdk/SDK/SDK_Export/hw/dma3.xml is now different from the local copy.
 		 The local copy will be replaced with the source specification and your workspace will be updated. 
+16:01:15.241 INFO  - Project dma3's source hardware specification located at /home/raghu/work/projects/dma3/dma3.sdk/SDK/SDK_Export/hw/dma3.xml is now different from the local copy.
+		 The local copy will be replaced with the source specification and your workspace will be updated. 
+16:01:19.805 INFO  - Copied contents of /home/raghu/work/projects/dma3/dma3.sdk/SDK/SDK_Export/hw/dma3.xml into /dma3/system.xml. 
+16:01:20.130 INFO  - Copied contents of /home/raghu/work/projects/dma3/dma3.sdk/SDK/SDK_Export/hw/dma3_wrapper.bit into /dma3/dma3_wrapper.bit. 
+16:01:21.833 INFO  - Copied contents of /home/raghu/work/projects/dma3/dma3.sdk/SDK/SDK_Export/hw/ps7_init.c into /dma3/ps7_init.c. 
+16:01:21.844 INFO  - Copied contents of /home/raghu/work/projects/dma3/dma3.sdk/SDK/SDK_Export/hw/ps7_init.h into /dma3/ps7_init.h. 
+16:01:21.899 INFO  - Copied contents of /home/raghu/work/projects/dma3/dma3.sdk/SDK/SDK_Export/hw/ps7_init.html into /dma3/ps7_init.html. 
+16:01:21.900 INFO  - Copied contents of /home/raghu/work/projects/dma3/dma3.sdk/SDK/SDK_Export/hw/ps7_summary.html into /dma3/ps7_summary.html. 
+16:01:21.947 INFO  - Copied contents of /home/raghu/work/projects/dma3/dma3.sdk/SDK/SDK_Export/hw/ps7_init.tcl into /dma3/ps7_init.tcl. 
+16:01:23.118 INFO  - Synchronizing projects in the workspace with the hardware platform specification changes. 
+16:01:25.789 INFO  - Restoring local repository preferences: 
+		 /home/raghu/work/projects/dma3/hls/bmm_top/solution1/impl
+		 /home/raghu/work/projects/dma3/hls/simple_top/solution1/impl
+		 /home/raghu/work/projects/dma3/hls/fe_top/solution1/impl 
+16:01:26.842 INFO  - Updating hardware inferred compiler options for matmult. 
+16:01:26.869 INFO  - Clearing existing target manager status. 
+16:01:30.488 INFO  - Workspace synchronized with the new hardware specification file. Cleaning dependent projects... 
+16:02:07.267 ERROR - SDK has detected that project dma3 has been deleted (or renamed).
+This project was referenced by a BSP project, which will now fail to compile properly.
+
+We recommend that you create a new BSP project pointing to a valid hardware project. Alternatively, you can fix the project references in the BSP, and update the path to the hardware specification file in 'libgen.options', and in ELF check options in dependant applications. 
+16:02:15.811 INFO  - Project dma3_bsp was a BSP project. Please update references. 
+16:02:15.812 ERROR - SDK has detected that project dma3_bsp has been deleted (or renamed).
+If this project was a BSP referenced by other C/C++ applications, then those applications will fail to build now. Please right click on those applications and click 'Change Referenced BSP' to update those projects' BSP references. 
+16:02:56.429 INFO  - Project 'dma3' created. You can now create BSPs and application projects targeting this hardware platform. 
+16:03:48.161 INFO  - Saving repository preferences. 
+16:03:48.162 INFO  - Reading in cores from local repositories: 
+		 /home/raghu/work/projects/bmm/hls/bmm_top/solution1/impl/drivers 
+16:03:48.191 INFO  - Updating libgen.options on all BSP projects. 
+16:03:48.191 INFO  - Cleaning BSP projects in the workspace. 
+16:04:32.919 INFO  - Project dma3_bsp was a BSP project. Please update references. 
+16:04:32.920 ERROR - SDK has detected that project dma3_bsp has been deleted (or renamed).
+If this project was a BSP referenced by other C/C++ applications, then those applications will fail to build now. Please right click on those applications and click 'Change Referenced BSP' to update those projects' BSP references. 
+16:05:16.664 INFO  - Saving repository preferences. 
+16:06:13.040 INFO  - Saving repository preferences. 
+16:06:13.041 INFO  - Reading in cores from local repositories: 
+		 /home/raghu/work/projects/bmm/hls/bmm_top/solution1/impl/drivers
+		 /home/raghu/work/projects/bmm/hls/bmm_top/solution1/impl 
+16:06:13.099 INFO  - Updating libgen.options on all BSP projects. 
+16:06:13.100 INFO  - Cleaning BSP projects in the workspace. 
+16:07:15.488 INFO  - Project dma3_bsp was a BSP project. Please update references. 
+16:07:15.489 ERROR - SDK has detected that project dma3_bsp has been deleted (or renamed).
+If this project was a BSP referenced by other C/C++ applications, then those applications will fail to build now. Please right click on those applications and click 'Change Referenced BSP' to update those projects' BSP references. 
+16:09:06.899 INFO  - FPGA configured successfully with bitstream "/home/raghu/work/projects/bmm/workspace/dma3/dma3_wrapper.bit" 
+16:09:21.105 INFO  - Processor reset is completed for ps7_cortexa9_0 
+16:09:21.205 INFO  - PS initialization will be done as it is not done before. 
+16:09:21.206 INFO  - Running PS initialization.... 
+16:09:21.519 INFO  - ps7_init is completed. 
+16:09:21.619 INFO  - ps7_post_config is completed. 
+16:09:21.720 INFO  - PS Initialization is complete. 
+16:10:52.733 INFO  - Processor reset is completed for ps7_cortexa9_0 
+16:11:14.806 INFO  - Processor reset is completed for ps7_cortexa9_0 
+16:11:32.036 INFO  - Processor reset is completed for ps7_cortexa9_0 
+16:12:17.848 INFO  - Processor reset is completed for ps7_cortexa9_0 
+16:12:49.740 INFO  - Processor reset is completed for ps7_cortexa9_0 
+17:17:00.414 INFO  - Project dma3's source hardware specification located at /home/raghu/work/projects/bmm/dma3.sdk/SDK/SDK_Export/hw/dma3.xml is now different from the local copy.
+		 The local copy will be replaced with the source specification and your workspace will be updated. 
+17:17:11.687 INFO  - Copied contents of /home/raghu/work/projects/bmm/dma3.sdk/SDK/SDK_Export/hw/dma3.xml into /dma3/system.xml. 
+17:17:11.929 INFO  - Copied contents of /home/raghu/work/projects/bmm/dma3.sdk/SDK/SDK_Export/hw/dma3_wrapper.bit into /dma3/dma3_wrapper.bit. 
+17:17:13.589 INFO  - Copied contents of /home/raghu/work/projects/bmm/dma3.sdk/SDK/SDK_Export/hw/ps7_init.c into /dma3/ps7_init.c. 
+17:17:13.592 INFO  - Copied contents of /home/raghu/work/projects/bmm/dma3.sdk/SDK/SDK_Export/hw/ps7_init.h into /dma3/ps7_init.h. 
+17:17:13.642 INFO  - Copied contents of /home/raghu/work/projects/bmm/dma3.sdk/SDK/SDK_Export/hw/ps7_init.html into /dma3/ps7_init.html. 
+17:17:13.643 INFO  - Copied contents of /home/raghu/work/projects/bmm/dma3.sdk/SDK/SDK_Export/hw/ps7_summary.html into /dma3/ps7_summary.html. 
+17:17:13.656 INFO  - Copied contents of /home/raghu/work/projects/bmm/dma3.sdk/SDK/SDK_Export/hw/ps7_init.tcl into /dma3/ps7_init.tcl. 
+17:17:15.220 INFO  - Synchronizing projects in the workspace with the hardware platform specification changes. 
+17:17:17.225 INFO  - Updating hardware inferred compiler options for matmult. 
+17:17:17.230 INFO  - Clearing existing target manager status. 
+17:17:17.233 INFO  - Closing and re-opening the MSS file of ther project dma3_bsp 
+17:17:19.526 INFO  - Workspace synchronized with the new hardware specification file. Cleaning dependent projects... 
+17:18:10.560 INFO  - FPGA configured successfully with bitstream "/home/raghu/work/projects/bmm/workspace/dma3/dma3_wrapper.bit" 
+17:19:03.115 INFO  - Processor reset is completed for ps7_cortexa9_0 
+17:19:03.218 INFO  - PS initialization will be done as it is not done before. 
+17:19:03.218 INFO  - Running PS initialization.... 
+17:19:03.479 INFO  - ps7_init is completed. 
+17:19:03.579 INFO  - ps7_post_config is completed. 
+17:19:03.679 INFO  - PS Initialization is complete. 
+17:20:06.015 INFO  - Processor reset is completed for ps7_cortexa9_0 
+17:20:50.358 INFO  - Processor reset is completed for ps7_cortexa9_0 
+17:27:33.400 INFO  - Processor reset is completed for ps7_cortexa9_0 
+17:30:14.609 INFO  - Processor reset is completed for ps7_cortexa9_0 
+17:40:25.893 INFO  - Processor reset is completed for ps7_cortexa9_0 
+18:01:07.770 INFO  - Processor reset is completed for ps7_cortexa9_0 
+18:03:55.328 INFO  - Processor reset is completed for ps7_cortexa9_0 
+18:05:04.579 INFO  - Processor reset is completed for ps7_cortexa9_0 
+18:18:27.886 INFO  - Processor reset is completed for ps7_cortexa9_0 
+18:19:53.837 INFO  - Processor reset is completed for ps7_cortexa9_0 
+18:23:35.331 INFO  - Processor reset is completed for ps7_cortexa9_0 
+18:25:11.112 INFO  - Processor reset is completed for ps7_cortexa9_0 
+18:25:12.418 INFO  - Processor reset is completed for ps7_cortexa9_0 
+18:26:51.664 ERROR - Unexpected error while launching program. java.lang.RuntimeException: Target selection failed.
+	at com.xilinx.sdk.debug.core.XilinxAppLaunchConfigurationDelegate.debugApplication(Unknown Source)
+	at com.xilinx.sdk.debug.core.XilinxAppLaunchConfigurationDelegate.launch(Unknown Source)
+
+18:28:34.217 INFO  - Processor reset is completed for ps7_cortexa9_0 
+18:30:18.513 INFO  - Processor reset is completed for ps7_cortexa9_0 
+18:37:59.961 INFO  - Processor reset is completed for ps7_cortexa9_0 
+18:40:47.570 INFO  - Processor reset is completed for ps7_cortexa9_0 
+18:45:27.186 INFO  - Processor reset is completed for ps7_cortexa9_0 
+18:46:18.418 INFO  - Processor reset is completed for ps7_cortexa9_0 
+18:48:32.823 INFO  - Processor reset is completed for ps7_cortexa9_0 
+18:50:56.225 INFO  - Processor reset is completed for ps7_cortexa9_0 
+18:51:13.841 INFO  - ps7_cortexa9_0 Processor is in use. Please stop existing Run or Debug sessions before launching. 
+18:53:37.388 INFO  - Processor reset is completed for ps7_cortexa9_0 
+19:24:18.704 INFO  - Processor reset is completed for ps7_cortexa9_0 
+19:25:31.424 INFO  - Processor reset is completed for ps7_cortexa9_0 
+10:41:02.917 INFO  - Project dma3's source hardware specification located at /home/raghu/work/projects/bmm/dma3.sdk/SDK/SDK_Export/hw/dma3.xml is now different from the local copy.
+		 The local copy will be replaced with the source specification and your workspace will be updated. 
+10:41:11.301 INFO  - Copied contents of /home/raghu/work/projects/bmm/dma3.sdk/SDK/SDK_Export/hw/dma3.xml into /dma3/system.xml. 
+10:41:11.357 INFO  - Copied contents of /home/raghu/work/projects/bmm/dma3.sdk/SDK/SDK_Export/hw/dma3_wrapper.bit into /dma3/dma3_wrapper.bit. 
+10:41:13.062 INFO  - Copied contents of /home/raghu/work/projects/bmm/dma3.sdk/SDK/SDK_Export/hw/ps7_init.c into /dma3/ps7_init.c. 
+10:41:13.066 INFO  - Copied contents of /home/raghu/work/projects/bmm/dma3.sdk/SDK/SDK_Export/hw/ps7_init.h into /dma3/ps7_init.h. 
+10:41:13.115 INFO  - Copied contents of /home/raghu/work/projects/bmm/dma3.sdk/SDK/SDK_Export/hw/ps7_init.html into /dma3/ps7_init.html. 
+10:41:13.116 INFO  - Copied contents of /home/raghu/work/projects/bmm/dma3.sdk/SDK/SDK_Export/hw/ps7_summary.html into /dma3/ps7_summary.html. 
+10:41:13.129 INFO  - Copied contents of /home/raghu/work/projects/bmm/dma3.sdk/SDK/SDK_Export/hw/ps7_init.tcl into /dma3/ps7_init.tcl. 
+10:41:14.876 INFO  - Synchronizing projects in the workspace with the hardware platform specification changes. 
+10:41:22.445 INFO  - Updating hardware inferred compiler options for matmult. 
+10:41:22.451 INFO  - Clearing existing target manager status. 
+10:41:22.452 INFO  - Closing and re-opening the MSS file of ther project dma3_bsp 
+10:41:27.610 INFO  - Closing and re-opening the MSS file of ther project dma3_bsp 
+10:41:28.654 INFO  - Closing and re-opening the MSS file of ther project dma3_bsp 
+10:41:29.840 INFO  - Workspace synchronized with the new hardware specification file. Cleaning dependent projects... 
+10:42:17.361 INFO  - FPGA configured successfully with bitstream "/home/raghu/work/projects/bmm/workspace/dma3/dma3_wrapper.bit" 
+10:42:33.484 INFO  - Processor reset is completed for ps7_cortexa9_0 
+10:42:33.585 INFO  - PS initialization will be done as it is not done before. 
+10:42:33.585 INFO  - Running PS initialization.... 
+10:42:33.879 INFO  - ps7_init is completed. 
+10:42:33.913 INFO  - ps7_post_config is completed. 
+10:42:34.013 INFO  - PS Initialization is complete. 
+10:50:22.739 INFO  - Processor reset is completed for ps7_cortexa9_0 
+10:51:46.977 INFO  - Processor reset is completed for ps7_cortexa9_0 
+10:52:29.439 INFO  - Processor reset is completed for ps7_cortexa9_0 
+10:52:29.939 INFO  - Processor reset is completed for ps7_cortexa9_0 
+10:54:09.191 ERROR - Unexpected error while launching program. java.lang.RuntimeException: Target selection failed.
+	at com.xilinx.sdk.debug.core.XilinxAppLaunchConfigurationDelegate.debugApplication(Unknown Source)
+	at com.xilinx.sdk.debug.core.XilinxAppLaunchConfigurationDelegate.launch(Unknown Source)
+
+10:54:26.032 INFO  - Processor reset is completed for ps7_cortexa9_0 
+10:55:13.853 INFO  - Processor reset is completed for ps7_cortexa9_0 
+14:33:46.712 ERROR - Unexpected error while parsing XMD response ￿: com.google.gson.JsonSyntaxException: com.google.gson.stream.MalformedJsonException: invalid number or unquoted string near  

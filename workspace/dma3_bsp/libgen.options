@@ -1,3 +1,3 @@
 PROCESSOR=ps7_cortexa9_0
-REPOSITORIES=-lp /home/raghu/work/projects/dma3/hls/bmm_top/solution1/impl -lp /home/raghu/work/projects/dma3/hls/simple_top/solution1/impl -lp /home/raghu/work/projects/dma3/hls/fe_top/solution1/impl
+REPOSITORIES=-lp /home/raghu/work/projects/bmm/hls/bmm_top/solution1/impl/drivers -lp /home/raghu/work/projects/bmm/hls/bmm_top/solution1/impl
 HWSPEC=../dma3/system.xml

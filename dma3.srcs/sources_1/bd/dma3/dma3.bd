@@ -101,13 +101,6 @@
         </spirit:configurableElementValues>
       </spirit:componentInstance>
       <spirit:componentInstance>
-        <spirit:instanceName>fe_top_0</spirit:instanceName>
-        <spirit:componentRef spirit:library="hls" spirit:name="fe_top" spirit:vendor="xilinx.com" spirit:version="8.0"/>
-        <spirit:configurableElementValues>
-          <spirit:configurableElementValue spirit:referenceId="bd:xciName">dma3_fe_top_0_0</spirit:configurableElementValue>
-        </spirit:configurableElementValues>
-      </spirit:componentInstance>
-      <spirit:componentInstance>
         <spirit:instanceName>blkA</spirit:instanceName>
         <spirit:componentRef spirit:library="BlockDiagram/dma3_imp" spirit:name="blkA" spirit:vendor="xilinx.com" spirit:version="1.00.a"/>
       </spirit:componentInstance>
@@ -171,16 +164,6 @@
           <spirit:configurableElementValue spirit:referenceId="NUM_SI">5</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="NUM_MI">4</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="appcore">xilinx.com:ip:axi_interconnect:2.1</spirit:configurableElementValue>
-        </spirit:configurableElementValues>
-      </spirit:componentInstance>
-      <spirit:componentInstance>
-        <spirit:instanceName>axi_dwidth_converter_0</spirit:instanceName>
-        <spirit:componentRef spirit:library="ip" spirit:name="axi_dwidth_converter" spirit:vendor="xilinx.com" spirit:version="2.1"/>
-        <spirit:configurableElementValues>
-          <spirit:configurableElementValue spirit:referenceId="bd:xciName">dma3_axi_dwidth_converter_0_1</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="SI_DATA_WIDTH">256</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="MI_DATA_WIDTH">32</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="FIFO_MODE">0</spirit:configurableElementValue>
         </spirit:configurableElementValues>
       </spirit:componentInstance>
       <spirit:componentInstance>
@@ -420,11 +403,6 @@
       <spirit:interconnection>
         <spirit:name>cdma_bram_intercon_m00_axi</spirit:name>
         <spirit:activeInterface spirit:busRef="M00_AXI" spirit:componentRef="cdma_bram_intercon"/>
-        <spirit:activeInterface spirit:busRef="S_AXI" spirit:componentRef="axi_dwidth_converter_0"/>
-      </spirit:interconnection>
-      <spirit:interconnection>
-        <spirit:name>axi_dwidth_converter_0_m_axi</spirit:name>
-        <spirit:activeInterface spirit:busRef="M_AXI" spirit:componentRef="axi_dwidth_converter_0"/>
         <spirit:activeInterface spirit:busRef="S_AXI_HP0" spirit:componentRef="processing_system7_0"/>
       </spirit:interconnection>
     </spirit:interconnections>
@@ -446,7 +424,6 @@
         <spirit:internalPortReference spirit:componentRef="ctrl_axilite_intercon" spirit:portRef="M01_ARESETN"/>
         <spirit:internalPortReference spirit:componentRef="cdma_sg_intercon" spirit:portRef="S00_ARESETN"/>
         <spirit:internalPortReference spirit:componentRef="cdma_sg_intercon" spirit:portRef="M00_ARESETN"/>
-        <spirit:internalPortReference spirit:componentRef="fe_top_0" spirit:portRef="aresetn"/>
         <spirit:internalPortReference spirit:componentRef="ctrl_axilite_intercon" spirit:portRef="M02_ARESETN"/>
         <spirit:internalPortReference spirit:componentRef="ctrl_axilite_intercon" spirit:portRef="M03_ARESETN"/>
         <spirit:internalPortReference spirit:componentRef="ctrl_axilite_intercon" spirit:portRef="M04_ARESETN"/>
@@ -502,19 +479,6 @@
         <spirit:internalPortReference spirit:componentRef="axi_interconnect_1" spirit:portRef="M00_ARESETN"/>
         <spirit:internalPortReference spirit:componentRef="axi_interconnect_1" spirit:portRef="M01_ARESETN"/>
         <spirit:internalPortReference spirit:componentRef="axi_interconnect_1" spirit:portRef="M02_ARESETN"/>
-        <spirit:internalPortReference spirit:componentRef="axi_dwidth_converter_0" spirit:portRef="s_axi_aresetn"/>
-      </spirit:adHocConnection>
-      <spirit:adHocConnection>
-        <spirit:name>bmm_top_0_ap_idle</spirit:name>
-        <spirit:internalPortReference spirit:componentRef="fe_top_0" spirit:portRef="idle"/>
-      </spirit:adHocConnection>
-      <spirit:adHocConnection>
-        <spirit:name>bmm_top_0_ap_done</spirit:name>
-        <spirit:internalPortReference spirit:componentRef="fe_top_0" spirit:portRef="done"/>
-      </spirit:adHocConnection>
-      <spirit:adHocConnection>
-        <spirit:name>fe_top_0_start</spirit:name>
-        <spirit:internalPortReference spirit:componentRef="fe_top_0" spirit:portRef="start"/>
       </spirit:adHocConnection>
       <spirit:adHocConnection>
         <spirit:name>processing_system7_0_fclk_clk0</spirit:name>
@@ -536,7 +500,6 @@
         <spirit:internalPortReference spirit:componentRef="cdma_sg_intercon" spirit:portRef="ACLK"/>
         <spirit:internalPortReference spirit:componentRef="processing_system7_0" spirit:portRef="S_AXI_HP2_ACLK"/>
         <spirit:internalPortReference spirit:componentRef="cdma_sg_intercon" spirit:portRef="M00_ACLK"/>
-        <spirit:internalPortReference spirit:componentRef="fe_top_0" spirit:portRef="aclk"/>
         <spirit:internalPortReference spirit:componentRef="ctrl_axilite_intercon" spirit:portRef="M02_ACLK"/>
         <spirit:internalPortReference spirit:componentRef="ctrl_axilite_intercon" spirit:portRef="M03_ACLK"/>
         <spirit:internalPortReference spirit:componentRef="ctrl_axilite_intercon" spirit:portRef="M04_ACLK"/>
@@ -581,7 +544,6 @@
         <spirit:internalPortReference spirit:componentRef="axi_interconnect_1" spirit:portRef="M00_ACLK"/>
         <spirit:internalPortReference spirit:componentRef="axi_interconnect_1" spirit:portRef="M01_ACLK"/>
         <spirit:internalPortReference spirit:componentRef="axi_interconnect_1" spirit:portRef="M02_ACLK"/>
-        <spirit:internalPortReference spirit:componentRef="axi_dwidth_converter_0" spirit:portRef="s_axi_aclk"/>
         <spirit:internalPortReference spirit:componentRef="bmm_top_0" spirit:portRef="aclk"/>
         <spirit:internalPortReference spirit:componentRef="bmm_top_1" spirit:portRef="aclk"/>
         <spirit:internalPortReference spirit:componentRef="bmm_top_2" spirit:portRef="aclk"/>
@@ -8529,12 +8491,11 @@
         <spirit:componentRef spirit:library="ip" spirit:name="blk_mem_gen" spirit:vendor="xilinx.com" spirit:version="8.0"/>
         <spirit:configurableElementValues>
           <spirit:configurableElementValue spirit:referenceId="bd:xciName">dma3_blk_mem_gen_outblk_16</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="Enable_32bit_Address">false</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="Use_Byte_Write_Enable">false</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="Write_Width_A">256</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="Enable_32bit_Address">true</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="Write_Width_A">32</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="Write_Depth_A">8192</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="Read_Width_A">256</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="use_bram_block">Stand_Alone</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="Read_Width_A">32</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="use_bram_block">BRAM_Controller</spirit:configurableElementValue>
         </spirit:configurableElementValues>
       </spirit:componentInstance>
     </spirit:componentInstances>
@@ -8664,12 +8625,11 @@
         <spirit:configurableElementValues>
           <spirit:configurableElementValue spirit:referenceId="bd:xciName">dma3_blk_mem_gen_inblk_15</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="Memory_Type">Single_Port_RAM</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="Enable_32bit_Address">false</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="Use_Byte_Write_Enable">false</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="Write_Width_A">256</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="Enable_32bit_Address">true</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="Write_Width_A">32</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="Write_Depth_A">8192</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="Operating_Mode_A">WRITE_FIRST</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="use_bram_block">Stand_Alone</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="use_bram_block">BRAM_Controller</spirit:configurableElementValue>
         </spirit:configurableElementValues>
       </spirit:componentInstance>
     </spirit:componentInstances>
@@ -8798,11 +8758,10 @@
         <spirit:componentRef spirit:library="ip" spirit:name="blk_mem_gen" spirit:vendor="xilinx.com" spirit:version="8.0"/>
         <spirit:configurableElementValues>
           <spirit:configurableElementValue spirit:referenceId="bd:xciName">dma3_blk_mem_gen_outblk_13</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="Enable_32bit_Address">false</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="Use_Byte_Write_Enable">false</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="Write_Width_A">256</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="Enable_32bit_Address">true</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="Write_Width_A">32</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="Write_Depth_A">8192</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="use_bram_block">Stand_Alone</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="use_bram_block">BRAM_Controller</spirit:configurableElementValue>
         </spirit:configurableElementValues>
       </spirit:componentInstance>
     </spirit:componentInstances>
@@ -8932,12 +8891,11 @@
         <spirit:configurableElementValues>
           <spirit:configurableElementValue spirit:referenceId="bd:xciName">dma3_blk_mem_gen_inblk_12</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="Memory_Type">Single_Port_RAM</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="Enable_32bit_Address">false</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="Use_Byte_Write_Enable">false</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="Write_Width_A">256</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="Enable_32bit_Address">true</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="Write_Width_A">32</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="Write_Depth_A">8192</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="Operating_Mode_A">WRITE_FIRST</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="use_bram_block">Stand_Alone</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="use_bram_block">BRAM_Controller</spirit:configurableElementValue>
         </spirit:configurableElementValues>
       </spirit:componentInstance>
     </spirit:componentInstances>
@@ -9067,12 +9025,11 @@
         <spirit:configurableElementValues>
           <spirit:configurableElementValue spirit:referenceId="bd:xciName">dma3_blk_mem_gen_inblk_21</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="Memory_Type">Single_Port_RAM</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="Enable_32bit_Address">false</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="Use_Byte_Write_Enable">false</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="Write_Width_A">256</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="Enable_32bit_Address">true</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="Write_Width_A">32</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="Write_Depth_A">8192</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="Operating_Mode_A">WRITE_FIRST</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="use_bram_block">Stand_Alone</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="use_bram_block">BRAM_Controller</spirit:configurableElementValue>
         </spirit:configurableElementValues>
       </spirit:componentInstance>
     </spirit:componentInstances>
@@ -9201,11 +9158,10 @@
         <spirit:componentRef spirit:library="ip" spirit:name="blk_mem_gen" spirit:vendor="xilinx.com" spirit:version="8.0"/>
         <spirit:configurableElementValues>
           <spirit:configurableElementValue spirit:referenceId="bd:xciName">dma3_blk_mem_gen_outblk_20</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="Enable_32bit_Address">false</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="Use_Byte_Write_Enable">false</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="Write_Width_A">256</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="Enable_32bit_Address">true</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="Write_Width_A">32</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="Write_Depth_A">8192</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="use_bram_block">Stand_Alone</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="use_bram_block">BRAM_Controller</spirit:configurableElementValue>
         </spirit:configurableElementValues>
       </spirit:componentInstance>
     </spirit:componentInstances>
@@ -9335,12 +9291,11 @@
         <spirit:configurableElementValues>
           <spirit:configurableElementValue spirit:referenceId="bd:xciName">dma3_blk_mem_gen_inblk_19</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="Memory_Type">Single_Port_RAM</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="Enable_32bit_Address">false</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="Use_Byte_Write_Enable">false</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="Write_Width_A">256</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="Enable_32bit_Address">true</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="Write_Width_A">32</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="Write_Depth_A">8192</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="Operating_Mode_A">WRITE_FIRST</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="use_bram_block">Stand_Alone</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="use_bram_block">BRAM_Controller</spirit:configurableElementValue>
         </spirit:configurableElementValues>
       </spirit:componentInstance>
     </spirit:componentInstances>
@@ -9469,12 +9424,11 @@
         <spirit:componentRef spirit:library="ip" spirit:name="blk_mem_gen" spirit:vendor="xilinx.com" spirit:version="8.0"/>
         <spirit:configurableElementValues>
           <spirit:configurableElementValue spirit:referenceId="bd:xciName">dma3_blk_mem_gen_outblk_18</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="Enable_32bit_Address">false</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="Use_Byte_Write_Enable">false</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="Write_Width_A">256</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="Enable_32bit_Address">true</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="Write_Width_A">32</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="Write_Depth_A">8192</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="Read_Width_A">256</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="use_bram_block">Stand_Alone</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="Read_Width_A">32</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="use_bram_block">BRAM_Controller</spirit:configurableElementValue>
         </spirit:configurableElementValues>
       </spirit:componentInstance>
     </spirit:componentInstances>
@@ -9604,12 +9558,11 @@
         <spirit:configurableElementValues>
           <spirit:configurableElementValue spirit:referenceId="bd:xciName">dma3_blk_mem_gen_inblk_17</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="Memory_Type">True_Dual_Port_RAM</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="Enable_32bit_Address">false</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="Use_Byte_Write_Enable">false</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="Write_Width_A">256</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="Enable_32bit_Address">true</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="Write_Width_A">32</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="Write_Depth_A">8192</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="Operating_Mode_A">WRITE_FIRST</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="use_bram_block">Stand_Alone</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="use_bram_block">BRAM_Controller</spirit:configurableElementValue>
         </spirit:configurableElementValues>
       </spirit:componentInstance>
     </spirit:componentInstances>

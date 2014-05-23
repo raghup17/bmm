@@ -3,11 +3,38 @@ Release 2013.3 - libgen Xilinx EDK 2013.3 Build EDK_P.20131013
 Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
 Command Line: libgen -hw ../dma3/system.xml -lp
-/home/raghu/work/projects/dma3/hls/bmm_top/solution1/impl -lp
-/home/raghu/work/projects/dma3/hls/simple_top/solution1/impl -lp
-/home/raghu/work/projects/dma3/hls/fe_top/solution1/impl -pe ps7_cortexa9_0 -log
+/home/raghu/work/projects/bmm/hls/bmm_top/solution1/impl/drivers -lp
+/home/raghu/work/projects/bmm/hls/bmm_top/solution1/impl -pe ps7_cortexa9_0 -log
 libgen.log system.mss 
 
+WARNING:EDK -
+   /home/raghu/work/projects/bmm/hls/bmm_top/solution1/impl/drivers/bmm_top_top_
+   v30_00_a/data/bmm_top_top_v2_1_0.mdd line 12 - Driver bmm_top_top 30.00.a
+   does not support peripheral bmm_top 32.0. List of peripherals supported by
+   driver "bmm_top_top" are : "bmm_top_top_v30_0 bmm_top_v30_0 " !
+WARNING:EDK - /home/raghu/work/projects/bmm/workspace/dma3_bsp/system.mss line
+   30 - Driver "bmm_top_top" does not support Hardware Instance "bmm_top_0" !
+WARNING:EDK -
+   /home/raghu/work/projects/bmm/hls/bmm_top/solution1/impl/drivers/bmm_top_top_
+   v30_00_a/data/bmm_top_top_v2_1_0.mdd line 12 - Driver bmm_top_top 30.00.a
+   does not support peripheral bmm_top 32.0. List of peripherals supported by
+   driver "bmm_top_top" are : "bmm_top_top_v30_0 bmm_top_v30_0 " !
+WARNING:EDK - /home/raghu/work/projects/bmm/workspace/dma3_bsp/system.mss line
+   36 - Driver "bmm_top_top" does not support Hardware Instance "bmm_top_1" !
+WARNING:EDK -
+   /home/raghu/work/projects/bmm/hls/bmm_top/solution1/impl/drivers/bmm_top_top_
+   v30_00_a/data/bmm_top_top_v2_1_0.mdd line 12 - Driver bmm_top_top 30.00.a
+   does not support peripheral bmm_top 32.0. List of peripherals supported by
+   driver "bmm_top_top" are : "bmm_top_top_v30_0 bmm_top_v30_0 " !
+WARNING:EDK - /home/raghu/work/projects/bmm/workspace/dma3_bsp/system.mss line
+   42 - Driver "bmm_top_top" does not support Hardware Instance "bmm_top_2" !
+WARNING:EDK -
+   /home/raghu/work/projects/bmm/hls/bmm_top/solution1/impl/drivers/bmm_top_top_
+   v30_00_a/data/bmm_top_top_v2_1_0.mdd line 12 - Driver bmm_top_top 30.00.a
+   does not support peripheral bmm_top 32.0. List of peripherals supported by
+   driver "bmm_top_top" are : "bmm_top_top_v30_0 bmm_top_v30_0 " !
+WARNING:EDK - /home/raghu/work/projects/bmm/workspace/dma3_bsp/system.mss line
+   48 - Driver "bmm_top_top" does not support Hardware Instance "bmm_top_3" !
 
 Staging source files.
 Running DRCs.

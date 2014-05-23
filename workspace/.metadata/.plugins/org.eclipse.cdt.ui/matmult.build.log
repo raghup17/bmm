@@ -1,6 +1,119 @@
-19:09:33 **** Incremental Build of configuration Debug for project matmult ****
+10:58:30 **** Auto Build of configuration Debug for project matmult ****
 make all 
-make: Nothing to be done for `all'.
+Building file: ../src/helloworld.c
+Invoking: ARM gcc compiler
+arm-xilinx-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../dma3_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.d" -o "src/helloworld.o" "../src/helloworld.c"
+../src/helloworld.c: In function 'timerStart':
+../src/helloworld.c:95:2: warning: implicit declaration of function 'Xpm_EnableEventCounters' [-Wimplicit-function-declaration]
+../src/helloworld.c:96:2: warning: implicit declaration of function 'Xpm_ResetEventCounters' [-Wimplicit-function-declaration]
+../src/helloworld.c: In function 'dma_init':
+../src/helloworld.c:155:9: warning: implicit declaration of function 'XAxiCdma_SwitchMode' [-Wimplicit-function-declaration]
+../src/helloworld.c:162:9: warning: implicit declaration of function 'XAxiCdma_IsSimpleMode' [-Wimplicit-function-declaration]
+../src/helloworld.c: In function 'copyBlockToBRAM':
+../src/helloworld.c:252:3: warning: passing argument 2 of 'XAxiCdma_BdSetDstBufAddr' makes integer from pointer without a cast [enabled by default]
+In file included from ../../dma3_bsp/ps7_cortexa9_0/include/xaxicdma.h:349:0,
+                 from ../src/helloworld.c:37:
+../../dma3_bsp/ps7_cortexa9_0/include/xaxicdma_bd.h:128:5: note: expected 'u32' but argument is of type 'char *'
+../src/helloworld.c:253:3: warning: passing argument 2 of 'XAxiCdma_BdSetSrcBufAddr' makes integer from pointer without a cast [enabled by default]
+In file included from ../../dma3_bsp/ps7_cortexa9_0/include/xaxicdma.h:349:0,
+                 from ../src/helloworld.c:37:
+../../dma3_bsp/ps7_cortexa9_0/include/xaxicdma_bd.h:126:5: note: expected 'u32' but argument is of type 'int *'
+../src/helloworld.c:261:2: warning: passing argument 2 of 'Xil_Out32' makes integer from pointer without a cast [enabled by default]
+In file included from ../../dma3_bsp/ps7_cortexa9_0/include/xaxicdma_hw.h:67:0,
+                 from ../../dma3_bsp/ps7_cortexa9_0/include/xaxicdma_bd.h:66,
+                 from ../../dma3_bsp/ps7_cortexa9_0/include/xaxicdma.h:349,
+                 from ../src/helloworld.c:37:
+../../dma3_bsp/ps7_cortexa9_0/include/xil_io.h:240:6: note: expected 'u32' but argument is of type 'u32 (*)[16]'
+../src/helloworld.c: In function 'copyBlockFromBRAM':
+../src/helloworld.c:316:3: warning: passing argument 2 of 'XAxiCdma_BdSetSrcBufAddr' makes integer from pointer without a cast [enabled by default]
+In file included from ../../dma3_bsp/ps7_cortexa9_0/include/xaxicdma.h:349:0,
+                 from ../src/helloworld.c:37:
+../../dma3_bsp/ps7_cortexa9_0/include/xaxicdma_bd.h:126:5: note: expected 'u32' but argument is of type 'char *'
+../src/helloworld.c:317:3: warning: passing argument 2 of 'XAxiCdma_BdSetDstBufAddr' makes integer from pointer without a cast [enabled by default]
+In file included from ../../dma3_bsp/ps7_cortexa9_0/include/xaxicdma.h:349:0,
+                 from ../src/helloworld.c:37:
+../../dma3_bsp/ps7_cortexa9_0/include/xaxicdma_bd.h:128:5: note: expected 'u32' but argument is of type 'int *'
+../src/helloworld.c:323:2: warning: passing argument 2 of 'Xil_Out32' makes integer from pointer without a cast [enabled by default]
+In file included from ../../dma3_bsp/ps7_cortexa9_0/include/xaxicdma_hw.h:67:0,
+                 from ../../dma3_bsp/ps7_cortexa9_0/include/xaxicdma_bd.h:66,
+                 from ../../dma3_bsp/ps7_cortexa9_0/include/xaxicdma.h:349,
+                 from ../src/helloworld.c:37:
+../../dma3_bsp/ps7_cortexa9_0/include/xil_io.h:240:6: note: expected 'u32' but argument is of type 'u32 (*)[16]'
+../src/helloworld.c:304:6: warning: unused variable 'rowSize' [-Wunused-variable]
+../src/helloworld.c: In function 'printArray':
+../src/helloworld.c:404:3: warning: format '%x' expects argument of type 'unsigned int', but argument 2 has type 'int *' [-Wformat]
+../src/helloworld.c:404:3: warning: format '%x' expects argument of type 'unsigned int', but argument 2 has type 'int *' [-Wformat]
+../src/helloworld.c: In function 'dumpBRAM':
+../src/helloworld.c:420:3: warning: 'return' with a value, in function returning void [enabled by default]
+../src/helloworld.c: In function 'zeroBRAM':
+../src/helloworld.c:440:2: warning: passing argument 1 of 'simpleCopy' from incompatible pointer type [enabled by default]
+../src/helloworld.c:352:5: note: expected 'int *' but argument is of type 'char *'
+../src/helloworld.c:447:3: warning: 'return' with a value, in function returning void [enabled by default]
+../src/helloworld.c: In function 'matMult':
+../src/helloworld.c:464:10: warning: passing argument 4 of 'copyBlockToBRAM' from incompatible pointer type [enabled by default]
+../src/helloworld.c:233:5: note: expected 'char *' but argument is of type 'int (*)[128]'
+../src/helloworld.c:474:18: warning: passing argument 4 of 'copyBlockToBRAM' from incompatible pointer type [enabled by default]
+../src/helloworld.c:233:5: note: expected 'char *' but argument is of type 'int *'
+../src/helloworld.c:475:18: warning: passing argument 4 of 'copyBlockToBRAM' from incompatible pointer type [enabled by default]
+../src/helloworld.c:233:5: note: expected 'char *' but argument is of type 'int *'
+../src/helloworld.c:507:18: warning: passing argument 4 of 'copyBlockFromBRAM' from incompatible pointer type [enabled by default]
+../src/helloworld.c:298:5: note: expected 'char *' but argument is of type 'int *'
+../src/helloworld.c: In function 'flushMatrix':
+../src/helloworld.c:548:4: warning: implicit declaration of function 'Xil_DCacheFlushLine' [-Wimplicit-function-declaration]
+Finished building: ../src/helloworld.c
+../src/helloworld.c:549:4: warning: implicit declaration of function 'Xil_DCacheInvalidateLine' [-Wimplicit-function-declaration]
+ 
+../src/helloworld.c: In function 'main':
+../src/helloworld.c:585:2: warning: implicit declaration of function 'sleep' [-Wimplicit-function-declaration]
+Building target: matmult.elf
+../src/helloworld.c:603:5: warning: passing argument 1 of 'initMatrices' from incompatible pointer type [enabled by default]
+../src/helloworld.c:369:6: note: expected 'int (*)[64]' but argument is of type 'int **'
+Invoking: ARM gcc linker
+arm-xilinx-eabi-gcc -Wl,-T -Wl,../src/lscript.ld -L../../dma3_bsp/ps7_cortexa9_0/lib -o "matmult.elf"  ./src/helloworld.o ./src/platform.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+../src/helloworld.c:603:5: warning: passing argument 2 of 'initMatrices' from incompatible pointer type [enabled by default]
+../src/helloworld.c:369:6: note: expected 'int (*)[64]' but argument is of type 'int **'
+../src/helloworld.c:603:5: warning: passing argument 3 of 'initMatrices' from incompatible pointer type [enabled by default]
+../src/helloworld.c:369:6: note: expected 'int (*)[64]' but argument is of type 'int **'
+../src/helloworld.c:614:5: warning: passing argument 1 of 'copyBlockToBRAM' from incompatible pointer type [enabled by default]
+../src/helloworld.c:233:5: note: expected 'int (*)[64]' but argument is of type 'int **'
+../src/helloworld.c:614:5: warning: passing argument 4 of 'copyBlockToBRAM' from incompatible pointer type [enabled by default]
+../src/helloworld.c:233:5: note: expected 'char *' but argument is of type 'int **'
+../src/helloworld.c:619:5: warning: passing argument 1 of 'initMatrices' from incompatible pointer type [enabled by default]
+../src/helloworld.c:369:6: note: expected 'int (*)[64]' but argument is of type 'int **'
+../src/helloworld.c:619:5: warning: passing argument 2 of 'initMatrices' from incompatible pointer type [enabled by default]
+../src/helloworld.c:369:6: note: expected 'int (*)[64]' but argument is of type 'int **'
+Finished building target: matmult.elf
+../src/helloworld.c:619:5: warning: passing argument 3 of 'initMatrices' from incompatible pointer type [enabled by default]
+../src/helloworld.c:369:6: note: expected 'int (*)[64]' but argument is of type 'int **'
+ 
+../src/helloworld.c:625:5: warning: passing argument 1 of 'copyBlockFromBRAM' from incompatible pointer type [enabled by default]
+../src/helloworld.c:298:5: note: expected 'int (*)[64]' but argument is of type 'int **'
+Invoking: ARM Print Size
+arm-xilinx-eabi-size matmult.elf  |tee "matmult.elf.size"
+../src/helloworld.c:625:5: warning: passing argument 4 of 'copyBlockFromBRAM' from incompatible pointer type [enabled by default]
+../src/helloworld.c:298:5: note: expected 'char *' but argument is of type 'int **'
+../src/helloworld.c:630:5: warning: passing argument 1 of 'printMatrix' from incompatible pointer type [enabled by default]
+../src/helloworld.c:388:6: note: expected 'int (*)[64]' but argument is of type 'int **'
+   text	   data	    bss	    dec	    hex	filename
+../src/helloworld.c:645:7: warning: passing argument 1 of 'matMult' from incompatible pointer type [enabled by default]
+  80668	   2328	  30280	 113276	  1ba7c	matmult.elf
+../src/helloworld.c:452:6: note: expected 'int (*)[64]' but argument is of type 'int **'
+Finished building: matmult.elf.size
+ 
+../src/helloworld.c:645:7: warning: passing argument 2 of 'matMult' from incompatible pointer type [enabled by default]
+../src/helloworld.c:452:6: note: expected 'int (*)[64]' but argument is of type 'int **'
+../src/helloworld.c:645:7: warning: passing argument 3 of 'matMult' from incompatible pointer type [enabled by default]
+../src/helloworld.c:452:6: note: expected 'int (*)[64]' but argument is of type 'int **'
+../src/helloworld.c:645:7: warning: passing argument 4 of 'matMult' from incompatible pointer type [enabled by default]
+../src/helloworld.c:452:6: note: expected 'int (*)[128]' but argument is of type 'int **'
+../src/helloworld.c:647:5: warning: passing argument 1 of 'matMultVerify' from incompatible pointer type [enabled by default]
+../src/helloworld.c:517:5: note: expected 'int (*)[64]' but argument is of type 'int **'
+../src/helloworld.c:647:5: warning: passing argument 2 of 'matMultVerify' from incompatible pointer type [enabled by default]
+../src/helloworld.c:517:5: note: expected 'int (*)[64]' but argument is of type 'int **'
+../src/helloworld.c:647:5: warning: passing argument 3 of 'matMultVerify' from incompatible pointer type [enabled by default]
+../src/helloworld.c:517:5: note: expected 'int (*)[64]' but argument is of type 'int **'
+../src/helloworld.c:577:8: warning: unused variable 'b3' [-Wunused-variable]
+../src/helloworld.c:576:8: warning: unused variable 'b2' [-Wunused-variable]
 
-19:09:33 Build Finished (took 85ms)
+10:58:30 Build Finished (took 584ms)
 

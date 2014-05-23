@@ -2,79 +2,73 @@
    commentid: "",
    guistr: "# # String gsaved with Nlview version 6.3.3  2013-08-16 bk=1.2871 VDI=33 GEI=35
 #  -string -flagsOSRD
-preplace port DDR -pg 1 -lvl 6:-30 -defaultsOSRD -bot
-preplace port FIXED_IO -pg 1 -lvl 6:0 -defaultsOSRD -bot
-preplace inst bmm_top_0 -pg 1 -lvl 4 -y 880 -defaultsOSRD
-preplace inst bmm_top_1 -pg 1 -lvl 4 -y 530 -defaultsOSRD
-preplace inst block2_b -pg 1 -lvl 6 -y 750 -defaultsOSRD
-preplace inst bmm_top_2 -pg 1 -lvl 4 -y 360 -defaultsOSRD
-preplace inst blkA -pg 1 -lvl 6 -y 1420 -defaultsOSRD
-preplace inst bmm_top_3 -pg 1 -lvl 4 -y 140 -defaultsOSRD
-preplace inst axi_dwidth_converter_0 -pg 1 -lvl 3 -y 1200 -defaultsOSRD
-preplace inst block1_ab -pg 1 -lvl 6 -y 880 -defaultsOSRD
-preplace inst block0_ab -pg 1 -lvl 6 -y 1150 -defaultsOSRD
-preplace inst axi_cdma_0 -pg 1 -lvl 1 -y 610 -defaultsOSRD
-preplace inst ctrl_axilite_intercon -pg 1 -lvl 2 -y 790 -defaultsOSRD
-preplace inst block3_ab -pg 1 -lvl 6 -y 360 -defaultsOSRD
-preplace inst fe_top_0 -pg 1 -lvl 1 -y 420 -defaultsOSRD
-preplace inst axi_interconnect_0 -pg 1 -lvl 5 -y 290 -defaultsOSRD
-preplace inst block3_b -pg 1 -lvl 6 -y 490 -defaultsOSRD
-preplace inst block2_ab -pg 1 -lvl 6 -y 620 -defaultsOSRD
-preplace inst block1_b -pg 1 -lvl 6 -y 1020 -defaultsOSRD
-preplace inst axi_interconnect_1 -pg 1 -lvl 4 -y 1250 -defaultsOSRD
-preplace inst block0_b -pg 1 -lvl 6 -y 1280 -defaultsOSRD
-preplace inst cdma_bram_intercon -pg 1 -lvl 2 -y 1240 -defaultsOSRD
-preplace inst bmm_bram_ic0 -pg 1 -lvl 5 -y 890 -defaultsOSRD
-preplace inst blocka_ic -pg 1 -lvl 5 -y 1450 -defaultsOSRD
-preplace inst cdma_sg_intercon -pg 1 -lvl 2 -y 430 -defaultsOSRD
-preplace inst proc_sys_reset -pg 1 -lvl 1 -y 1010 -defaultsOSRD
-preplace inst processing_system7_0 -pg 1 -lvl 1 -y 1280 -defaultsOSRD
-preplace netloc processing_system7_0_ddr 1 1 5 NJ 1430 NJ 1430 NJ 1430 NJ 1190 2270
-preplace netloc bmm_top_2_m_axi_b3 1 4 1 1880
-preplace netloc proc_sys_reset_interconnect_aresetn 1 1 4 580 1380 1200 1300 1470 1410 1940
-preplace netloc axi_interconnect_0_m01_axi 1 5 1 2340
-preplace netloc bmm_top_0_m_axi_b1 1 4 1 1850
-preplace netloc bmm_top_0_ap_idle 1 0 1 N
-preplace netloc proc_sys_reset_peripheral_aresetn 1 0 6 30 520 560 310 NJ 310 1470 450 NJ 590 2310
-preplace netloc axi_interconnect_0_m00_axi 1 5 1 2350
-preplace netloc bmm_top_0_m_axi_b2 1 4 1 1910
-preplace netloc bmm_bram_ic0_m01_axi 1 5 1 2300
-preplace netloc bmm_top_0_m_axi_b3 1 4 1 1930
-preplace netloc axi_cdma_0_m_axi 1 1 1 550
-preplace netloc ctrl_axilite_intercon_m01_axi 1 2 2 NJ 770 1460
-preplace netloc bmm_bram_ic0_m00_axi 1 5 1 N
-preplace netloc bmm_top_1_m_axi_b1 1 4 1 1880
-preplace netloc axi_dwidth_converter_0_m_axi 1 0 4 40 1130 NJ 1390 NJ 1390 1440
-preplace netloc axi_interconnect_0_m02_axi 1 5 1 2330
-preplace netloc axi_interconnect_0_m03_axi 1 5 1 2280
-preplace netloc bmm_top_1_m_axi_b2 1 4 1 1910
-preplace netloc axi_interconnect_1_m01_axi 1 4 1 1960
-preplace netloc bmm_top_1_m_axi_b3 1 4 1 1900
-preplace netloc s_axi_control_1 1 2 2 1200 510 NJ
-preplace netloc axi_mem_intercon_1_m00_axi 1 0 3 50 1140 NJ 1400 1170
-preplace netloc fe_top_0_start 1 1 1 N
-preplace netloc blocka_ic_m00_axi 1 5 1 2280
-preplace netloc s_axi_control_2 1 2 2 1190 340 NJ
-preplace netloc bmm_top_0_ap_done 1 0 1 N
-preplace netloc processing_system7_0_fclk_reset0_n 1 0 2 30 1440 490
-preplace netloc processing_system7_0_fixed_io 1 1 5 NJ 1440 NJ 1440 NJ 1440 NJ 1200 2260
-preplace netloc s_axi_control_3 1 2 2 NJ 830 1440
-preplace netloc axi_cdma_0_m_axi_sg 1 1 1 490
-preplace netloc processing_system7_0_fclk_clk0 1 0 6 20 1430 510 1450 1190 1290 1450 1420 1950 1210 2320
-preplace netloc axi_interconnect_1_m00_axi 1 4 1 1890
-preplace netloc bmm_bram_ic0_m02_axi 1 5 1 2290
-preplace netloc bmm_bram_ic0_m03_axi 1 5 1 2280
-preplace netloc bmm_top_3_m_axi_b1 1 4 1 1860
-preplace netloc bmm_top_3_m_axi_b2 1 4 1 1840
-preplace netloc bmm_top_2_m_axi_b1 1 4 1 1920
-preplace netloc processing_system7_0_axi_periph_m00_axi 1 0 3 50 530 NJ 580 1160
-preplace netloc cdma_bram_intercon_m00_axi 1 2 1 1180
-preplace netloc cdma_bram_intercon_m01_axi 1 2 2 1180 1280 NJ
-preplace netloc axi_interconnect_1_m02_axi 1 4 1 1840
-preplace netloc bmm_top_2_m_axi_b2 1 4 1 1870
-preplace netloc bmm_top_3_m_axi_b3 1 4 1 1850
-preplace netloc processing_system7_0_m_axi_gp0 1 1 1 490
-levelinfo -pg 1 0 270 1030 1330 1680 2130 2540 2670
+preplace port DDR -pg 1 -lvl 3:170 -defaultsOSRD -bot
+preplace port FIXED_IO -pg 1 -lvl 3:190 -defaultsOSRD -bot
+preplace inst bmm_top_0 -pg 1 -lvl 5 -y 310 -defaultsOSRD
+preplace inst bmm_top_1 -pg 1 -lvl 5 -y 460 -defaultsOSRD
+preplace inst block2_b -pg 1 -lvl 7 -y 1470 -defaultsOSRD
+preplace inst bmm_top_2 -pg 1 -lvl 5 -y 930 -defaultsOSRD
+preplace inst blkA -pg 1 -lvl 7 -y 830 -defaultsOSRD
+preplace inst bmm_top_3 -pg 1 -lvl 5 -y 1080 -defaultsOSRD
+preplace inst block1_ab -pg 1 -lvl 7 -y 170 -defaultsOSRD
+preplace inst block0_ab -pg 1 -lvl 7 -y 430 -defaultsOSRD
+preplace inst axi_cdma_0 -pg 1 -lvl 1 -y 690 -defaultsOSRD
+preplace inst ctrl_axilite_intercon -pg 1 -lvl 4 -y 890 -defaultsOSRD
+preplace inst block3_ab -pg 1 -lvl 7 -y 1210 -defaultsOSRD
+preplace inst axi_interconnect_0 -pg 1 -lvl 6 -y 1330 -defaultsOSRD
+preplace inst block3_b -pg 1 -lvl 7 -y 1340 -defaultsOSRD
+preplace inst block2_ab -pg 1 -lvl 7 -y 1080 -defaultsOSRD
+preplace inst block1_b -pg 1 -lvl 7 -y 300 -defaultsOSRD
+preplace inst axi_interconnect_1 -pg 1 -lvl 5 -y 690 -defaultsOSRD
+preplace inst block0_b -pg 1 -lvl 7 -y 560 -defaultsOSRD
+preplace inst cdma_bram_intercon -pg 1 -lvl 2 -y 740 -defaultsOSRD
+preplace inst bmm_bram_ic0 -pg 1 -lvl 6 -y 290 -defaultsOSRD
+preplace inst blocka_ic -pg 1 -lvl 6 -y 810 -defaultsOSRD
+preplace inst cdma_sg_intercon -pg 1 -lvl 2 -y 1000 -defaultsOSRD
+preplace inst proc_sys_reset -pg 1 -lvl 7 -y 1660 -defaultsOSRD
+preplace inst processing_system7_0 -pg 1 -lvl 3 -y 980 -defaultsOSRD
+preplace netloc processing_system7_0_ddr 1 3 1 1120
+preplace netloc bmm_top_2_m_axi_b3 1 5 1 1810
+preplace netloc proc_sys_reset_interconnect_aresetn 1 1 7 380 880 NJ 830 1150 1090 1470 850 1800 1760 NJ 1760 2530
+preplace netloc axi_interconnect_0_m01_axi 1 6 1 N
+preplace netloc bmm_top_0_m_axi_b1 1 5 1 1860
+preplace netloc proc_sys_reset_peripheral_aresetn 1 0 8 30 780 370 1120 NJ 840 1160 1100 1460 1630 NJ 1630 2170 1570 2540
+preplace netloc axi_interconnect_0_m00_axi 1 6 1 2180
+preplace netloc bmm_top_0_m_axi_b2 1 5 1 1810
+preplace netloc bmm_bram_ic0_m01_axi 1 6 1 N
+preplace netloc bmm_top_0_m_axi_b3 1 5 1 1830
+preplace netloc axi_cdma_0_m_axi 1 1 1 N
+preplace netloc ctrl_axilite_intercon_m01_axi 1 4 1 1430
+preplace netloc bmm_bram_ic0_m00_axi 1 6 1 2150
+preplace netloc bmm_top_1_m_axi_b1 1 5 1 1850
+preplace netloc axi_interconnect_0_m02_axi 1 6 1 2160
+preplace netloc axi_interconnect_0_m03_axi 1 6 1 2150
+preplace netloc bmm_top_1_m_axi_b2 1 5 1 1790
+preplace netloc axi_interconnect_1_m01_axi 1 5 1 1840
+preplace netloc bmm_top_1_m_axi_b3 1 5 1 1820
+preplace netloc s_axi_control_1 1 4 1 1440
+preplace netloc axi_mem_intercon_1_m00_axi 1 2 1 670
+preplace netloc blocka_ic_m00_axi 1 6 1 N
+preplace netloc s_axi_control_2 1 4 1 N
+preplace netloc processing_system7_0_fclk_reset0_n 1 3 4 NJ 1640 NJ 1640 NJ 1640 N
+preplace netloc processing_system7_0_fixed_io 1 3 1 1110
+preplace netloc s_axi_control_3 1 4 1 1430
+preplace netloc axi_cdma_0_m_axi_sg 1 1 1 350
+preplace netloc processing_system7_0_fclk_clk0 1 0 7 30 610 360 1130 670 1130 1140 1110 1450 1170 1870 1650 2190
+preplace netloc axi_interconnect_1_m00_axi 1 5 1 1830
+preplace netloc bmm_bram_ic0_m02_axi 1 6 1 2150
+preplace netloc bmm_bram_ic0_m03_axi 1 6 1 2160
+preplace netloc bmm_top_3_m_axi_b1 1 5 1 1880
+preplace netloc bmm_top_3_m_axi_b2 1 5 1 1840
+preplace netloc bmm_top_2_m_axi_b1 1 5 1 1890
+preplace netloc processing_system7_0_axi_periph_m00_axi 1 0 5 20 600 NJ 600 NJ 600 NJ 600 1420
+preplace netloc cdma_bram_intercon_m00_axi 1 2 1 650
+preplace netloc cdma_bram_intercon_m01_axi 1 2 3 640 590 NJ 590 NJ
+preplace netloc axi_interconnect_1_m02_axi 1 5 1 N
+preplace netloc bmm_top_2_m_axi_b2 1 5 1 1860
+preplace netloc bmm_top_3_m_axi_b3 1 5 1 1790
+preplace netloc processing_system7_0_m_axi_gp0 1 3 1 1130
+levelinfo -pg 1 0 190 510 890 1290 1630 2020 2360 2560
 ",
 }
 {

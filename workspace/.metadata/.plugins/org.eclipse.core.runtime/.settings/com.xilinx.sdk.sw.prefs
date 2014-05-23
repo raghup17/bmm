@@ -1,2 +1,2 @@
-com.xilinx.sdk.sw.prefs.repos.local=/home/raghu/work/projects/dma3/hls/bmm_top/solution1/impl\:/home/raghu/work/projects/dma3/hls/simple_top/solution1/impl\:/home/raghu/work/projects/dma3/hls/fe_top/solution1/impl\:
+com.xilinx.sdk.sw.prefs.repos.local=/home/raghu/work/projects/bmm/hls/bmm_top/solution1/impl/drivers\:/home/raghu/work/projects/bmm/hls/bmm_top/solution1/impl\:
 eclipse.preferences.version=1
